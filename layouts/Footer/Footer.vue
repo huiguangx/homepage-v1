@@ -164,24 +164,24 @@
       <div class="md:hidden mb-6">
         <ul class="flex justify-center space-x-4 text-[16px]">
           <li>
-            <NuxtLink to="/" class="hover:text-gray-300 transition-colors">
+            <NuxtLinkLocale to="/" class="hover:text-gray-300 transition-colors">
               {{ $t('menu.home') }}
-            </NuxtLink>
+            </NuxtLinkLocale>
           </li>
           <li>
-            <NuxtLink to="/product" class="hover:text-gray-300 transition-colors">
+            <NuxtLinkLocale to="/product" class="hover:text-gray-300 transition-colors">
               {{ $t('menu.products') }}
-            </NuxtLink>
+            </NuxtLinkLocale>
           </li>
           <li>
-            <NuxtLink to="/careers" class="hover:text-gray-300 transition-colors">
+            <NuxtLinkLocale to="/careers" class="hover:text-gray-300 transition-colors">
               {{ $t('menu.careers') }}
-            </NuxtLink>
+            </NuxtLinkLocale>
           </li>
           <li>
-            <NuxtLink to="/about" class="hover:text-gray-300 transition-colors">
+            <NuxtLinkLocale to="/about" class="hover:text-gray-300 transition-colors">
               {{ $t('menu.about') }}
-            </NuxtLink>
+            </NuxtLinkLocale>
           </li>
           <li>
             <button

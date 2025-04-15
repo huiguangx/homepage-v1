@@ -1,59 +1,13 @@
-<!-- <template>
-  <div class="w-100vw header flex justify-between items-center">
-
-    <div class="logo">
-      <a class="logo-link" href="/news" title="星辰智能">星辰智能</a>
-    </div>
-
-    <div class="tabs-nav flex">
-      <div class="tab-item">
-        <NuxtLink class="nav-link" to="/">{{ $t('home') }}</NuxtLink>
-      </div>
-      <div class="tab-item">
-        <NuxtLink class="nav-link" to="/product">产品信息</NuxtLink>
-      </div>
-      <div class="tab-item">
-        <NuxtLink class="nav-link" to="/news">最新资讯</NuxtLink>
-      </div>
-      <div class="tab-item">
-        <a class="nav-link" href="https://game.qq.com/web202406/#/pc/Join-us" target="_blank">
-          加入我们
-        </a>
-      </div>
-      <div class="tab-item">
-        <button class="lang" v-if="locale === 'zh'" @click="changeLanguage('en')">English</button>
-        <button class="lang" v-else @click="changeLanguage('zh')">简体中文</button>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script setup lang="ts">
-const { locale, setLocale } = useI18n()
-
-const changeLanguage = (locale) => {
-  setLocale(locale)
-}
-
-onMounted(() => {
-  const userLang = localStorage.getItem('user-lang')
-  if (userLang) {
-    locale.value = userLang
-    setLocale(userLang)
-  }
-})
-</script> -->
-
 <template>
   <header
     :class="[
       'fixed top-0 left-0 w-full z-50 transition-all duration-300',
       isScrolled || !isTransparentRoute
-        ? 'bg-white shadow-sm text-gray-800 border-b border-gray-200'
+        ? 'bg-white shadow-sm text-gray-800 border-gray-200'
         : 'bg-transparent text-white',
     ]"
   >
-    <div class="mx-auto px-6 flex items-center justify-between h-16">
+    <div class="mx-auto px-6 flex items-center justify-between h-full">
       <!-- 左侧 Logo -->
       <div class="flex items-center">
         <AppLink to="/" class="flex items-center">
@@ -71,32 +25,42 @@ onMounted(() => {
       </div>
 
       <!-- 右侧导航菜单 -->
-      <nav class="flex items-center">
-        <ul class="flex space-x-8">
+      <nav class="">
+        <ul class="flex space-x-4">
           <li v-for="item in navItems" :key="item.path">
-            <AppLink
+            <NuxtLinkLocale
               :to="item.path"
-              class="group relative py-4 text-[32px] font-medium text-gray-800 hover:text-gray-100 transition-colors duration-300"
+              class="group relative py-2 flex justify-center items-center text-[32px] transition-colors duration-300"
+              :class="{
+                'text-white hover:text-gray-200': !isScrolled && isTransparentRoute,
+                'text-gray-800 hover:text-gray-600': isScrolled || !isTransparentRoute,
+              }"
             >
               {{ item.name }}
-              <div class="absolute bottom-0 left-0 w-full h-0.5 overflow-hidden">
+              <div class="absolute bottom-0 left-0 w-full h-[3px] overflow-hidden">
                 <span
-                  class="absolute bottom-0 left-1/2 h-full w-0 bg-gray-800 transform -translate-x-1/2 transition-all duration-300 ease-out"
+                  class="absolute bottom-0 left-1/2 h-full w-0 transform -translate-x-1/2 transition-all duration-300 ease-out"
                   :class="{
-                    'w-full': $route.path === item.path, // 精确匹配当前路径
-                    'group-hover:w-full': $route.path !== item.path, // 非当前路径悬停动画
+                    'w-full bg-white':
+                      $route.path === item.path && !isScrolled && isTransparentRoute,
+                    'w-full bg-gray-800':
+                      $route.path === item.path && (isScrolled || !isTransparentRoute),
+                    'group-hover:w-full bg-white':
+                      $route.path !== item.path && !isScrolled && isTransparentRoute,
+                    'group-hover:w-full bg-gray-800':
+                      $route.path !== item.path && (isScrolled || !isTransparentRoute),
                   }"
                   style="transform-origin: center"
                 ></span>
               </div>
-            </AppLink>
+            </NuxtLinkLocale>
           </li>
 
           <!-- 语言切换按钮 -->
           <li>
             <button
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-              class="text-sm font-medium"
+              class="text-xs"
               :class="{
                 'text-gray-800 hover:text-gray-600': isScrolled || !isTransparentRoute,
                 'text-white hover:text-gray-200': !isScrolled && isTransparentRoute,
@@ -109,9 +73,6 @@ onMounted(() => {
       </nav>
     </div>
   </header>
-
-  <!-- 占位元素，防止内容被固定导航栏遮挡 -->
-  <div class="h-16"></div>
 </template>
 
 <script setup>
@@ -121,7 +82,7 @@ import { useRoute } from 'vue-router'
 // 路由和滚动状态
 const route = useRoute()
 const isScrolled = ref(false)
-const scrollThreshold = 50 // 滚动阈值，超过此值背景变为白色
+const scrollThreshold = 150 // 滚动阈值，超过此值背景变为白色
 
 // 导航项目
 const { t } = useI18n()
@@ -149,12 +110,15 @@ const transparentRoutes = ref([
   '/',
   '/home',
   '/product',
+  '/news',
   '/zh',
   '/zh/home',
   '/zh/product',
+  '/zh/news',
   '/en',
   '/en/home',
   '/en/product',
+  '/en/news',
 ])
 
 const isTransparentRoute = computed(() => {

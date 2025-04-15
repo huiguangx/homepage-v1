@@ -7,9 +7,9 @@ import { currentLocales } from './i18n'
 
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: 'en',
+  locale: 'zh',
   availableLocales: currentLocales.map((l) => l.code),
-  fallbackLocale: 'en', // 区配不到的语言就用en
+  fallbackLocale: 'zh', // 区配不到的语言就用en
   messages: {
     en,
     // 'zh-cn': zhCN,
