@@ -5,3 +5,5 @@ import Home from './home/index.vue'
 <template>
   <Home />
 </template>
+
+<style scoped></style>

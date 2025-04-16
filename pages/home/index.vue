@@ -4,15 +4,22 @@
     <section class="relative h-screen w-full bg-black">
       <!-- <div class="absolute inset-0 bg-black/60"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div> -->
+
       <div class="h-full w-full">
         <swiper
-          class="h-full"
+          class="h-full swiper1"
           :modules="swiperModules"
-          :autoplay="{ delay: 1000, disableOnInteraction: false }"
+          :autoplay="{ delay: 3000, disableOnInteraction: false }"
+          :pagination="{
+            clickable: true, // 分页器可点击
+          }"
+          :navigation="{
+            nextEl: '.swiper-button-next', // 默认类名
+            prevEl: '.swiper-button-prev', // 默认类名
+          }"
           direction="horizontal"
           :slides-offset-after="200"
           :resistance-ratio="0"
-          :pagination="{ clickable: true }"
           :loop="true"
           @slideChange="onSlideChange"
         >
@@ -93,6 +100,10 @@
             </div>
           </swiper-slide>
         </swiper>
+        <!-- 导航按钮 - 完全使用Tailwind自定义 -->
+        <div class="swiper-button-prev"></div>
+
+        <div class="swiper-button-next"></div>
       </div>
     </section>
 
@@ -218,27 +229,17 @@
 </template>
 
 <script setup lang="ts">
-import { Swiper, SwiperSlide, modules as swiperModules } from '@/lib/vue-swiper'
+import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
+import 'swiper/css/navigation' // 必须引入的样式
 import type { Swiper as SwiperClass, SwiperOptions } from 'swiper/types'
 // import Autoplay from 'swiper'
 // import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 
-// swiper
-// const swiperOptions: SwiperOptions = {
-//   autoplay: {
-//     delay: 3000, // 每3秒自动切换
-//     disableOnInteraction: false, // 用户交互后仍然继续自动播放
-//   },
-//   modules: swiperModules,
-//   direction: 'horizontal',
-//   mousewheel: false,
-//   slidesOffsetAfter: 200,
-//   resistanceRatio: 0,
-//   loop: true,
-// }
+const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
 const activePageIndex = ref(0)
 
 const onSlideChange = (swiper: SwiperClass) => {
@@ -262,4 +263,31 @@ const newsList = computed<NewsItem[]>(() => {
 
 <style scoped>
 /* Responsive media styles now handled by Tailwind classes */
+.swiper {
+  --swiper-theme-color: #ffffff; /* 设置Swiper风格 */
+  --swiper-navigation-color: #581542; /* 单独设置按钮颜色 */
+}
+.swiper-button-prev,
+.swiper-button-next {
+  margin: 0 20px;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: '111';
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 </style>
