@@ -7,15 +7,18 @@
 
       <div class="h-full w-full">
         <swiper
-          class="h-full swiper1"
+          class="h-full swiper-container"
           :modules="swiperModules"
-          :autoplay="{ delay: 3000, disableOnInteraction: false }"
+          :autoplay="{ delay: 6000, disableOnInteraction: false }"
           :pagination="{
-            clickable: true, // 分页器可点击
+            // el: '.swiper-pagination',
+            clickable: true,
+            // bulletClass: 'my-bullet',
+            // bulletActiveClass: 'my-bullet-active',
           }"
           :navigation="{
-            nextEl: '.swiper-button-next', // 默认类名
-            prevEl: '.swiper-button-prev', // 默认类名
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
           }"
           direction="horizontal"
           :slides-offset-after="200"
@@ -44,7 +47,7 @@
               <div
                 class="container absolute inset-0 z-10 mx-auto flex h-full flex-col justify-center px-4"
               >
-                <div class="space-y-2">
+                <div class="slide-content space-y-2">
                   <h1
                     class="text-[32px] font-medium leading-[1.172em] tracking-[0.04em] text-white"
                   >
@@ -78,7 +81,7 @@
               <div
                 class="container absolute inset-0 z-10 mx-auto flex h-full flex-col justify-center px-4"
               >
-                <div class="max-w-[697px] space-y-8">
+                <div class="slide-content space-y-8">
                   <h1
                     class="text-[32px] font-medium leading-[1.172em] tracking-[0.04em] text-white"
                   >
@@ -104,6 +107,7 @@
         <div class="swiper-button-prev"></div>
 
         <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
       </div>
     </section>
 
@@ -231,6 +235,7 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
 import 'swiper/css/navigation' // 必须引入的样式
+import 'swiper/css/pagination'
 import type { Swiper as SwiperClass, SwiperOptions } from 'swiper/types'
 // import Autoplay from 'swiper'
 // import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -269,25 +274,97 @@ const newsList = computed<NewsItem[]>(() => {
 }
 .swiper-button-prev,
 .swiper-button-next {
-  margin: 0 20px;
-  width: 20px;
-  height: 20px;
-  opacity: 0;
+  margin: 0 20px; /* px-to-viewport-ignore */
+  width: 24px; /* px-to-viewport-ignore */
+  height: 24px; /* px-to-viewport-ignore */
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0); /* 初始背景透明 */
+  transition: background 0.3s ease; /* 使用 background 属性过渡 */
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-  opacity: 1;
+  background: rgba(0, 0, 0, 0.5); /* 鼠标悬停时背景变半透明 */
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
-  content: '111';
-  display: block;
-  width: 100%;
-  height: 100%;
+  content: '';
+  opacity: 1; /* 箭头图标始终不透明 */
+  width: 6px; /* px-to-viewport-ignore */
+  height: 12px; /* px-to-viewport-ignore */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.swiper-button-prev::after {
+  background-image: url('~/assets/images/index/prev-arrow.svg');
+}
+
+.swiper-button-next::after {
+  background-image: url('~/assets/images/index/next-arrow.svg');
+}
+/* 内容容器动画 */
+.slide-content {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 激活幻灯片的动画效果 */
+.swiper-slide-active .slide-content,
+.swiper-slide-duplicate-active .slide-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* 为不同元素添加延迟动画 */
+.slide-content h1 {
+  transition-delay: 0.1s;
+}
+.slide-content h2 {
+  transition-delay: 0.2s;
+}
+.slide-content p {
+  transition-delay: 0.3s;
+}
+.slide-content button {
+  transition-delay: 0.4s;
+}
+:deep(.swiper-pagination) {
+  /* display: none; */
+  bottom: 50px !important; /* px-to-viewport-ignore */
+}
+
+:deep(.swiper-pagination-bullet) {
+  display: inline-block !important;
+  width: 5px !important; /* px-to-viewport-ignore */
+  height: 5px !important; /* px-to-viewport-ignore */
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 50% !important;
+  opacity: 1 !important; /* 强制显示 */
+}
+
+:deep(.swiper-pagination-bullet-active) {
+  width: 30px !important; /* px-to-viewport-ignore */
+  height: 5px !important; /* px-to-viewport-ignore */
+  background: white !important;
+  border-radius: 2px !important; /* 直角矩形 */
+  transform: none !important; /* 禁用scale变换 */
+}
+@media (max-width: 767px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+
+  :deep(.swiper-pagination) {
+    display: none !important;
+    /* 双重保险 */
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+  }
 }
 </style>
