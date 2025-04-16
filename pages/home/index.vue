@@ -60,11 +60,11 @@
           <swiper-slide>
             <div class="relative h-full w-full">
               <img
-                src="~/assets/images/index/firstPage/index-s1-bg.jpg"
+                src="~/assets/images/index/index-s1-bg.jpg"
                 class="absolute inset-0 w-full h-full object-cover hidden md:block"
               />
               <img
-                src="~/assets/images/index/firstPage/index-s1-bg-h5.jpg"
+                src="~/assets/images/index/index-s1-bg-h5.jpg"
                 class="absolute inset-0 w-full h-full object-cover md:hidden"
               />
               <div

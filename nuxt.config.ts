@@ -37,8 +37,7 @@ export default defineNuxtConfig({
         selectorBlackList: [], // 不需要转换的选择器
         minPixelValue: 1, // 最小转换值
         mediaQuery: false, // 是否转换媒体查询中的 px
-        exclude: /node_modules/,
-        include: /\/mobile\//,
+        exclude: /^(?:(?!pages).)*$/,
       },
       // 'postcss-pxtorem': {
       //   rootValue({ file = '' }) {

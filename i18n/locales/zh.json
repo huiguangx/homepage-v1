@@ -30,9 +30,10 @@
 
   "menu": {
     "home": "首页",
-    "products": "产品介绍",
+    "products": "星尘智能 S1",
     "careers": "招贤纳士",
-    "about": "关于我们"
+    "news": "新闻动态",
+    "about": "关于星辰"
   },
   "home": {
     "hero": {

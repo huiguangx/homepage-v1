@@ -199,10 +199,10 @@
         <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <div class="bg-[#252525] rounded-2xl p-6">
             <div class="aspect-square rounded-2xl overflow-hidden mb-6">
-              <img
+              <!-- <img
                 src="@/assets/images/index/firstPage/product-image.jpg"
                 class="w-full h-full object-cover"
-              />
+              /> -->
             </div>
             <h3 class="text-xl font-medium text-white mb-4">功能全面的API</h3>
             <p class="text-[#AAAAAA]">提供完整的API接口，支持多种编程语言调用，满足不同开发需求</p>
@@ -210,10 +210,10 @@
 
           <div class="bg-[#252525] rounded-2xl p-6">
             <div class="aspect-square rounded-2xl overflow-hidden mb-6">
-              <img
+              <!-- <img
                 src="@/assets/images/index/firstPage/product-image.jpg"
                 class="w-full h-full object-cover"
-              />
+              /> -->
             </div>
             <h3 class="text-xl font-medium text-white mb-4">详细专业的开发指南</h3>
             <p class="text-[#AAAAAA]">提供详细的开发文档和示例代码，帮助开发者快速上手</p>
@@ -221,10 +221,10 @@
 
           <div class="bg-[#252525] rounded-2xl p-6">
             <div class="aspect-square rounded-2xl overflow-hidden mb-6">
-              <img
+              <!-- <img
                 src="@/assets/images/index/firstPage/product-image.jpg"
                 class="w-full h-full object-cover"
-              />
+              /> -->
             </div>
             <h3 class="text-xl font-medium text-white mb-4">可视化界面便捷开发</h3>
             <p class="text-[#AAAAAA]">提供图形化操作界面，降低使用门槛，无需编程基础也能快速开发</p>
@@ -232,10 +232,10 @@
 
           <div class="bg-[#252525] rounded-2xl p-6">
             <div class="aspect-square rounded-2xl overflow-hidden mb-6">
-              <img
+              <!-- <img
                 src="@/assets/images/index/firstPage/product-image.jpg"
                 class="w-full h-full object-cover"
-              />
+              /> -->
             </div>
             <h3 class="text-xl font-medium text-white mb-4">支持主流仿真平台</h3>
             <p class="text-[#AAAAAA]">兼容MuJoco等主流仿真平台，方便迁移现有算法和模型</p>
@@ -243,10 +243,10 @@
 
           <div class="bg-[#252525] rounded-2xl p-6">
             <div class="aspect-square rounded-2xl overflow-hidden mb-6">
-              <img
+              <!-- <img
                 src="@/assets/images/index/firstPage/product-image.jpg"
                 class="w-full h-full object-cover"
-              />
+              /> -->
             </div>
             <h3 class="text-xl font-medium text-white mb-4">完整的AI部署全流程指导</h3>
             <p class="text-[#AAAAAA]">从数据采集到模型训练再到部署测试，提供全流程技术支持和指导</p>
@@ -254,10 +254,10 @@
 
           <div class="bg-[#252525] rounded-2xl p-6">
             <div class="aspect-square rounded-2xl overflow-hidden mb-6">
-              <img
+              <!-- <img
                 src="@/assets/images/index/firstPage/product-image.jpg"
                 class="w-full h-full object-cover"
-              />
+              /> -->
             </div>
             <h3 class="text-xl font-medium text-white mb-4">快速响应的技术支持</h3>
             <p class="text-[#AAAAAA]">专业的技术支持团队，快速响应开发者的各种问题和需求</p>
@@ -280,10 +280,10 @@
 
         <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
           <div class="bg-[#252525] rounded-2xl aspect-video overflow-hidden">
-            <img
+            <!-- <img
               src="@/assets/images/index/firstPage/product-image.jpg"
               class="w-full h-full object-cover"
-            />
+            /> -->
           </div>
 
           <div class="space-y-8">
