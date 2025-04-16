@@ -8,10 +8,11 @@
         <swiper
           class="h-full"
           :modules="swiperModules"
-          :autoplay="{ delay: 3000, disableOnInteraction: false }"
+          :autoplay="{ delay: 1000, disableOnInteraction: false }"
           direction="horizontal"
           :slides-offset-after="200"
           :resistance-ratio="0"
+          :pagination="{ clickable: true }"
           :loop="true"
           @slideChange="onSlideChange"
         >
@@ -219,24 +220,25 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide, modules as swiperModules } from '@/lib/vue-swiper'
 import type { Swiper as SwiperClass, SwiperOptions } from 'swiper/types'
-import Autoplay from 'swiper'
+// import Autoplay from 'swiper'
+// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 // swiper
-const swiperOptions: SwiperOptions = {
-  autoplay: {
-    delay: 3000, // 每3秒自动切换
-    disableOnInteraction: false, // 用户交互后仍然继续自动播放
-  },
-  modules: swiperModules,
-  direction: 'horizontal',
-  mousewheel: false,
-  slidesOffsetAfter: 200,
-  resistanceRatio: 0,
-  loop: true,
-}
+// const swiperOptions: SwiperOptions = {
+//   autoplay: {
+//     delay: 3000, // 每3秒自动切换
+//     disableOnInteraction: false, // 用户交互后仍然继续自动播放
+//   },
+//   modules: swiperModules,
+//   direction: 'horizontal',
+//   mousewheel: false,
+//   slidesOffsetAfter: 200,
+//   resistanceRatio: 0,
+//   loop: true,
+// }
 const activePageIndex = ref(0)
 
 const onSlideChange = (swiper: SwiperClass) => {

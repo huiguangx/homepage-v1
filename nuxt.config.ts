@@ -5,11 +5,22 @@ import { currentLocales } from './config/i18n'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
-  modules: ['@nuxtjs/i18n', '@nuxt/image', 'nuxt-gtag', '@nuxtjs/tailwindcss'],
+  // css: [
+  //   '@/assets/font/HARMONYOS_SANS_SC_REGULAR/font.css',
+  //   '@/assets/font/HARMONYOS_SANS_SC_MEDIUM/font.css',
+  //   '@/assets/font/HARMONYOS_SANS_SC_BOLD/font.css',
+  //   '@/assets/font/HARMONYOS_SANS_SC_LIGHT/font.css',
+  // ],
+  modules: ['@nuxtjs/i18n', '@nuxt/image', 'nuxt-gtag', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
   gtag: {
     id: import.meta.env.VITE_GTAG_ID,
     enabled: true,
   },
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
+
   i18n: {
     locales: currentLocales,
     langDir: 'locales',
@@ -73,7 +84,33 @@ export default defineNuxtConfig({
     head: {
       title: '星尘智能',
       meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        // {
+        //   rel: 'preload',
+        //   href: '/font/HARMONYOS_SANS_SC_REGULAR/font.css',
+        //   as: 'font',
+        //   crossorigin: 'anonymous',
+        // },
+        // {
+        //   rel: 'preload',
+        //   href: '/font/HARMONYOS_SANS_SC_MEDIUM/font.css',
+        //   as: 'font',
+        //   crossorigin: 'anonymous',
+        // },
+        // {
+        //   rel: 'preload',
+        //   href: '/font/HARMONYOS_SANS_SC_BOLD/font.css',
+        //   as: 'font',
+        //   crossorigin: 'anonymous',
+        // },
+        // {
+        //   rel: 'preload',
+        //   href: '/font/HARMONYOS_SANS_SC_LIGHT/font.css',
+        //   as: 'font',
+        //   crossorigin: 'anonymous',
+        // },
+      ],
       style: [],
       script: [],
       noscript: [],

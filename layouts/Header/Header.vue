@@ -45,13 +45,15 @@
                     class="absolute bottom-0 left-1/2 h-full w-0 transform -translate-x-1/2 transition-all duration-300 ease-in-out"
                     :class="{
                       'w-full bg-white':
-                        $route.path === item.path && !isScrolled && isTransparentRoute,
+                        getBasePath($route.path) === item.path && !isScrolled && isTransparentRoute,
                       'w-full bg-gray-800':
-                        $route.path === item.path && (isScrolled || !isTransparentRoute),
+                        getBasePath($route.path) === item.path &&
+                        (isScrolled || !isTransparentRoute),
                       'group-hover:w-full bg-white':
-                        $route.path !== item.path && !isScrolled && isTransparentRoute,
+                        getBasePath($route.path) !== item.path && !isScrolled && isTransparentRoute,
                       'group-hover:w-full bg-gray-800':
-                        $route.path !== item.path && (isScrolled || !isTransparentRoute),
+                        getBasePath($route.path) !== item.path &&
+                        (isScrolled || !isTransparentRoute),
                     }"
                     style="transform-origin: center"
                   ></span>
@@ -114,6 +116,10 @@ const navItems = computed(() => [
   { name: t('menu.news'), path: '/news' },
   { name: t('menu.about'), path: '/about' },
 ])
+const getBasePath = (path) => {
+  // 匹配以 /zh 或 /en 开头的路径，并去掉语言前缀
+  return path.replace(/^\/(zh|en)/, '') || '/'
+}
 
 // 语言切换
 const { locale, setLocale } = useI18n()
