@@ -202,7 +202,7 @@
             :key="index"
             class="rounded-2xl bg-[#F9FAFB] transition-all hover:shadow-md"
           >
-            <div class="aspect-video w-full rounded-t-2xl overflow-hidden bg-gray-200">
+            <div class="aspect-video w-full rounded-t-2xl bg-gray-200">
               <NuxtImg
                 :src="news.imageJpg"
                 :alt="news.title"
@@ -317,21 +317,21 @@ const newsList = computed(() => [
     description: t('home.newsList.news2.description'),
     date: t('home.newsList.news2.date'),
     imageWebp: '~/assets/images/index/index-s3-img4.webp',
-    imageJpg: '~/assets/images/index/index-s3-img4.webp',
+    imageJpg: '~/assets/images/index/index-s3-img4.jpg',
   },
   {
     title: t('home.newsList.news3.title'),
     description: t('home.newsList.news3.description'),
     date: t('home.newsList.news3.date'),
     imageWebp: '~/assets/images/index/index-s3-img3.webp',
-    imageJpg: '~/assets/images/index/index-s3-img3.webp',
+    imageJpg: '~/assets/images/index/index-s3-img3.jpg',
   },
   {
     title: t('home.newsList.news4.title'),
     description: t('home.newsList.news4.description'),
     date: t('home.newsList.news4.date'),
     imageWebp: '~/assets/images/index/index-s3-img2.webp',
-    imageJpg: '~/assets/images/index/index-s3-img2.webp',
+    imageJpg: '~/assets/images/index/index-s3-img2.jpg',
   },
 ])
 </script>
