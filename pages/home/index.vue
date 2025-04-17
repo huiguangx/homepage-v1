@@ -9,9 +9,10 @@
         <swiper
           class="h-full swiper-container"
           :modules="swiperModules"
-          :autoplay="{ delay: 6000, disableOnInteraction: false }"
+          :autoplay="{ delay: 100000, disableOnInteraction: false }"
           :pagination="{
             // el: '.swiper-pagination',
+            type: 'bullets',
             clickable: true,
             // bulletClass: 'my-bullet',
             // bulletActiveClass: 'my-bullet-active',
@@ -60,7 +61,7 @@
                   </h2>
                   <p class="text-[32px] font-medium text-[#D2D0FB]">{{ $t('home.hero.slogan') }}</p>
                   <button
-                    class="flex items-center gap-[6px] rounded bg-[#5A46FF] px-4 py-3 text-[18px] text-white"
+                    class="flex items-center gap-[6px] rounded bg-[#5A46FF] px-4 py-3 text-[18px] text-white hover:bg-[#7463FF] transition-all duration-300 ease-out"
                   >
                     {{ $t('home.hero.cta') }}
                   </button>
@@ -336,35 +337,26 @@ const newsList = computed<NewsItem[]>(() => {
   /* display: none; */
   bottom: 50px !important; /* px-to-viewport-ignore */
 }
-
 :deep(.swiper-pagination-bullet) {
   display: inline-block !important;
-  width: 5px !important; /* px-to-viewport-ignore */
-  height: 5px !important; /* px-to-viewport-ignore */
-  background: rgba(255, 255, 255, 0.5) !important;
-  border-radius: 50% !important;
-  opacity: 1 !important; /* 强制显示 */
+  width: 5px; /* px-to-viewport-ignore */
+  height: 5px; /* px-to-viewport-ignore */
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: all 0.5s ease;
 }
 
 :deep(.swiper-pagination-bullet-active) {
   width: 30px !important; /* px-to-viewport-ignore */
   height: 5px !important; /* px-to-viewport-ignore */
   background: white !important;
-  border-radius: 2px !important; /* 直角矩形 */
+  border-radius: 2px !important; /* px-to-viewport-ignore */
   transform: none !important; /* 禁用scale变换 */
 }
 @media (max-width: 767px) {
   .swiper-button-prev,
   .swiper-button-next {
     display: none !important;
-  }
-
-  :deep(.swiper-pagination) {
-    display: none !important;
-    /* 双重保险 */
-    opacity: 0 !important;
-    pointer-events: none !important;
-    height: 0 !important;
   }
 }
 </style>

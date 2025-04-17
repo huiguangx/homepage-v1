@@ -12,7 +12,7 @@
         <!-- Logo -->
         <div class="flex-shrink-0">
           <NuxtLinkLocale to="/" class="flex items-center">
-            <img src="/assets/images/header/logo.svg" alt="Logo" class="w-[32px] h-auto" />
+            <img src="/assets/images/header/logo.svg" alt="Logo" class="w-8 h-auto" />
             <p
               class="ml-[5px] font-bold"
               :class="{
@@ -33,7 +33,7 @@
               <!-- li 也占满高度 -->
               <NuxtLinkLocale
                 :to="item.path"
-                class="group p-4 relative h-full flex justify-center items-center text-4 transition-colors duration-300"
+                class="group px-6 relative h-full flex justify-center items-center text-4 transition-colors duration-300"
                 :class="{
                   'text-white hover:text-gray-200': !isScrolled && isTransparentRoute,
                   'text-black': isScrolled || !isTransparentRoute, // 这里确保非透明路由永远是黑色
@@ -63,34 +63,28 @@
           </ul>
         </nav>
         <div class="ml-4 hidden md:block">
-          <button
-            @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-            class="px-3 py-2 rounded-md text-sm font-medium"
-            :class="{
-              'text-gray-800 hover:bg-gray-100': isScrolled || !isTransparentRoute,
-              'text-white hover:bg-white hover:bg-opacity-10': !isScrolled && isTransparentRoute,
-            }"
-          >
-            {{ locale === 'zh' ? 'EN' : '中文' }}
-          </button>
+          <div class="flex items-center">
+            <div
+              @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
+              class="mx-6 text-sm font-medium"
+            >
+              {{ locale === 'zh' ? 'En' : '中文' }}
+            </div>
+            <button
+              :class="{
+                'text-gray-800': isScrolled || !isTransparentRoute,
+                'text-white': !isScrolled && isTransparentRoute,
+              }"
+              class="px-4 py-2 rounded font-thin bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
+            >
+              {{ $t('home.contact.title') }}
+            </button>
+          </div>
         </div>
         <!-- Mobile menu button (hidden for now) -->
         <div class="md:hidden">
           <button class="inline-flex items-center justify-center p-2 rounded-md">
-            <svg
-              class="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            <img src="~/assets/images/header/menu.svg" alt="" />
           </button>
         </div>
       </div>
