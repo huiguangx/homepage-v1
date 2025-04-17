@@ -1,9 +1,15 @@
 <template>
   <div class="w-full">
     <!-- Hero Video Section -->
-    <section class="relative h-screen w-full bg-black">
+    <section class="relative h-screen w-full bg-black overflow-hidden">
       <div class="h-full w-full">
-        <video class="absolute inset-0 w-full h-full object-cover md:hidden" muted autoplay loop>
+        <video
+          class="absolute inset-0 w-full h-full object-cover md:hidden"
+          muted
+          autoplay
+          loop
+          playsinline
+        >
           <source src="@/assets/media/video/banner-h5.mp4" type="video/mp4" />
         </video>
         <video
@@ -11,22 +17,38 @@
           muted
           autoplay
           loop
+          playsinline
         >
           <source src="@/assets/media/video/banner.mp4" type="video/mp4" />
         </video>
-        <div class="container absolute inset-0 z-10 mx-auto flex h-full flex-col justify-center">
-          <div class="max-w-4xl space-y-6 px-4">
-            <h1 class="text-5xl md:text-6xl font-medium text-white leading-tight">
+        <div class="absolute inset-x-0 top-28 text-center z-20">
+          <div>
+            <h1 class="text-5xl font-bold text-white mb-6">星尘智能 S1</h1>
+            <p class="text-lg text-white font-normal mb-6">AI机器人平台，助力行业共创共赢</p>
+            <a
+              class="bg-transparent text-white border border-white px-5 py-3 rounded-md hover:bg-white hover:text-black transition-colors"
+              href="#"
+            >
+              立即咨询
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- second -->
+    <section class="relative h-screen w-full bg-black overflow-hidden">
+      <div class="h-full w-full">
+        <div class="absolute inset-x-0 text-center top-24">
+          <div class="space-y-8">
+            <h1 class="text-4xl font-medium text-white leading-tight tracking-wide">
               全能型AI机器人，定义操作新高度
             </h1>
-            <p class="text-2xl text-[#C9C9C9] max-w-3xl">
+            <p class="text-lg text-[#C9C9C9]">
               更快速、更柔顺、更安全，星尘智能S1首创面向AI的软硬件一体化系统架构
               <br />
               将"AI智能"与"最强操作"深度耦合，能像人一样学习思考和劳动，与人安全智能地交互
             </p>
-            <button class="bg-[#5A46FF] px-8 py-4 rounded-lg text-white text-lg font-medium">
-              立即咨询
-            </button>
           </div>
         </div>
       </div>
@@ -35,7 +57,7 @@
     <!-- Performance Section -->
     <section class="py-28 bg-[#010101]">
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center mb-20">
+        <div class="mx-auto text-center mb-20">
           <h2 class="text-4xl font-medium text-white mb-6">高度仿人，更强创造力</h2>
           <p class="text-xl text-[#C9C9C9]">
             星尘智能 S1 各项关键操作指标媲美成年男性
@@ -44,8 +66,8 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
-          <div class="bg-[#252525] rounded-2xl p-8">
+        <div class="flex flex-col md:flex-row gap-16 max-w-6xl mx-auto">
+          <div class="bg-[#252525] rounded-2xl p-8 flex-1">
             <h3 class="text-2xl font-medium text-white mb-8">星尘智能S1</h3>
             <div class="space-y-6">
               <div class="flex justify-between items-end border-b border-[#333333] pb-2">
@@ -89,7 +111,7 @@
               </div>
               <div class="flex justify-between items-end border-b border-[#333333] pb-2">
                 <span class="text-[#AAAAAA]">体重</span>
-                <span class="text-white text-2xl">
+                <span class="text-white text-极光2xl">
                   80
                   <span class="text-sm text-[#939393] ml-1">kg</span>
                 </span>
@@ -111,7 +133,7 @@
             </div>
           </div>
 
-          <div class="bg-[#252525] rounded-2xl p-8">
+          <div class="bg-[#252525] rounded-2xl p-8 flex-1">
             <h3 class="text-2xl font-medium text-[#AAAAAA] mb-8">普通成年男性</h3>
             <div class="space-y-6">
               <div class="flex justify-between items-end border-b border-[#333333] pb-2">
@@ -119,7 +141,7 @@
                 <span class="text-[#AAAAAA] text-2xl">7</span>
               </div>
               <div class="flex justify-between items-end border-b border-[#333333] pb-2">
-                <span class="text-[#AAAAAA]">单臂额定负载（平举）</span>
+                <span class="text-[极光AAAAAA]">单臂额定负载（平举）</span>
                 <span class="text-[#AAAAAA] text-2xl">
                   3~5
                   <span class="text-sm text-[#939393] ml-1">kg</span>
@@ -164,7 +186,7 @@
                 <span class="text-[#AAAAAA]">臂展</span>
                 <span class="text-[#AAAAAA] text-2xl">
                   171~175
-                  <span class="text-sm text-[#939393] ml-1">cm</span>
+                  <span class="text极光sm text-[#939393] ml-1">cm</span>
                 </span>
               </div>
               <div class="flex justify-between items-end">
