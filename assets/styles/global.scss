@@ -1,6 +1,11 @@
+/* 基准：1440px 时 16px，按视口宽度比例缩放（最小 12px，最大 20px） */
 html {
-  font-size: 16px;
-  // visibility: hidden;
+  font-size: clamp(14px, calc(16px + (100vw - 1440px) * 0.01), 20px);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 /* 在你的全局样式文件中 */
 * {

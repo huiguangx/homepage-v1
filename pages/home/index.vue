@@ -113,41 +113,74 @@
     </section>
 
     <!-- Product Showcase -->
-    <section class="w-full bg-white py-[80px]">
-      <div class="container mx-auto flex flex-col items-center gap-[24px] px-4">
-        <div class="flex flex-col items-center gap-[16px]">
-          <h3 class="text-[36px] font-medium leading-[1.172em] tracking-[0.04em] text-[#020014]">
+    <section class="w-full bg-white py-16">
+      <!-- 其他内容保持不变 -->
+      <div class="container mx-auto flex flex-col items-center gap-6 px-4">
+        <div class="flex flex-col items-center gap-4">
+          <h3 class="text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#020014]">
             {{ $t('home.product.title') }}
           </h3>
-          <p class="text-[18px] leading-[1.444em] text-[#71798A]">
+          <p class="text-lg leading-relaxed text-[#71798A]">
             {{ $t('home.product.tagline') }}
           </p>
         </div>
 
         <div
-          class="relative aspect-video w-full max-w-4xl overflow-hidden rounded-2xl bg-gray-100"
-        ></div>
+          class="w-full lg:w-5/6 xl:w-3/4 2xl:w-2/3 aspect-video rounded-2xl bg-gray-100 overflow-hidden"
+        >
+          <video class="w-full h-full object-cover" poster="" controls>
+            <source src="~/assets/media/test.mp4" type="video/mp4" />
+            您的浏览器不支持视频播放
+          </video>
+        </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section class="w-full bg-[#F9FAFB] py-[80px]">
+    <section class="w-full bg-white py-20 md:py-32">
+      <!-- 使用Tailwind标准单位 py-20=80px -->
       <div
-        class="container mx-auto flex flex-col items-center gap-[40px] px-4 md:flex-row md:justify-center"
+        class="container mx-auto flex flex-col items-center gap-10 px-4 md:flex-row md:items-center md:justify-center"
       >
-        <div class="aspect-square w-full max-w-xl overflow-hidden rounded-2xl bg-gray-200"></div>
+        <!-- 图片部分 - 支持WebP -->
+        <div class="w-full overflow-hidden rounded-2xl bg-gray-200 md:w-1/2">
+          <picture>
+            <!-- 优先加载WebP格式 -->
+            <!-- <source srcset="~/assets/images/index/index-s5-img.webp" type="image/webp" /> -->
+            <!-- 兼容旧浏览器的JPEG/PNG回退 -->
+            <img
+              src="~/assets/images/index/index-s5-img.jpg"
+              alt="{{ $t('home.about.title') }}"
+              class="h-auto w-full object-contain"
+              loading="lazy"
+              style="aspect-ratio: auto"
+            />
+          </picture>
+        </div>
 
-        <div class="max-w-xl">
+        <!-- 文字部分 -->
+        <div class="w-full max-w-xl md:w-1/2">
           <h3
-            class="mb-6 text-[36px] font-medium leading-[1.172em] tracking-[0.04em] text-[#020014]"
+            class="mb-6 text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#020014]"
           >
             {{ $t('home.about.title') }}
           </h3>
-          <p class="mb-8 text-[18px] leading-[1.444em] text-[#71798A]">
+          <p class="mb-8 text-lg leading-relaxed text-[#71798A]">
             {{ $t('home.about.content') }}
           </p>
-          <button class="flex items-center gap-[6px] text-[16px] font-medium text-[#475467]">
+          <button
+            class="flex items-center gap-1.5 text-base font-medium text-[#475467] hover:text-[#1D2939]"
+          >
             {{ $t('home.hero.cta') }}
+            <!-- 可添加箭头图标（示例使用Heroicons） -->
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </button>
         </div>
       </div>
