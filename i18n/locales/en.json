@@ -53,19 +53,29 @@
       "tagline": "Naturally Yours"
     },
     "news": {
-      "title": "News",
-      "items": [
-        {
-          "title": "Celebrate the inaugural 'Intangible Cultural Heritage Chinese New Year' with Astribot S1",
-          "desc": "Celebrate the inaugural 'Intangible Cultural Heritage Chinese New Year' with Astribot S1, and immerse yourself in world's cultural treasures.",
-          "date": "January 27, 2025 10:00"
-        },
-        {
-          "title": "In-Depth | Astribot secures $400M from Top Investors, teams up with PI: The robot's Jarvis is Here!",
-          "desc": "Recently, Physical Intelligence and Astribot have announced a partnership to collaborate at the data and model levels, promoting the entry of general AI into the physical world and jointly building world models.",
-          "date": "November 21, 2024 18:02"
-        }
-      ]
+      "title": "News"
+    },
+    "newsList": {
+      "news1": {
+        "title": "Celebrate the First Intangible Cultural Heritage Spring Festival with Astribot S1",
+        "description": "Unlock classic folk activities and inherit Chinese cultural treasures. Born for you, fragrant for you.",
+        "date": "January 27, 2025"
+      },
+      "news2": {
+        "title": "In-Depth | PII with $400M Funding Partners with Astribot: The Robot's Jarvis Era Begins",
+        "description": "Recently, Physical Intelligence and Astribot announced cooperation to collaborate at data and model levels, advancing general robot development...",
+        "date": "November 21, 2024"
+      },
+      "news3": {
+        "title": "Astribot 2025 Campus Recruitment Officially Launches",
+        "description": "We have a dream that in the near future, billions of people will have AI robot assistants. For this, we gather the world's top talents...",
+        "date": "September 18, 2024"
+      },
+      "news4": {
+        "title": "At World Robot Conference, This Domestic Robot Carrying 'Future Elderly Care Hope' Was Surrounded",
+        "description": "At the ongoing World Robot Conference in Beijing, humanoid robot teams have become the focus of attention. At Astribot's booth...",
+        "date": "August 22, 2024"
+      }
     },
     "careers": {
       "title": "Join Us",

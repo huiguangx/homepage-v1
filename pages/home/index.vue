@@ -115,7 +115,7 @@
     <!-- Product Showcase -->
     <section class="w-full bg-white py-16">
       <!-- 其他内容保持不变 -->
-      <div class="container mx-auto flex flex-col items-center gap-6 px-4">
+      <div class="mx-auto flex flex-col items-center gap-6 px-4">
         <div class="flex flex-col items-center gap-4">
           <h3 class="text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#020014]">
             {{ $t('home.product.title') }}
@@ -137,10 +137,10 @@
     </section>
 
     <!-- About Section -->
-    <section class="w-full bg-white py-20 md:py-32">
+    <section class="w-full bg-[#F9FAFB] py-20 md:py-32">
       <!-- 使用Tailwind标准单位 py-20=80px -->
       <div
-        class="container mx-auto flex flex-col items-center gap-10 px-4 md:flex-row md:items-center md:justify-center"
+        class="mx-auto flex flex-col items-center gap-10 px-4 md:flex-row md:items-center md:justify-center"
       >
         <!-- 图片部分 - 支持WebP -->
         <div class="w-full overflow-hidden rounded-2xl bg-gray-200 md:w-1/2">
@@ -187,40 +187,61 @@
     </section>
 
     <!-- News Section -->
-    <section class="w-full bg-white py-[80px]">
-      <div class="container mx-auto flex flex-col items-center gap-[32px] px-4">
-        <h3 class="text-[36px] font-medium leading-[1.172em] tracking-[0.04em] text-[#020014]">
+    <section class="w-full bg-white py-20">
+      <!-- 使用Tailwind标准单位 py-20=80px -->
+      <div class="mx-auto flex flex-col items-center gap-6 px-20">
+        <!-- gap-8=32px -->
+        <h3 class="text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#020014]">
           {{ $t('home.news.title') }}
         </h3>
 
-        <div class="flex w-full snap-x snap-mandatory gap-[24px] overflow-x-auto px-[80px] pb-4">
+        <!-- 网格布局（4列） -->
+        <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <div
-            v-for="(news, index) in newsList"
+            v-for="(news, index) in newsList.slice(0, 4)"
             :key="index"
-            class="w-[320px] flex-shrink-0 snap-center rounded-2xl bg-[#F9FAFB]"
+            class="rounded-2xl bg-[#F9FAFB] transition-all hover:shadow-md"
           >
-            <div class="aspect-video w-full rounded-t-2xl bg-gray-200"></div>
+            <div class="aspect-video w-full rounded-t-2xl bg-gray-200">
+              <NuxtImg
+                :src="news.imageJpg"
+                :alt="news.title"
+                class="h-full w-full object-cover"
+                loading="lazy"
+                placeholder
+              />
+              <NuxtImg src="/public/index-s3-img-1.jpg"></NuxtImg>
+            </div>
+
             <div class="p-4">
-              <h4 class="mb-2 text-[16px] font-medium leading-[1.375em] text-[#020014]">
+              <h4 class="mb-2 text-base font-medium leading-[1.375] text-[#020014]">
                 {{ news.title }}
               </h4>
-              <p class="mb-4 text-[14px] leading-[1.429em] text-[#71798A]">
+              <p class="mb-4 text-sm leading-[1.429] text-[#71798A]">
                 {{ news.description }}
               </p>
-              <div
-                class="flex items-center justify-between text-[12px] leading-[1.333em] text-[#71798A]"
-              >
+              <div class="flex items-center justify-between text-xs leading-[1.333] text-[#71798A]">
                 <span>{{ news.date }}</span>
                 <div class="h-4 w-4"></div>
+                <!-- 图标占位 -->
               </div>
             </div>
           </div>
         </div>
 
         <button
-          class="flex items-center gap-[6px] rounded border border-[#E4E4E4] px-5 py-3 text-[16px] text-[#475467]"
+          class="mt-6 flex items-center gap-1.5 rounded border border-[#E4E4E4] px-5 py-3 text-base text-[#475467] hover:bg-gray-50"
         >
           {{ $t('home.news.cta') }}
+          <!-- 可添加箭头图标 -->
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
         </button>
       </div>
     </section>
@@ -284,20 +305,36 @@ const activePageIndex = ref(0)
 const onSlideChange = (swiper: SwiperClass) => {
   activePageIndex.value = swiper.activeIndex
 }
-interface NewsItem {
-  title: string
-  description: string
-  date: string
-}
-
-const newsList = computed<NewsItem[]>(() => {
-  try {
-    const items = JSON.parse(t('home.news.items'))
-    return Array.isArray(items) ? items : []
-  } catch {
-    return []
-  }
-})
+const newsList = computed(() => [
+  {
+    title: t('home.newsList.news1.title'),
+    description: t('home.newsList.news1.description'),
+    date: t('home.newsList.news1.date'),
+    imageWebp: '~/assets/images/index/index-s3-img-1.webp',
+    imageJpg: '/index-s3-img-1.jpg',
+  },
+  {
+    title: t('home.newsList.news2.title'),
+    description: t('home.newsList.news2.description'),
+    date: t('home.newsList.news2.date'),
+    imageWebp: '/images/news/pii-collab.webp',
+    imageJpg: '/images/news/pii-collab.jpg',
+  },
+  {
+    title: t('home.newsList.news3.title'),
+    description: t('home.newsList.news3.description'),
+    date: t('home.newsList.news3.date'),
+    imageWebp: '/images/news/campus-recruit.webp',
+    imageJpg: '/images/news/campus-recruit.jpg',
+  },
+  {
+    title: t('home.newsList.news4.title'),
+    description: t('home.newsList.news4.description'),
+    date: t('home.newsList.news4.date'),
+    imageWebp: '/images/news/robot-conference.webp',
+    imageJpg: '/images/news/robot-conference.jpg',
+  },
+])
 </script>
 
 <style scoped>
