@@ -202,7 +202,7 @@
             :key="index"
             class="rounded-2xl bg-[#F9FAFB] transition-all hover:shadow-md"
           >
-            <div class="aspect-video w-full le bg-gray-200 overflow-hidden">
+            <div class="aspect-video w-full rounded-t-2xl overflow-hidden bg-gray-200">
               <NuxtImg
                 :src="news.imageJpg"
                 :alt="news.title"
