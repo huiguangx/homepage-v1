@@ -210,6 +210,7 @@
                 loading="lazy"
                 placeholder
               />
+              <NuxtImg src="/public/index-s3-img-1.jpg"></NuxtImg>
             </div>
 
             <div class="p-4">
