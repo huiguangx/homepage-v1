@@ -173,14 +173,7 @@
           >
             {{ $t('home.hero.cta') }}
             <!-- 可添加箭头图标（示例使用Heroicons） -->
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <img src="~/assets/images/index/learnmore-arrow.svg" alt="" />
           </button>
         </div>
       </div>
@@ -200,48 +193,45 @@
           <div
             v-for="(news, index) in newsList.slice(0, 4)"
             :key="index"
-            class="rounded-2xl bg-[#F9FAFB] transition-all hover:shadow-md"
+            class="group flex flex-col rounded-2xl bg-[#F9FAFB] transition-all duration-300 hover:shadow-lg hover:-translate-y-1 transform-gpu"
           >
-            <div class="aspect-video w-full rounded-t-2xl bg-gray-200">
+            <!-- 图片容器 -->
+            <div class="aspect-video w-full rounded-t-2xl overflow-hidden bg-gray-200">
               <NuxtImg
                 :src="news.imageJpg"
                 :alt="news.title"
-                class="h-full w-full object-cover"
+                class="h-full w-full object-cover transition-transform duration-500"
                 loading="lazy"
                 placeholder
               />
-              <NuxtImg src="/public/index-s3-img-1.jpg"></NuxtImg>
             </div>
 
-            <div class="p-4">
-              <h4 class="mb-2 text-base font-medium leading-[1.375] text-[#020014]">
+            <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
+            <div class="flex flex-1 flex-col p-4 transition-colors duration-300">
+              <h4
+                class="mb-2 text-base font-medium leading-[1.375] text-[#020014] group-hover:text-[#000000]"
+              >
                 {{ news.title }}
               </h4>
-              <p class="mb-4 text-sm leading-[1.429] text-[#71798A]">
+              <p class="mb-4 text-sm leading-[1.429] text-[#71798A] group-hover:text-[#5a6473]">
                 {{ news.description }}
               </p>
-              <div class="flex items-center justify-between text-xs leading-[1.333] text-[#71798A]">
+
+              <!-- 日期容器（自动 margin-top 推到最底部） -->
+              <div
+                class="mt-auto flex items-center justify-between text-xs leading-[1.333] text-[#71798A] group-hover:text-[#5a6473]"
+              >
                 <span>{{ news.date }}</span>
-                <div class="h-4 w-4"></div>
-                <!-- 图标占位 -->
+                <img src="~/assets/images/index/news-arrow.svg" alt="" />
               </div>
             </div>
           </div>
         </div>
 
         <button
-          class="mt-6 flex items-center gap-1.5 rounded border border-[#E4E4E4] px-5 py-3 text-base text-[#475467] hover:bg-gray-50"
+          class="mt-6 flex items-center gap-1.5 border-[1px] border-[#E4E4E4] px-5 py-3 text-base text-[#475467] hover:bg-gray-50"
         >
           {{ $t('home.news.cta') }}
-          <!-- 可添加箭头图标 -->
-          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
         </button>
       </div>
     </section>
@@ -259,11 +249,12 @@
             <p class="text-[16px] leading-[1.375em] tracking-[0.04em] text-[#71798A]">
               {{ $t('home.careers.description') }}
             </p>
-            <button
-              class="flex items-center gap-[6px] rounded bg-[#5A46FF] px-4 py-3 text-[16px] font-medium text-white"
+            <div
+              class="flex items-center gap-[6px] cursor-pointer rounded text-[#5A46FF] px-4 py-3 text-[16px] font-medium"
             >
               {{ $t('home.careers.cta') }}
-            </button>
+              <img src="~/assets/images/index/go-arrow.svg" alt="" />
+            </div>
           </div>
         </div>
 
@@ -275,11 +266,12 @@
             <p class="text-[16px] leading-[1.375em] tracking-[0.04em] text-[#71798A]">
               {{ $t('home.contact.description') }}
             </p>
-            <button
-              class="flex items-center gap-[6px] rounded bg-[#5A46FF] px-4 py-3 text-[16px] font-medium text-white"
+            <div
+              class="flex items-center gap-[6px] cursor-pointer rounded text-[#5A46FF] px-4 py-3 text-[16px] font-medium"
             >
               {{ $t('home.contact.cta') }}
-            </button>
+              <img src="~/assets/images/index/go-arrow.svg" alt="" />
+            </div>
           </div>
         </div>
       </div>

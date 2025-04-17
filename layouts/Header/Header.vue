@@ -66,7 +66,7 @@
           <div class="flex items-center">
             <div
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-              class="mx-6 text-sm font-medium"
+              class="mx-6 text-sm font-medium cursor-pointer"
             >
               {{ locale === 'zh' ? 'En' : '中文' }}
             </div>
