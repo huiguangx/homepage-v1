@@ -1,7 +1,7 @@
 <template>
   <header
     :class="[
-      'fixed top-0 left-0 w-full z-50 transition-all duration-300',
+      'fixed top-0 left-0 w-full z-50 transition-all duration-300 ',
       isScrolled || !isTransparentRoute
         ? 'bg-white shadow-sm text-gray-800 border-gray-200'
         : 'bg-transparent text-white',
@@ -12,7 +12,7 @@
         <!-- Logo -->
         <div class="flex-shrink-0">
           <NuxtLinkLocale to="/" class="flex items-center">
-            <img src="/assets/images/header/logo.svg" alt="Logo" class="w-8 h-auto" />
+            <img src="~/assets/images/header/logo.svg" alt="Logo" class="w-8 h-auto" />
             <p
               class="ml-[5px] font-bold"
               :class="{
@@ -70,15 +70,11 @@
             >
               {{ locale === 'zh' ? 'En' : '中文' }}
             </div>
-            <button
-              :class="{
-                'text-gray-800': isScrolled || !isTransparentRoute,
-                'text-white': !isScrolled && isTransparentRoute,
-              }"
-              class="px-4 py-2 rounded font-thin bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
+            <NuxtLinkLocale
+              class="px-4 py-2 text-white rounded font-thin bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
             >
               {{ $t('home.contact.title') }}
-            </button>
+            </NuxtLinkLocale>
           </div>
         </div>
         <!-- Mobile menu button (hidden for now) -->
@@ -128,17 +124,7 @@ const handleScroll = () => {
 }
 
 // 需要透明背景的路由路径列表（支持中英文）
-const transparentRoutes = new Set([
-  '/',
-  '/home',
-  '/product',
-  '/zh',
-  '/zh/home',
-  '/zh/product',
-  '/en',
-  '/en/home',
-  '/en/product',
-])
+const transparentRoutes = new Set(['/', '/home', '/zh', '/zh/home', '/en', '/en/home'])
 
 // 判断当前路由是否需要透明背景
 const isTransparentRoute = computed(() => {

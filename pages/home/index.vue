@@ -34,16 +34,18 @@
                 muted
                 autoplay
                 loop
+                playsinline
               >
-                <source src="@/assets/media/video/banner-h5.mp4" type="video/mp4" />
+                <source src="~/assets/media/video/banner-h5.mp4" type="video/mp4" />
               </video>
               <video
                 class="absolute inset-0 w-full h-full object-cover hidden md:block"
                 muted
                 autoplay
                 loop
+                playsinline
               >
-                <source src="@/assets/media/video/banner.mp4" type="video/mp4" />
+                <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
               </video>
               <div
                 class="container absolute inset-0 z-10 mx-auto flex h-full flex-col justify-center px-4"
@@ -249,12 +251,13 @@
             <p class="text-[16px] leading-[1.375em] tracking-[0.04em] text-[#71798A]">
               {{ $t('home.careers.description') }}
             </p>
-            <div
+            <NuxtLinkLocale
+              href="/product"
               class="flex items-center gap-[6px] cursor-pointer rounded text-[#5A46FF] px-4 py-3 text-[16px] font-medium"
             >
               {{ $t('home.careers.cta') }}
               <img src="~/assets/images/index/go-arrow.svg" alt="" />
-            </div>
+            </NuxtLinkLocale>
           </div>
         </div>
 
@@ -266,12 +269,12 @@
             <p class="text-[16px] leading-[1.375em] tracking-[0.04em] text-[#71798A]">
               {{ $t('home.contact.description') }}
             </p>
-            <div
+            <NuxtLinkLocale
               class="flex items-center gap-[6px] cursor-pointer rounded text-[#5A46FF] px-4 py-3 text-[16px] font-medium"
             >
               {{ $t('home.contact.cta') }}
               <img src="~/assets/images/index/go-arrow.svg" alt="" />
-            </div>
+            </NuxtLinkLocale>
           </div>
         </div>
       </div>

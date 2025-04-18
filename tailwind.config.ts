@@ -14,6 +14,9 @@ module.exports = {
     './PC/**/*.vue',
   ],
   theme: {
+    // screens: {
+    //   '2k': '2560px',
+    // },
     // extend: {
     //   pxToViewPort: {
     //     // 基准视口配置
