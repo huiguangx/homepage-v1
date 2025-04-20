@@ -21,7 +21,114 @@
   "light": "Light",
   "careers": {
     "title": "Careers",
-    "content": "Join our team and grow with us."
+    "content": "Let's venture into the stars and the sea together.",
+    "heroTitle": "Join Astribot",
+    "heroSubtitle": "「Searching for the shining you and defining the future together」",
+    "workEnvironment": "Work Environment",
+    "workEnvironmentDesc": "Seaview, robots, cats, and constantly evolving us",
+    "workEnv1Alt": "Astribot office environment",
+    "workEnv2Alt": "Astribot team working together",
+    "workEnv3Alt": "Astribot office facilities",
+    "openPositions": "Open Positions",
+    "openPositionsDesc": "Looking for dreamers and challengers to change the world together",
+    "socialRecruitment": "Social Recruitment",
+    "campusRecruitment": "Campus Recruitment",
+    "internship": "Internship",
+    "viewMore": "View More",
+    "whyJoinUs": "Why Join Us",
+    "applyNow": "Apply Now",
+    "positions": {
+      "roboticsEngineer": {
+        "title": "Robotics Engineer",
+        "type": "Full-time",
+        "location": "Shenzhen",
+        "description": "Develop and optimize robot motion control algorithms"
+      },
+      "frontendDeveloper": {
+        "title": "Frontend Developer",
+        "type": "Full-time",
+        "location": "Shenzhen/Remote",
+        "description": "Develop company website and admin dashboard"
+      },
+      "hardwareEngineer": {
+        "title": "Hardware Engineer",
+        "type": "Technical"
+      },
+      "mechanicalEngineer": {
+        "title": "Mechanical Engineer",
+        "type": "Technical"
+      },
+      "perceptionEngineer": {
+        "title": "Perception Engineer",
+        "type": "Technical"
+      },
+      "productManager": {
+        "title": "Product Manager",
+        "type": "Product"
+      },
+      "hardwareEngineerPower": {
+        "title": "Hardware Engineer (Power)",
+        "type": "Technical"
+      },
+      "projectManager": {
+        "title": "Project Manager",
+        "type": "Project Support"
+      },
+      "marketingManager": {
+        "title": "Marketing Manager",
+        "type": "Marketing"
+      },
+      "adminAssistant": {
+        "title": "Admin Assistant",
+        "type": "Administrative"
+      },
+      "perceptionIntern": {
+        "title": "Perception Intern",
+        "type": "Technical"
+      },
+      "embodiedAIIntern": {
+        "title": "Embodied AI Intern",
+        "type": "Technical"
+      },
+      "llmIntern": {
+        "title": "LLM Intern",
+        "type": "Technical"
+      },
+      "marketingIntern": {
+        "title": "Marketing Intern",
+        "type": "Marketing"
+      },
+      "hrIntern": {
+        "title": "HR Intern",
+        "type": "Administrative"
+      }
+    },
+    "benefits": {
+      "office": {
+        "title": "Modern Workspace",
+        "description": "Open office space with premium equipment"
+      },
+      "equipment": {
+        "title": "Top Development Tools",
+        "description": "Latest MacBook Pro and 4K monitors provided"
+      },
+      "remote": {
+        "title": "Flexible Work",
+        "description": "Hybrid work model, some positions can be remote"
+      },
+      "growth": {
+        "title": "Rapid Growth",
+        "description": "Work with top AI experts to accelerate your career"
+      },
+      "meals": {
+        "title": "Free Meals",
+        "description": "Free lunch and snacks on workdays"
+      },
+      "vacation": {
+        "title": "Paid Vacation",
+        "description": "15 days paid annual leave plus public holidays"
+      }
+    }
   },
   "about": {
     "title": "About Us",
@@ -34,6 +141,31 @@
     "careers": "Careers",
     "news": "news",
     "about": "About"
+  },
+  "news": {
+    "subtitle": "Latest updates and announcements from Astribot",
+    "items": {
+      "news1": {
+        "title": "Celebrate the First Intangible Cultural Heritage Spring Festival with Astribot S1",
+        "description": "Unlock classic folk activities and inherit Chinese cultural treasures. Born for you, fragrant for you.",
+        "date": "January 27, 2025"
+      },
+      "news2": {
+        "title": "In-Depth | PII with $400M Funding Partners with Astribot: The Robot's Jarvis Era Begins",
+        "description": "Recently, Physical Intelligence and Astribot announced cooperation to collaborate at data and model levels, advancing general robot development...",
+        "date": "November 21, 2024"
+      },
+      "news3": {
+        "title": "Astribot 2025 Campus Recruitment Officially Launches",
+        "description": "We have a dream that in the near future, billions of people will have AI robot assistants. For this, we gather the world's top talents...",
+        "date": "September 18, 2024"
+      },
+      "news4": {
+        "title": "At World Robot Conference, This Domestic Robot Carrying 'Future Elderly Care Hope' Was Surrounded",
+        "description": "At the ongoing World Robot Conference in Beijing, humanoid robot teams have become the focus of attention. At Astribot's booth...",
+        "date": "August 22, 2024"
+      }
+    }
   },
   "home": {
     "hero": {

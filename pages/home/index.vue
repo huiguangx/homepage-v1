@@ -9,7 +9,7 @@
         <swiper
           class="h-full swiper-container"
           :modules="swiperModules"
-          :autoplay="{ delay: 100000, disableOnInteraction: false }"
+          :autoplay="{ delay: 3000, disableOnInteraction: false }"
           :pagination="{
             // el: '.swiper-pagination',
             type: 'bullets',

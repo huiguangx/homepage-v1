@@ -21,7 +21,114 @@
   "light": "浅色",
   "careers": {
     "title": "招贤纳士",
-    "content": "加入我们的团队，与公司共同成长。"
+    "content": "加入我们的团队，与公司共同成长。",
+    "heroTitle": "无垠的宇宙 浩瀚的星辰 你是最亮那颗",
+    "heroSubtitle": "「寻找发光的你•一起定义未来」",
+    "workEnvironment": "工作环境",
+    "workEnvironmentDesc": "海景、机器人、猫、还有无限进化的我们",
+    "workEnv1Alt": "星尘智能办公环境",
+    "workEnv2Alt": "星尘智能团队协作",
+    "workEnv3Alt": "星尘智能办公设施",
+    "openPositions": "开放职位",
+    "openPositionsDesc": "寻找怀揣梦想、勇于挑战的你，让我们一起改变世界",
+    "socialRecruitment": "社会招聘",
+    "campusRecruitment": "校园招聘",
+    "internship": "实习岗位",
+    "viewMore": "查看更多",
+    "whyJoinUs": "为什么选择星尘",
+    "applyNow": "立即申请",
+    "positions": {
+      "roboticsEngineer": {
+        "title": "机器人工程师",
+        "type": "全职",
+        "location": "深圳",
+        "description": "负责机器人运动控制算法研发与优化"
+      },
+      "frontendDeveloper": {
+        "title": "前端开发工程师",
+        "type": "全职",
+        "location": "深圳/远程",
+        "description": "负责公司官网及管理后台前端开发"
+      },
+      "hardwareEngineer": {
+        "title": "硬件工程师",
+        "type": "技术类"
+      },
+      "mechanicalEngineer": {
+        "title": "机械工程师",
+        "type": "技术类"
+      },
+      "perceptionEngineer": {
+        "title": "感知算法工程师",
+        "type": "技术类"
+      },
+      "productManager": {
+        "title": "产品经理",
+        "type": "产品类"
+      },
+      "hardwareEngineerPower": {
+        "title": "硬件工程师(电源)",
+        "type": "技术类"
+      },
+      "projectManager": {
+        "title": "项目经理(整机/软件)",
+        "type": "项目支持类"
+      },
+      "marketingManager": {
+        "title": "市场经理",
+        "type": "市场类"
+      },
+      "adminAssistant": {
+        "title": "行政管理",
+        "type": "职能类"
+      },
+      "perceptionIntern": {
+        "title": "感知算法实习生",
+        "type": "技术类"
+      },
+      "embodiedAIIntern": {
+        "title": "具身智能算法实习生",
+        "type": "技术类"
+      },
+      "llmIntern": {
+        "title": "大模型算法实习生",
+        "type": "技术类"
+      },
+      "marketingIntern": {
+        "title": "市场实习生",
+        "type": "市场类"
+      },
+      "hrIntern": {
+        "title": "招聘管理",
+        "type": "职能类"
+      }
+    },
+    "benefits": {
+      "office": {
+        "title": "现代化办公环境",
+        "description": "开放式办公空间，配备顶级设备"
+      },
+      "equipment": {
+        "title": "顶级开发设备",
+        "description": "配备最新MacBook Pro和4K显示器"
+      },
+      "remote": {
+        "title": "灵活办公",
+        "description": "支持混合办公模式，部分岗位可远程"
+      },
+      "growth": {
+        "title": "快速成长",
+        "description": "与AI领域顶尖专家共事，快速提升"
+      },
+      "meals": {
+        "title": "免费餐饮",
+        "description": "工作日提供免费午餐和零食饮料"
+      },
+      "vacation": {
+        "title": "带薪休假",
+        "description": "15天带薪年假及法定节假日"
+      }
+    }
   },
   "about": {
     "title": "关于我们",

@@ -1,10 +1,10 @@
 <template>
-  <footer class="bg-black text-white py-6 px-20">
-    <div class="mx-auto px-4 md:px-8">
+  <footer class="bg-black text-white py-14 px-20">
+    <div class="mx-auto">
       <!-- 顶部导航和社交媒体区域 -->
-      <div class="flex items-center">
-        <img src="~/assets/images/header/logo.svg" alt="" />
-        <span class="ml-2 text-sm font-medium">星尘智能</span>
+      <div class="flex items-center mb-10">
+        <img class="w-9" src="~/assets/images/header/logo.svg" alt="" />
+        <span class="ml-2 text-2xl font-medium">星尘智能</span>
       </div>
 
       <div class="flex flex-col md:flex-row justify-between items-center mb-6">
@@ -14,34 +14,38 @@
 
           <!-- 导航菜单 -->
           <nav class="flex items-center">
-            <ul class="flex space-x-1 text-[16px]">
-              <li>
-                <AppLink to="/" class="hover:text-gray-300 transition-colors">
+            <ul class="flex space-x-12 text-sm text-gray-300">
+              <li class="relative group">
+                <NuxtLinkLocale to="/" class="hover:text-white transition-colors">
                   {{ $t('menu.home') }}
-                </AppLink>
+                </NuxtLinkLocale>
+                <span
+                  class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
+                ></span>
               </li>
-              <li>
-                <AppLink to="/product" class="hover:text-gray-300 transition-colors">
+              <li class="relative group">
+                <NuxtLinkLocale to="/product" class="hover:text-white transition-colors">
                   {{ $t('menu.products') }}
-                </AppLink>
+                </NuxtLinkLocale>
+                <span
+                  class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
+                ></span>
               </li>
-              <li>
-                <AppLink to="/careers" class="hover:text-gray-300 transition-colors">
+              <li class="relative group">
+                <NuxtLinkLocale to="/careers" class="hover:text-white transition-colors">
                   {{ $t('menu.careers') }}
-                </AppLink>
+                </NuxtLinkLocale>
+                <span
+                  class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
+                ></span>
               </li>
-              <li>
-                <AppLink to="/about" class="hover:text-gray-300 transition-colors">
+              <li class="relative group">
+                <NuxtLinkLocale to="/about" class="hover:text-white transition-colors">
                   {{ $t('menu.about') }}
-                </AppLink>
-              </li>
-              <li>
-                <button
-                  @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-                  class="hover:text-gray-300 transition-colors"
-                >
-                  {{ locale === 'zh' ? 'EN' : '中文' }}
-                </button>
+                </NuxtLinkLocale>
+                <span
+                  class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
+                ></span>
               </li>
             </ul>
           </nav>
@@ -51,8 +55,12 @@
         <div class="flex space-x-4 mt-4 md:mt-0">
           <!-- 微信 -->
           <div class="relative group">
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">
-              <img src="~/assets/images/footer/wechat.svg" alt="" />
+            <a href="#" s>
+              <img
+                src="~/assets/images/footer/wechat.svg"
+                alt=""
+                class="brightness-75 transition-all duration-300 hover:brightness-200"
+              />
             </a>
             <div
               class="absolute hidden group-hover:block bottom-full mb-5 w-24 p-2 h-auto bg-white rounded-sm"
@@ -66,28 +74,48 @@
           </div>
 
           <!-- 日历/新闻 -->
-          <a href="#" class="text-gray-400 hover:text-white transition-colors">
-            <img src="~/assets/images/footer/bilibili.svg" alt="" />
+          <a href="#">
+            <img
+              src="~/assets/images/footer/bilibili.svg"
+              class="brightness-75 transition-all duration-300 hover:brightness-200"
+              alt=""
+            />
           </a>
 
           <!-- 抖音 -->
-          <a href="#" class="text-gray-400 hover:text-white transition-colors">
-            <img src="~/assets/images/footer/douyin.svg" alt="" />
+          <a href="#">
+            <img
+              src="~/assets/images/footer/douyin.svg"
+              class="brightness-75 transition-all duration-300 hover:brightness-200"
+              alt=""
+            />
           </a>
 
           <!-- YouTube -->
-          <a href="#" class="text-gray-400 hover:text-white transition-colors">
-            <img src="~/assets/images/footer/youtube.svg" alt="" />
+          <a href="#">
+            <img
+              src="~/assets/images/footer/youtube.svg"
+              class="brightness-75 transition-all duration-300 hover:brightness-200"
+              alt=""
+            />
           </a>
 
           <!-- Twitter/X -->
-          <a href="#" class="text-gray-400 hover:text-white transition-colors">
-            <img src="~/assets/images/footer/x.svg" alt="" />
+          <a href="#">
+            <img
+              src="~/assets/images/footer/x.svg"
+              class="brightness-75 transition-all duration-300 hover:brightness-200"
+              alt=""
+            />
           </a>
 
           <!-- 抖音 (第二个) -->
-          <a href="#" class="text-gray-400 hover:text-white transition-colors">
-            <img src="~/assets/images/footer/tiktok.svg" alt="" />
+          <a href="#">
+            <img
+              src="~/assets/images/footer/tiktok.svg"
+              class="brightness-75 transition-all duration-300 hover:brightness-200"
+              alt=""
+            />
           </a>
         </div>
       </div>
@@ -96,19 +124,28 @@
       <div class="border-t border-gray-800 mb-6"></div>
 
       <!-- 版权信息 -->
-      <div class="text-gray-500 text-[16px]">
-        <p class="mb-2">Copyright © Astribot. All Rights Reserved.</p>
-        <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-          <div class="flex items-center">
-            <span>粤ICP备20253601号</span>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="~/assets/images/footer/head-logo.png"
-              alt="公安备案图标"
-              class="w-[16px] mr-[5px]"
-            />
-            <span>粤公网安备44030002006488号</span>
+      <div>
+        <div class="text-gray-500 text-base">
+          <p class="mb-2">Copyright © Astribot. All Rights Reserved.</p>
+          <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+            <div class="flex items-center cursor-pointer">
+              <span>粤ICP备20253601号</span>
+            </div>
+            <div class="flex items-center cursor-pointer">
+              <img
+                src="~/assets/images/footer/head-logo.png"
+                alt="公安备案图标"
+                class="w-[16px] mr-[5px]"
+              />
+              <span>粤公网安备44030002006488号</span>
+            </div>
+
+            <div
+              @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
+              class="hover:text-gray-300 transition-colors cursor-pointer"
+            >
+              {{ locale === 'zh' ? 'English' : '中文' }}
+            </div>
           </div>
         </div>
       </div>
