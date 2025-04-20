@@ -37,9 +37,9 @@
     </section>
 
     <!-- second -->
-    <section class="relative h-screen w-full bg-[#161616] overflow-hidden">
+    <section class="h-screen w-full bg-[#161616] pt-20">
       <div class="h-full w-full">
-        <div class="absolute inset-x-0 text-center top-24">
+        <div class="text-center top-24">
           <div class="space-y-8">
             <h1 class="text-4xl font-medium text-white leading-tight tracking-wide">
               全能型AI机器人，定义操作新高度
@@ -51,6 +51,103 @@
             </p>
           </div>
         </div>
+        <swiper
+          class="product-swiper text-white"
+          :modules="[Autoplay, Pagination]"
+          :autoplay="{ delay: 5000, disableOnInteraction: false }"
+          :pagination="{ clickable: true }"
+          :loop="true"
+          :centeredSlides="true"
+          :spaceBetween="20"
+          :slidesPerView="'auto'"
+          @activeIndexChange="handleSlideChange"
+        >
+          <swiper-slide
+            v-for="(video, index) in videos"
+            :key="index"
+            :class="{ 'active-slide': isActive(index) }"
+          >
+            <video
+              :ref="'videoPlayer' + index"
+              class="h-full w-full object-cover rounded-2xl"
+              muted
+              loop
+              playsinline
+              :autoplay="isActive(index)"
+            >
+              <source :src="video.src" type="video/mp4" />
+              <!-- 兼容性提示 -->
+              <p class="absolute bottom-0 text-white p-2 bg-black/50">您的浏览器不支持HTML5视频</p>
+            </video>
+          </swiper-slide>
+        </swiper>
+        <!-- <swiper
+          class="product-swiper text-white"
+          :modules="[Autoplay, Pagination]"
+          :autoplay="{ delay: 5000, disableOnInteraction: false }"
+          :pagination="{ clickable: true }"
+          :loop="true"
+          :centeredSlides="true"
+          :spaceBetween="20"
+          slidesPerView="auto"
+        >
+          <swiper-slide>
+            <div>
+              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
+                <source src="~/assets/media/01跳舞.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
+                <source src="~/assets/media/02逗猫＋扫地.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
+                <source src="~/assets/media/03扬琴.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
+                <source src="~/assets/media/04华夫饼倒酱.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
+                <source src="~/assets/media/05倒茶叶.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
+                <source src="~/assets/media/06智能分拣.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
+                <source src="~/assets/media/07叠衣服.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div>
+              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
+                <source src="~/assets/media/08竞技叠杯.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </swiper-slide>
+        </swiper> -->
       </div>
     </section>
 
@@ -328,6 +425,19 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
+import { Autoplay, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import danceVideo from '~/assets/media/01跳舞.mp4'
+import catVideo from '~/assets/media/02逗猫＋扫地.mp4'
+import yangqinVideo from '~/assets/media/03扬琴.mp4'
+import waffleVideo from '~/assets/media/04华夫饼倒酱.mp4'
+import teaVideo from '~/assets/media/05倒茶叶.mp4'
+import sortingVideo from '~/assets/media/06智能分拣.mp4'
+import foldingVideo from '~/assets/media/07叠衣服.mp4'
+import cupVideo from '~/assets/media/08竞技叠杯.mp4'
+
 const { t } = useI18n()
 
 interface TeleoperationSection {
@@ -411,14 +521,42 @@ const specItems = [
   },
 ]
 
-const toolchainFeatures = computed(() => t('product.toolchain.features') as unknown as string[])
-const teleoperationSections = computed(
-  () => t('product.teleoperation.sections') as unknown as TeleoperationSection[],
-)
-const casePartners = computed(() => t('product.cases.partners') as unknown as CasePartner[])
-const ecosystemSections = computed(
-  () => t('product.ecosystem.sections') as unknown as EcosystemSection[],
-)
+const videos = [
+  { src: danceVideo, title: '舞蹈表演' },
+  { src: catVideo, title: '逗猫扫地' },
+  { src: yangqinVideo, title: '扬琴演奏' },
+  { src: waffleVideo, title: '华夫饼制作' },
+  { src: teaVideo, title: '茶艺展示' },
+  { src: sortingVideo, title: '智能分拣' },
+  { src: foldingVideo, title: '衣物整理' },
+  { src: cupVideo, title: '竞技叠杯' },
+]
+
+const activeIndex = ref(0)
+
+const isActive = (index) => {
+  const total = videos.length
+  return (
+    index === activeIndex.value % total ||
+    (activeIndex.value >= total && index === activeIndex.value - total)
+  )
+}
+
+const handleSlideChange = (swiper) => {
+  activeIndex.value = swiper.realIndex
+  console.log(6666, activeIndex.value)
+  // 暂停所有视频
+  document.querySelectorAll('.product-swiper video').forEach((video) => {
+    video.pause()
+  })
+
+  // 播放当前视频
+  const currentSlide = swiper.slides[swiper.activeIndex]
+  const currentVideo = currentSlide.querySelector('video')
+  if (currentVideo) {
+    currentVideo.play().catch((e) => console.log('Autoplay failed:', e))
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -429,5 +567,9 @@ const ecosystemSections = computed(
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.product-swiper .swiper-slide {
+  width: 50% !important; /* 中间幻灯片占50% */
+  transition: transform 0.3s;
 }
 </style>
