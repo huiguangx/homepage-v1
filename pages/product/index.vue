@@ -37,10 +37,10 @@
     </section>
 
     <!-- second -->
-    <section class="h-screen w-full bg-[#161616] pt-20">
+    <section class="w-full bg-[#161616] py-20">
       <div class="h-full w-full">
-        <div class="text-center top-24">
-          <div class="space-y-8">
+        <div class="text-center">
+          <div class="py-10">
             <h1 class="text-4xl font-medium text-white leading-tight tracking-wide">
               全能型AI机器人，定义操作新高度
             </h1>
@@ -53,9 +53,18 @@
         </div>
         <swiper
           class="product-swiper text-white"
-          :modules="[Autoplay, Pagination]"
+          :modules="swiperModules"
           :autoplay="{ delay: 5000, disableOnInteraction: false }"
-          :pagination="{ clickable: true }"
+          :pagination="{
+            el: '.custom-pagination',
+            clickable: true,
+            bulletClass: 'custom-bullet',
+            bulletActiveClass: 'custom-bullet-active',
+          }"
+          :navigation="{
+            nextEl: '.custom-next',
+            prevEl: '.custom-prev',
+          }"
           :loop="true"
           :centeredSlides="true"
           :spaceBetween="20"
@@ -81,73 +90,23 @@
             </video>
           </swiper-slide>
         </swiper>
-        <!-- <swiper
-          class="product-swiper text-white"
-          :modules="[Autoplay, Pagination]"
-          :autoplay="{ delay: 5000, disableOnInteraction: false }"
-          :pagination="{ clickable: true }"
-          :loop="true"
-          :centeredSlides="true"
-          :spaceBetween="20"
-          slidesPerView="auto"
-        >
-          <swiper-slide>
-            <div>
-              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
-                <source src="~/assets/media/01跳舞.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div>
-              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
-                <source src="~/assets/media/02逗猫＋扫地.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div>
-              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
-                <source src="~/assets/media/03扬琴.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div>
-              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
-                <source src="~/assets/media/04华夫饼倒酱.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div>
-              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
-                <source src="~/assets/media/05倒茶叶.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div>
-              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
-                <source src="~/assets/media/06智能分拣.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div>
-              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
-                <source src="~/assets/media/07叠衣服.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div>
-              <video class="h-full object-cover rounded-2xl" muted autoplay loop playsinline>
-                <source src="~/assets/media/08竞技叠杯.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </swiper-slide>
-        </swiper> -->
+        <div class="flex justify-between items-center pt-14 px-28">
+          <!-- 自定义分页器 -->
+          <div class="custom-pagination"></div>
+          <!-- 自定义导航按钮 -->
+          <div class="flex gap-4 text-white">
+            <button class="custom-prev w-9 h-9 bg-[#2A2A2A] rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+              </svg>
+            </button>
+            <button class="custom-next w-9 h-9 bg-[#2A2A2A] rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -426,9 +385,10 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 import danceVideo from '~/assets/media/01跳舞.mp4'
 import catVideo from '~/assets/media/02逗猫＋扫地.mp4'
 import yangqinVideo from '~/assets/media/03扬琴.mp4'
@@ -437,24 +397,10 @@ import teaVideo from '~/assets/media/05倒茶叶.mp4'
 import sortingVideo from '~/assets/media/06智能分拣.mp4'
 import foldingVideo from '~/assets/media/07叠衣服.mp4'
 import cupVideo from '~/assets/media/08竞技叠杯.mp4'
+import type { Swiper as SwiperClass } from 'swiper'
 
 const { t } = useI18n()
-
-interface TeleoperationSection {
-  title: string
-  points: string[]
-}
-
-interface CasePartner {
-  name: string
-  desc: string
-}
-
-interface EcosystemSection {
-  title: string
-  desc: string
-}
-
+const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
 const specItems = [
   {
     name: '单臂自由度',
@@ -534,7 +480,7 @@ const videos = [
 
 const activeIndex = ref(0)
 
-const isActive = (index) => {
+const isActive = (index: number) => {
   const total = videos.length
   return (
     index === activeIndex.value % total ||
@@ -542,7 +488,7 @@ const isActive = (index) => {
   )
 }
 
-const handleSlideChange = (swiper) => {
+const handleSlideChange = (swiper: SwiperClass) => {
   activeIndex.value = swiper.realIndex
   console.log(6666, activeIndex.value)
   // 暂停所有视频
@@ -568,8 +514,44 @@ const handleSlideChange = (swiper) => {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .product-swiper .swiper-slide {
+  position: relative;
   width: 50% !important; /* 中间幻灯片占50% */
   transition: transform 0.3s;
+}
+:deep(.custom-pagination) {
+  display: flex;
+  height: 5px; /* px-to-viewport-ignore */
+  gap: 8px; /* px-to-viewport-ignore */
+  background-color: transparent; /* 确保背景透明 */
+}
+
+.custom-prev,
+.custom-next {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  // background: red;
+}
+:deep(.custom-bullet) {
+  width: 5px; /* px-to-viewport-ignore */
+  height: 5px; /* px-to-viewport-ignore */
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition:
+    width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    /* 使用弹性曲线 */ background 0.3s ease;
+  transform: translateZ(0); /* 开启GPU加速 */
+  backface-visibility: hidden; /* 隐藏背面 */
+}
+
+:deep(.custom-bullet-active) {
+  width: 30px; /* px-to-viewport-ignore */
+  background: white;
+  border-radius: 2px; /* px-to-viewport-ignore */
 }
 </style>

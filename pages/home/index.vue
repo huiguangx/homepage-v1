@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <!-- Hero Banner -->
-    <section class="relative h-screen w-full bg-black">
+    <section class="relative h-screen w-full">
       <!-- <div class="absolute inset-0 bg-black/60"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div> -->
 
@@ -31,6 +31,7 @@
             <div class="relative h-full w-full">
               <video
                 class="absolute inset-0 w-full h-full object-cover md:hidden"
+                poster="~/assets/images/index/banner-poster.jpg"
                 muted
                 autoplay
                 loop
@@ -40,6 +41,7 @@
               </video>
               <video
                 class="absolute inset-0 w-full h-full object-cover hidden md:block"
+                poster="~/assets/images/index/banner.jpg"
                 muted
                 autoplay
                 loop
@@ -47,25 +49,19 @@
               >
                 <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
               </video>
-              <div
-                class="container absolute inset-0 z-10 mx-auto flex h-full flex-col justify-center px-4"
-              >
-                <div class="slide-content space-y-2">
-                  <h1
-                    class="text-[32px] font-medium leading-[1.172em] tracking-[0.04em] text-white"
-                  >
+              <div class="container mx-auto flex h-full flex-col justify-center">
+                <div class="slide-content space-y-8">
+                  <h1 class="text-3xl font-medium text-white">
                     {{ $t('home.hero.title') }}
                   </h1>
-                  <h2
-                    class="text-[48px] font-medium leading-[1.172em] tracking-[0.04em] text-white"
-                  >
+                  <h2 class="text-5xl font-medium text-white">
                     {{ $t('home.hero.subtitle') }}
                   </h2>
-                  <p class="text-[32px] font-medium text-[#D2D0FB]">{{ $t('home.hero.slogan') }}</p>
+                  <p class="text-3xl font-medium text-[#D2D0FB]">{{ $t('home.hero.slogan') }}</p>
                   <button
-                    class="flex items-center gap-[6px] rounded bg-[#5A46FF] px-4 py-3 text-[18px] text-white hover:bg-[#7463FF] transition-all duration-300 ease-out"
+                    class="flex items-center rounded bg-[#5A46FF] px-4 py-3 text-5 text-white hover:bg-[#7463FF] transition-all duration-300 ease-out"
                   >
-                    {{ $t('home.hero.cta') }}
+                    <a href="">{{ $t('home.hero.cta') }}</a>
                   </button>
                 </div>
               </div>
@@ -81,25 +77,19 @@
                 src="~/assets/images/index/index-s1-bg-h5.jpg"
                 class="absolute inset-0 w-full h-full object-cover md:hidden"
               />
-              <div
-                class="container absolute inset-0 z-10 mx-auto flex h-full flex-col justify-center px-4"
-              >
+              <div class="container mx-auto flex h-full flex-col justify-center">
                 <div class="slide-content space-y-8">
-                  <h1
-                    class="text-[32px] font-medium leading-[1.172em] tracking-[0.04em] text-white"
-                  >
+                  <h1 class="text-3xl font-medium leading-[1.172em] tracking-[0.04em] text-white">
                     {{ $t('home.hero.title') }}
                   </h1>
-                  <h2
-                    class="text-[48px] font-medium leading-[1.172em] tracking-[0.04em] text-white"
-                  >
+                  <h2 class="text-5xl font-medium leading-[1.172em] tracking-[0.04em] text-white">
                     {{ $t('home.hero.subtitle') }}
                   </h2>
-                  <p class="text-[32px] font-medium text-[#D2D0FB]">{{ $t('home.hero.slogan') }}</p>
+                  <p class="text-3xl font-medium text-[#D2D0FB]">{{ $t('home.hero.slogan') }}</p>
                   <button
                     class="flex items-center gap-[6px] rounded bg-[#5A46FF] px-4 py-3 text-[18px] text-white"
                   >
-                    {{ $t('home.hero.cta') }}
+                    <a href="">{{ $t('home.hero.cta') }}</a>
                   </button>
                 </div>
               </div>
@@ -107,10 +97,11 @@
           </swiper-slide>
         </swiper>
         <!-- 导航按钮 - 完全使用Tailwind自定义 -->
-        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-prev w-14 h-14 rounded-full"></div>
 
-        <div class="swiper-button-next"></div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next w-14 h-14 rounded-full"></div>
+
+        <!-- <div class="swiper-pagination"></div> -->
       </div>
     </section>
 
@@ -252,7 +243,6 @@
               {{ $t('home.careers.description') }}
             </p>
             <NuxtLinkLocale
-              href="/product"
               class="flex items-center gap-[6px] cursor-pointer rounded text-[#5A46FF] px-4 py-3 text-[16px] font-medium"
             >
               {{ $t('home.careers.cta') }}
@@ -332,7 +322,7 @@ const newsList = computed(() => [
 ])
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* Responsive media styles now handled by Tailwind classes */
 .swiper {
   --swiper-theme-color: #ffffff; /* 设置Swiper风格 */
@@ -340,9 +330,8 @@ const newsList = computed(() => [
 }
 .swiper-button-prev,
 .swiper-button-next {
-  margin: 0 20px; /* px-to-viewport-ignore */
-  width: 24px; /* px-to-viewport-ignore */
-  height: 24px; /* px-to-viewport-ignore */
+  width: 56px; /* px-to-viewport-ignore */
+  height: 56px; /* px-to-viewport-ignore */
   border-radius: 50%;
   background: rgba(0, 0, 0, 0); /* 初始背景透明 */
   transition: background 0.3s ease; /* 使用 background 属性过渡 */
@@ -357,8 +346,8 @@ const newsList = computed(() => [
 .swiper-button-next::after {
   content: '';
   opacity: 1; /* 箭头图标始终不透明 */
-  width: 6px; /* px-to-viewport-ignore */
-  height: 12px; /* px-to-viewport-ignore */
+  width: 12px; /* px-to-viewport-ignore */
+  height: 24px; /* px-to-viewport-ignore */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -400,10 +389,10 @@ const newsList = computed(() => [
 }
 :deep(.swiper-pagination) {
   /* display: none; */
-  bottom: 50px !important; /* px-to-viewport-ignore */
+  bottom: 50px; /* px-to-viewport-ignore */
 }
 :deep(.swiper-pagination-bullet) {
-  display: inline-block !important;
+  display: inline-block;
   width: 5px; /* px-to-viewport-ignore */
   height: 5px; /* px-to-viewport-ignore */
   background: rgba(255, 255, 255, 0.5);
@@ -412,16 +401,15 @@ const newsList = computed(() => [
 }
 
 :deep(.swiper-pagination-bullet-active) {
-  width: 30px !important; /* px-to-viewport-ignore */
-  height: 5px !important; /* px-to-viewport-ignore */
-  background: white !important;
-  border-radius: 2px !important; /* px-to-viewport-ignore */
-  transform: none !important; /* 禁用scale变换 */
+  width: 30px; /* px-to-viewport-ignore */
+  height: 5px; /* px-to-viewport-ignore */
+  background: white;
+  border-radius: 2px; /* px-to-viewport-ignore */
 }
 @media (max-width: 767px) {
   .swiper-button-prev,
   .swiper-button-next {
-    display: none !important;
+    display: none;
   }
 }
 </style>

@@ -24,19 +24,59 @@
     </section>
     <!-- Work Environment -->
     <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
+      <div class="mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-6">{{ $t('careers.workEnvironment') }}</h2>
         <p class="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-12">
           {{ $t('careers.workEnvironmentDesc') }}
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <div
             v-for="(image, index) in workImages"
             :key="index"
             class="rounded-2xl overflow-hidden h-80"
           >
             <img :src="image.src" :alt="image.alt" class="w-full h-full object-cover" />
+          </div>
+        </div> -->
+        <swiper
+          class="news-swiper text-white"
+          :modules="swiperModules"
+          :autoplay="{ delay: 5000, disableOnInteraction: false }"
+          :pagination="{
+            el: '.custom-pagination',
+            clickable: true,
+            bulletClass: 'custom-bullet',
+            bulletActiveClass: 'custom-bullet-active',
+          }"
+          :navigation="{
+            nextEl: '.custom-next',
+            prevEl: '.custom-prev',
+          }"
+          :loop="true"
+          :centeredSlides="true"
+          :spaceBetween="20"
+          :slidesPerView="3"
+        >
+          <swiper-slide v-for="(image, index) in images" :key="index">
+            <img class="rounded-lg" :src="image.src" alt="" />
+          </swiper-slide>
+        </swiper>
+        <div class="flex justify-between items-center pt-14 px-28">
+          <!-- 自定义分页器 -->
+          <div class="custom-pagination"></div>
+          <!-- 自定义导航按钮 -->
+          <div class="flex gap-4 text-white">
+            <button class="custom-prev w-9 h-9 bg-[#2A2A2A] rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+              </svg>
+            </button>
+            <button class="custom-next w-9 h-9 bg-[#2A2A2A] rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -46,11 +86,11 @@
     <section class="py-20">
       <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-6">{{ $t('careers.openPositions') }}</h2>
-        <p class="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-12">
+        <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
           {{ $t('careers.openPositionsDesc') }}
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto">
           <!-- Social Recruitment -->
           <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div class="border-b border-blue-500 pb-4 mb-6">
@@ -68,11 +108,7 @@
                 <span class="text-sm text-gray-500">{{ position.type }}</span>
               </div>
             </div>
-            <button
-              class="mt-6 w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              {{ $t('careers.viewMore') }}
-            </button>
+            <a href="" class="text-[#5A46FF]">查看更多社招岗位</a>
           </div>
 
           <!-- Campus Recruitment -->
@@ -92,11 +128,7 @@
                 <span class="text-sm text-gray-500">{{ position.type }}</span>
               </div>
             </div>
-            <button
-              class="mt-6 w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              {{ $t('careers.viewMore') }}
-            </button>
+            <a href="" class="text-[#5A46FF]">查看更多校招岗位</a>
           </div>
 
           <!-- Internship -->
@@ -114,24 +146,28 @@
                 <span class="text-sm text-gray-500">{{ position.type }}</span>
               </div>
             </div>
-            <button
-              class="mt-6 w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              {{ $t('careers.viewMore') }}
-            </button>
+            <a href="" class="text-[#5A46FF]">查看更多实习岗位</a>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Footer -->
-    <Footer />
   </div>
 </template>
 
 <script setup>
-const { t } = useI18n()
+import hireImg6 from '~/assets/images/career/hire-s3-img6.jpg'
+import hireImg7 from '~/assets/images/career/hire-s3-img7.jpg'
+import hireImg8 from '~/assets/images/career/hire-s3-img8.jpg'
+import hireImg9 from '~/assets/images/career/hire-s3-img9.jpg'
+import hireImg10 from '~/assets/images/career/hire-s3-img10.jpg'
+import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
+const { t } = useI18n()
+const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
 const workImages = [
   { src: '/images/careers-env-1.jpg', alt: t('careers.workEnv1Alt') },
   { src: '/images/careers-env-2.jpg', alt: t('careers.workEnv2Alt') },
@@ -200,8 +236,54 @@ const internPositions = [
   },
   { title: t('careers.positions.hrIntern.title'), type: t('careers.positions.hrIntern.type') },
 ]
-
+const images = [
+  { src: hireImg6, title: 'Image 6' },
+  { src: hireImg7, title: 'Image 7' },
+  { src: hireImg8, title: 'Image 8' },
+  { src: hireImg9, title: 'Image 9' },
+  { src: hireImg10, title: 'Image 10' },
+]
 useHead({
   title: t('menu.careers'),
 })
 </script>
+<style scoped lang="scss">
+.news-swiper .swiper-slide {
+  // width: 50% !important; /* 中间幻灯片占50% */
+  transition: transform 0.3s;
+}
+:deep(.custom-pagination) {
+  display: flex;
+  height: 5px; /* px-to-viewport-ignore */
+  gap: 8px; /* px-to-viewport-ignore */
+  background-color: transparent; /* 确保背景透明 */
+}
+
+.custom-prev,
+.custom-next {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  // background: red;
+}
+:deep(.custom-bullet) {
+  width: 5px; /* px-to-viewport-ignore */
+  height: 5px; /* px-to-viewport-ignore */
+  background: #dcdcdc;
+  border-radius: 50%;
+  transition:
+    width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    /* 使用弹性曲线 */ background 0.3s ease;
+  transform: translateZ(0); /* 开启GPU加速 */
+  backface-visibility: hidden; /* 隐藏背面 */
+}
+
+:deep(.custom-bullet-active) {
+  width: 30px; /* px-to-viewport-ignore */
+  background: #5a46ff;
+  border-radius: 2px; /* px-to-viewport-ignore */
+}
+</style>

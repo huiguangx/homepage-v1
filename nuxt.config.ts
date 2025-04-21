@@ -5,14 +5,7 @@ import { currentLocales } from './config/i18n'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
-  css: [
-    // '@/assets/font/HARMONYOS_SANS_SC_REGULAR/font.css',
-    // '@/assets/font/HARMONYOS_SANS_SC_MEDIUM/font.css',
-    // '@/assets/font/HARMONYOS_SANS_SC_BOLD/font.css',
-    // '@/assets/font/HARMONYOS_SANS_SC_LIGHT/font.css',
-    'swiper/css', // Swiper 核心样式
-    'swiper/css/pagination', // 分页器样式
-  ],
+  css: [],
   modules: ['@nuxtjs/i18n', '@nuxt/image', 'nuxt-gtag', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
   gtag: {
     id: import.meta.env.VITE_GTAG_ID,
@@ -81,6 +74,10 @@ export default defineNuxtConfig({
       },
     },
   },
+  // 开启gzip压缩
+  // nitro: {
+  //   compressPublicAssets: true, // 启动压缩
+  // },
   app: {
     baseURL: process.env.BASE_URL || '/',
     head: {
