@@ -49,7 +49,7 @@
               >
                 <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
               </video>
-              <div class="container mx-auto flex h-full flex-col justify-center">
+              <div class="w-[90%] mx-auto flex h-full flex-col justify-center">
                 <div class="slide-content space-y-8">
                   <h1 class="text-3xl font-medium text-white">
                     {{ $t('home.hero.title') }}
@@ -61,7 +61,7 @@
                   <button
                     class="flex items-center rounded bg-[#5A46FF] px-4 py-3 text-5 text-white hover:bg-[#7463FF] transition-all duration-300 ease-out"
                   >
-                    <a href="">{{ $t('home.hero.cta') }}</a>
+                    <a href="/about">{{ $t('home.hero.cta') }}</a>
                   </button>
                 </div>
               </div>
@@ -77,7 +77,7 @@
                 src="~/assets/images/index/index-s1-bg-h5.jpg"
                 class="absolute inset-0 w-full h-full object-cover md:hidden"
               />
-              <div class="container mx-auto flex h-full flex-col justify-center">
+              <div class="w-[90%] mx-auto flex h-full flex-col justify-center">
                 <div class="slide-content space-y-8">
                   <h1 class="text-3xl font-medium leading-[1.172em] tracking-[0.04em] text-white">
                     {{ $t('home.hero.title') }}
@@ -89,7 +89,7 @@
                   <button
                     class="flex items-center gap-[6px] rounded bg-[#5A46FF] px-4 py-3 text-[18px] text-white"
                   >
-                    <a href="">{{ $t('home.hero.cta') }}</a>
+                    <a href="/careers">{{ $t('home.hero.cta') }}</a>
                   </button>
                 </div>
               </div>
@@ -106,14 +106,14 @@
     </section>
 
     <!-- Product Showcase -->
-    <section class="w-full bg-white py-16">
+    <section class="w-full bg-[#F9FAFB] pt-16 pb-20">
       <!-- 其他内容保持不变 -->
-      <div class="mx-auto flex flex-col items-center gap-6 px-4">
-        <div class="flex flex-col items-center gap-4">
-          <h3 class="text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#020014]">
+      <div class="w-[90%] m-auto flex flex-col items-center">
+        <div class="flex flex-col items-center">
+          <h1 class="text-3xl md:text-4xl font-medium text-[#23233D]">
             {{ $t('home.product.title') }}
-          </h3>
-          <p class="text-lg leading-relaxed text-[#71798A]">
+          </h1>
+          <p class="text-lg text-[#71798A]">
             {{ $t('home.product.tagline') }}
           </p>
         </div>
@@ -130,10 +130,10 @@
     </section>
 
     <!-- About Section -->
-    <section class="w-full bg-[#F9FAFB] py-20 md:py-32">
+    <section class="bg-[#F9FAFB] py-20 md:py-32">
       <!-- 使用Tailwind标准单位 py-20=80px -->
       <div
-        class="mx-auto flex flex-col items-center gap-10 px-4 md:flex-row md:items-center md:justify-center"
+        class="mx-auto w-[90%] flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-center"
       >
         <!-- 图片部分 - 支持WebP -->
         <div class="w-full overflow-hidden rounded-2xl bg-gray-200 md:w-1/2">
@@ -152,19 +152,22 @@
         </div>
 
         <!-- 文字部分 -->
-        <div class="w-full max-w-xl md:w-1/2">
-          <h3
-            class="mb-6 text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#020014]"
+        <div class="w-full md:w-1/2">
+          <h1
+            class="mb-4 text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#23233D]"
           >
             {{ $t('home.about.title') }}
-          </h3>
-          <p class="mb-8 text-lg leading-relaxed text-[#71798A]">
+          </h1>
+          <p class="mb-5 text-lg leading-relaxed text-[#71798A]">
             {{ $t('home.about.content') }}
+          </p>
+          <p class="mb-6 text-lg leading-relaxed text-[#71798A]">
+            {{ $t('home.about.nextcontent') }}
           </p>
           <button
             class="flex items-center gap-1.5 text-base font-medium text-[#475467] hover:text-[#1D2939]"
           >
-            {{ $t('home.hero.cta') }}
+            {{ $t('home.about.cta') }}
             <!-- 可添加箭头图标（示例使用Heroicons） -->
             <img src="~/assets/images/index/learnmore-arrow.svg" alt="" />
           </button>
@@ -175,7 +178,7 @@
     <!-- News Section -->
     <section class="w-full bg-white py-20">
       <!-- 使用Tailwind标准单位 py-20=80px -->
-      <div class="mx-auto flex flex-col items-center gap-6 px-20">
+      <div class="mx-auto w-[90%] flex flex-col items-center gap-6">
         <!-- gap-8=32px -->
         <h3 class="text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#020014]">
           {{ $t('home.news.title') }}
@@ -230,13 +233,13 @@
     </section>
 
     <!-- Join & Business Sections -->
-    <section class="w-full bg-white py-[80px]">
-      <div
-        class="container mx-auto flex flex-col items-center gap-[80px] px-4 md:flex-row md:justify-center"
-      >
-        <div class="w-full max-w-[412px] rounded-2xl bg-[#F9FAFB] p-[40px] text-center">
+    <section class="w-full bg-[#F9FAFB] py-8 md:py-16">
+      <div class="mx-auto w-[90%] flex justify-center gap- px-0">
+        <div class="rounded-2xl bg-white p-[40px] text-center">
           <div class="flex flex-col items-center gap-[24px]">
-            <h3 class="text-[28px] font-medium leading-[1.143em] tracking-[0.04em] text-[#020014]">
+            <h3
+              class="pw-text-[90px] md:text-2xl font-medium leading-[1.143em] tracking-[0.04em] text-[#020014]"
+            >
               {{ $t('home.careers.title') }}
             </h3>
             <p class="text-[16px] leading-[1.375em] tracking-[0.04em] text-[#71798A]">
@@ -251,7 +254,7 @@
           </div>
         </div>
 
-        <div class="w-full max-w-[412px] rounded-2xl bg-[#F9FAFB] p-[40px] text-center">
+        <div class="rounded-2xl bg-white p-[40px] text-center">
           <div class="flex flex-col items-center gap-[24px]">
             <h3 class="text-[28px] font-medium leading-[1.143em] tracking-[0.04em] text-[#020014]">
               {{ $t('home.contact.title') }}

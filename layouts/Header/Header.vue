@@ -7,7 +7,7 @@
         : 'bg-transparent text-white',
     ]"
   >
-    <div class="mx-auto sm:px-10 lg:px-20">
+    <div class="mx-auto w-[90%]">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <div class="flex-shrink-0">

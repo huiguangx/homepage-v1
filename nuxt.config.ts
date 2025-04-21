@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
   css: [],
-  modules: ['@nuxtjs/i18n', '@nuxt/image', 'nuxt-gtag', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
+  modules: ['@nuxtjs/i18n', '@nuxt/image', 'nuxt-gtag', '@nuxtjs/tailwindcss'],
   gtag: {
     id: import.meta.env.VITE_GTAG_ID,
     enabled: true,
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     plugins: {
       'postcss-px-to-viewport-8-plugin': {
         // 配置参数使用与 postcss-px-to-viewport 一致
-        viewportWidth: 750, // 设计稿宽度（通常为 750px 或 375px）
+        viewportWidth: 375, // 设计稿宽度（通常为 750px 或 375px）
         unitPrecision: 5, // 转换后的精度（小数点位数）
         viewportUnit: 'vw', // 转换的目标单位
         selectorBlackList: [], // 不需要转换的选择器

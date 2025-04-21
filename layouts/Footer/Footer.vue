@@ -1,6 +1,6 @@
 <template>
-  <footer class="bg-black text-white py-14 px-20">
-    <div class="mx-auto">
+  <footer class="bg-black text-white py-14">
+    <div class="mx-auto w-[90%]">
       <!-- 顶部导航和社交媒体区域 -->
       <div class="flex items-center mb-10">
         <img class="w-9" src="~/assets/images/header/logo.svg" alt="" />

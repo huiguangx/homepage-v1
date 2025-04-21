@@ -23,13 +23,13 @@
         </video>
         <div class="absolute inset-x-0 top-28 text-center z-20">
           <div>
-            <h1 class="text-5xl font-bold text-white mb-6">星尘智能 S1</h1>
-            <p class="text-lg text-white font-normal mb-6">AI机器人平台，助力行业共创共赢</p>
+            <h1 class="text-5xl font-bold text-white mb-6">{{ $t('product.video.title') }}</h1>
+            <p class="text-lg text-white font-normal mb-6">{{ $t('product.video.subtitle') }}</p>
             <a
               class="bg-transparent text-white border border-white px-5 py-3 rounded-md hover:bg-white hover:text-black transition-colors"
               href="#"
             >
-              立即咨询
+              {{ $t('product.video.cta') }}
             </a>
           </div>
         </div>
@@ -42,12 +42,10 @@
         <div class="text-center">
           <div class="py-10">
             <h1 class="text-4xl font-medium text-white leading-tight tracking-wide">
-              全能型AI机器人，定义操作新高度
+              {{ $t('product.performance.title') }}
             </h1>
             <p class="text-lg text-[#C9C9C9]">
-              更快速、更柔顺、更安全，星尘智能S1首创面向AI的软硬件一体化系统架构
-              <br />
-              将"AI智能"与"最强操作"深度耦合，能像人一样学习思考和劳动，与人安全智能地交互
+              {{ $t('product.performance.description') }}
             </p>
           </div>
         </div>
@@ -116,11 +114,9 @@
     >
       <div class="container mx-auto px-4">
         <div class="mx-auto text-center mb-20">
-          <h2 class="text-4xl font-medium text-white mb-6">高度仿人，更强创造力</h2>
+          <h2 class="text-4xl font-medium text-white mb-6">{{ $t('product.specs.title') }}</h2>
           <p class="text-xl text-[#C9C9C9]">
-            星尘智能 S1 各项关键操作指标媲美成年男性
-            <br />
-            兼顾性能满足、安全性和稳定性，给科研工作者及部分场景探索者提供更大想象空间
+            {{ $t('product.specs.description') }}
           </p>
         </div>
 
@@ -182,11 +178,9 @@
     <section class="py-20 px-28 bg-[#161616]">
       <div class="mx-auto">
         <div class="max-w-4xl mx-auto text-center mb-20">
-          <h2 class="text-4xl font-medium text-white mb-6">持续丰富工具链，降低科研门槛</h2>
+          <h2 class="text-4xl font-medium text-white mb-6">{{ $t('product.toolchain.title') }}</h2>
           <p class="text-xl text-[#C9C9C9]">
-            我们将持续完善工具链，打造开放、易用、高性能的科研工具生态
-            <br />
-            快速验证创新算法及模型功能，助力科研突破
+            {{ $t('product.toolchain.description') }}
           </p>
         </div>
 
@@ -198,8 +192,10 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">功能全面的API</h3>
-            <p class="text-[#AAAAAA]">提供完整的API接口，支持多种编程语言调用，满足不同开发需求</p>
+            <h3 class="text-xl font-medium text-white mb-4">
+              {{ $t('product.toolchain.features.0') }}
+            </h3>
+            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.0.description') }}</p>
           </div>
 
           <div class="bg-[#252525] rounded-2xl p-6">
@@ -209,8 +205,10 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">详细专业的开发指南</h3>
-            <p class="text-[#AAAAAA]">提供详细的开发文档和示例代码，帮助开发者快速上手</p>
+            <h3 class="text-xl font-medium text-white mb-4">
+              {{ $t('product.toolchain.features.1') }}
+            </h3>
+            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.1.description') }}</p>
           </div>
 
           <div class="bg-[#252525] rounded-2xl p-6">
@@ -220,8 +218,10 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">可视化界面便捷开发</h3>
-            <p class="text-[#AAAAAA]">提供图形化操作界面，降低使用门槛，无需编程基础也能快速开发</p>
+            <h3 class="text-xl font-medium text-white mb-4">
+              {{ $t('product.toolchain.features.2') }}
+            </h3>
+            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.2.description') }}</p>
           </div>
 
           <div class="bg-[#252525] rounded-2xl p-6">
@@ -231,8 +231,10 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">支持主流仿真平台</h3>
-            <p class="text-[#AAAAAA]">兼容MuJoco等主流仿真平台，方便迁移现有算法和模型</p>
+            <h3 class="text-xl font-medium text-white mb-4">
+              {{ $t('product.toolchain.features.3') }}
+            </h3>
+            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.3.description') }}</p>
           </div>
 
           <div class="bg-[#252525] rounded-2xl p-6">
@@ -242,8 +244,10 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">完整的AI部署全流程指导</h3>
-            <p class="text-[#AAAAAA]">从数据采集到模型训练再到部署测试，提供全流程技术支持和指导</p>
+            <h3 class="text-xl font-medium text-white mb-4">
+              {{ $t('product.toolchain.features.4') }}
+            </h3>
+            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.4.description') }}</p>
           </div>
 
           <div class="bg-[#252525] rounded-2xl p-6">
@@ -253,13 +257,17 @@
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">快速响应的技术支持</h3>
-            <p class="text-[#AAAAAA]">专业的技术支持团队，快速响应开发者的各种问题和需求</p>
+            <h3 class="text-xl font-medium text-white mb-4">
+              {{ $t('product.toolchain.features.5') }}
+            </h3>
+            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.5.description') }}</p>
           </div>
         </div>
       </div>
       <div class="bg-[#252525] rounded-2xl my-6 text-center">
-        <h2 class="text-2xl font-medium text-white pt-6">VR遥操作，让Astribot成为你的AI训练伙伴</h2>
+        <h2 class="text-2xl font-medium text-white pt-6">
+          {{ $t('product.teleoperation.title') }}
+        </h2>
 
         <h3 class="text-xl font-medium text-white mb-4">功能全面的API</h3>
         <p class="text-[#AAAAAA]">提供完整的API接口，支持多种编程语言调用，满足不同开发需求</p>
@@ -270,7 +278,7 @@
     <section class="py-28 bg-[#010101]">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center mb-20">
-          <h2 class="text-4xl font-medium text-white mb-6">携手共创，不断进化</h2>
+          <h2 class="text-4xl font-medium text-white mb-6">{{ $t('product.cases.title') }}</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
@@ -338,9 +346,9 @@
     <section class="py-28 bg-[#1F1F1F]">
       <div class="container mx-auto px-4">
         <div class="mx-auto text-center">
-          <h2 class="text-4xl font-medium text-white mb-6">诚邀各行业伙伴，共推世界智能化变革</h2>
+          <h2 class="text-4xl font-medium text-white mb-6">{{ $t('product.ecosystem.title') }}</h2>
           <p class="text-xl text-[#C9C9C9]">
-            具身智能机器人是世界级的难题，也是跨世纪的机会，我们将和各行业伙伴共同前进，不断进化
+            {{ $t('product.ecosystem.vision') }}
           </p>
         </div>
 
@@ -374,7 +382,7 @@
         <NuxtLinkLocale
           class="px-4 py-2 rounded font-thin text-white bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
         >
-          立即咨询
+          {{ $t('product.video.cta') }}
         </NuxtLinkLocale>
       </div>
     </section>
@@ -493,13 +501,15 @@ const handleSlideChange = (swiper: SwiperClass) => {
   console.log(6666, activeIndex.value)
   // 暂停所有视频
   document.querySelectorAll('.product-swiper video').forEach((video) => {
-    video.pause()
+    if (video instanceof HTMLVideoElement) {
+      video.pause()
+    }
   })
 
   // 播放当前视频
   const currentSlide = swiper.slides[swiper.activeIndex]
   const currentVideo = currentSlide.querySelector('video')
-  if (currentVideo) {
+  if (currentVideo instanceof HTMLVideoElement) {
     currentVideo.play().catch((e) => console.log('Autoplay failed:', e))
   }
 }

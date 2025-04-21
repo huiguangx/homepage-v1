@@ -216,7 +216,8 @@
     },
     "about": {
       "title": "About Us",
-      "content": "Astribot was founded in Shenzhen in December 2022. As a leading AI robotics company, our vision is to empower billions of people with Al robotic partners, and our mission is to promote co-existence, co-creation and co-prosperity between humans and robots.\n\nThe company has pioneered a software-hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal manipulation'. This innovation has led to key breakthroughs in embodied intelligence and data acquisition, enabling robots to learn, think, and work like humans while fostering smooth and intelligent interactions with people."
+      "content": "Astribot was founded in Shenzhen in December 2022. As a leading AI robotics company, our vision is to empower billions of people with Al robotic partners, and our mission is to promote co-existence, co-creation and co-prosperity between humans and robots.",
+      "nextcontent": "The company has pioneered a software-hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal manipulation'. This innovation has led to key breakthroughs in embodied intelligence and data acquisition, enabling robots to learn, think, and work like humans while fostering smooth and intelligent interactions with people."
     },
     "contact": {
       "title": "Contact Us",
@@ -234,11 +235,14 @@
     },
     "performance": {
       "title": "Our new AI humanoid robot brings more service possibilities",
-      "description": "Our company has pioneered a software-hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal manipulation'. This innovation enables S1 to learn, think, and work more like humans."
+      "description": "Our company has pioneered a software - hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilitities' with 'optimal operation'. This innovation enables S1 to learn, think, and work more like humans."
     },
     "specs": {
       "title": "Human-like abilities, Greater creativity",
       "description": "Astribot S1 mirrors an adult male's operational parameters, delivering exceptional performance, stability, and safety - empowering researchers and explorers to bring imagination to life.",
+      "modelName": "Astribot S1",
+      "comparisonTarget": "Average Adult Male",
+      "note": "Note: S1 is designed for researchers, developers and specific scenario users, with potential for higher performance indicators.",
       "comparison": {
         "items": [
           "Single arm DoF",
@@ -258,12 +262,30 @@
       "title": "Powerful Toolchain for Breakthrough Research",
       "description": "Optimize onboard toolchains to create an open, efficient ecosystem - accelerating the development and validation of cutting-edge algorithms and models.",
       "features": [
-        "Comprehensive API",
-        "Expert Development Guidelines",
-        "User-friendly Visual Development Interface",
-        "Support for Major Simulation Platforms",
-        "Complete AI Deployment Guidance: from Data Collection to Model Deployment",
-        "Fast and Reliable Technical Support"
+        {
+          "title": "Comprehensive API",
+          "description": "Complete API interface supporting multiple programming languages to meet various development needs"
+        },
+        {
+          "title": "Expert Development Guidelines",
+          "description": "Detailed development documentation and sample code to help developers get started quickly"
+        },
+        {
+          "title": "User-friendly Visual Development Interface",
+          "description": "Graphical operation interface to lower the barrier to entry, enabling rapid development without programming background"
+        },
+        {
+          "title": "Support for Major Simulation Platforms",
+          "description": "Compatible with mainstream simulation platforms like MuJoco for easy migration of existing algorithms and models"
+        },
+        {
+          "title": "Complete AI Deployment Guidance",
+          "description": "End-to-end technical support and guidance from data collection to model training and deployment testing"
+        },
+        {
+          "title": "Fast and Reliable Technical Support",
+          "description": "Professional technical support team that quickly responds to various developer questions and needs"
+        }
       ]
     },
     "teleoperation": {
