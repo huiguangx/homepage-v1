@@ -1,22 +1,31 @@
 <template>
-  <footer class="bg-black text-white py-14">
+  <footer class="bg-black text-white pw-pt-[32px] pw-pb-[14px] md:py-14">
     <div class="mx-auto w-[90%]">
-      <!-- 顶部导航和社交媒体区域 -->
-      <div class="flex items-center mb-10">
-        <img class="w-9" src="~/assets/images/header/logo.svg" alt="" />
-        <span class="ml-2 text-2xl font-medium">星尘智能</span>
+      <!-- logo 和 星尘智能 -->
+      <div class="flex items-center justify-between pw-pb-[20px] md:pb-10">
+        <div class="flex items-center">
+          <img class="pw-w-[30px] md:w-9" src="~/assets/images/header/logo.svg" alt="" />
+          <span class="pw-text-[20px] md:text-2xl pw-ml-[4px] md:ml-2 font-medium">星尘智能</span>
+        </div>
+        <div
+          @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
+          class="md:hidden pw-text-[12px] text-[#FFFFFF66]"
+        >
+          {{ locale === 'zh' ? 'English' : '中文' }}
+        </div>
       </div>
 
-      <div class="flex flex-col md:flex-row justify-between items-center mb-6">
-        <!-- 左侧 Logo 和导航 -->
-        <div class="flex items-end space-x-2">
-          <!-- Logo 和公司名称 -->
-
+      <div class="md:flex md:flex-row items-center md:justify-between mb-6">
+        <!-- 导航 和 媒体图标 -->
+        <div>
           <!-- 导航菜单 -->
-          <nav class="flex items-center">
-            <ul class="flex space-x-12 text-sm text-gray-300">
+          <nav class="flex items-center justify-between">
+            <ul class="flex justify-between w-full md:space-x-12 text-[#FFFFFFB2]">
               <li class="relative group">
-                <NuxtLinkLocale to="/" class="hover:text-white transition-colors">
+                <NuxtLinkLocale
+                  to="/"
+                  class="md:hover:text-white pw-text-[14px] md:text-sm transition-colors"
+                >
                   {{ $t('menu.home') }}
                 </NuxtLinkLocale>
                 <span
@@ -24,7 +33,7 @@
                 ></span>
               </li>
               <li class="relative group">
-                <NuxtLinkLocale to="/product" class="hover:text-white transition-colors">
+                <NuxtLinkLocale to="/product" class="md:hover:text-white transition-colors">
                   {{ $t('menu.products') }}
                 </NuxtLinkLocale>
                 <span
@@ -32,7 +41,7 @@
                 ></span>
               </li>
               <li class="relative group">
-                <NuxtLinkLocale to="/careers" class="hover:text-white transition-colors">
+                <NuxtLinkLocale to="/careers" class="md:hover:text-white transition-colors">
                   {{ $t('menu.careers') }}
                 </NuxtLinkLocale>
                 <span
@@ -40,7 +49,7 @@
                 ></span>
               </li>
               <li class="relative group">
-                <NuxtLinkLocale to="/about" class="hover:text-white transition-colors">
+                <NuxtLinkLocale to="/about" class="hmd:over:text-white transition-colors">
                   {{ $t('menu.about') }}
                 </NuxtLinkLocale>
                 <span
@@ -52,10 +61,10 @@
         </div>
 
         <!-- 右侧社交媒体图标 -->
-        <div class="flex space-x-4 mt-4 md:mt-0">
+        <div class="flex md:space-x-4 justify-between mt-4 md:mt-0">
           <!-- 微信 -->
           <div class="relative group">
-            <a href="#" s>
+            <a href="#">
               <img
                 src="~/assets/images/footer/wechat.svg"
                 alt=""
@@ -126,7 +135,7 @@
       <!-- 版权信息 -->
       <div>
         <div class="text-gray-500 text-base">
-          <p class="mb-2">Copyright © Astribot. All Rights Reserved.</p>
+          <p class="mb-2 text-center md:text-left">Copyright © Astribot. All Rights Reserved.</p>
           <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
             <div class="flex items-center cursor-pointer">
               <span>粤ICP备20253601号</span>
@@ -142,7 +151,7 @@
 
             <div
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-              class="hover:text-gray-300 transition-colors cursor-pointer"
+              class="hover:text-gray-300 transition-colors cursor-pointer hidden md:block"
             >
               {{ locale === 'zh' ? 'English' : '中文' }}
             </div>

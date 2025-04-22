@@ -8,13 +8,24 @@
     ]"
   >
     <div class="mx-auto w-[90%]">
-      <div class="flex items-center justify-between h-16">
+      <div class="flex items-center justify-between h-11 md:h-16">
         <!-- Logo -->
         <div class="flex-shrink-0">
           <NuxtLinkLocale to="/" class="flex items-center">
-            <img src="~/assets/images/header/logo.svg" alt="Logo" class="w-8 h-auto" />
+            <img
+              v-if="isScrolled || !isTransparentRoute"
+              src="~/assets/images/header/logo.svg"
+              alt="Logo"
+              class="pw-w-[27px] md:w-8 h-auto"
+            />
+            <img
+              v-if="!isScrolled && isTransparentRoute"
+              src="~/assets/images/header/logo-white.svg"
+              alt="Logo"
+              class="pw-w-[27px] md:w-8 h-auto"
+            />
             <p
-              class="ml-[5px] font-bold"
+              class="ml-1 pw-text-[20px] md:text-xl font-medium"
               :class="{
                 'text-white': !isScrolled && isTransparentRoute,
                 'text-black': isScrolled || !isTransparentRoute,
@@ -71,6 +82,7 @@
               {{ locale === 'zh' ? 'En' : '中文' }}
             </div>
             <NuxtLinkLocale
+              to="/about"
               class="px-4 py-2 text-white rounded font-thin bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
             >
               {{ $t('home.contact.title') }}
@@ -79,9 +91,16 @@
         </div>
         <!-- Mobile menu button (hidden for now) -->
         <div class="md:hidden">
-          <button class="inline-flex items-center justify-center p-2 rounded-md">
-            <img src="~/assets/images/header/menu.svg" alt="" />
-          </button>
+          <div>
+            <img
+              class="block pw-w-[24px]"
+              src="~/assets/images/header/menu.svg"
+              alt="Menu"
+              :class="{
+                'invert brightness-100': !isScrolled && isTransparentRoute,
+              }"
+            />
+          </div>
         </div>
       </div>
     </div>
