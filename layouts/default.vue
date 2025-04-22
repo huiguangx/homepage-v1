@@ -8,7 +8,9 @@ import Footer from './Footer/Footer.vue'
     <slot name="header">
       <Header></Header>
     </slot>
-    <slot></slot>
+    <main>
+      <slot></slot>
+    </main>
     <slot name="footer">
       <Footer></Footer>
     </slot>

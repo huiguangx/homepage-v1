@@ -2,9 +2,6 @@
   <div class="w-full">
     <!-- Hero Banner -->
     <section class="relative h-screen w-full">
-      <!-- <div class="absolute inset-0 bg-black/60"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div> -->
-
       <div class="h-full w-full">
         <swiper
           class="h-full swiper-container"
@@ -139,7 +136,7 @@
         <div class="w-full overflow-hidden rounded-2xl bg-gray-200 md:w-1/2">
           <picture>
             <!-- 优先加载WebP格式 -->
-            <!-- <source srcset="~/assets/images/index/index-s5-img.webp" type="image/webp" /> -->
+            <source srcset="~/assets/images/index/index-s5-img.webp" type="image/webp" />
             <!-- 兼容旧浏览器的JPEG/PNG回退 -->
             <img
               src="~/assets/images/index/index-s5-img.jpg"

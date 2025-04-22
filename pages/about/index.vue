@@ -1,4 +1,5 @@
 <template>
+  <!-- <NuxtImg src="/_nuxt/assets/images/about/about-astribot.jpg"></NuxtImg> -->
   <section>
     <div class="relative w-full h-screen">
       <img
@@ -99,6 +100,7 @@
 </template>
 
 <script setup>
+// import { NuxtPicture, NuxtImg } from '#components'
 useHead({
   title: 'About Us',
 })

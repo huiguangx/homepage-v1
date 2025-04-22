@@ -159,7 +159,6 @@ import AppLink from '~/components/AppLink.vue'
 
 const { locale, setLocale } = useI18n()
 const changeLanguage = (locale) => {
-  console.log('666666666666')
   setLocale(locale)
 }
 </script>

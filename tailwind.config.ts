@@ -21,7 +21,7 @@ module.exports = {
       pxToViewPort: {
         // 基准视口配置
         PresetScreen: {
-          width: 750, // 默认设计稿宽度（单位：px）
+          width: 375, // 默认设计稿宽度（单位：px）
           // height: 1334, // 默认设计稿高度（单位：px）
         },
         // 自定义扩展规则（可选）

@@ -409,6 +409,20 @@ import type { Swiper as SwiperClass } from 'swiper'
 
 const { t } = useI18n()
 const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
+useHead({
+  title: '产品详情页',
+  // meta: [
+  //   {
+  //     name: 'description',
+  //     content: computed(() => product.value.seoDescription)
+  //   },
+  //   // Open Graph协议
+  //   { property: 'og:image', content: dynamicOGImage() }
+  // ],
+  // link: [
+  //   { rel: 'canonical', href: currentCanonicalUrl }
+  // ]
+})
 const specItems = [
   {
     name: '单臂自由度',
@@ -498,7 +512,6 @@ const isActive = (index: number) => {
 
 const handleSlideChange = (swiper: SwiperClass) => {
   activeIndex.value = swiper.realIndex
-  console.log(6666, activeIndex.value)
   // 暂停所有视频
   document.querySelectorAll('.product-swiper video').forEach((video) => {
     if (video instanceof HTMLVideoElement) {
