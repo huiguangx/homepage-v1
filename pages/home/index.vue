@@ -65,7 +65,7 @@
                   <!-- 按钮链接 -->
                   <NuxtLinkLocale
                     to=""
-                    class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] pw-text-[14px] md:text-lg px-6 py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0 no-border-on-pc"
+                    class="inline-block rounded border-white md:border-none bg-transparent md:bg-[#5A46FF] pw-text-[14px] md:text-lg px-6 py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0 no-border-on-pc"
                   >
                     {{ $t('home.hero.cta') }}
                   </NuxtLinkLocale>

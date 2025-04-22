@@ -23,28 +23,32 @@
         </video>
         <div class="absolute inset-x-0 top-28 text-center z-20">
           <div>
-            <h1 class="text-5xl font-bold text-white mb-6">{{ $t('product.video.title') }}</h1>
-            <p class="text-lg text-white font-normal mb-6">{{ $t('product.video.subtitle') }}</p>
-            <a
-              class="bg-transparent text-white border border-white px-5 py-3 rounded-md hover:bg-white hover:text-black transition-colors"
+            <h1 class="pw-text-[26px] text-5xl font-bold text-white pw-mb-[12px] md:mb-4">
+              {{ $t('product.video.title') }}
+            </h1>
+            <p class="pw-text-[16px] md:text-lg text-white font-normal pw-mb-[16px] md:mb-6">
+              {{ $t('product.video.subtitle') }}
+            </p>
+            <NuxtLinkLocale
+              class="inline-block pw-text-[14px] bg-transparent text-white border border-white pw-px-[20px] pw-py-[12px] md:px-5 md:py-3 rounded-md hover:bg-white md:hover:text-black transition-colors"
               href="#"
             >
               {{ $t('product.video.cta') }}
-            </a>
+            </NuxtLinkLocale>
           </div>
         </div>
       </div>
     </section>
 
     <!-- second -->
-    <section class="w-full bg-[#161616] py-20">
-      <div class="h-full w-full">
+    <section class="w-full bg-[#161616] pw-py-[32px] md:py-20">
+      <div class="h-auto w-[90%] mx-auto">
         <div class="text-center">
           <div class="py-10">
-            <h1 class="text-4xl font-medium text-white leading-tight tracking-wide">
+            <h1 class="pw-text-[22px] md:text-4xl font-medium text-white">
               {{ $t('product.performance.title') }}
             </h1>
-            <p class="text-lg text-[#C9C9C9]">
+            <p class="pw-text-[14px] md:text-lg font-normal text-[#C9C9C9]">
               {{ $t('product.performance.description') }}
             </p>
           </div>
@@ -88,11 +92,13 @@
             </video>
           </swiper-slide>
         </swiper>
-        <div class="flex justify-between items-center pt-14 px-28">
+        <div
+          class="flex justify-center md:justify-between items-center pw-pt-[30px] pw-pb-[32px] md:pt-14 md:px-28"
+        >
           <!-- 自定义分页器 -->
           <div class="custom-pagination"></div>
           <!-- 自定义导航按钮 -->
-          <div class="flex gap-4 text-white">
+          <div class="hidden md:flex gap-4 text-white">
             <button class="custom-prev w-9 h-9 bg-[#2A2A2A] rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
@@ -110,12 +116,14 @@
 
     <!-- Performance Section -->
     <section
-      class="py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-cover"
+      class="pw-py-[32px] md:py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-cover"
     >
-      <div class="container mx-auto px-4">
-        <div class="mx-auto text-center mb-20">
-          <h2 class="text-4xl font-medium text-white mb-6">{{ $t('product.specs.title') }}</h2>
-          <p class="text-xl text-[#C9C9C9]">
+      <div class="w-[90%] mx-auto">
+        <div class="mx-auto text-center pw-pb-[14px] md:pb-20">
+          <h2 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-6">
+            {{ $t('product.specs.title') }}
+          </h2>
+          <p class="pw-text-[14] md:text-xl font-normal text-[#C9C9C9]">
             {{ $t('product.specs.description') }}
           </p>
         </div>
@@ -123,7 +131,7 @@
         <div class="flex justify-center items-center">
           <div class="w-full md:w-2/3">
             <!-- 单一大框容器 -->
-            <div class="rounded-lg p-4">
+            <div class="rounded-lg">
               <div class="grid grid-cols-3 gap-x-4 relative py-8">
                 <!-- 第二列背景 -->
                 <div
@@ -132,10 +140,14 @@
                 <!-- 表格标题行 -->
                 <div class="col-span-1 text-right pr-4 text-gray-400"></div>
                 <div class="col-span-1 text-center">
-                  <h3 class="text-lg font-medium mb-2 text-white my-text-class">星尘智能S1</h3>
+                  <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-white my-text-class">
+                    星尘智能S1
+                  </h3>
                 </div>
                 <div class="col-span-1 text-center">
-                  <h3 class="text-lg font-medium mb-2 text-gray-300">普通成年男性</h3>
+                  <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-gray-300">
+                    普通成年男性
+                  </h3>
                 </div>
 
                 <template v-for="(item, index) in specItems" :key="index">
@@ -168,17 +180,19 @@
           </div>
         </div>
 
-        <p class="text-sm text-[#656565] text-center mt-12">
+        <p class="pw-text-[10px] md:text-xs text-[#656565] text-center mt-12">
           注：S1针对大科研、开发者和部分场景用户，相关指标可解锁至更高性能。
         </p>
       </div>
     </section>
 
     <!-- Toolchain Section -->
-    <section class="py-20 px-28 bg-[#161616]">
-      <div class="mx-auto">
-        <div class="max-w-4xl mx-auto text-center mb-20">
-          <h2 class="text-4xl font-medium text-white mb-6">{{ $t('product.toolchain.title') }}</h2>
+    <section class="bg-[#161616]">
+      <div class="w-[90%] mx-auto pw-py-[32px] md:py-20">
+        <div class="text-center pw-pb-[14px] md:pb-20">
+          <h2 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-6">
+            {{ $t('product.toolchain.title') }}
+          </h2>
           <p class="text-xl text-[#C9C9C9]">
             {{ $t('product.toolchain.description') }}
           </p>
@@ -543,11 +557,23 @@ const handleSlideChange = (swiper: SwiperClass) => {
   width: 50% !important; /* 中间幻灯片占50% */
   transition: transform 0.3s;
 }
+@media (max-width: 768px) {
+  .product-swiper .swiper-slide {
+    width: 100% !important; /* 屏幕小于 768px 时宽度变为 100% */
+  }
+}
 :deep(.custom-pagination) {
   display: flex;
   height: 5px; /* px-to-viewport-ignore */
   gap: 8px; /* px-to-viewport-ignore */
   background-color: transparent; /* 确保背景透明 */
+}
+// 纯样式覆盖
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  width: auto !important; /* 移除宽度设置 */
 }
 
 .custom-prev,
