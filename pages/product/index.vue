@@ -71,7 +71,7 @@
           :centeredSlides="true"
           :spaceBetween="20"
           :slidesPerView="'auto'"
-          @activeIndexChange="handleSlideChange"
+          @activeIndexChange="handleProductSlideChange"
         >
           <swiper-slide
             v-for="(video, index) in videos"
@@ -293,13 +293,64 @@
             <!-- <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.5.description') }}</p> -->
           </div>
         </div>
-        <div class="bg-[#252525] rounded-2xl my-6 text-center">
-          <h2 class="text-2xl font-medium text-white pt-6">
+        <div class="bg-[#252525] rounded-2xl pw-p-[16px] md:p-10 text-center pw-mt-[24px] md:mt-6">
+          <h2 class="pw-text-[14px] md:text-2xl font-medium text-white pw-pb-[8px] md:pb-8">
             {{ $t('product.teleoperation.title') }}
           </h2>
-
-          <h3 class="text-xl font-medium text-white mb-4">功能全面的API</h3>
-          <p class="text-[#AAAAAA]">提供完整的API接口，支持多种编程语言调用，满足不同开发需求</p>
+          <swiper
+            class="vr-swiper"
+            :modules="swiperModules"
+            :autoplay="{ delay: 5000, disableOnInteraction: false }"
+            :pagination="{
+              el: '.vr-pagination',
+              clickable: true,
+              bulletClass: 'vr-custom-bullet',
+              bulletActiveClass: 'vr-custom-bullet-active',
+            }"
+            :loop="true"
+            :centeredSlides="true"
+            :spaceBetween="20"
+            :slidesPerView="3"
+            @activeIndexChange="handleVrSlideChange"
+          >
+            <swiper-slide
+              v-for="(video, index) in videos"
+              :key="index"
+              :class="{ 'active-slide': isActive(index) }"
+            >
+              <video
+                :ref="'videoPlayer' + index"
+                class="h-full w-full object-cover rounded-2xl"
+                muted
+                loop
+                playsinline
+                :autoplay="isActive(index)"
+              >
+                <source :src="video.src" type="video/mp4" />
+                <!-- 兼容性提示 -->
+                <p class="absolute bottom-0 text-white p-2 bg-black/50">
+                  您的浏览器不支持HTML5视频
+                </p>
+              </video>
+            </swiper-slide>
+          </swiper>
+          <div class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14">
+            <!-- 自定义分页器 -->
+            <div class="vr-pagination"></div>
+            <!-- 自定义导航按钮 -->
+            <div class="hidden md:flex gap-4 text-white">
+              <button class="vr-custom-prev w-9 h-9 bg-[#2A2A2A] rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                </svg>
+              </button>
+              <button class="vr-custom-next w-9 h-9 bg-[#2A2A2A] rounded-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -540,10 +591,26 @@ const isActive = (index: number) => {
   )
 }
 
-const handleSlideChange = (swiper: SwiperClass) => {
+const handleProductSlideChange = (swiper: SwiperClass) => {
   activeIndex.value = swiper.realIndex
   // 暂停所有视频
   document.querySelectorAll('.product-swiper video').forEach((video) => {
+    if (video instanceof HTMLVideoElement) {
+      video.pause()
+    }
+  })
+
+  // 播放当前视频
+  const currentSlide = swiper.slides[swiper.activeIndex]
+  const currentVideo = currentSlide.querySelector('video')
+  if (currentVideo instanceof HTMLVideoElement) {
+    currentVideo.play().catch((e) => console.log('Autoplay failed:', e))
+  }
+}
+const handleVrSlideChange = (swiper: SwiperClass) => {
+  activeIndex.value = swiper.realIndex
+  // 暂停所有视频
+  document.querySelectorAll('.vr-swiper video').forEach((video) => {
     if (video instanceof HTMLVideoElement) {
       video.pause()
     }
@@ -578,6 +645,16 @@ const handleSlideChange = (swiper: SwiperClass) => {
     width: 100% !important; /* 屏幕小于 768px 时宽度变为 100% */
   }
 }
+// .vr-swiper .swiper-slide {
+//   position: relative;
+//   width: 50% !important; /* 中间幻灯片占50% */
+//   transition: transform 0.3s;
+// }
+@media (max-width: 768px) {
+  .vr-swiper .swiper-slide {
+    width: 100% !important; /* 屏幕小于 768px 时宽度变为 100% */
+  }
+}
 :deep(.custom-pagination) {
   display: flex;
   height: 5px; /* px-to-viewport-ignore */
@@ -607,6 +684,7 @@ const handleSlideChange = (swiper: SwiperClass) => {
   height: 5px; /* px-to-viewport-ignore */
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
+  cursor: pointer;
   transition:
     width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
     /* 使用弹性曲线 */ background 0.3s ease;
@@ -615,6 +693,38 @@ const handleSlideChange = (swiper: SwiperClass) => {
 }
 
 :deep(.custom-bullet-active) {
+  width: 30px; /* px-to-viewport-ignore */
+  background: white;
+  border-radius: 2px; /* px-to-viewport-ignore */
+}
+
+// vr swiper样式
+:deep(.vr-pagination) {
+  display: flex;
+  height: 5px; /* px-to-viewport-ignore */
+  gap: 8px; /* px-to-viewport-ignore */
+  background-color: transparent; /* 确保背景透明 */
+}
+.vr-custom-prev,
+.vr-custom-next {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+:deep(.vr-custom-bullet) {
+  width: 5px; /* px-to-viewport-ignore */
+  height: 5px; /* px-to-viewport-ignore */
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
+    /* 使用弹性曲线 */ background 0.3s ease;
+  transform: translateZ(0); /* 开启GPU加速 */
+  backface-visibility: hidden; /* 隐藏背面 */
+}
+
+:deep(.vr-custom-bullet-active) {
   width: 30px; /* px-to-viewport-ignore */
   background: white;
   border-radius: 2px; /* px-to-viewport-ignore */
