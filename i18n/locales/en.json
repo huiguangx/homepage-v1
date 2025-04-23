@@ -142,31 +142,7 @@
     "news": "news",
     "about": "About"
   },
-  "news": {
-    "subtitle": "Latest updates and announcements from Astribot",
-    "items": {
-      "news1": {
-        "title": "Celebrate the First Intangible Cultural Heritage Spring Festival with Astribot S1",
-        "description": "Unlock classic folk activities and inherit Chinese cultural treasures. Born for you, fragrant for you.",
-        "date": "January 27, 2025"
-      },
-      "news2": {
-        "title": "In-Depth | PII with $400M Funding Partners with Astribot: The Robot's Jarvis Era Begins",
-        "description": "Recently, Physical Intelligence and Astribot announced cooperation to collaborate at data and model levels, advancing general robot development...",
-        "date": "November 21, 2024"
-      },
-      "news3": {
-        "title": "Astribot 2025 Campus Recruitment Officially Launches",
-        "description": "We have a dream that in the near future, billions of people will have AI robot assistants. For this, we gather the world's top talents...",
-        "date": "September 18, 2024"
-      },
-      "news4": {
-        "title": "At World Robot Conference, This Domestic Robot Carrying 'Future Elderly Care Hope' Was Surrounded",
-        "description": "At the ongoing World Robot Conference in Beijing, humanoid robot teams have become the focus of attention. At Astribot's booth...",
-        "date": "August 22, 2024"
-      }
-    }
-  },
+
   "home": {
     "hero": {
       "title": "Leading AI Robotics Company",
@@ -184,9 +160,7 @@
       "title": "Astribot S1",
       "tagline": "Naturally Yours"
     },
-    "news": {
-      "title": "News"
-    },
+
     "newsList": {
       "news1": {
         "title": "Celebrate the First Intangible Cultural Heritage Spring Festival with Astribot S1",
@@ -310,15 +284,15 @@
       "partners": [
         {
           "name": "Physical Intelligence",
-          "desc": "For enterprises focusing on AI and embodied models"
+          "desc": "For enterprises focusing on AI and embodied models, Astribot provides solutions at the data and model levels to assist in model verification and enhance generalization ability"
         },
         {
           "name": "Data collection",
-          "desc": "Efficient, comfortable, simple, and safe solution"
+          "desc": "For data collection centers and industry research institutes, Astribot has launched a VR teleoperation data collection solution, which is efficient, comfortable, simple, and safe"
         },
         {
           "name": "Universities",
-          "desc": "Creating convenient development environment"
+          "desc": "For universities and research institutions, Astribot continuously improves the intelligent robot and toolchain to create a more convenient development environment for researchers"
         }
       ]
     },
@@ -328,17 +302,54 @@
       "sections": [
         {
           "title": "Science Breakthroughs",
-          "desc": "Driving the transformative development of embodied intelligence"
+          "desc": "By leveraging the 'intelligent robot + toolchain + data', we assist universities, data centers, and AI enterprises to achieve scientific research breakthroughs, driving the transformative development of embodied intelligence"
         },
         {
           "title": "Industry Intelligent Transformation",
-          "desc": "Exploring practical pathways for embodied AI adoption"
+          "desc": "We collaborate with industry partners to explore practical pathways for embodied AI adoption from foundational breakthroughs to real-world applications 我们与行业合作伙伴合作，探索从基础突破到实际应用的嵌入式 AI 采用的实用途径"
         },
         {
           "title": "End-User Application Exploration",
-          "desc": "Focusing on universality, cost, safety for application explosion"
+          "desc": "Our vision is to enable billions of people to have AI robotic partner. Focusing on universality, cost, safety, etc., we're paving the way for application explosion"
         }
-      ]
+      ],
+      "cta": "Contact us"
+    }
+  },
+  "news": {
+    "title": "news",
+    "subtitle": "Latest updates and announcements from Astribot",
+    "items": {
+      "news1": {
+        "title": "Celebrate the First Intangible Cultural Heritage Spring Festival with Astribot S1",
+        "description": "Celebrate the inaugural 'Intangible Cultural Heritage Chinese New Year' with Astribot S1, and immerse yourself in the world's cultural treasures.",
+        "date": "January 27, 2025 10:00"
+      },
+      "news2": {
+        "title": "In-Depth | Astribot secures $400M from Top Investors, teams up with PI: The robot's Jarvis is Here!",
+        "description": "Recently, Physical Intelligence and Astribot have announced a partnership to collaborate at the data and model levels, promoting the entry of general artificial intelligence into the physical world and jointly building world models.",
+        "date": "November 21, 2024 18:02"
+      },
+      "news3": {
+        "title": "Astribot 2025 Campus Recruitment Officially Opened",
+        "description": "We envision a future where billions of people will own Al robotic partner. To achieve this, we have gathered a group of extreme technology enthusiasts. Now, join us! Let's head towards the starry sea of the AI robot era together!",
+        "date": "September 18, 2024 10:03"
+      },
+      "news4": {
+        "title": "Astribot is pleased to officially release its Al robotic partner Astribot S1",
+        "description": "At the World Robot Conference being held in Beijing, the display of humanoid robots became the absolute focus of the event. At the booth of Astribot, due to Al robotic partner S1 performs yangqin (Chinese dulcimer) in an exhibition area.",
+        "date": "August 22, 2024 17:50"
+      },
+      "news5": {
+        "title": "At the World Robot Conference, this domestically produced robot carrying the hope of future elderly care was surrounded",
+        "description": "At the World Robot Conference being held in Beijing, the display of humanoid robots became the absolute focus of the event. At the booth of Astribot, due to Al robotic partner S1 performs yangqin (Chinese dulcimer) in an exhibition area.We have carefully polished the technology and product details behind S1, hoping that it is born for you and naturally intelligent for you...",
+        "date": "August 20th, 2024 00:01"
+      },
+      "news6": {
+        "title": "Astribot is pleased to introduce you to the new generation of AI robot Astribot S1",
+        "description": "Setting a new benchmark for AI robotics, S1 delivers better operational performance in its class. It learns, thinks, and performs tasks like a human, truly embodying Naturally Yours.",
+        "date": "April 26, 2024 09:21"
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="w-full max-w-[2560px] mx-auto">
-    <!-- Hero Video Section -->
+    <!--1 Hero Video Section -->
     <section class="relative h-screen w-full bg-black overflow-hidden">
       <div class="h-full w-full">
         <video
@@ -40,7 +40,7 @@
       </div>
     </section>
 
-    <!-- second -->
+    <!--2 -->
     <section class="w-full bg-[#161616] pw-py-[32px] md:py-20">
       <div class="h-auto w-[90%] mx-auto">
         <div class="text-center pw-pb-[14px] md:py-10">
@@ -114,7 +114,7 @@
       </div>
     </section>
 
-    <!-- Performance Section -->
+    <!--3 Performance Section -->
     <section
       class="pw-py-[32px] md:py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-contain"
     >
@@ -184,7 +184,7 @@
       </div>
     </section>
 
-    <!-- Toolchain Section -->
+    <!--4 Toolchain Section -->
     <section class="bg-[#161616] pw-py-[32px] md:py-20">
       <div class="w-[90%] mx-auto">
         <div class="text-center pw-pb-[14px] md:pb-10">
@@ -308,9 +308,15 @@
               bulletActiveClass: 'vr-custom-bullet-active',
             }"
             :loop="true"
-            :centeredSlides="true"
             :spaceBetween="20"
-            :slidesPerView="3"
+            :slidesPerView="1"
+            :breakpoints="{
+              768: {
+                slidesPerView: 2.5,
+                // centeredSlides: true,
+                initialSlide: 1,
+              },
+            }"
             @activeIndexChange="handleVrSlideChange"
           >
             <swiper-slide
@@ -355,67 +361,69 @@
       </div>
     </section>
 
-    <!-- Use Cases Section -->
-    <section class="py-28 bg-[#010101]">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center mb-20">
-          <h2 class="text-4xl font-medium text-white mb-6">{{ $t('product.cases.title') }}</h2>
+    <!--5 Collaboration Section -->
+    <section class="pw-py-[32px] md:py-20 bg-[#010101]">
+      <div class="w-[90%] mx-auto">
+        <div class="text-center pw-pb-[16px] md:pb-15">
+          <h2 class="pw-text-[22px] md:text-4xl font-medium text-white">
+            {{ $t('product.cases.title') }}
+          </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
-          <div class="bg-[#252525] rounded-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 pw-gap-[16px] md:gap-8 mx-auto">
+          <div class="bg-[#161616] rounded-2xl">
             <div class="rounded-t-2xl overflow-hidden">
               <img
-                src="~/assets/images/product/describe-s3-img1.jpg"
+                src="~/assets/images/product/describe-s4-img1.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <div class="px-3 py-5">
-              <div class="h-10 mb-2">
+            <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
+              <div class="h-auto mb-2">
                 <img
                   src="~/assets/images/product/describe-s4-tit-img1.png"
                   class="w-2/3 object-cover"
                 />
               </div>
 
-              <p class="text-[#AAAAAA]">
-                针对AI及具身模型类企业，Astribot在数据和模型层提供方案，助力模型验证及泛化能力提升
+              <p class="pw-text-[12px] md:text-sm text-[#AAAAAA]">
+                {{ $t('product.cases.partners.0.desc') }}
               </p>
             </div>
           </div>
 
-          <div class="bg-[#252525] rounded-2xl">
+          <div class="bg-[#161616] rounded-2xl">
             <div class="rounded-t-2xl overflow-hidden">
               <img
-                src="~/assets/images/product/describe-s3-img2.jpg"
+                src="~/assets/images/product/describe-s4-img2.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <div class="px-3 py-5">
+            <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
               <img
                 src="~/assets/images/product/describe-s4-tit-img2.png"
                 class="h-10 mb-2 object-cover"
               />
-              <p class="text-[#AAAAAA]">
-                针对数据采集中心及行业研究院，Astribot推出VR 遥操作数据采集方案，高效舒适，简易安全
+              <p class="pw-text-[12px] md:text-sm text-[#AAAAAA]">
+                {{ $t('product.cases.partners.1.desc') }}
               </p>
             </div>
           </div>
 
-          <div class="bg-[#252525] rounded-2xl">
+          <div class="bg-[#161616] rounded-2xl">
             <div class="rounded-t-2xl overflow-hidden">
               <img
-                src="~/assets/images/product/describe-s3-img3.jpg"
+                src="~/assets/images/product/describe-s4-img3.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <div class="px-3 py-5">
+            <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
               <img
                 src="~/assets/images/product/describe-s4-tit-img3.png"
                 class="h-10 mb-2 object-cover"
               />
-              <p class="text-[#AAAAAA]">
-                针对高校及研究机构，星尘智能不断完善智能本体和工具链，为科研工作者创造更便捷的开发环境，
+              <p class="pw-text-[12px] md:text-sm text-[#AAAAAA]">
+                {{ $t('product.cases.partners.2.desc') }}
               </p>
             </div>
           </div>
@@ -423,47 +431,67 @@
       </div>
     </section>
 
-    <!-- Ecosystem Section -->
-    <section class="py-28 bg-[#1F1F1F]">
-      <div class="container mx-auto px-4">
-        <div class="mx-auto text-center">
-          <h2 class="text-4xl font-medium text-white mb-6">{{ $t('product.ecosystem.title') }}</h2>
-          <p class="text-xl text-[#C9C9C9]">
+    <!--6 Ecosystem Section -->
+    <section class="pw-pt-[32px] pw-pb-[40px] md:pt-24 md:pb-20 bg-[#1F1F1F]">
+      <div class="w-[90%] mx-auto">
+        <div class="text-center">
+          <h1 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-4">
+            {{ $t('product.ecosystem.title') }}
+          </h1>
+          <p class="pw-text-[14px] md:text-xl text-[#C9C9C9]">
             {{ $t('product.ecosystem.vision') }}
           </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 mx-auto mt-16">
-          <div class="rounded-2xl p-8 flex flex-col justify-center items-center">
+        <div class="grid md:grid-cols-3 pw-py-[24px] md:py-14 pw-gap-[16px] md:gap-20 text-center">
+          <div
+            class="rounded-2xl flex flex-col justify-center items-center bg-[#171717] md:bg-[#1F1F1F] pw-py-[24px] pw-px-[16px] md:p-5"
+          >
             <img src="~/assets/images/product/innobot.svg" alt="" />
-            <h3 class="text-2xl font-medium text-white mb-4">开发者社区</h3>
-            <p class="text-[#AAAAAA]">
-              建立活跃的开发者社区，提供技术文档、示例代码和论坛支持，促进开发者之间的交流与合作
+            <h3
+              class="pw-text-[18px] md:text-2xl font-medium text-white pw-pt-[12px] pw-pb-[8px] md:pt-5 md:pb-2"
+            >
+              {{ $t('product.ecosystem.sections.0.title') }}
+            </h3>
+            <p class="pw-text-[12px] md:text-sm font-normal text-[#AAAAAA]">
+              {{ $t('product.ecosystem.sections.0.desc') }}
             </p>
           </div>
 
-          <div class="rounded-2xl p-8 flex flex-col justify-center items-center">
+          <div
+            class="rounded-2xl p-8 flex flex-col justify-center items-center bg-[#171717] md:bg-[#1F1F1F] pw-py-[24px] pw-px-[16px] md:p-5"
+          >
             <img src="~/assets/images/product/techatom.svg" alt="" />
-            <h3 class="text-2xl font-medium text-white mb-4">合作伙伴计划</h3>
-            <p class="text-[#AAAAAA]">
-              与行业领先企业建立战略合作关系，共同开发创新应用场景和解决方案
+            <h3
+              class="pw-text-[18px] md:text-2xl font-medium text-white pw-pt-[12px] pw-pb-[8px] md:pt-5 md:pb-2"
+            >
+              {{ $t('product.ecosystem.sections.1.title') }}
+            </h3>
+            <p class="pw-text-[12px] md:text-sm font-normal text-[#AAAAAA]">
+              {{ $t('product.ecosystem.sections.1.desc') }}
             </p>
           </div>
 
-          <div class="rounded-2xl p-8 flex flex-col justify-center items-center">
+          <div
+            class="rounded-2xl p-8 flex flex-col justify-center items-center bg-[#171717] md:bg-[#1F1F1F] pw-py-[24px] pw-px-[16px] md:p-5"
+          >
             <img src="~/assets/images/product/xplorebox.svg" alt="" />
-            <h3 class="text-2xl font-medium text-white mb-4">科研合作</h3>
-            <p class="text-[#AAAAAA]">
-              与全球顶尖高校和科研机构合作，推动机器人前沿技术的研究与突破
+            <h3
+              class="pw-text-[18px] md:text-2xl font-medium text-white pw-pt-[12px] pw-pb-[8px] md:pt-5 md:pb-2"
+            >
+              {{ $t('product.ecosystem.sections.2.title') }}
+            </h3>
+            <p class="pw-text-[12px] md:text-sm font-normal text-[#AAAAAA]">
+              {{ $t('product.ecosystem.sections.2.desc') }}
             </p>
           </div>
         </div>
       </div>
-      <div class="flex justify-center mt-20">
+      <div class="flex justify-center">
         <NuxtLinkLocale
-          class="px-4 py-2 rounded font-thin text-white bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
+          class="pw-px-[20px] pw-py-[12px] md:px-4 md:py-2 rounded font-normal text-white bg-[#5A46FF] pw-text-[14px] md:text-sm md:hover:bg-[#7463FF] transition-all duration-300 ease-out"
         >
-          {{ $t('product.video.cta') }}
+          {{ $t('product.ecosystem.cta') }}
         </NuxtLinkLocale>
       </div>
     </section>
