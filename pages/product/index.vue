@@ -23,14 +23,14 @@
         </video>
         <div class="absolute inset-x-0 top-28 text-center z-20">
           <div>
-            <h1 class="pw-text-[26px] text-5xl font-bold text-white pw-mb-[12px] md:mb-4">
+            <h1 class="pw-text-[26px] md:text-5xl font-bold text-white pw-mb-[12px] md:mb-4">
               {{ $t('product.video.title') }}
             </h1>
             <p class="pw-text-[16px] md:text-lg text-white font-normal pw-mb-[16px] md:mb-6">
               {{ $t('product.video.subtitle') }}
             </p>
             <NuxtLinkLocale
-              class="inline-block pw-text-[14px] bg-transparent text-white border border-white pw-px-[20px] pw-py-[12px] md:px-5 md:py-3 rounded-md hover:bg-white md:hover:text-black transition-colors"
+              class="inline-block pw-text-[14px] md:text-base bg-transparent text-white border border-white pw-px-[20px] pw-py-[12px] md:px-5 md:py-3 rounded-md hover:bg-white md:hover:text-black transition-colors"
               href="#"
             >
               {{ $t('product.video.cta') }}
@@ -43,8 +43,8 @@
     <!-- second -->
     <section class="w-full bg-[#161616] pw-py-[32px] md:py-20">
       <div class="h-auto w-[90%] mx-auto">
-        <div class="text-center">
-          <div class="py-10">
+        <div class="text-center pw-pb-[14px] md:py-10">
+          <div>
             <h1 class="pw-text-[22px] md:text-4xl font-medium text-white">
               {{ $t('product.performance.title') }}
             </h1>
@@ -93,7 +93,7 @@
           </swiper-slide>
         </swiper>
         <div
-          class="flex justify-center md:justify-between items-center pw-pt-[30px] pw-pb-[32px] md:pt-14 md:px-28"
+          class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
         >
           <!-- 自定义分页器 -->
           <div class="custom-pagination"></div>
@@ -116,7 +116,7 @@
 
     <!-- Performance Section -->
     <section
-      class="pw-py-[32px] md:py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-cover"
+      class="pw-py-[32px] md:py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-contain"
     >
       <div class="w-[90%] mx-auto">
         <div class="mx-auto text-center pw-pb-[14px] md:pb-20">
@@ -130,14 +130,12 @@
 
         <div class="flex justify-center items-center">
           <div class="w-full md:w-2/3">
-            <!-- 单一大框容器 -->
             <div class="rounded-lg">
               <div class="grid grid-cols-3 gap-x-4 relative py-8">
-                <!-- 第二列背景 -->
                 <div
                   class="absolute inset-y-0 left-1/3 right-1/3 bg-[#AAAAAA] bg-opacity-30 z-0 rounded-2xl pointer-events-none"
                 ></div>
-                <!-- 表格标题行 -->
+
                 <div class="col-span-1 text-right pr-4 text-gray-400"></div>
                 <div class="col-span-1 text-center">
                   <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-white my-text-class">
@@ -181,110 +179,128 @@
         </div>
 
         <p class="pw-text-[10px] md:text-xs text-[#656565] text-center mt-12">
-          注：S1针对大科研、开发者和部分场景用户，相关指标可解锁至更高性能。
+          {{ $t('product.specs.note') }}
         </p>
       </div>
     </section>
 
     <!-- Toolchain Section -->
-    <section class="bg-[#161616]">
-      <div class="w-[90%] mx-auto pw-py-[32px] md:py-20">
-        <div class="text-center pw-pb-[14px] md:pb-20">
+    <section class="bg-[#161616] pw-py-[32px] md:py-20">
+      <div class="w-[90%] mx-auto">
+        <div class="text-center pw-pb-[14px] md:pb-10">
           <h2 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-6">
             {{ $t('product.toolchain.title') }}
           </h2>
-          <p class="text-xl text-[#C9C9C9]">
+          <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
             {{ $t('product.toolchain.description') }}
           </p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mx-auto">
-          <div class="bg-[#252525] rounded-2xl p-6">
-            <div class="rounded-2xl overflow-hidden mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 pw-gap-[8px] md:gap-6">
+          <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
+            <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
+              <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
+                {{ $t('product.toolchain.features.0.title') }}
+              </h3>
+            </div>
+            <div class="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img1.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">
-              {{ $t('product.toolchain.features.0') }}
-            </h3>
-            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.0.description') }}</p>
+
+            <!-- <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.0.description') }}</p> -->
           </div>
 
-          <div class="bg-[#252525] rounded-2xl p-6">
-            <div class="rounded-2xl overflow-hidden mb-6">
+          <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
+            <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
+              <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
+                {{ $t('product.toolchain.features.1.title') }}
+              </h3>
+            </div>
+            <div class="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img2.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">
-              {{ $t('product.toolchain.features.1') }}
-            </h3>
-            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.1.description') }}</p>
+
+            <!-- <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.1.description') }}</p> -->
           </div>
 
-          <div class="bg-[#252525] rounded-2xl p-6">
-            <div class="rounded-2xl overflow-hidden mb-6">
+          <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
+            <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
+              <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
+                {{ $t('product.toolchain.features.2.title') }}
+              </h3>
+            </div>
+            <div class="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img3.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">
-              {{ $t('product.toolchain.features.2') }}
-            </h3>
-            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.2.description') }}</p>
+
+            <!-- <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.2.description') }}</p> -->
           </div>
 
-          <div class="bg-[#252525] rounded-2xl p-6">
-            <div class="rounded-2xl overflow-hidden mb-6">
+          <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
+            <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
+              <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
+                {{ $t('product.toolchain.features.3.title') }}
+              </h3>
+            </div>
+            <div class="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img4.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">
-              {{ $t('product.toolchain.features.3') }}
-            </h3>
-            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.3.description') }}</p>
+
+            <!-- <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.3.description') }}</p> -->
           </div>
 
-          <div class="bg-[#252525] rounded-2xl p-6">
-            <div class="rounded-2xl overflow-hidden mb-6">
+          <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
+            <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
+              <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
+                {{ $t('product.toolchain.features.4.title') }}
+              </h3>
+            </div>
+            <div class="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img5.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">
-              {{ $t('product.toolchain.features.4') }}
-            </h3>
-            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.4.description') }}</p>
+
+            <!-- <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.4.description') }}</p> -->
           </div>
 
-          <div class="bg-[#252525] rounded-2xl p-6">
-            <div class="rounded-2xl overflow-hidden mb-6">
+          <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
+            <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
+              <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
+                {{ $t('product.toolchain.features.5.title') }}
+              </h3>
+            </div>
+            <div class="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img6.jpg"
                 class="w-full h-full object-cover"
               />
             </div>
-            <h3 class="text-xl font-medium text-white mb-4">
-              {{ $t('product.toolchain.features.5') }}
-            </h3>
-            <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.5.description') }}</p>
+
+            <!-- <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.5.description') }}</p> -->
           </div>
         </div>
-      </div>
-      <div class="bg-[#252525] rounded-2xl my-6 text-center">
-        <h2 class="text-2xl font-medium text-white pt-6">
-          {{ $t('product.teleoperation.title') }}
-        </h2>
+        <div class="bg-[#252525] rounded-2xl my-6 text-center">
+          <h2 class="text-2xl font-medium text-white pt-6">
+            {{ $t('product.teleoperation.title') }}
+          </h2>
 
-        <h3 class="text-xl font-medium text-white mb-4">功能全面的API</h3>
-        <p class="text-[#AAAAAA]">提供完整的API接口，支持多种编程语言调用，满足不同开发需求</p>
+          <h3 class="text-xl font-medium text-white mb-4">功能全面的API</h3>
+          <p class="text-[#AAAAAA]">提供完整的API接口，支持多种编程语言调用，满足不同开发需求</p>
+        </div>
       </div>
     </section>
 

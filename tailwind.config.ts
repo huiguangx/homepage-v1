@@ -27,6 +27,8 @@ module.exports = {
         // 自定义扩展规则（可选）
         utilities: {
           // 在此添加自定义转换规则
+          gap: 'gap',
+          rounded: 'rounded',
         },
       },
     },
