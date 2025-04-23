@@ -7,8 +7,15 @@
         class="w-full h-full object-cover"
         alt=""
       />
-      <div class="absolute top- flex items-center justify-center text-white">
-        <h2>创未来科技，传经典文化</h2>
+      <div class="poster absolute top-1/2 left-[10%] -translate-y-1/2 text-white">
+        <h1
+          class="pw-text-[18px] md:text-4xl pw-pb-[8px] md:pb-6 font-medium opacity-0 animate-slide-up delay-200"
+        >
+          创未来科技，传经典文化
+        </h1>
+        <p class="pw-text-[14px] md:text-2xl text-[#D2D0FB] opacity-0 animate-slide-up delay-300">
+          High Tech, High Life
+        </p>
       </div>
     </div>
   </section>
@@ -105,3 +112,33 @@ useHead({
   title: 'About Us',
 })
 </script>
+<style scoped>
+@keyframes slideUp {
+  from {
+    transform: translateY(100px) translateZ(0); /* 调大初始位移 */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) translateZ(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; /* 加强缓动效果 */
+  will-change: transform, opacity; /* 性能优化 */
+}
+
+.delay-200 {
+  animation-delay: 0.2s; /* 修正延迟层级 */
+}
+
+.delay-300 {
+  animation-delay: 0.4s; /* 拉大延迟间隔 */
+}
+
+/* 确保初始隐藏 */
+.opacity-0 {
+  opacity: 0;
+}
+</style>

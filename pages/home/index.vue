@@ -390,7 +390,7 @@ const newsList = computed(() => [
 }
 /* 内容容器动画 */
 .slide-content {
-  transform: translateY(50px); /* px-to-viewport-ignore */
+  transform: translateY(100px); /* px-to-viewport-ignore */
   opacity: 0;
   transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }

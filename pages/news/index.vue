@@ -38,35 +38,43 @@
             class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
           >
             <!-- 图片容器 -->
-            <div class="aspect-video w-full rounded-t-2xl overflow-hidden bg-gray-200">
+            <div class="w-full rounded-t-2xl overflow-hidden bg-gray-200">
               <picture>
                 <!-- <source
                   media="(min-width: 768px)"
                   srcset="~/assets/images/news/news-s1-poster.jpg"
                 /> -->
-                <img :src="news.image" alt="News Banner" class="w-full h-auto object-cover" />
+                <img :src="news.image" alt="News Banner" class="w-full object-cover" />
               </picture>
             </div>
 
             <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
-            <div class="flex flex-1 flex-col p-4 transition-colors duration-300">
-              <h1
-                class="pw-pb-[8px] md:pb-2 pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000]"
-              >
-                {{ news.title }}
-              </h1>
-              <p
-                class="pw-pb-[8px] md:pb-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473]"
-              >
-                {{ news.description }}
-              </p>
-
-              <!-- 日期容器（自动 margin-top 推到最底部） -->
+            <div class="flex flex-1 flex-col p-4 transition-colors duration-300 cursor-pointer">
+              <!-- <div class="flex flex-1 flex-col p-4 transition-colors duration-300"> -->
+              <div class="flex-1 overflow-hidden">
+                <!-- 新增容器 -->
+                <h1
+                  class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis"
+                >
+                  {{ news.title }}
+                </h1>
+                <p
+                  class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-3 overflow-hidden text-ellipsis"
+                >
+                  {{ news.description }}
+                </p>
+              </div>
               <div
-                class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs leading-[1.333] text-[#71798A] group-hover:text-[#5a6473]"
+                class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300 group-hover:-translate-y-0.5"
               >
-                <span>{{ news.date }}</span>
-                <img src="~/assets/images/index/news-arrow.svg" alt="" />
+                <span class="group-hover:scale-105 transition-transform duration-300 ease-out">
+                  {{ news.date }}
+                </span>
+                <img
+                  src="~/assets/images/index/news-arrow.svg"
+                  alt=""
+                  class="transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:translate-x-0.5"
+                />
               </div>
             </div>
           </div>
