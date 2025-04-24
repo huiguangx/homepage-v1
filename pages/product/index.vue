@@ -115,7 +115,6 @@
     </section>
 
     <!--3 Performance Section -->
-    sdf
     <section
       class="pw-py-[32px] md:py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-contain"
     >
@@ -132,7 +131,7 @@
         <div class="flex justify-center items-center">
           <div class="w-full md:w-2/3">
             <div class="rounded-lg">
-              <div class="grid grid-cols-3 gap-x-4 relative py-8">
+              <div class="grid grid-cols-3 relative py-8">
                 <!-- 背景装饰条 -->
                 <div
                   class="absolute inset-y-0 left-1/3 right-1/3 bg-[#AAAAAA] bg-opacity-30 z-0 rounded-2xl pointer-events-none"
@@ -140,12 +139,12 @@
 
                 <!-- 表头 -->
                 <div class="col-span-1 text-right pw-px-[14px] md:px-15 text-gray-400"></div>
-                <div class="col-span-1 text-center p-[8px] pr-[8px]">
+                <div class="col-span-1 text-left pw-pl-[16px] md:px-10">
                   <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-white my-text-class">
                     星尘智能S1
                   </h3>
                 </div>
-                <div class="col-span-1 text-center p-[8px]">
+                <div class="col-span-1 text-left pw-pl-[14px] md:px-15">
                   <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-gray-300">
                     普通成年男性
                   </h3>
@@ -155,26 +154,32 @@
                 <template v-for="(item, index) in specItems" :key="index">
                   <!-- 第一列-->
                   <div
-                    class="col-span-1 text-right pr-[16px] text-[#AAAAAA] py-3 flex items-center justify-end min-h-[3rem]"
+                    class="col-span-1 text-right pw-pr-[14px] md:px-15 text-[#AAAAAA] py-3 flex items-center justify-end min-h-[3rem]"
                   >
-                    <span class="whitespace-normal text-right">{{ item.name }}</span>
+                    <span class="whitespace-normal pw-text-[11px] md:text-sm text-right">
+                      {{ item.name }}
+                    </span>
                   </div>
                   <!-- 第二列-->
-                  <div class="col-span-1 flex items-center py-3 pw-px-[16px] min-h-[3rem]">
+                  <div class="col-span-1 flex items-center py-3 pw-px-[16px] md:px-10 min-h-[3rem]">
                     <div class="flex flex-row items-baseline flex-wrap text-left w-full">
                       <!-- 修改这里 -->
-                      <span class="text-2xl font-bold text-white mr-1">{{ item.s1Value }}</span>
-                      <span class="text-xs text-[#AAAAAA] whitespace-normal">
+                      <span
+                        class="pw-text-[20px] md:text-3xl font-bold text-white pw-mr-[4px] md:mr-2"
+                      >
+                        {{ item.s1Value }}
+                      </span>
+                      <span class="pw-text-[10px] md:text-xs text-[#AAAAAA] whitespace-normal">
                         {{ item.s1Unit }}
                       </span>
                     </div>
                   </div>
                   <!-- 第三列-->
                   <div
-                    class="col-span-1 flex items-center justify-center py-3 pl-[8px] min-h-[3rem]"
+                    class="col-span-1 flex items-center justify-center py-3 pw-pl-[14px] md:pl-15 min-h-[3rem]"
                   >
-                    <div class="flex flex-row items-baseline flex-wrap justify-center">
-                      <span class="text-2xl font-normal text-[#AAAAAA] mr-1">
+                    <div class="flex flex-row items-baseline text-left flex-wrap w-full">
+                      <span class="pw-text-[18px] md:text-3xl font-normal text-[#AAAAAA]">
                         {{ item.humanValue }}
                       </span>
                       <span class="text-xs font-normal text-[#AAAAAA] whitespace-normal">
