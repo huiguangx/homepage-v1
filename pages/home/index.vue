@@ -64,8 +64,8 @@
 
                   <!-- 按钮链接 -->
                   <NuxtLinkLocale
-                    to=""
-                    class="inline-block rounded border-white md:border-none bg-transparent md:bg-[#5A46FF] pw-text-[14px] md:text-lg px-6 py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0 no-border-on-pc"
+                    to="/about"
+                    class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg px-6 py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0 no-border-on-pc"
                   >
                     {{ $t('home.hero.cta') }}
                   </NuxtLinkLocale>
@@ -101,8 +101,8 @@
 
                   <!-- 按钮链接 -->
                   <NuxtLinkLocale
-                    to=""
-                    class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] pw-text-[14px] md:text-lg px-6 py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0 no-border-on-pc"
+                    to="/contact"
+                    class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg px-6 py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0 no-border-on-pc"
                   >
                     {{ $t('home.hero.cta') }}
                   </NuxtLinkLocale>
@@ -140,7 +140,7 @@
       </div>
     </section>
 
-    <!-- About Section -->
+    <!--3 About Section -->
     <section class="bg-[#F9FAFB] py-8 md:py-32">
       <!-- 使用Tailwind标准单位 py-20=80px -->
       <div
@@ -181,7 +181,7 @@
             {{ $t('home.about.nextcontent') }}
           </p>
           <NuxtLinkLocale
-            to=""
+            to="/about"
             class="flex gap-1.5 justify-end md:justify-start pw-text-[12px] md:text-base font-medium text-[#475467] md:hover:text-[#1D2939]"
           >
             {{ $t('home.about.cta') }}
@@ -192,74 +192,68 @@
       </div>
     </section>
 
-    <!-- News Section -->
-    <section class="w-full bg-white py-8 md:py-20">
-      <!-- 使用Tailwind标准单位 py-20=80px -->
-      <div class="mx-auto w-[90%] flex flex-col items-center gap-4 md:gap-6">
-        <!-- gap-8=32px -->
-        <h1
-          class="pw-text-[22px] md:text-4xl font-medium leading-snug tracking-tight text-[#23233D]"
-        >
-          {{ $t('home.news.title') }}
-        </h1>
-
-        <!-- 网格布局（4列） -->
-        <div class="grid w-full grid-cols-2 gap-2 md:gap-6 lg:grid-cols-4">
+    <!--4 News Section -->
+    <section class="w-full bg-white pw-py-[32px] md:py-14">
+      <div class="mx-auto w-[90%]">
+        <div class="grid w-full pw-gap-[8px] md:gap-6 grid-cols-2 md:grid-cols-4">
           <div
-            v-for="(news, index) in newsList.slice(0, 4)"
+            v-for="(news, index) in newsList"
             :key="index"
-            class="group flex flex-col pw-h-[218px] md:h-auto rounded-lg md:rounded-2xl bg-[#F9FAFB] transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
+            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
           >
-            <!-- 图片容器 -->
-            <div
-              class="aspect-video w-full rounded-t-lg md:rounded-t-2xl overflow-hidden bg-gray-200"
-            >
-              <NuxtImg
-                :src="news.imageJpg"
-                :alt="news.title"
-                class="h-full w-full object-cover transition-transform duration-500"
-                loading="lazy"
-                placeholder
-              />
-            </div>
-
-            <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
-            <div class="flex flex-1 flex-col pw-p-[8px] md:p-4 transition-colors duration-300">
-              <h1
-                class="pw-pb-[8px] md:pb-2 pw-text-[14px] md:text-base font-medium leading-[1.375] text-[#020014] md:group-hover:text-[#000000]"
-              >
-                {{ news.title }}
-              </h1>
-              <p
-                class="pw-pb-[8px] md:pb-4 pw-text-[12px] font-normal md:text-sm leading-[1.429] text-[#71798A] md:group-hover:text-[#5a6473]"
-              >
-                {{ news.description }}
-              </p>
-
-              <!-- 日期容器（自动 margin-top 推到最底部） -->
-              <div
-                class="mt-auto flex items-center justify-between pw-text-[12px] font-normal md:text-xs text-[#71798A] md:group-hover:text-[#5a6473]"
-              >
-                <span>{{ news.date }}</span>
-                <img src="~/assets/images/index/news-arrow.svg" alt="" />
+            <a target="_blank" :href="news.href">
+              <!-- 图片容器 -->
+              <div class="w-full rounded-t-2xl overflow-hidden bg-gray-200">
+                <picture>
+                  <!-- <source
+                  media="(min-width: 768px)"
+                  srcset="~/assets/images/news/news-s1-poster.jpg"
+                /> -->
+                  <img :src="news.image" alt="News Banner" class="w-full object-cover" />
+                </picture>
               </div>
-            </div>
+
+              <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
+              <div class="flex flex-1 flex-col p-4 transition-colors duration-300 cursor-pointer">
+                <div class="flex-1 overflow-hidden">
+                  <h1
+                    class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis min-h-[2.8em] leading-snug"
+                  >
+                    {{ news.title }}
+                  </h1>
+                  <p
+                    class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-3 overflow-hidden text-ellipsis"
+                  >
+                    {{ news.description }}
+                  </p>
+                </div>
+                <div
+                  class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300 group-hover:-translate-y-0.5"
+                >
+                  <span class="group-hover:scale-105 transition-transform duration-300 ease-out">
+                    {{ news.date }}
+                  </span>
+                  <img
+                    src="~/assets/images/index/news-arrow.svg"
+                    alt=""
+                    class="transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:translate-x-0.5"
+                  />
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-
-        <button
-          class="mt-6 flex items-center rounded gap-1.5 border border-[#E4E4E4] px-5 py-3 text-base text-[#475467] md:hover:bg-gray-50"
-        >
-          {{ $t('home.news.cta') }}
-        </button>
       </div>
     </section>
 
-    <!-- Join & Business Sections -->
+    <!--5 Join & Business Sections -->
     <section class="w-full bg-[#F9FAFB] pw-py-[32px] md:py-16">
       <div class="mx-auto w-[90%] flex justify-center gap-[8px] md:gap-20 px-0">
         <div class="rounded-2xl bg-white pw-p-[24px] md:p-10 text-center">
-          <div class="flex flex-col items-center">
+          <NuxtLinkLocale
+            :to="{ path: '/careers', hash: '#join-us' }"
+            class="flex flex-col items-center"
+          >
             <h1 class="pw-text-[18px] md:text-2xl font-medium text-[#23233D]">
               {{ $t('home.careers.title') }}
             </h1>
@@ -268,18 +262,21 @@
             >
               {{ $t('home.careers.description') }}
             </p>
-            <NuxtLinkLocale
+            <div
               class="flex items-center pw-text-[12px] md:text-base md:cursor-pointer rounded text-[#5A46FF] font-medium"
             >
               {{ $t('home.careers.cta') }}
               <img class="pw-pl-[4px]" src="~/assets/images/index/go-arrow.svg" alt="" />
-            </NuxtLinkLocale>
-          </div>
+            </div>
+          </NuxtLinkLocale>
         </div>
 
         <div class="rounded-2xl bg-white pw-p-[24px] md:p-10 text-center">
-          <div class="flex flex-col items-center">
-            <h1 class="pw-text-[18px] md:text-2xl font-medium text-[#23233D]">
+          <NuxtLinkLocale :to="{ path: '/contact' }" class="flex flex-col items-center">
+            <h1
+              :to="{ path: '/contact', hash: '#contact-us' }"
+              class="pw-text-[18px] md:text-2xl font-medium text-[#23233D]"
+            >
               {{ $t('home.contact.title') }}
             </h1>
             <p
@@ -287,13 +284,13 @@
             >
               {{ $t('home.contact.description') }}
             </p>
-            <NuxtLinkLocale
+            <div
               class="flex items-center pw-text-[12px] md:text-base md:cursor-pointer rounded text-[#5A46FF] font-medium"
             >
               {{ $t('home.contact.cta') }}
               <img class="pw-pl-[4px]" src="~/assets/images/index/go-arrow.svg" alt="" />
-            </NuxtLinkLocale>
-          </div>
+            </div>
+          </NuxtLinkLocale>
         </div>
       </div>
     </section>
@@ -311,6 +308,55 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+// import img1 from '~/assets/images/news/news-s2-img1.jpg'
+import img2 from '~/assets/images/news/news-s2-img2.jpg'
+import img3 from '~/assets/images/news/news-s2-img3.jpg'
+import img4 from '~/assets/images/news/news-s2-img4.jpg'
+// import img5 from '~/assets/images/news/news-s2-img5.jpg'
+// import img6 from '~/assets/images/news/news-s2-img6.jpg'
+
+const newsList = [
+  // {
+  //   title: t('news.items.news1.title'),
+  //   description: t('news.items.news1.description'),
+  //   date: t('news.items.news1.date'),
+  //   image: img1,
+  //   href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
+  // },
+  {
+    title: t('news.items.news2.title'),
+    description: t('news.items.news2.description'),
+    date: t('news.items.news2.date'),
+    image: img2,
+    href: 'https://mp.weixin.qq.com/s/iLqSChrf7JbVPW_N6G2BTA',
+  },
+  {
+    title: t('news.items.news3.title'),
+    description: t('news.items.news3.description'),
+    date: t('news.items.news3.date'),
+    image: img3,
+    href: 'https://mp.weixin.qq.com/s/fLL1ZBXU9_dXACOcfhpAJA',
+  },
+  {
+    title: t('news.items.news4.title'),
+    description: t('news.items.news4.description'),
+    date: t('news.items.news4.date'),
+    image: img4,
+    href: 'https://mp.weixin.qq.com/s/I-J3udvsligc9OSoGgxMsA',
+  },
+  // {
+  //   title: t('news.items.news5.title'),
+  //   description: t('news.items.news5.description'),
+  //   date: t('news.items.news5.date'),
+  //   image: img5,
+  // },
+  // {
+  //   title: t('news.items.news6.title'),
+  //   description: t('news.items.news6.description'),
+  //   date: t('news.items.news6.date'),
+  //   image: img6,
+  // },
+]
 
 const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
 const activePageIndex = ref(0)
@@ -318,36 +364,6 @@ const activePageIndex = ref(0)
 const onSlideChange = (swiper: SwiperClass) => {
   activePageIndex.value = swiper.activeIndex
 }
-const newsList = computed(() => [
-  {
-    title: t('home.newsList.news1.title'),
-    description: t('home.newsList.news1.description'),
-    date: t('home.newsList.news1.date'),
-    imageWebp: '~/assets/images/index/index-s3-img-1.webp',
-    imageJpg: '~/assets/images/index/index-s3-img-1.jpg',
-  },
-  {
-    title: t('home.newsList.news2.title'),
-    description: t('home.newsList.news2.description'),
-    date: t('home.newsList.news2.date'),
-    imageWebp: '~/assets/images/index/index-s3-img4.webp',
-    imageJpg: '~/assets/images/index/index-s3-img4.jpg',
-  },
-  {
-    title: t('home.newsList.news3.title'),
-    description: t('home.newsList.news3.description'),
-    date: t('home.newsList.news3.date'),
-    imageWebp: '~/assets/images/index/index-s3-img3.webp',
-    imageJpg: '~/assets/images/index/index-s3-img3.jpg',
-  },
-  {
-    title: t('home.newsList.news4.title'),
-    description: t('home.newsList.news4.description'),
-    date: t('home.newsList.news4.date'),
-    imageWebp: '~/assets/images/index/index-s3-img2.webp',
-    imageJpg: '~/assets/images/index/index-s3-img2.jpg',
-  },
-])
 </script>
 
 <style scoped lang="scss">

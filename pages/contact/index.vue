@@ -162,7 +162,7 @@
             {{ $t('contact.connect.email.title') }}
           </h3>
           <div class="">
-            <div class="flex items-center">
+            <div class="flex items-center justify-center md:justify-start">
               <p class="pw-text-[14px] md:text-sm text-gray-500 mb-1">
                 {{ $t('contact.connect.email.business') }}：
               </p>
@@ -173,7 +173,7 @@
                 business@astribot.com
               </a>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center justify-center md:justify-start">
               <p class="pw-text-[14px] md:text-sm text-gray-500 mb-1">
                 {{ $t('contact.connect.email.recruitment') }}：
               </p>
@@ -184,7 +184,7 @@
                 join@astribot.com
               </a>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center justify-center md:justify-start">
               <p class="pw-text-[14px] md:text-sm text-gray-500 mb-1">
                 {{ $t('contact.connect.email.other') }}：
               </p>

@@ -57,7 +57,7 @@
                   {{ news.title }}
                 </h1>
                 <p
-                  class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-3 overflow-hidden text-ellipsis"
+                  class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-3 overflow-hidden text-ellipsis"
                 >
                   {{ news.description }}
                 </p>

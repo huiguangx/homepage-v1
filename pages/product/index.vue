@@ -40,7 +40,7 @@
       </div>
     </section>
 
-    <!--2 -->
+    <!--2 all-powerful robot-->
     <section class="w-full bg-[#161616] pw-py-[32px] md:py-20">
       <div class="h-auto w-[90%] mx-auto">
         <div class="text-center pw-pb-[14px] md:py-10">
@@ -115,6 +115,7 @@
     </section>
 
     <!--3 Performance Section -->
+    sdf
     <section
       class="pw-py-[32px] md:py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-contain"
     >
@@ -132,37 +133,46 @@
           <div class="w-full md:w-2/3">
             <div class="rounded-lg">
               <div class="grid grid-cols-3 gap-x-4 relative py-8">
+                <!-- 背景装饰条 -->
                 <div
                   class="absolute inset-y-0 left-1/3 right-1/3 bg-[#AAAAAA] bg-opacity-30 z-0 rounded-2xl pointer-events-none"
                 ></div>
 
-                <div class="col-span-1 text-right pr-4 text-gray-400"></div>
-                <div class="col-span-1 text-center">
+                <!-- 表头 -->
+                <div class="col-span-1 text-right pw-px-[14px] md:px-15 text-gray-400"></div>
+                <div class="col-span-1 text-center p-[8px] pr-[8px]">
                   <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-white my-text-class">
                     星尘智能S1
                   </h3>
                 </div>
-                <div class="col-span-1 text-center">
+                <div class="col-span-1 text-center p-[8px]">
                   <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-gray-300">
                     普通成年男性
                   </h3>
                 </div>
 
+                <!-- 数据行 -->
                 <template v-for="(item, index) in specItems" :key="index">
+                  <!-- 第一列-->
                   <div
-                    class="col-span-1 text-right pr-4 text-[#AAAAAA] py-3 flex items-center justify-end min-h-[3rem]"
+                    class="col-span-1 text-right pr-[16px] text-[#AAAAAA] py-3 flex items-center justify-end min-h-[3rem]"
                   >
                     <span class="whitespace-normal text-right">{{ item.name }}</span>
                   </div>
-                  <div class="col-span-1 flex items-center justify-center py-3 min-h-[3rem]">
-                    <div class="flex flex-row items-baseline flex-wrap justify-center">
+                  <!-- 第二列-->
+                  <div class="col-span-1 flex items-center py-3 pw-px-[16px] min-h-[3rem]">
+                    <div class="flex flex-row items-baseline flex-wrap text-left w-full">
+                      <!-- 修改这里 -->
                       <span class="text-2xl font-bold text-white mr-1">{{ item.s1Value }}</span>
                       <span class="text-xs text-[#AAAAAA] whitespace-normal">
                         {{ item.s1Unit }}
                       </span>
                     </div>
                   </div>
-                  <div class="col-span-1 flex items-center justify-center py-3 min-h-[3rem]">
+                  <!-- 第三列-->
+                  <div
+                    class="col-span-1 flex items-center justify-center py-3 pl-[8px] min-h-[3rem]"
+                  >
                     <div class="flex flex-row items-baseline flex-wrap justify-center">
                       <span class="text-2xl font-normal text-[#AAAAAA] mr-1">
                         {{ item.humanValue }}
@@ -320,7 +330,7 @@
             @activeIndexChange="handleVrSlideChange"
           >
             <swiper-slide
-              v-for="(video, index) in videos"
+              v-for="(video, index) in vrVideos"
               :key="index"
               :class="{ 'active-slide': isActive(index) }"
             >
@@ -338,9 +348,13 @@
                   您的浏览器不支持HTML5视频
                 </p>
               </video>
+              <div class="flex justify-between pw-pt-[8px] md:pt-4">
+                <p class="text-white">{{ video.desc }}</p>
+                <!-- <div>查看详情</div> -->
+              </div>
             </swiper-slide>
           </swiper>
-          <div class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14">
+          <div class="flex justify-center md:justify-between items-center pw-pt-[24px] md:pt-8">
             <!-- 自定义分页器 -->
             <div class="vr-pagination"></div>
             <!-- 自定义导航按钮 -->
@@ -489,6 +503,7 @@
       </div>
       <div class="flex justify-center">
         <NuxtLinkLocale
+          to="/contact"
           class="pw-px-[20px] pw-py-[12px] md:px-4 md:py-2 rounded font-normal text-white bg-[#5A46FF] pw-text-[14px] md:text-sm md:hover:bg-[#7463FF] transition-all duration-300 ease-out"
         >
           {{ $t('product.ecosystem.cta') }}
@@ -506,6 +521,12 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import video1 from '~/assets/media/遥操1.mp4'
+import video2 from '~/assets/media/遥操2.mp4'
+import video3 from '~/assets/media/遥操3.mp4'
+import video4 from '~/assets/media/遥操4.mp4'
+import video5 from '~/assets/media/遥操5.mp4'
+import video6 from '~/assets/media/遥操6.mp4'
 import danceVideo from '~/assets/media/01跳舞.mp4'
 import catVideo from '~/assets/media/02逗猫＋扫地.mp4'
 import yangqinVideo from '~/assets/media/03扬琴.mp4'
@@ -597,7 +618,6 @@ const specItems = [
     humanUnit: '小时，相当于人类静息代谢',
   },
 ]
-
 const videos = [
   { src: danceVideo, title: '舞蹈表演' },
   { src: catVideo, title: '逗猫扫地' },
@@ -607,6 +627,15 @@ const videos = [
   { src: sortingVideo, title: '智能分拣' },
   { src: foldingVideo, title: '衣物整理' },
   { src: cupVideo, title: '竞技叠杯' },
+]
+
+const vrVideos = [
+  { src: video2, title: '遥操2', desc: t('product.teleoperation.video_detail.0.desc') },
+  { src: video3, title: '遥操3', desc: t('product.teleoperation.video_detail.1.desc') },
+  { src: video4, title: '遥操4', desc: t('product.teleoperation.video_detail.2.desc') },
+  { src: video5, title: '遥操5', desc: t('product.teleoperation.video_detail.3.desc') },
+  { src: video6, title: '遥操6', desc: t('product.teleoperation.video_detail.4.desc') },
+  { src: video1, title: '遥操1', desc: t('product.teleoperation.video_detail.5.desc') },
 ]
 
 const activeIndex = ref(0)

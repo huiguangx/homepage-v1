@@ -93,7 +93,7 @@
 
     <!-- Open Positions -->
     <section class="py-20">
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4" id="join-us">
         <h2 class="text-4xl font-bold text-center mb-6">{{ $t('careers.openPositions') }}</h2>
         <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
           {{ $t('careers.openPositionsDesc') }}

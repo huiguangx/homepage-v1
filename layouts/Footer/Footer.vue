@@ -49,6 +49,14 @@
                 ></span>
               </li>
               <li class="relative group">
+                <NuxtLinkLocale to="/news" class="hmd:over:text-white transition-colors">
+                  {{ $t('menu.news') }}
+                </NuxtLinkLocale>
+                <span
+                  class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
+                ></span>
+              </li>
+              <li class="relative group">
                 <NuxtLinkLocale to="/about" class="hmd:over:text-white transition-colors">
                   {{ $t('menu.about') }}
                 </NuxtLinkLocale>
@@ -61,14 +69,14 @@
         </div>
 
         <!-- 右侧社交媒体图标 -->
-        <div class="flex md:space-x-4 justify-between mt-4 md:mt-0">
+        <div class="flex md:space-x-4 justify-between pw-mt-[24px] md:mt-0">
           <!-- 微信 -->
           <div class="relative group">
             <a href="#">
               <img
                 src="~/assets/images/footer/wechat.svg"
                 alt=""
-                class="brightness-75 transition-all duration-300 hover:brightness-200"
+                class="brightness-75 transition-all duration-300 md:hover:brightness-200"
               />
             </a>
             <div
@@ -82,11 +90,15 @@
             </div>
           </div>
 
-          <!-- 日历/新闻 -->
-          <a href="#">
+          <!-- 哔哩哔哩 -->
+          <a
+            target="_blank"
+            href="https://www.douyin.com/user/MS4wLjABAAAAAcfipSlaUYyM673pSK5eGTC9j2S1P5yzqlrVSaGLjN4coXjFqV8inh4i4HVDsoqK "
+            class="footer-top-right-img footer_douyin"
+          >
             <img
               src="~/assets/images/footer/bilibili.svg"
-              class="brightness-75 transition-all duration-300 hover:brightness-200"
+              class="brightness-75 transition-all duration-300 md:hover:brightness-200"
               alt=""
             />
           </a>
@@ -101,7 +113,7 @@
           </a>
 
           <!-- YouTube -->
-          <a href="#">
+          <a target="_blank" href="https://www.youtube.com/channel/UCDjnC6m9_xW-PDeDCjv-jng">
             <img
               src="~/assets/images/footer/youtube.svg"
               class="brightness-75 transition-all duration-300 hover:brightness-200"
@@ -113,16 +125,19 @@
           <a href="#">
             <img
               src="~/assets/images/footer/x.svg"
-              class="brightness-75 transition-all duration-300 hover:brightness-200"
+              class="brightness-75 transition-all duration-300 md:hover:brightness-200"
               alt=""
             />
           </a>
 
-          <!-- 抖音 (第二个) -->
-          <a href="#">
+          <!-- tiktok -->
+          <a
+            target="_blank"
+            href="https://www.tiktok.com/@astribot_inc?is_from_webapp=1&sender_device=pc"
+          >
             <img
               src="~/assets/images/footer/tiktok.svg"
-              class="brightness-75 transition-all duration-300 hover:brightness-200"
+              class="brightness-75 transition-all duration-300 md:hover:brightness-200"
               alt=""
             />
           </a>
@@ -134,24 +149,36 @@
 
       <!-- 版权信息 -->
       <div>
-        <div class="text-gray-500 text-base">
+        <div class="text-gray-500 pw-text-[12px] md:text-xs">
           <p class="mb-2 text-center md:text-left">Copyright © Astribot. All Rights Reserved.</p>
           <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
             <div class="flex items-center cursor-pointer">
-              <span>粤ICP备20253601号</span>
+              <span>
+                <a rel="noreferrer" target="_blank" href="http://beian.miit.gov.cn/">
+                  粤ICP备20253601号
+                </a>
+              </span>
             </div>
-            <div class="flex items-center cursor-pointer">
+            <div class="flex items-center md:cursor-pointer">
               <img
                 src="~/assets/images/footer/head-logo.png"
                 alt="公安备案图标"
                 class="w-[16px] mr-[5px]"
               />
-              <span>粤公网安备44030002006488号</span>
+              <span>
+                <a
+                  rel="noreferrer"
+                  target="_blank"
+                  href="https://beian.mps.gov.cn/#/query/webSearch?code=44030002006488"
+                >
+                  粤公网安备44030002006488号
+                </a>
+              </span>
             </div>
 
             <div
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-              class="hover:text-gray-300 transition-colors cursor-pointer hidden md:block"
+              class="hover:text-gray-300 transition-colors md:cursor-pointer hidden md:block"
             >
               {{ locale === 'zh' ? 'English' : '中文' }}
             </div>
@@ -164,7 +191,6 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import AppLink from '~/components/AppLink.vue'
 
 const { locale, setLocale } = useI18n()
 const changeLanguage = (locale) => {

@@ -167,7 +167,7 @@
         "date": "January 27, 2025"
       },
       "news2": {
-        "title": "In-Depth | PII with $400M Funding Partners with Astribot: The Robot's Jarvis Era Begins",
+        "title": "In-Depth｜PII with $400M Funding Partners with Astribot: The Robot's Jarvis Era Begins",
         "description": "Recently, Physical Intelligence and Astribot announced cooperation to collaborate at data and model levels, advancing general robot development...",
         "date": "November 21, 2024"
       },
@@ -190,7 +190,8 @@
     "about": {
       "title": "About Us",
       "content": "Astribot was founded in Shenzhen in December 2022. As a leading AI robotics company, our vision is to empower billions of people with Al robotic partners, and our mission is to promote co-existence, co-creation and co-prosperity between humans and robots.",
-      "nextcontent": "The company has pioneered a software-hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal manipulation'. This innovation has led to key breakthroughs in embodied intelligence and data acquisition, enabling robots to learn, think, and work like humans while fostering smooth and intelligent interactions with people."
+      "nextcontent": "The company has pioneered a software-hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal manipulation'. This innovation has led to key breakthroughs in embodied intelligence and data acquisition, enabling robots to learn, think, and work like humans while fostering smooth and intelligent interactions with people.",
+      "cta": "Learn more"
     },
     "contact": {
       "title": "Contact Us",
@@ -263,18 +264,30 @@
     },
     "teleoperation": {
       "title": "VR Teleoperation: Let Astribot Become Your AI Training Partner",
-      "sections": [
+      "video_detail": [
         {
-          "title": "Ultra-Efficient Data Collection, 5x Faster Training",
-          "points": [
-            "Real-time VR teleoperation with low latency motion synchronization",
-            "Each pick and place cycle takes only 2 seconds",
-            "High-quality data throughout, with over 99% effective data"
-          ]
+          "desc": "Ultra-Efficient Data Collection, 5x Faster Trainingn"
         },
         {
-          "title": "Zero-code Astribot UI, Master in Minutes",
-          "points": ["Zero-code operation with a single click", "Complete task setup in 1 minute"]
+          "desc": "Zero-code Astribot UI, Master in Minutes"
+        },
+        {
+          "desc": "Multimodal Fusion, Comprehensive Perception of the Real Environment"
+        },
+        {
+          "desc": "Cutting-Edge Force-Control Technology, Safeguarding Every Operation Second"
+        },
+        {
+          "desc": "Precise Reproduction, Superior Simulation for Training Effectiveness"
+        },
+        {
+          "desc": "Data-Driven AI Models, Smarter with Use"
+        },
+        {
+          "desc": "Zero-code operation with a single click"
+        },
+        {
+          "desc": "Complete task setup in 1 minute"
         }
       ]
     },
@@ -325,7 +338,7 @@
         "date": "January 27, 2025 10:00"
       },
       "news2": {
-        "title": "In-Depth | Astribot secures $400M from Top Investors, teams up with PI: The robot's Jarvis is Here!",
+        "title": "In-Depth｜Astribot secures $400M from Top Investors, teams up with PI: The robot's Jarvis is Here!",
         "description": "Recently, Physical Intelligence and Astribot have announced a partnership to collaborate at the data and model levels, promoting the entry of general artificial intelligence into the physical world and jointly building world models.",
         "date": "November 21, 2024 18:02"
       },
