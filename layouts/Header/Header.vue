@@ -82,8 +82,8 @@
               {{ locale === 'zh' ? 'En' : '中文' }}
             </div>
             <NuxtLinkLocale
-              to="/about"
-              class="px-4 py-2 text-white rounded font-thin bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
+              to="/contact"
+              class="pw-px-[16px] md:px-4 pw-py-8px md:py-2 text-white rounded font-thin bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
             >
               {{ $t('home.contact.title') }}
             </NuxtLinkLocale>

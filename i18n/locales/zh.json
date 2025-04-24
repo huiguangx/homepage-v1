@@ -1,6 +1,6 @@
 {
   "welcome": "欢迎",
-  "contact": "联系我们",
+
   "login": "登录",
   "logout": "退出",
   "register": "注册",
@@ -351,6 +351,45 @@
         "title": "星尘智能很高兴为你介绍新一代 AI 机器人 Astribot S1",
         "description": "它在同规格机器人中具备“最强操作性能”，建立了新的 AI 机器人标准。它能像人一样学习、思考和进行多项劳动，正是“为你而生，为你而智”...",
         "date": "2024年04月26日 09:21"
+      }
+    }
+  },
+  "contact": {
+    "cooperation": {
+      "title": "商务合作",
+      "subtitle": "期待与您的合作",
+      "form": {
+        "name": "姓名",
+        "company": "公司名称",
+        "email": "邮箱地址",
+        "phone": "联系电话",
+        "description": "请描述您的合作意向或需求",
+        "submit": "立即提交",
+        "success": "提交成功"
+      }
+    },
+    "connect": {
+      "title": "联系我们",
+      "social": {
+        "title": "社交媒体",
+        "bilibili": "哔哩哔哩",
+        "wechat": "微信公众号",
+        "youtube": "YouTube",
+        "douyin": "抖音",
+        "x": "X",
+        "tiktok": "TikTok"
+      },
+      "email": {
+        "title": "邮箱联系",
+        "business": "商务",
+        "recruitment": "招聘",
+        "other": "其他"
+      },
+      "address": {
+        "title": "公司地址",
+        "detail": "深圳市南山区科技南路18号深圳湾科技生态园12栋B座4003",
+        "phone": "联系电话",
+        "number": "0755-86701637"
       }
     }
   }

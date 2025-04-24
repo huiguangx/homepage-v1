@@ -1,5 +1,4 @@
 <template>
-  <!-- <NuxtImg src="/_nuxt/assets/images/about/about-astribot.jpg"></NuxtImg> -->
   <section>
     <div class="relative w-full h-screen">
       <img

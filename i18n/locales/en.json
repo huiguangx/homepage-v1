@@ -1,6 +1,5 @@
 {
   "welcome": "Welcome",
-  "contact": "Contact",
   "login": "Login",
   "logout": "Logout",
   "register": "Register",
@@ -349,6 +348,45 @@
         "title": "Astribot is pleased to introduce you to the new generation of AI robot Astribot S1",
         "description": "Setting a new benchmark for AI robotics, S1 delivers better operational performance in its class. It learns, thinks, and performs tasks like a human, truly embodying Naturally Yours.",
         "date": "April 26, 2024 09:21"
+      }
+    }
+  },
+  "contact": {
+    "cooperation": {
+      "title": "Cooperation",
+      "subtitle": "Looking forward to your cooperation",
+      "form": {
+        "name": "Name",
+        "company": "Company",
+        "email": "Email",
+        "phone": "Phone",
+        "description": "Please describe your needs",
+        "submit": "Submit",
+        "success": "Submit Success"
+      }
+    },
+    "connect": {
+      "title": "Contact",
+      "social": {
+        "title": "Social Media",
+        "bilibili": "bilibili",
+        "wechat": "WeChat",
+        "youtube": "YouTube",
+        "douyin": "DouYin",
+        "x": "X",
+        "tiktok": "TikTok"
+      },
+      "email": {
+        "title": "Email Contact",
+        "business": "Marketing&Sales",
+        "recruitment": "Recruitment",
+        "other": "Others"
+      },
+      "address": {
+        "title": "Company Address",
+        "detail": "Shenzhen, China",
+        "phone": "Phone",
+        "number": "0755-86701637"
       }
     }
   }

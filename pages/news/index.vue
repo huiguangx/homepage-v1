@@ -50,11 +50,9 @@
 
             <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
             <div class="flex flex-1 flex-col p-4 transition-colors duration-300 cursor-pointer">
-              <!-- <div class="flex flex-1 flex-col p-4 transition-colors duration-300"> -->
               <div class="flex-1 overflow-hidden">
-                <!-- 新增容器 -->
                 <h1
-                  class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis"
+                  class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis min-h-[2.8em] leading-snug"
                 >
                   {{ news.title }}
                 </h1>
