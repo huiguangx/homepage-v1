@@ -90,7 +90,7 @@
     </section>
 
     <!-- Open Positions -->
-    <section class="py-12 md:py-16 bg-[#F9FAFB]">
+    <section class="py-12 md:py-16 bg-[#F9FAFB]" id="join-us">
       <div class="w-[90%] mx-auto">
         <!-- 标题区域 -->
         <div class="text-center">
@@ -103,10 +103,10 @@
         </div>
 
         <!-- 移动端标签页 -->
-        <div class="md:hidden mt-[32px] mb-6 relative overflow-x-auto">
+        <div class="md:hidden mt-[32px] pw-pb-[24px] relative overflow-x-auto">
           <div
             ref="tabHeader"
-            class="grid grid-cols-3 border-b border-gray-200"
+            class="grid grid-cols-3"
             @touchstart="startSwipe"
             @touchmove="swiping"
             @touchend="endSwipe"
@@ -117,7 +117,7 @@
               @click="switchTab(tab.id)"
               class="flex-shrink-0 px-4 py-2 text-center px-text-[16px] font-medium"
               :class="{
-                'text-[#5A46FF] border-b-2 border-[#5A46FF]': activeTab === tab.id,
+                'text-[#5A46FF]  border-b-2 border-[#5A46FF]': activeTab === tab.id,
                 'text-gray-500': activeTab !== tab.id,
               }"
             >
@@ -145,14 +145,15 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-4 py-1.5 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     查看岗位
                   </button>
                 </div>
               </div>
               <a
-                href="#"
+                href="https://dwz.cn/1Vq7rTKn"
+                target="_blank"
                 class="inline-block text-[#5A46FF] hover:[#796af8] mx-5 my-4 text-sm font-medium"
               >
                 查看更多社招岗位
@@ -177,14 +178,15 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-4 py-1.5 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     查看岗位
                   </button>
                 </div>
               </div>
               <a
-                href="#"
+                href="https://dwz.cn/ZPkmdxje"
+                target="_blank"
                 class="inline-block text-[#5A46FF] hover:text-[#796af8] mx-5 my-4 text-sm font-medium"
               >
                 查看更多校园岗位
@@ -209,14 +211,15 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-4 py-1.5 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     查看岗位
                   </button>
                 </div>
               </div>
               <a
-                href="#"
+                href="https://s.xinrenxinshi.com/recruitGate#/ey=0ebdb005864a706d8f15cdadc338584487c666"
+                target="_blank"
                 class="inline-block text-[#5A46FF] hover:text-[#796af8] text-sm mx-5 my-4 font-medium"
               >
                 查看更多实习岗位
@@ -256,7 +259,13 @@
                   </button>
                 </div>
                 <div class="text-center mt-6">
-                  <a href="#" class="text-[#5A46FF] pw-text-[12px] font-normal">查看更多社招岗位</a>
+                  <a
+                    href="https://dwz.cn/1Vq7rTKn"
+                    target="_blank"
+                    class="text-[#5A46FF] pw-text-[12px] font-normal"
+                  >
+                    查看更多社招岗位
+                  </a>
                 </div>
               </div>
             </div>
@@ -280,7 +289,13 @@
                   </button>
                 </div>
                 <div class="text-center mt-6">
-                  <a href="#" class="text-[#5A46FF] pw-text-[12px] font-normal">查看更多校园岗位</a>
+                  <a
+                    href="https://dwz.cn/ZPkmdxje"
+                    target="_blank"
+                    class="text-[#5A46FF] pw-text-[12px] font-normal"
+                  >
+                    查看更多校园岗位
+                  </a>
                 </div>
               </div>
             </div>
@@ -304,7 +319,13 @@
                   </button>
                 </div>
                 <div class="text-center mt-6">
-                  <a href="#" class="text-[#5A46FF] pw-text-[12px] font-normal">查看更多实习岗位</a>
+                  <a
+                    href="https://s.xinrenxinshi.com/recruitGate#/ey=0ebdb005864a706d8f15cdadc338584487c666"
+                    target="_blank"
+                    class="text-[#5A46FF] pw-text-[12px] font-normal"
+                  >
+                    查看更多实习岗位
+                  </a>
                 </div>
               </div>
             </div>
@@ -400,11 +421,11 @@ const switchTab = (tabId) => {
 
 // 岗位数据（保持原有不变）
 const socialJobs = [
-  { title: '硬件工程师', category: '技术类' },
-  { title: '机械工程师', category: '技术类' },
   { title: '感知算法工程师', category: '技术类' },
-  { title: '机器人控制算法工程师', category: '技术类' },
+  { title: '硬件工程师（电源）', category: '技术类' },
   { title: '产品经理', category: '产品类' },
+  { title: '销售经理', category: '市场类' },
+  { title: '薪酬绩效专家', category: '职能类' },
 ]
 
 const campusJobs = [

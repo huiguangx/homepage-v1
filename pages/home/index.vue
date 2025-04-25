@@ -308,7 +308,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
-// import img1 from '~/assets/images/news/news-s2-img1.jpg'
+import img1 from '~/assets/images/news/news-s2-img1.jpg'
 import img2 from '~/assets/images/news/news-s2-img2.jpg'
 import img3 from '~/assets/images/news/news-s2-img3.jpg'
 import img4 from '~/assets/images/news/news-s2-img4.jpg'
@@ -316,13 +316,13 @@ import img4 from '~/assets/images/news/news-s2-img4.jpg'
 // import img6 from '~/assets/images/news/news-s2-img6.jpg'
 
 const newsList = [
-  // {
-  //   title: t('news.items.news1.title'),
-  //   description: t('news.items.news1.description'),
-  //   date: t('news.items.news1.date'),
-  //   image: img1,
-  //   href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
-  // },
+  {
+    title: t('news.items.news1.title'),
+    description: t('news.items.news1.description'),
+    date: t('news.items.news1.date'),
+    image: img1,
+    href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
+  },
   {
     title: t('news.items.news2.title'),
     description: t('news.items.news2.description'),

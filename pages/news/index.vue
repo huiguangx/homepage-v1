@@ -37,44 +37,46 @@
             :key="index"
             class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
           >
-            <!-- 图片容器 -->
-            <div class="w-full rounded-t-2xl overflow-hidden bg-gray-200">
-              <picture>
-                <!-- <source
+            <a :href="news.href" target="_blank" class="md:cursor-pointer">
+              <!-- 图片容器 -->
+              <div class="w-full rounded-t-2xl overflow-hidden bg-gray-200">
+                <picture>
+                  <!-- <source
                   media="(min-width: 768px)"
                   srcset="~/assets/images/news/news-s1-poster.jpg"
                 /> -->
-                <img :src="news.image" alt="News Banner" class="w-full object-cover" />
-              </picture>
-            </div>
+                  <img :src="news.image" alt="News Banner" class="w-full object-cover" />
+                </picture>
+              </div>
 
-            <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
-            <div class="flex flex-1 flex-col p-4 transition-colors duration-300 cursor-pointer">
-              <div class="flex-1 overflow-hidden">
-                <h1
-                  class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis min-h-[2.8em] leading-snug"
+              <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
+              <div class="flex flex-1 flex-col p-4 transition-colors duration-300">
+                <div class="flex-1 overflow-hidden">
+                  <h1
+                    class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis min-h-[2.8em] leading-snug"
+                  >
+                    {{ news.title }}
+                  </h1>
+                  <p
+                    class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-3 overflow-hidden text-ellipsis"
+                  >
+                    {{ news.description }}
+                  </p>
+                </div>
+                <div
+                  class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300 group-hover:-translate-y-0.5"
                 >
-                  {{ news.title }}
-                </h1>
-                <p
-                  class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-3 overflow-hidden text-ellipsis"
-                >
-                  {{ news.description }}
-                </p>
+                  <span class="group-hover:scale-105 transition-transform duration-300 ease-out">
+                    {{ news.date }}
+                  </span>
+                  <img
+                    src="~/assets/images/index/news-arrow.svg"
+                    alt=""
+                    class="transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:translate-x-0.5"
+                  />
+                </div>
               </div>
-              <div
-                class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300 group-hover:-translate-y-0.5"
-              >
-                <span class="group-hover:scale-105 transition-transform duration-300 ease-out">
-                  {{ news.date }}
-                </span>
-                <img
-                  src="~/assets/images/index/news-arrow.svg"
-                  alt=""
-                  class="transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:translate-x-0.5"
-                />
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -98,36 +100,42 @@ const newsList = [
     description: t('news.items.news1.description'),
     date: t('news.items.news1.date'),
     image: img1,
+    href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
   },
   {
     title: t('news.items.news2.title'),
     description: t('news.items.news2.description'),
     date: t('news.items.news2.date'),
     image: img2,
+    href: 'https://mp.weixin.qq.com/s/iLqSChrf7JbVPW_N6G2BTA',
   },
   {
     title: t('news.items.news3.title'),
     description: t('news.items.news3.description'),
     date: t('news.items.news3.date'),
     image: img3,
+    href: 'https://mp.weixin.qq.com/s/fLL1ZBXU9_dXACOcfhpAJA',
   },
   {
     title: t('news.items.news4.title'),
     description: t('news.items.news4.description'),
     date: t('news.items.news4.date'),
     image: img4,
+    href: 'https://mp.weixin.qq.com/s/I-J3udvsligc9OSoGgxMsA',
   },
   {
     title: t('news.items.news5.title'),
     description: t('news.items.news5.description'),
     date: t('news.items.news5.date'),
     image: img5,
+    href: 'https://twitter.com/Astribot_Inc/status/1825341062514438179?s=19',
   },
   {
     title: t('news.items.news6.title'),
     description: t('news.items.news6.description'),
     date: t('news.items.news6.date'),
     image: img6,
+    href: 'https://twitter.com/Astribot_Inc/status/1783716048673640641?s=19',
   },
 ]
 

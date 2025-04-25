@@ -8,7 +8,7 @@
     ]"
   >
     <div class="mx-auto w-[90%]">
-      <div class="flex items-center justify-between h-11 md:h-16">
+      <div class="flex items-center justify-between pw-h-[44px] md:h-16">
         <!-- Logo -->
         <div class="flex-shrink-0">
           <NuxtLinkLocale to="/" class="flex items-center">
@@ -91,7 +91,7 @@
         </div>
         <!-- Mobile menu button (hidden for now) -->
         <div class="md:hidden">
-          <div>
+          <div @click="isMenuOpen = true">
             <img
               class="block pw-w-[24px]"
               src="~/assets/images/header/menu.svg"
@@ -104,13 +104,87 @@
         </div>
       </div>
     </div>
+    <!-- 侧边菜单 -->
+    <div
+      class="block md:hidden fixed top-0 right-0 w-full max-w-xs h-auto bg-white z-50 transform transition-transform duration-300 ease-in-out overflow-hidden"
+      :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
+    >
+      <div class="flex flex-col w-full h-full">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200">
+          <div class="flex items-center">
+            <img
+              src="~/assets/images/header/logo.svg"
+              alt="Logo"
+              class="pw-w-[27px] md:w-8 h-auto"
+            />
+            <span class="ml-2 text-black pw-text-[20px] font-medium">星尘智能</span>
+          </div>
+          <button
+            @click="isMenuOpen = false"
+            class="p-2 text-gray-500 focus:outline-none"
+            aria-label="关闭菜单"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto">
+          <nav class="py-2">
+            <ul>
+              <li v-for="(item, index) in navItems" :key="index">
+                <NuxtLinkLocale
+                  :to="item.path"
+                  class="flex items-center justify-between px-4 py-3 hover:bg-gray-100"
+                >
+                  <span class="text-black">{{ item.name }}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 text-gray-400"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </NuxtLinkLocale>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+const isMobileMenuOpen = ref(false)
+const isMenuOpen = ref(false)
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
 import { useRoute } from 'vue-router'
-
+const gl = () => {
+  console.log(111)
+}
 // 路由和滚动状态
 const route = useRoute()
 const isScrolled = ref(false)
@@ -125,6 +199,7 @@ const navItems = computed(() => [
   { name: t('menu.news'), path: '/news' },
   { name: t('menu.about'), path: '/about' },
 ])
+
 const getBasePath = (path) => {
   // 匹配以 /zh 或 /en 开头的路径，并去掉语言前缀
   return path.replace(/^\/(zh|en)/, '') || '/'
