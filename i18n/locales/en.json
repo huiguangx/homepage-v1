@@ -129,10 +129,6 @@
       }
     }
   },
-  "about": {
-    "title": "About Us",
-    "content": "Learn more about our company and mission."
-  },
 
   "menu": {
     "home": "Home",
@@ -215,7 +211,7 @@
       "title": "Human-like abilities, Greater creativity",
       "description": "Astribot S1 mirrors an adult male's operational parameters, delivering exceptional performance, stability, and safety - empowering researchers and explorers to bring imagination to life.",
       "modelName": "Astribot S1",
-      "comparisonTarget": "Average Adult Male",
+      "comparisonTarget": "Normal Adult Male",
       "note": "Note: S1 is designed for researchers, developers and specific scenario users, with potential for higher performance indicators.",
       "comparison": {
         "items": [
@@ -228,6 +224,13 @@
           "Weight",
           "Arm span",
           "Endurance"
+        ],
+        "unit": [
+          "Swing arm",
+          "mm Training up to ±0.5",
+          "of human resting metabolism",
+          "hours",
+          "Supports plug-in"
         ],
         "note": "*This version is designed for scientific research, with select parameters unlockable for enhanced performance."
       }
@@ -402,5 +405,10 @@
         "number": "0755-86701637"
       }
     }
+  },
+  "about": {
+    "title": "创未来科技，传经典文化",
+    "desc": "High Tech, High Life",
+    "culture": "Corporate Culture"
   }
 }

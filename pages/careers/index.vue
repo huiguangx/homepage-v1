@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white">
     <!-- Banner Section -->
-    <section class="relative w-full h-screen overflow-hidden">
+    <section class="relative w-full h-[70vh] md:h-screen overflow-hidden">
       <div class="mx-auto w-[90%]">
         <!-- 背景图 -->
         <img
@@ -36,15 +36,6 @@
           </p>
         </div>
 
-        <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <div
-            v-for="(image, index) in workImages"
-            :key="index"
-            class="rounded-2xl overflow-hidden h-80"
-          >
-            <img :src="image.src" :alt="image.alt" class="w-full h-full object-cover" />
-          </div>
-        </div> -->
         <swiper
           class="news-swiper text-white"
           :modules="swiperModules"
@@ -62,9 +53,16 @@
           :loop="true"
           :centeredSlides="true"
           :spaceBetween="20"
-          :slidesPerView="3"
+          :slidesPerView="1"
+          :breakpoints="{
+            768: {
+              slidesPerView: 2.5,
+              // centeredSlides: true,
+              initialSlide: 1,
+            },
+          }"
         >
-          <swiper-slide v-for="(image, index) in images" :key="index">
+          <swiper-slide v-for="(image, index) in workImages" :key="index">
             <img class="rounded-lg" :src="image.src" alt="" />
           </swiper-slide>
         </swiper>
@@ -92,70 +90,224 @@
     </section>
 
     <!-- Open Positions -->
-    <section class="py-20">
-      <div class="container mx-auto px-4" id="join-us">
-        <h2 class="text-4xl font-bold text-center mb-6">{{ $t('careers.openPositions') }}</h2>
-        <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
-          {{ $t('careers.openPositionsDesc') }}
-        </p>
+    <section class="py-12 md:py-16 bg-[#F9FAFB]">
+      <div class="w-[90%] mx-auto">
+        <!-- 标题区域 -->
+        <div class="text-center">
+          <h2 class="pw-text-[22px] md:text-4xl font-medium pw-mb-[8px] md:mb-4">
+            {{ $t('careers.openPositions') }}
+          </h2>
+          <p class="pw-text-[14px] md:text-lg text-gray-600">
+            {{ $t('careers.openPositionsDesc') }}
+          </p>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto">
-          <!-- Social Recruitment -->
-          <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-            <div class="border-b border-blue-500 pb-4 mb-6">
-              <h3 class="text-2xl font-semibold text-center">
-                {{ $t('careers.socialRecruitment') }}
-              </h3>
-            </div>
+        <!-- 移动端标签页 -->
+        <div class="md:hidden mt-[32px] mb-6 relative overflow-x-auto">
+          <div
+            ref="tabHeader"
+            class="grid grid-cols-3 border-b border-gray-200"
+            @touchstart="startSwipe"
+            @touchmove="swiping"
+            @touchend="endSwipe"
+          >
+            <button
+              v-for="tab in tabs"
+              :key="tab.id"
+              @click="switchTab(tab.id)"
+              class="flex-shrink-0 px-4 py-2 text-center px-text-[16px] font-medium"
+              :class="{
+                'text-[#5A46FF] border-b-2 border-[#5A46FF]': activeTab === tab.id,
+                'text-gray-500': activeTab !== tab.id,
+              }"
+            >
+              {{ tab.name }}
+            </button>
+          </div>
+        </div>
+
+        <!-- 桌面端三列布局 -->
+        <div class="hidden md:grid md:grid-cols-3 md:gap-8 mt-10">
+          <!-- 社会招聘 -->
+          <div>
+            <h3
+              class="inline-block text-xl font-medium pb-2 mb-6 border-b border-[#a096fa] mx-5 my-4"
+            >
+              社会招聘
+            </h3>
             <div class="space-y-4">
-              <div
-                v-for="(position, index) in socialPositions"
-                :key="index"
-                class="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-              >
-                <h4 class="font-medium">{{ position.title }}</h4>
-                <span class="text-sm text-gray-500">{{ position.type }}</span>
+              <div v-for="(job, index) in socialJobs" :key="index" class="relative group">
+                <div
+                  class="flex justify-between items-start rounded-lg px-5 py-4 hover:bg-[#F3F3F3]"
+                >
+                  <div>
+                    <h4 class="text-base font-medium">{{ job.title }}</h4>
+                    <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
+                  </div>
+                  <button
+                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-4 py-1.5 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  >
+                    查看岗位
+                  </button>
+                </div>
               </div>
+              <a
+                href="#"
+                class="inline-block text-[#5A46FF] hover:[#796af8] mx-5 my-4 text-sm font-medium"
+              >
+                查看更多社招岗位
+              </a>
             </div>
-            <a href="" class="text-[#5A46FF]">查看更多社招岗位</a>
           </div>
 
-          <!-- Campus Recruitment -->
-          <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-            <div class="border-b border-blue-500 pb-4 mb-6">
-              <h3 class="text-2xl font-semibold text-center">
-                {{ $t('careers.campusRecruitment') }}
-              </h3>
-            </div>
+          <!-- 校园招聘 -->
+          <div>
+            <h3
+              class="inline-block text-xl font-medium pb-2 mb-6 border-b border-[#a096fa] mx-5 my-4"
+            >
+              校园招聘
+            </h3>
             <div class="space-y-4">
-              <div
-                v-for="(position, index) in campusPositions"
-                :key="index"
-                class="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-              >
-                <h4 class="font-medium">{{ position.title }}</h4>
-                <span class="text-sm text-gray-500">{{ position.type }}</span>
+              <div v-for="(job, index) in campusJobs" :key="index" class="relative group">
+                <div
+                  class="flex justify-between items-start rounded-lg px-5 py-4 hover:bg-[#F3F3F3]"
+                >
+                  <div>
+                    <h4 class="text-base font-medium">{{ job.title }}</h4>
+                    <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
+                  </div>
+                  <button
+                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-4 py-1.5 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  >
+                    查看岗位
+                  </button>
+                </div>
               </div>
+              <a
+                href="#"
+                class="inline-block text-[#5A46FF] hover:text-[#796af8] mx-5 my-4 text-sm font-medium"
+              >
+                查看更多校园岗位
+              </a>
             </div>
-            <a href="" class="text-[#5A46FF]">查看更多校招岗位</a>
           </div>
 
-          <!-- Internship -->
-          <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-            <div class="border-b border-blue-500 pb-4 mb-6">
-              <h3 class="text-2xl font-semibold text-center">{{ $t('careers.internship') }}</h3>
-            </div>
+          <!-- 实习岗 -->
+          <div>
+            <h3
+              class="inline-block text-xl font-medium pb-2 mb-6 border-b border-[#a096fa] mx-5 my-4"
+            >
+              实习岗
+            </h3>
             <div class="space-y-4">
-              <div
-                v-for="(position, index) in internPositions"
-                :key="index"
-                class="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+              <div v-for="(job, index) in internJobs" :key="index" class="relative group">
+                <div
+                  class="flex justify-between items-start rounded-lg px-5 py-4 hover:bg-[#F3F3F3]"
+                >
+                  <div>
+                    <h4 class="text-base font-medium">{{ job.title }}</h4>
+                    <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
+                  </div>
+                  <button
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-4 py-1.5 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  >
+                    查看岗位
+                  </button>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="inline-block text-[#5A46FF] hover:text-[#796af8] text-sm mx-5 my-4 font-medium"
               >
-                <h4 class="font-medium">{{ position.title }}</h4>
-                <span class="text-sm text-gray-500">{{ position.type }}</span>
+                查看更多实习岗位
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 移动端内容区域 -->
+        <div
+          ref="tabContent"
+          class="md:hidden relative overflow-hidden"
+          @touchstart="startSwipe"
+          @touchmove="swiping"
+          @touchend="endSwipe"
+        >
+          <div
+            class="flex transition-transform duration-300 ease-out"
+            :style="{ transform: `translateX(${contentPosition}%)` }"
+          >
+            <!-- 社会招聘 -->
+            <div class="w-full flex-shrink-0">
+              <div class="space-y-3">
+                <div
+                  v-for="(job, index) in socialJobs"
+                  :key="index"
+                  class="bg-[#F3F3F3] rounded-lg pw-px-[16px] pw-py-[12px] flex justify-between items-center shadow-sm"
+                >
+                  <div>
+                    <h4 class="pw-text-[14px] font-normal">{{ job.title }}</h4>
+                    <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
+                  </div>
+                  <button
+                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal"
+                  >
+                    查看岗位
+                  </button>
+                </div>
+                <div class="text-center mt-6">
+                  <a href="#" class="text-[#5A46FF] pw-text-[12px] font-normal">查看更多社招岗位</a>
+                </div>
               </div>
             </div>
-            <a href="" class="text-[#5A46FF]">查看更多实习岗位</a>
+
+            <!-- 校园招聘 -->
+            <div class="w-full flex-shrink-0">
+              <div class="space-y-3">
+                <div
+                  v-for="(job, index) in campusJobs"
+                  :key="index"
+                  class="bg-[#F3F3F3] rounded-lg pw-px-[16px] pw-py-[12px] flex justify-between items-center shadow-sm"
+                >
+                  <div>
+                    <h4 class="pw-text-[14px] font-normal">{{ job.title }}</h4>
+                    <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
+                  </div>
+                  <button
+                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal"
+                  >
+                    查看岗位
+                  </button>
+                </div>
+                <div class="text-center mt-6">
+                  <a href="#" class="text-[#5A46FF] pw-text-[12px] font-normal">查看更多校园岗位</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 实习岗 -->
+            <div class="w-full flex-shrink-0">
+              <div class="space-y-3">
+                <div
+                  v-for="(job, index) in internJobs"
+                  :key="index"
+                  class="bg-[#F3F3F3] rounded-lg pw-px-[16px] pw-py-[12px] flex justify-between items-center shadow-sm"
+                >
+                  <div>
+                    <h4 class="pw-text-[14px] font-normal">{{ job.title }}</h4>
+                    <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
+                  </div>
+                  <button
+                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal"
+                  >
+                    查看岗位
+                  </button>
+                </div>
+                <div class="text-center mt-6">
+                  <a href="#" class="text-[#5A46FF] pw-text-[12px] font-normal">查看更多实习岗位</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -164,100 +316,127 @@
 </template>
 
 <script setup>
+import { ref, computed } from 'vue'
+import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import hireImg6 from '~/assets/images/career/hire-s3-img6.jpg'
 import hireImg7 from '~/assets/images/career/hire-s3-img7.jpg'
 import hireImg8 from '~/assets/images/career/hire-s3-img8.jpg'
 import hireImg9 from '~/assets/images/career/hire-s3-img9.jpg'
 import hireImg10 from '~/assets/images/career/hire-s3-img10.jpg'
-import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 const { t } = useI18n()
-const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
+const swiperModules = [Autoplay, Pagination, Navigation]
+
 const workImages = [
-  { src: '/images/careers-env-1.jpg', alt: t('careers.workEnv1Alt') },
-  { src: '/images/careers-env-2.jpg', alt: t('careers.workEnv2Alt') },
-  { src: '/images/careers-env-3.jpg', alt: t('careers.workEnv3Alt') },
+  { src: hireImg6, alt: t('careers.workEnv1Alt') },
+  { src: hireImg7, alt: t('careers.workEnv2Alt') },
+  { src: hireImg8, alt: t('careers.workEnv3Alt') },
+  { src: hireImg9, alt: t('careers.workEnv3Alt') },
+  { src: hireImg10, alt: t('careers.workEnv3Alt') },
+]
+// 标签页配置
+const tabs = [
+  { id: 'social', name: '社会招聘' },
+  { id: 'campus', name: '校园招聘' },
+  { id: 'intern', name: '实习岗' },
 ]
 
-const socialPositions = [
-  {
-    title: t('careers.positions.hardwareEngineer.title'),
-    type: t('careers.positions.hardwareEngineer.type'),
-  },
-  {
-    title: t('careers.positions.mechanicalEngineer.title'),
-    type: t('careers.positions.mechanicalEngineer.type'),
-  },
-  {
-    title: t('careers.positions.perceptionEngineer.title'),
-    type: t('careers.positions.perceptionEngineer.type'),
-  },
-  {
-    title: t('careers.positions.roboticsEngineer.title'),
-    type: t('careers.positions.roboticsEngineer.type'),
-  },
-  {
-    title: t('careers.positions.productManager.title'),
-    type: t('careers.positions.productManager.type'),
-  },
+// 当前激活的标签页
+const activeTab = ref('social')
+const tabHeader = ref(null)
+const tabContent = ref(null)
+const startX = ref(0)
+const currentX = ref(0)
+const isSwiping = ref(false)
+
+// 计算内容位置百分比
+const contentPosition = computed(() => {
+  const index = tabs.findIndex((tab) => tab.id === activeTab.value)
+  return -index * 100 + (currentX.value / window.innerWidth) * 100
+})
+
+const startSwipe = (e) => {
+  isSwiping.value = true
+  startX.value = e.touches[0].clientX
+}
+
+const swiping = (e) => {
+  if (!isSwiping.value) return
+  e.preventDefault()
+  const x = e.touches[0].clientX
+  currentX.value = x - startX.value
+}
+
+const endSwipe = () => {
+  if (!isSwiping.value) return
+  isSwiping.value = false
+
+  // 判断滑动方向
+  if (Math.abs(currentX.value) > 50) {
+    // 滑动阈值50px
+    if (currentX.value > 0) {
+      // 向右滑动，切换到上一个标签
+      const currentIndex = tabs.findIndex((tab) => tab.id === activeTab.value)
+      const prevIndex = Math.max(0, currentIndex - 1)
+      activeTab.value = tabs[prevIndex].id
+    } else {
+      // 向左滑动，切换到下一个标签
+      const currentIndex = tabs.findIndex((tab) => tab.id === activeTab.value)
+      const nextIndex = Math.min(tabs.length - 1, currentIndex + 1)
+      activeTab.value = tabs[nextIndex].id
+    }
+  }
+  currentX.value = 0 // 复位
+}
+
+const switchTab = (tabId) => {
+  activeTab.value = tabId
+  currentX.value = 0
+}
+
+// 岗位数据（保持原有不变）
+const socialJobs = [
+  { title: '硬件工程师', category: '技术类' },
+  { title: '机械工程师', category: '技术类' },
+  { title: '感知算法工程师', category: '技术类' },
+  { title: '机器人控制算法工程师', category: '技术类' },
+  { title: '产品经理', category: '产品类' },
 ]
 
-const campusPositions = [
-  {
-    title: t('careers.positions.hardwareEngineerPower.title'),
-    type: t('careers.positions.hardwareEngineerPower.type'),
-  },
-  {
-    title: t('careers.positions.projectManager.title'),
-    type: t('careers.positions.projectManager.type'),
-  },
-  {
-    title: t('careers.positions.productManager.title'),
-    type: t('careers.positions.productManager.type'),
-  },
-  {
-    title: t('careers.positions.marketingManager.title'),
-    type: t('careers.positions.marketingManager.type'),
-  },
-  {
-    title: t('careers.positions.adminAssistant.title'),
-    type: t('careers.positions.adminAssistant.type'),
-  },
+const campusJobs = [
+  { title: '硬件工程师（电源）', category: '技术类' },
+  { title: '项目经理（软机/软件）', category: '项目支持类' },
+  { title: '产品经理', category: '产品类' },
+  { title: '市场经理', category: '市场类' },
+  { title: '行政管理', category: '职能类' },
 ]
 
-const internPositions = [
-  {
-    title: t('careers.positions.perceptionIntern.title'),
-    type: t('careers.positions.perceptionIntern.type'),
-  },
-  {
-    title: t('careers.positions.embodiedAIIntern.title'),
-    type: t('careers.positions.embodiedAIIntern.type'),
-  },
-  { title: t('careers.positions.llmIntern.title'), type: t('careers.positions.llmIntern.type') },
-  {
-    title: t('careers.positions.marketingIntern.title'),
-    type: t('careers.positions.marketingIntern.type'),
-  },
-  { title: t('careers.positions.hrIntern.title'), type: t('careers.positions.hrIntern.type') },
+const internJobs = [
+  { title: '感知算法实习生', category: '技术类' },
+  { title: '具身智能算法实习生', category: '技术类' },
+  { title: '大模型算法实习生', category: '技术类' },
+  { title: '市场实习生', category: '市场类' },
+  { title: '招聘管理', category: '职能类' },
 ]
-const images = [
-  { src: hireImg6, title: 'Image 6' },
-  { src: hireImg7, title: 'Image 7' },
-  { src: hireImg8, title: 'Image 8' },
-  { src: hireImg9, title: 'Image 9' },
-  { src: hireImg10, title: 'Image 10' },
-]
+
 useHead({
   title: t('menu.careers'),
 })
 </script>
+
 <style scoped lang="scss">
-.news-swiper .swiper-slide {
+/* 原有样式保持不变... */
+
+/* 新增滑动样式 */
+.flex {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+wiper .swiper-slide {
   // width: 50% !important; /* 中间幻灯片占50% */
   transition: transform 0.3s;
 }

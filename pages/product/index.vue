@@ -1,7 +1,7 @@
 <template>
   <div class="w-full max-w-[2560px] mx-auto">
     <!--1 Hero Video Section -->
-    <section class="relative h-screen w-full bg-black overflow-hidden">
+    <section class="relative w-full h-[70vh] md:h-screen bg-black overflow-hidden">
       <div class="h-full w-full">
         <video
           class="absolute inset-0 w-full h-full object-cover object-bottom md:hidden"
@@ -141,12 +141,12 @@
                 <div class="col-span-1 text-right pw-px-[14px] md:px-15 text-gray-400"></div>
                 <div class="col-span-1 text-left pw-pl-[16px] md:px-10">
                   <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-white my-text-class">
-                    星尘智能S1
+                    {{ $t('product.specs.modelName') }}
                   </h3>
                 </div>
                 <div class="col-span-1 text-left pw-pl-[14px] md:px-15">
-                  <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-gray-300">
-                    普通成年男性
+                  <h3 class="pw-text-[14px] md:text-xl font-medium mb-2 text-gray-300">
+                    {{ $t('product.specs.comparisonTarget') }}
                   </h3>
                 </div>
 
@@ -163,14 +163,16 @@
                   <!-- 第二列-->
                   <div class="col-span-1 flex items-center py-3 pw-px-[16px] md:px-10 min-h-[3rem]">
                     <div class="flex flex-row items-baseline flex-wrap text-left w-full">
-                      <!-- 修改这里 -->
-                      <span
-                        class="pw-text-[20px] md:text-3xl font-bold text-white pw-mr-[4px] md:mr-2"
-                      >
+                      <span class="pw-text-[20px] md:text-3xl font-bold text-white">
                         {{ item.s1Value }}
                       </span>
-                      <span class="pw-text-[10px] md:text-xs text-[#AAAAAA] whitespace-normal">
+                      <span
+                        class="pw-text-[10px] md:text-xs pw-px-[4px] md:px-2 text-[#AAAAAA] whitespace-normal"
+                      >
                         {{ item.s1Unit }}
+                      </span>
+                      <span class="pw-text-[10px] md:text-xs text-[#AAAAAA] whitespace-normal">
+                        {{ item.s1UnitDesc }}
                       </span>
                     </div>
                   </div>
@@ -179,12 +181,21 @@
                     class="col-span-1 flex items-center justify-center py-3 pw-pl-[14px] md:pl-15 min-h-[3rem]"
                   >
                     <div class="flex flex-row items-baseline text-left flex-wrap w-full">
-                      <span class="pw-text-[18px] md:text-3xl font-normal text-[#AAAAAA]">
-                        {{ item.humanValue }}
-                      </span>
-                      <span class="text-xs font-normal text-[#AAAAAA] whitespace-normal">
-                        {{ item.humanUnit }}
-                      </span>
+                      <div>
+                        <span class="pw-text-[18px] md:text-3xl font-normal text-[#AAAAAA]">
+                          {{ item.humanValue }}
+                        </span>
+                        <span
+                          class="pw-text-[10px] md:text-xs font-normal pw-px-[4px] md:px-2 text-[#AAAAAA] whitespace-normal"
+                        >
+                          {{ item.humanUnit }}
+                        </span>
+                      </div>
+                      <div
+                        class="pw-text-[10px] md:text-xs font-normal text-[#AAAAAA] whitespace-normal"
+                      >
+                        {{ item.humanDesc }}
+                      </div>
                     </div>
                   </div>
                 </template>
@@ -560,67 +571,77 @@ useHead({
 })
 const specItems = [
   {
-    name: '单臂自由度',
+    name: t('product.specs.comparison.items.0'),
     s1Value: '7',
     s1Unit: '',
     humanValue: '7',
     humanUnit: '',
+    humanDesc: '',
   },
   {
-    name: '单臂额定负载（平举）',
+    name: t('product.specs.comparison.items.1'),
     s1Value: '5',
     s1Unit: 'kg',
     humanValue: '3~5',
     humanUnit: 'kg',
+    humanDesc: '',
   },
   {
-    name: '末端速度',
+    name: t('product.specs.comparison.items.2'),
     s1Value: '≥10',
     s1Unit: 'm/s²',
     humanValue: '5~10',
-    humanUnit: 'm/s²普通挥臂',
+    humanUnit: 'm/s²',
+    humanDesc: t('product.specs.comparison.unit.0'),
   },
   {
-    name: '末端加速度',
+    name: t('product.specs.comparison.items.3'),
     s1Value: '≈100',
     s1Unit: 'm/s²',
     humanValue: '50~100',
-    humanUnit: 'm/s²普通挥臂',
+    humanUnit: 'm/s²',
+    humanDesc: t('product.specs.comparison.unit.0'),
   },
   {
-    name: '末端重复精度',
+    name: t('product.specs.comparison.items.4'),
     s1Value: '±0.1',
     s1Unit: 'mm',
     humanValue: '±1~5',
-    humanUnit: 'mm，特殊训练可达±0.5mm',
+    humanUnit: 'mm',
+    humanDesc: t('product.specs.comparison.unit.1'),
   },
   {
-    name: '身高',
+    name: t('product.specs.comparison.items.5'),
     s1Value: '170',
     s1Unit: 'cm',
     humanValue: '173',
     humanUnit: 'cm',
+    humanDesc: '',
   },
   {
-    name: '体重',
+    name: t('product.specs.comparison.items.6'),
     s1Value: '80',
     s1Unit: 'kg',
     humanValue: '70',
     humanUnit: 'kg',
+    humanDesc: '',
   },
   {
-    name: '臂展',
+    name: t('product.specs.comparison.items.7'),
     s1Value: '194',
     s1Unit: 'cm',
     humanValue: '171~175',
     humanUnit: 'cm',
+    humanDesc: '',
   },
   {
-    name: '续航',
+    name: t('product.specs.comparison.items.8'),
     s1Value: '4~6',
-    s1Unit: '小时，支持调电',
+    s1Unit: t('product.specs.comparison.unit.3'),
+    s1UnitDesc: t('product.specs.comparison.unit.4'),
     humanValue: '10',
-    humanUnit: '小时，相当于人类静息代谢',
+    humanUnit: t('product.specs.comparison.unit.3'),
+    humanDesc: t('product.specs.comparison.unit.2'),
   },
 ]
 const videos = [

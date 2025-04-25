@@ -17,7 +17,6 @@
     "@nuxtjs/i18n": "^9.3.1",
     "@types/swiper": "^6.0.0",
     "dayjs": "^1.11.13",
-    "lib-flexible": "^0.3.2",
     "nuxt": "^3.14.1592",
     "nuxt-gtag": "3.0.2",
     "swiper": "^11.1.15",
@@ -31,7 +30,6 @@
     "install": "^0.13.0",
     "nuxt-windicss": "^3.0.1",
     "postcss-px-to-viewport-8-plugin": "^1.2.5",
-    "postcss-pxtorem": "^6.1.0",
     "prettier": "^3.5.3",
     "sass-embedded": "^1.82.0",
     "tailwindcss-px-to-viewport": "^0.1.3"

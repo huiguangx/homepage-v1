@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <!--1 Hero Banner -->
-    <section class="relative h-screen w-full">
+    <section class="relative h-[70vh] md:h-screen w-full">
       <div class="h-full w-full">
         <swiper
           class="h-full swiper-container"
