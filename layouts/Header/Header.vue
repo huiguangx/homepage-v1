@@ -106,17 +106,13 @@
     </div>
     <!-- 侧边菜单 -->
     <div
-      class="block md:hidden fixed top-0 right-0 w-full max-w-xs h-auto bg-white z-50 transform transition-transform duration-300 ease-in-out overflow-hidden"
+      class="block md:hidden fixed top-0 right-0 w-full h-auto bg-white z-50 transform transition-transform duration-300 ease-in-out overflow-hidden pw-py-[12px] pw-px-[16px]"
       :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
     >
       <div class="flex flex-col w-full h-full">
-        <div class="flex items-center justify-between p-4 border-b border-gray-200">
+        <div class="flex items-center justify-between pw-h-[44px]">
           <div class="flex items-center">
-            <img
-              src="~/assets/images/header/logo.svg"
-              alt="Logo"
-              class="pw-w-[27px] md:w-8 h-auto"
-            />
+            <img src="~/assets/images/header/logo.svg" alt="Logo" class="pw-w-[27px] h-auto" />
             <span class="ml-2 text-black pw-text-[20px] font-medium">星尘智能</span>
           </div>
           <button
@@ -142,14 +138,14 @@
         </div>
 
         <div class="flex-1 overflow-y-auto">
-          <nav class="py-2">
+          <nav>
             <ul>
               <li v-for="(item, index) in navItems" :key="index">
                 <NuxtLinkLocale
                   :to="item.path"
-                  class="flex items-center justify-between px-4 py-3 hover:bg-gray-100"
+                  class="flex items-center justify-between pw-py-[12px] hover:bg-gray-100"
                 >
-                  <span class="text-black">{{ item.name }}</span>
+                  <span class="pw-text-[16px] text-black">{{ item.name }}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-4 w-4 text-gray-400"
@@ -168,6 +164,9 @@
               </li>
             </ul>
           </nav>
+        </div>
+        <div class="pw-pt-[12px] border-t border-gray-200">
+          <button @click="" class="pw-text-[14px] text-[#475467]">Switch to English</button>
         </div>
       </div>
     </div>
