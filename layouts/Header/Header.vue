@@ -73,17 +73,17 @@
             </li>
           </ul>
         </nav>
-        <div class="ml-4 hidden md:block">
-          <div class="flex items-center">
+        <div class="ml-4 hidden md:block w-[200px]">
+          <div class="flex items-center justify-end">
             <div
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-              class="mx-6 text-sm font-medium cursor-pointer"
+              class="mx-6 text-sm font-medium cursor-pointer w-[32px] text-center"
             >
               {{ locale === 'zh' ? 'En' : '中文' }}
             </div>
             <NuxtLinkLocale
               to="/contact"
-              class="pw-px-[16px] md:px-4 pw-py-8px md:py-2 text-white rounded font-thin bg-[#5A46FF] text-3.5 hover:bg-[#7463FF] transition-all duration-300 ease-out"
+              class="px-4 py-2 text-white rounded font-thin bg-[#5A46FF] text-3.5 md:hover:bg-[#7463FF] transition-all duration-300 ease-out whitespace-nowrap"
             >
               {{ $t('home.contact.title') }}
             </NuxtLinkLocale>

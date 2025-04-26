@@ -83,7 +83,7 @@
               >
                 <NuxtLinkLocale
                   type="submit"
-                  class="px-8 py-3 font-medium w-full text-white text-center transition-colors bg-[#5A46FF] rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  class="px-8 py-3 font-medium w-full text-white text-center transition-colors bg-[#5A46FF] rounded md:hover:bg-[#7463FF] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
                 >
                   {{ $t('contact.cooperation.form.submit') }}
                 </NuxtLinkLocale>
@@ -113,39 +113,39 @@
             {{ $t('contact.connect.social.title') }}
           </h3>
           <div class="grid grid-cols-3 pw-gap-[8px] md:gap-4">
-            <a href="#" class="flex items-center text-gray-600 md:hover:text-gray-900">
+            <a href="#" class="flex items-center text-gray-600 md:hover:text-[#5A46FF]">
               <img src="~/assets/images/contact/bilibili.svg" alt="" />
               <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
                 {{ $t('contact.connect.social.bilibili') }}
               </span>
             </a>
-            <a href="#" class="flex items-center text-gray-600 md:hover:text-gray-900">
+            <a href="#" class="flex items-center text-gray-600 md:hover:text-[#5A46FF]">
               <img src="~/assets/images/contact/wechat.svg" alt="" />
               <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
                 {{ $t('contact.connect.social.wechat') }}
               </span>
             </a>
-            <a href="#" class="flex items-center text-gray-600 md:hover:text-gray-900">
+            <a href="#" class="flex items-center text-gray-600 md:hover:text-[#5A46FF]">
               <img src="~/assets/images/contact/youtube.svg" alt="" />
 
               <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
                 {{ $t('contact.connect.social.youtube') }}
               </span>
             </a>
-            <a href="#" class="flex items-center text-gray-600 md:hover:text-gray-900">
+            <a href="#" class="flex items-center text-gray-600 md:hover:text-[#5A46FF]">
               <img src="~/assets/images/contact/douyin.svg" alt="" />
 
               <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
                 {{ $t('contact.connect.social.douyin') }}
               </span>
             </a>
-            <a href="#" class="flex items-center text-gray-600 md:hover:text-gray-900">
+            <a href="#" class="flex items-center text-gray-600 md:hover:text-[#5A46FF]">
               <img src="~/assets/images/contact/x.svg" alt="" />
               <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
                 {{ $t('contact.connect.social.x') }}
               </span>
             </a>
-            <a href="#" class="flex items-center text-gray-600 md:hover:text-gray-900">
+            <a href="#" class="flex items-center text-gray-600 md:hover:text-[#5A46FF]">
               <img src="~/assets/images/contact/tiktok.svg" alt="" />
 
               <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
@@ -168,7 +168,7 @@
               </p>
               <a
                 href="mailto:business@astribot.com"
-                class="pw-text-[14px] md:text-sm text-gray-700 hover:text-blue-600"
+                class="pw-text-[14px] md:text-sm text-gray-700 hover:text-[#5A46FF]"
               >
                 business@astribot.com
               </a>
@@ -179,7 +179,7 @@
               </p>
               <a
                 href="mailto:join@astribot.com"
-                class="pw-text-[14px] md:text-sm text-gray-700 hover:text-blue-600"
+                class="pw-text-[14px] md:text-sm text-gray-700 hover:text-[#5A46FF]"
               >
                 join@astribot.com
               </a>
@@ -190,7 +190,7 @@
               </p>
               <a
                 href="mailto:contact@astribot.com"
-                class="pw-text-[14px] md:text-sm text-gray-700 hover:text-blue-600"
+                class="pw-text-[14px] md:text-sm text-gray-700 hover:text-[#5A46FF]"
               >
                 contact@astribot.com
               </a>
