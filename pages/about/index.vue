@@ -83,8 +83,6 @@
   </section>
 
   <!--3 about astirbot section-->
-
-  <!-- 修改后的section3代码 -->
   <section class="pw-pt-[32px] md:pt-15">
     <div class="relative overflow-hidden h-[50vh] md:h-auto">
       <div class="absolute inset-0 md:static">
@@ -186,7 +184,7 @@ img {
 
 .animate-fade-in-up.in-view {
   animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.3s;
+  animation-delay: 0.2s;
 }
 
 /* 原有样式保持不变 */

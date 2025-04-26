@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-black text-white pw-pt-[32px] pw-pb-[14px] md:py-14">
+  <footer class="relative bg-black text-white pw-pt-[32px] pw-pb-[14px] md:py-14">
     <div class="mx-auto w-[90%]">
       <!-- logo 和 星尘智能 -->
       <div class="flex items-center justify-between pw-pb-[20px] md:pb-10">

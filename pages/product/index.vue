@@ -1,26 +1,28 @@
 <template>
   <div class="w-full max-w-[2560px] mx-auto">
     <!--1 Hero Video Section -->
-    <section class="relative w-full h-[70vh] md:h-screen bg-black overflow-hidden">
-      <div class="h-full w-full">
-        <video
-          class="absolute inset-0 w-full h-full object-cover object-bottom md:hidden"
-          muted
-          autoplay
-          loop
-          playsinline
-        >
-          <source src="~/assets/media/describe-h5.mp4" type="video/mp4" />
-        </video>
-        <video
-          class="absolute inset-0 w-full h-full object-cover object-bottom hidden md:block"
-          muted
-          autoplay
-          loop
-          playsinline
-        >
-          <source src="~/assets/media/describe.mp4" type="video/mp4" />
-        </video>
+    <section class="w-full h-[70vh] md:h-screen bg-black overflow-hidden">
+      <div class="relative h-full w-full">
+        <div class="w-full">
+          <video
+            class="fixed inset-0 w-full object-cover object-bottom md:hidden"
+            muted
+            autoplay
+            loop
+            playsinline
+          >
+            <source src="~/assets/media/describe-h5.mp4" type="video/mp4" />
+          </video>
+          <video
+            class="fixed inset-0 w-full object-cover object-bottom hidden md:block"
+            muted
+            autoplay
+            loop
+            playsinline
+          >
+            <source src="~/assets/media/describe.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div class="absolute inset-x-0 top-28 text-center z-20">
           <div>
             <h1 class="pw-text-[26px] md:text-5xl font-bold text-white pw-mb-[12px] md:mb-4">
@@ -41,7 +43,7 @@
     </section>
 
     <!--2 all-powerful robot-->
-    <section class="w-full bg-[#161616] pw-py-[32px] md:py-20">
+    <section class="w-full relative bg-[#161616] pw-py-[32px] md:py-20">
       <div class="h-auto w-[90%] mx-auto">
         <div class="text-center pw-pb-[14px] md:py-10">
           <div>
@@ -116,7 +118,7 @@
 
     <!--3 Performance Section -->
     <section
-      class="pw-py-[32px] md:py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-contain"
+      class="pw-py-[32px] relative md:py-20 bg-[#010101] bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-fill bg-no-repeat"
     >
       <div class="w-[90%] mx-auto">
         <div class="mx-auto text-center pw-pb-[14px] md:pb-20">
@@ -211,7 +213,7 @@
     </section>
 
     <!--4 Toolchain Section -->
-    <section class="bg-[#161616] pw-py-[32px] md:py-20">
+    <section class="relative bg-[#161616] pw-py-[32px] md:py-20">
       <div class="w-[90%] mx-auto">
         <div class="text-center pw-pb-[14px] md:pb-10">
           <h2 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-6">
@@ -395,7 +397,7 @@
     </section>
 
     <!--5 Collaboration Section -->
-    <section class="pw-py-[32px] md:py-20 bg-[#010101]">
+    <section class="relative pw-py-[32px] md:py-20 bg-[#010101]">
       <div class="w-[90%] mx-auto">
         <div class="text-center pw-pb-[16px] md:pb-15">
           <h2 class="pw-text-[22px] md:text-4xl font-medium text-white">
@@ -465,7 +467,7 @@
     </section>
 
     <!--6 Ecosystem Section -->
-    <section class="pw-pt-[32px] pw-pb-[40px] md:pt-24 md:pb-20 bg-[#1F1F1F]">
+    <section class="relative pw-pt-[32px] pw-pb-[40px] md:pt-24 md:pb-20 bg-[#1F1F1F]">
       <div class="w-[90%] mx-auto">
         <div class="text-center">
           <h1 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-4">
@@ -677,36 +679,63 @@ const isActive = (index: number) => {
   )
 }
 
-const handleProductSlideChange = (swiper: SwiperClass) => {
+const handleProductSlideChange = async (swiper: SwiperClass) => {
   activeIndex.value = swiper.realIndex
+
   // 暂停所有视频
-  document.querySelectorAll('.product-swiper video').forEach((video) => {
-    if (video instanceof HTMLVideoElement) {
-      video.pause()
-    }
-  })
+  const pausePromises = Array.from(document.querySelectorAll('.product-swiper video')).map(
+    (video) => {
+      if (video instanceof HTMLVideoElement) {
+        return video.pause()
+      }
+      return Promise.resolve()
+    },
+  )
+
+  await Promise.all(pausePromises)
 
   // 播放当前视频
   const currentSlide = swiper.slides[swiper.activeIndex]
   const currentVideo = currentSlide.querySelector('video')
   if (currentVideo instanceof HTMLVideoElement) {
-    currentVideo.play().catch((e) => console.log('Autoplay failed:', e))
+    try {
+      await Promise.race([
+        currentVideo.play(),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Play timed out')), 3000)),
+      ])
+    } catch (e) {
+      console.log('Autoplay failed:', e)
+      // 可以在这里添加回退逻辑，比如显示播放按钮
+    }
   }
 }
-const handleVrSlideChange = (swiper: SwiperClass) => {
+
+const handleVrSlideChange = async (swiper: SwiperClass) => {
   activeIndex.value = swiper.realIndex
+
   // 暂停所有视频
-  document.querySelectorAll('.vr-swiper video').forEach((video) => {
+  const pausePromises = Array.from(document.querySelectorAll('.vr-swiper video')).map((video) => {
     if (video instanceof HTMLVideoElement) {
-      video.pause()
+      return video.pause()
     }
+    return Promise.resolve()
   })
+
+  await Promise.all(pausePromises)
 
   // 播放当前视频
   const currentSlide = swiper.slides[swiper.activeIndex]
   const currentVideo = currentSlide.querySelector('video')
   if (currentVideo instanceof HTMLVideoElement) {
-    currentVideo.play().catch((e) => console.log('Autoplay failed:', e))
+    try {
+      await Promise.race([
+        currentVideo.play(),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Play timed out')), 3000)),
+      ])
+    } catch (e) {
+      console.log('Autoplay failed:', e)
+      // 可以在这里添加回退逻辑，比如显示播放按钮
+    }
   }
 }
 </script>
