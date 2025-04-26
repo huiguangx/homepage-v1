@@ -69,78 +69,137 @@
         </div>
 
         <!-- 右侧社交媒体图标 -->
+        <!-- 右侧社交媒体图标 -->
         <div class="flex md:space-x-4 justify-between pw-mt-[24px] md:mt-0">
-          <!-- 微信 -->
+          <!-- 微信（带二维码悬浮提示） -->
           <div class="relative group">
-            <a href="#">
+            <a href="#" class="block">
               <img
                 src="~/assets/images/footer/wechat.svg"
-                alt=""
-                class="brightness-75 transition-all duration-300 md:hover:brightness-200"
+                alt="微信"
+                class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
               />
             </a>
             <div
-              class="absolute hidden group-hover:block bottom-full mb-5 w-24 p-2 h-auto bg-white rounded-sm"
+              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 w-32 bg-white rounded-md p-2 shadow-lg"
             >
               <img
                 src="~/assets/images/footer/index-s1-qr.png"
                 alt="微信二维码"
-                class="w-full object-contain"
+                class="w-full h-auto"
               />
+              <p class="text-center text-xs text-black mt-1">扫码关注公众号</p>
+              <div
+                class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+              ></div>
             </div>
           </div>
 
           <!-- 哔哩哔哩 -->
-          <a
-            target="_blank"
-            href="https://www.douyin.com/user/MS4wLjABAAAAAcfipSlaUYyM673pSK5eGTC9j2S1P5yzqlrVSaGLjN4coXjFqV8inh4i4HVDsoqK "
-            class="footer-top-right-img footer_douyin"
-          >
-            <img
-              src="~/assets/images/footer/bilibili.svg"
-              class="brightness-75 transition-all duration-300 md:hover:brightness-200"
-              alt=""
-            />
-          </a>
+          <div class="relative group">
+            <a target="_blank" href="https://space.bilibili.com/1077677154" class="block">
+              <img
+                src="~/assets/images/footer/bilibili.svg"
+                alt="哔哩哔哩"
+                class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+              />
+            </a>
+            <div
+              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+            >
+              哔哩哔哩频道
+              <div
+                class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+              ></div>
+            </div>
+          </div>
 
           <!-- 抖音 -->
-          <a href="#">
-            <img
-              src="~/assets/images/footer/douyin.svg"
-              class="brightness-75 transition-all duration-300 hover:brightness-200"
-              alt=""
-            />
-          </a>
+          <div class="relative group">
+            <a
+              href="https://www.douyin.com/user/MS4wLjABAAAAAcfipSlaUYyM673pSK5eGTC9j2S1P5yzqlrVSaGLjN4coXjFqV8inh4i4HVDsoqK"
+              class="block"
+            >
+              <img
+                src="~/assets/images/footer/douyin.svg"
+                alt="抖音"
+                class="brightness-75 transition-all duration-300 hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+              />
+            </a>
+            <div
+              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+            >
+              抖音
+              <div
+                class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+              ></div>
+            </div>
+          </div>
 
           <!-- YouTube -->
-          <a target="_blank" href="https://www.youtube.com/channel/UCDjnC6m9_xW-PDeDCjv-jng">
-            <img
-              src="~/assets/images/footer/youtube.svg"
-              class="brightness-75 transition-all duration-300 hover:brightness-200"
-              alt=""
-            />
-          </a>
+          <div class="relative group">
+            <a
+              target="_blank"
+              href="https://www.youtube.com/channel/UCDjnC6m9_xW-PDeDCjv-jng"
+              class="block"
+            >
+              <img
+                src="~/assets/images/footer/youtube.svg"
+                alt="YouTube"
+                class="brightness-75 transition-all duration-300 hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+              />
+            </a>
+            <div
+              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+            >
+              YouTube频道
+              <div
+                class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+              ></div>
+            </div>
+          </div>
 
           <!-- Twitter/X -->
-          <a href="#">
-            <img
-              src="~/assets/images/footer/x.svg"
-              class="brightness-75 transition-all duration-300 md:hover:brightness-200"
-              alt=""
-            />
-          </a>
+          <div class="relative group">
+            <a href="https://x.com/Astribot_Inc?mx=2" class="block">
+              <img
+                src="~/assets/images/footer/x.svg"
+                alt="X (Twitter)"
+                class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+              />
+            </a>
+            <div
+              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+            >
+              X (Twitter)
+              <div
+                class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+              ></div>
+            </div>
+          </div>
 
-          <!-- tiktok -->
-          <a
-            target="_blank"
-            href="https://www.tiktok.com/@astribot_inc?is_from_webapp=1&sender_device=pc"
-          >
-            <img
-              src="~/assets/images/footer/tiktok.svg"
-              class="brightness-75 transition-all duration-300 md:hover:brightness-200"
-              alt=""
-            />
-          </a>
+          <!-- TikTok -->
+          <div class="relative group">
+            <a
+              target="_blank"
+              href="https://www.tiktok.com/@astribot_inc?is_from_webapp=1&sender_device=pc"
+              class="block"
+            >
+              <img
+                src="~/assets/images/footer/tiktok.svg"
+                alt="TikTok"
+                class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+              />
+            </a>
+            <div
+              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+            >
+              TikTok
+              <div
+                class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -151,34 +210,48 @@
       <div>
         <div class="text-gray-500 pw-text-[12px] md:text-xs">
           <p class="mb-2 text-center md:text-left">Copyright © Astribot. All Rights Reserved.</p>
-          <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
-            <div class="flex items-center cursor-pointer">
-              <span>
-                <a rel="noreferrer" target="_blank" href="http://beian.miit.gov.cn/">
-                  粤ICP备20253601号
-                </a>
-              </span>
-            </div>
-            <div class="flex items-center md:cursor-pointer">
-              <img
-                src="~/assets/images/footer/head-logo.png"
-                alt="公安备案图标"
-                class="w-[16px] mr-[5px]"
-              />
-              <span>
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  href="https://beian.mps.gov.cn/#/query/webSearch?code=44030002006488"
-                >
-                  粤公网安备44030002006488号
-                </a>
-              </span>
+          <div
+            class="flex flex-col items-center md:flex-row md:justify-between space-y-2 md:space-y-0"
+          >
+            <!-- 备案信息（移动端居中，PC端左对齐） -->
+            <div
+              class="flex flex-col items-center md:items-start md:flex-row md:space-x-4 text-center md:text-left"
+            >
+              <div class="flex items-center cursor-pointer">
+                <span>
+                  <a
+                    class="hover:text-gray-300"
+                    rel="noreferrer"
+                    target="_blank"
+                    href="http://beian.miit.gov.cn/"
+                  >
+                    粤ICP备20253601号
+                  </a>
+                </span>
+              </div>
+              <div class="flex items-center cursor-pointer">
+                <img
+                  src="~/assets/images/footer/head-logo.png"
+                  alt="公安备案图标"
+                  class="w-[16px] mr-[5px]"
+                />
+                <span>
+                  <a
+                    class="hover:text-gray-300"
+                    rel="noreferrer"
+                    target="_blank"
+                    href="https://beian.mps.gov.cn/#/query/webSearch?code=44030002006488"
+                  >
+                    粤公网安备44030002006488号
+                  </a>
+                </span>
+              </div>
             </div>
 
+            <!-- 语言切换（仅PC端显示在右侧） -->
             <div
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-              class="hover:text-gray-300 transition-colors md:cursor-pointer hidden md:block"
+              class="hover:text-gray-300 transition-colors cursor-pointer hidden md:block"
             >
               {{ locale === 'zh' ? 'English' : '中文' }}
             </div>

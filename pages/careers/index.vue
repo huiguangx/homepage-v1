@@ -154,7 +154,7 @@
               <a
                 href="https://dwz.cn/1Vq7rTKn"
                 target="_blank"
-                class="inline-block text-[#5A46FF] hover:[#796af8] mx-5 my-4 text-sm font-medium"
+                class="inline-block text-[#5A46FF] md:hover:text-[#796af8] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
               >
                 查看更多社招岗位
               </a>
@@ -187,7 +187,7 @@
               <a
                 href="https://dwz.cn/ZPkmdxje"
                 target="_blank"
-                class="inline-block text-[#5A46FF] hover:text-[#796af8] mx-5 my-4 text-sm font-medium"
+                class="inline-block text-[#5A46FF] md:hover:text-[#796af8] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
               >
                 查看更多校园岗位
               </a>
@@ -220,7 +220,7 @@
               <a
                 href="https://s.xinrenxinshi.com/recruitGate#/ey=0ebdb005864a706d8f15cdadc338584487c666"
                 target="_blank"
-                class="inline-block text-[#5A46FF] hover:text-[#796af8] text-sm mx-5 my-4 font-medium"
+                class="inline-block text-[#5A46FF] md:hover:text-[#796af8] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
               >
                 查看更多实习岗位
               </a>
@@ -348,9 +348,11 @@ import hireImg10 from '~/assets/images/career/hire-s3-img10.jpg'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import { useWindowSize } from '@vueuse/core'
 
 const { t } = useI18n()
 const swiperModules = [Autoplay, Pagination, Navigation]
+const { width: windowWidth } = useWindowSize()
 
 const workImages = [
   { src: hireImg6, alt: t('careers.workEnv1Alt') },
@@ -377,7 +379,9 @@ const isSwiping = ref(false)
 // 计算内容位置百分比
 const contentPosition = computed(() => {
   const index = tabs.findIndex((tab) => tab.id === activeTab.value)
-  return -index * 100 + (currentX.value / window.innerWidth) * 100
+  return windowWidth.value
+    ? -index * 100 + (currentX.value / windowWidth.value) * 100
+    : -index * 100 // 服务端回退
 })
 
 const startSwipe = (e) => {

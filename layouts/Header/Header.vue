@@ -106,7 +106,7 @@
     </div>
     <!-- 侧边菜单 -->
     <div
-      class="block md:hidden fixed top-0 right-0 w-full h-auto bg-white z-50 transform transition-transform duration-300 ease-in-out overflow-hidden pw-py-[12px] pw-px-[16px]"
+      class="block md:hidden fixed top-0 right-0 w-full h-auto bg-white z-50 transform transition-transform duration-300 ease-in-out overflow-hidden pw-pb-[12px] pw-px-[16px] rounded-bl-2xl rounded-br-2xl"
       :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
     >
       <div class="flex flex-col w-full h-full">
@@ -120,20 +120,7 @@
             class="p-2 text-gray-500 focus:outline-none"
             aria-label="关闭菜单"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <img src="~/assets/images/header/close.svg" alt="Close" />
           </button>
         </div>
 
@@ -143,30 +130,23 @@
               <li v-for="(item, index) in navItems" :key="index">
                 <NuxtLinkLocale
                   :to="item.path"
-                  class="flex items-center justify-between pw-py-[12px] hover:bg-gray-100"
+                  class="flex items-center justify-between pw-py-[12px]"
+                  @click="isMenuOpen = false"
                 >
                   <span class="pw-text-[16px] text-black">{{ item.name }}</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-gray-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                  <img src="~/assets/images/header/goto-arrow.svg" alt="Arrow" />
                 </NuxtLinkLocale>
               </li>
             </ul>
           </nav>
         </div>
         <div class="pw-pt-[12px] border-t border-gray-200">
-          <button @click="" class="pw-text-[14px] text-[#475467]">Switch to English</button>
+          <button
+            @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
+            class="pw-text-[14px] text-[#475467]"
+          >
+            {{ locale === 'zh' ? 'Switch to English' : '切换到中文' }}
+          </button>
         </div>
       </div>
     </div>
@@ -174,16 +154,16 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+
+const { locale, setLocale } = useI18n()
 const isMobileMenuOpen = ref(false)
 const isMenuOpen = ref(false)
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
 }
-import { useRoute } from 'vue-router'
-const gl = () => {
-  console.log(111)
-}
+
 // 路由和滚动状态
 const route = useRoute()
 const isScrolled = ref(false)
@@ -204,10 +184,8 @@ const getBasePath = (path) => {
   return path.replace(/^\/(zh|en)/, '') || '/'
 }
 
-// 语言切换
-const { locale, setLocale } = useI18n()
-
 const changeLanguage = (locale) => {
+  isMenuOpen.value = false
   setLocale(locale)
 }
 

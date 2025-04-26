@@ -11,10 +11,10 @@ export default defineNuxtConfig({
     id: import.meta.env.VITE_GTAG_ID,
     enabled: true,
   },
-  // devServer: {
-  //   host: '0.0.0.0',
-  //   port: 3000,
-  // },
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
 
   i18n: {
     locales: currentLocales,

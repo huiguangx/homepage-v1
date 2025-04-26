@@ -30,8 +30,8 @@
               {{ $t('product.video.subtitle') }}
             </p>
             <NuxtLinkLocale
-              class="inline-block pw-text-[14px] md:text-base bg-transparent text-white border border-white pw-px-[20px] pw-py-[12px] md:px-5 md:py-3 rounded-md hover:bg-white md:hover:text-black transition-colors"
-              href="#"
+              to="/contact"
+              class="inline-block pw-text-[14px] md:text-base bg-transparent text-white border border-white pw-px-[20px] pw-py-[12px] md:px-5 md:py-3 rounded-md hover:bg-white md:hover:text-black transition-colors cursor-pointer"
             >
               {{ $t('product.video.cta') }}
             </NuxtLinkLocale>
@@ -349,21 +349,24 @@
               v-for="(video, index) in vrVideos"
               :key="index"
               :class="{ 'active-slide': isActive(index) }"
+              class="!overflow-hidden"
             >
-              <video
-                :ref="'videoPlayer' + index"
-                class="h-full w-full object-cover rounded-2xl"
-                muted
-                loop
-                playsinline
-                :autoplay="isActive(index)"
-              >
-                <source :src="video.src" type="video/mp4" />
-                <!-- 兼容性提示 -->
-                <p class="absolute bottom-0 text-white p-2 bg-black/50">
-                  您的浏览器不支持HTML5视频
-                </p>
-              </video>
+              <div class="vr-video h-full w-full rounded-2xl overflow-hidden">
+                <video
+                  class="w-full h-full object-cover"
+                  :ref="'videoPlayer' + index"
+                  muted
+                  loop
+                  playsinline
+                  :autoplay="isActive(index)"
+                >
+                  <source :src="video.src" type="video/mp4" />
+                  <!-- 兼容性提示 -->
+                  <p class="absolute bottom-0 text-white p-2 bg-black/50">
+                    您的浏览器不支持HTML5视频
+                  </p>
+                </video>
+              </div>
               <div class="flex justify-between pw-pt-[8px] md:pt-4">
                 <p class="text-white">{{ video.desc }}</p>
                 <!-- <div>查看详情</div> -->
@@ -735,7 +738,7 @@ const handleVrSlideChange = (swiper: SwiperClass) => {
 // }
 @media (max-width: 768px) {
   .vr-swiper .swiper-slide {
-    width: 100% !important; /* 屏幕小于 768px 时宽度变为 100% */
+    width: 100%; /* 屏幕小于 768px 时宽度变为 100% */
   }
 }
 :deep(.custom-pagination) {
