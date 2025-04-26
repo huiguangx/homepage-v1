@@ -127,7 +127,7 @@
         </div>
 
         <!-- 桌面端三列布局 -->
-        <div class="hidden md:grid md:grid-cols-3 md:gap-8 mt-10">
+        <div v-if="locale === 'zh'" class="hidden md:grid md:grid-cols-3 md:gap-8 mt-10">
           <!-- 社会招聘 -->
           <div>
             <h3
@@ -349,6 +349,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { useWindowSize } from '@vueuse/core'
+import { locale } from 'dayjs'
 
 const { t } = useI18n()
 const swiperModules = [Autoplay, Pagination, Navigation]
@@ -425,11 +426,11 @@ const switchTab = (tabId) => {
 
 // 岗位数据（保持原有不变）
 const socialJobs = [
+  { title: '硬件工程师', category: '技术类' },
+  { title: '机械工程师', category: '技术类' },
   { title: '感知算法工程师', category: '技术类' },
-  { title: '硬件工程师（电源）', category: '技术类' },
+  { title: '机器人控规算法工程师', category: '技术类' },
   { title: '产品经理', category: '产品类' },
-  { title: '销售经理', category: '市场类' },
-  { title: '薪酬绩效专家', category: '职能类' },
 ]
 
 const campusJobs = [

@@ -535,7 +535,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
@@ -556,9 +555,19 @@ import teaVideo from '~/assets/media/05倒茶叶.mp4'
 import sortingVideo from '~/assets/media/06智能分拣.mp4'
 import foldingVideo from '~/assets/media/07叠衣服.mp4'
 import cupVideo from '~/assets/media/08竞技叠杯.mp4'
+
+// 英文版本视频
+import danceVideoEn from '~/assets/media/01跳舞-en.mp4'
+import catVideoEn from '~/assets/media/02逗猫扫地-en.mp4'
+import yangqinVideoEn from '~/assets/media/03扬琴-en.mp4'
+import waffleVideoEn from '~/assets/media/04华夫饼倒酱-en.mp4'
+import teaVideoEn from '~/assets/media/05倒茶叶-en.mp4'
+import sortingVideoEn from '~/assets/media/06智能分拣-en.mp4'
+import foldingVideoEn from '~/assets/media/07叠衣服-en.mp4'
+import cupVideoEn from '~/assets/media/08竞技叠杯-en.mp4'
 import type { Swiper as SwiperClass } from 'swiper'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
 useHead({
   title: '产品详情页',
@@ -649,17 +658,35 @@ const specItems = [
     humanDesc: t('product.specs.comparison.unit.2'),
   },
 ]
-const videos = [
-  { src: danceVideo, title: '舞蹈表演' },
-  { src: catVideo, title: '逗猫扫地' },
-  { src: yangqinVideo, title: '扬琴演奏' },
-  { src: waffleVideo, title: '华夫饼制作' },
-  { src: teaVideo, title: '茶艺展示' },
-  { src: sortingVideo, title: '智能分拣' },
-  { src: foldingVideo, title: '衣物整理' },
-  { src: cupVideo, title: '竞技叠杯' },
+// const baseVideos = [
+//   { src: danceVideo, title: '舞蹈表演' },
+//   { src: catVideo, title: '逗猫扫地' },
+//   { src: yangqinVideo, title: '扬琴演奏' },
+//   { src: waffleVideo, title: '华夫饼制作' },
+//   { src: teaVideo, title: '茶艺展示' },
+//   { src: sortingVideo, title: '智能分拣' },
+//   { src: foldingVideo, title: '衣物整理' },
+//   { src: cupVideo, title: '竞技叠杯' },
+// ]
+// 基础视频信息
+const baseVideos = [
+  { src: danceVideo, title: '舞蹈表演', enSrc: danceVideoEn },
+  { src: catVideo, title: '逗猫扫地', enSrc: catVideoEn },
+  { src: yangqinVideo, title: '扬琴演奏', enSrc: yangqinVideoEn },
+  { src: waffleVideo, title: '华夫饼制作', enSrc: waffleVideoEn },
+  { src: teaVideo, title: '茶艺展示', enSrc: teaVideoEn },
+  { src: sortingVideo, title: '智能分拣', enSrc: sortingVideoEn },
+  { src: foldingVideo, title: '衣物整理', enSrc: foldingVideoEn },
+  { src: cupVideo, title: '竞技叠杯', enSrc: cupVideoEn },
 ]
 
+// 动态生成当前语言环境下的视频列表
+const videos = computed(() => {
+  return baseVideos.map((video) => ({
+    ...video,
+    src: locale.value === 'zh' ? video.src : video.enSrc,
+  }))
+})
 const vrVideos = [
   { src: video2, title: '遥操2', desc: t('product.teleoperation.video_detail.0.desc') },
   { src: video3, title: '遥操3', desc: t('product.teleoperation.video_detail.1.desc') },
@@ -679,62 +706,53 @@ const isActive = (index: number) => {
   )
 }
 
+// 修改后的handleProductSlideChange函数
 const handleProductSlideChange = async (swiper: SwiperClass) => {
   activeIndex.value = swiper.realIndex
 
-  // 暂停所有视频
-  const pausePromises = Array.from(document.querySelectorAll('.product-swiper video')).map(
-    (video) => {
-      if (video instanceof HTMLVideoElement) {
-        return video.pause()
-      }
-      return Promise.resolve()
-    },
-  )
+  // 暂停所有幻灯片中的视频
+  swiper.slides.forEach((slide, index) => {
+    const video = slide.querySelector('video')
+    if (video) {
+      video.pause()
+      video.currentTime = 0 // 重置播放进度
+    }
+  })
 
-  await Promise.all(pausePromises)
-
-  // 播放当前视频
+  // 播放当前活动视频
   const currentSlide = swiper.slides[swiper.activeIndex]
   const currentVideo = currentSlide.querySelector('video')
-  if (currentVideo instanceof HTMLVideoElement) {
+  if (currentVideo) {
     try {
-      await Promise.race([
-        currentVideo.play(),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('Play timed out')), 3000)),
-      ])
-    } catch (e) {
-      console.log('Autoplay failed:', e)
-      // 可以在这里添加回退逻辑，比如显示播放按钮
+      currentVideo.muted = true // 确保静音以符合自动播放策略
+      await currentVideo.play()
+    } catch (err) {
+      console.log('视频自动播放被阻止，需要用户交互')
+      // 这里可以添加点击播放按钮的逻辑
     }
   }
 }
 
+// 修改后的handleVrSlideChange函数（逻辑相同）
 const handleVrSlideChange = async (swiper: SwiperClass) => {
   activeIndex.value = swiper.realIndex
 
-  // 暂停所有视频
-  const pausePromises = Array.from(document.querySelectorAll('.vr-swiper video')).map((video) => {
-    if (video instanceof HTMLVideoElement) {
-      return video.pause()
+  swiper.slides.forEach((slide) => {
+    const video = slide.querySelector('video')
+    if (video) {
+      video.pause()
+      video.currentTime = 0
     }
-    return Promise.resolve()
   })
 
-  await Promise.all(pausePromises)
-
-  // 播放当前视频
   const currentSlide = swiper.slides[swiper.activeIndex]
   const currentVideo = currentSlide.querySelector('video')
-  if (currentVideo instanceof HTMLVideoElement) {
+  if (currentVideo) {
     try {
-      await Promise.race([
-        currentVideo.play(),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('Play timed out')), 3000)),
-      ])
-    } catch (e) {
-      console.log('Autoplay failed:', e)
-      // 可以在这里添加回退逻辑，比如显示播放按钮
+      currentVideo.muted = true
+      await currentVideo.play()
+    } catch (err) {
+      console.log('VR视频自动播放失败')
     }
   }
 }
