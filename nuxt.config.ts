@@ -39,6 +39,9 @@ export default defineNuxtConfig({
       // (建议用于改进SEO) -仅检测站点根路径(/)上的浏览器区域设置。只有当使用策略而不是"no_prefix"时才有效。
       redirectOn: 'root',
     },
+    bundle: {
+      optimizeTranslationDirective: false, // Recommended to disable
+    },
     baseUrl: 'http://baidu1.com',
   },
   postcss: {
@@ -102,7 +105,7 @@ export default defineNuxtConfig({
         { name: 'keywords', content: '' },
         { name: 'description', content: '' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       style: [],
       script: [],
       noscript: [],
