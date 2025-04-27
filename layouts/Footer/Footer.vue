@@ -73,7 +73,7 @@
         <div class="flex md:space-x-4 justify-between pw-mt-[24px] md:mt-0">
           <!-- 微信（带二维码悬浮提示） -->
           <div class="relative group">
-            <a href="#" class="block">
+            <a href="" class="block">
               <img
                 src="~/assets/images/footer/wechat.svg"
                 alt="微信"

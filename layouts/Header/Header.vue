@@ -73,11 +73,11 @@
             </li>
           </ul>
         </nav>
-        <div class="ml-4 hidden md:block w-[200px]">
+        <div class="ml-4 hidden md:block">
           <div class="flex items-center justify-end">
             <div
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-              class="mx-6 text-sm font-medium cursor-pointer w-[32px] text-center"
+              class="mx-6 text-sm font-medium cursor-pointer text-center"
             >
               {{ locale === 'zh' ? 'En' : '中文' }}
             </div>

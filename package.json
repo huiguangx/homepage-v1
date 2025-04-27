@@ -1,21 +1,22 @@
 {
-  "name": "nuxt-tgame-web",
+  "name": "astribot-website",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "nuxt build --dotenv .env.production",
     "build:dev": "nuxt build --dotenv .env.test",
     "dev": "nuxt dev --dotenv .env.development",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate --dotenv .env.production",
     "start": "nuxt start",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "font-slice": "node font-slice.js"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.11.2",
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/i18n": "^9.3.1",
-    "@types/swiper": "^6.0.0",
+    "@nuxtjs/seo": "3.0.3",
     "@vueuse/core": "^13.1.0",
     "dayjs": "^1.11.13",
     "nuxt": "^3.14.1592",

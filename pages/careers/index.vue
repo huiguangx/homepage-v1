@@ -2,25 +2,23 @@
   <div class="bg-white">
     <!-- Banner Section -->
     <section class="relative w-full h-[70vh] md:h-screen overflow-hidden">
-      <div class="mx-auto w-[90%]">
-        <!-- 背景图 -->
-        <img
-          src="~/assets/images/career/hire-s1-bg.jpg"
-          class="w-full h-full object-cover absolute inset-0 z-10"
-        />
+      <!-- 背景图 -->
+      <img
+        src="~/assets/images/career/hire-s1-bg.jpg"
+        class="w-full h-full object-cover absolute inset-0 z-10"
+      />
 
-        <!-- 文字容器（绝对定位居中） -->
-        <div class="absolute inset-y-0 flex items-center justify-center z-20">
-          <div class="">
-            <h1 class="pw-text-[18px] md:text-4xl text-white font-medium pw-pb-[8px] md:pb-6">
-              {{ $t('careers.heroTitle') }}
-            </h1>
-            <p
-              class="pw-text-[14px] md:text-2xl bg-gradient-to-r from-purple-300 via-blue-300 to-white bg-clip-text text-transparent"
-            >
-              {{ $t('careers.heroSubtitle') }}
-            </p>
-          </div>
+      <!-- 文字容器 -->
+      <div class="relative z-20 h-full flex items-center justify-center">
+        <div class="w-full max-w-[90%] text-left">
+          <h1 class="pw-text-[18px] md:text-4xl text-white font-medium pw-pb-[8px] md:pb-6">
+            {{ $t('careers.heroTitle') }}
+          </h1>
+          <p
+            class="pw-text-[14px] md:text-2xl bg-gradient-to-r from-purple-300 via-blue-300 to-white bg-clip-text text-transparent"
+          >
+            {{ $t('careers.heroSubtitle') }}
+          </p>
         </div>
       </div>
     </section>
@@ -232,8 +230,8 @@
         <div
           ref="tabContent"
           class="md:hidden relative overflow-hidden"
-          @touchstart="startSwipe"
-          @touchmove="swiping"
+          @touchstart.passive="startSwipe"
+          @touchmove.passive="swiping"
           @touchend="endSwipe"
         >
           <div
@@ -336,8 +334,7 @@
   </div>
 </template>
 
-<script setup>
-import { ref, computed } from 'vue'
+<script setup lang="ts">
 import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import hireImg6 from '~/assets/images/career/hire-s3-img6.jpg'
@@ -349,11 +346,24 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { useWindowSize } from '@vueuse/core'
-import { locale } from 'dayjs'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const swiperModules = [Autoplay, Pagination, Navigation]
 const { width: windowWidth } = useWindowSize()
+
+useHead({
+  title: locale.value === 'zh' ? '招贤纳士' : 'Careers',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+    {
+      name: 'keywords',
+      content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
+    },
+  ],
+})
 
 const workImages = [
   { src: hireImg6, alt: t('careers.workEnv1Alt') },

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white">
+  <div class="">
     <!--1 Banner Section -->
     <section class="w-full h-auto">
       <div class="relative">
@@ -84,7 +84,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import img1 from '~/assets/images/news/news-s2-img1.jpg'
 import img2 from '~/assets/images/news/news-s2-img2.jpg'
 import img3 from '~/assets/images/news/news-s2-img3.jpg'
@@ -92,8 +92,21 @@ import img4 from '~/assets/images/news/news-s2-img4.jpg'
 import img5 from '~/assets/images/news/news-s2-img5.jpg'
 import img6 from '~/assets/images/news/news-s2-img6.jpg'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
+useHead({
+  title: locale.value === 'zh' ? '新闻动态' : 'News',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+    {
+      name: 'keywords',
+      content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
+    },
+  ],
+})
 const newsList = [
   {
     title: t('news.items.news1.title'),

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full max-w-[2560px] mx-auto">
+  <div>
     <!--1 Hero Video Section -->
     <section class="w-full h-[70vh] md:h-screen bg-black overflow-hidden">
       <div class="relative h-full w-full">
@@ -570,18 +570,17 @@ import type { Swiper as SwiperClass } from 'swiper'
 const { t, locale } = useI18n()
 const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
 useHead({
-  title: '产品详情页',
-  // meta: [
-  //   {
-  //     name: 'description',
-  //     content: computed(() => product.value.seoDescription)
-  //   },
-  //   // Open Graph协议
-  //   { property: 'og:image', content: dynamicOGImage() }
-  // ],
-  // link: [
-  //   { rel: 'canonical', href: currentCanonicalUrl }
-  // ]
+  title: locale.value === 'zh' ? '星尘智能 S1' : 'Astirbot S1',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+    {
+      name: 'keywords',
+      content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
+    },
+  ],
 })
 const specItems = [
   {

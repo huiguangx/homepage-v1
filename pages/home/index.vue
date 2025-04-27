@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full max-w-[2560px] mx-auto">
     <!--1 Hero Banner -->
     <section class="relative h-[70vh] md:h-screen w-full">
       <div class="h-full w-full">
@@ -306,7 +306,7 @@ import type { Swiper as SwiperClass, SwiperOptions } from 'swiper/types'
 // import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+const { t, locale } = useI18n()
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import img1 from '~/assets/images/news/news-s2-img1.jpg'
 import img2 from '~/assets/images/news/news-s2-img2.jpg'
@@ -315,6 +315,30 @@ import img4 from '~/assets/images/news/news-s2-img4.jpg'
 // import img5 from '~/assets/images/news/news-s2-img5.jpg'
 // import img6 from '~/assets/images/news/news-s2-img6.jpg'
 
+useHead({
+  title: locale.value === 'zh' ? '星尘智能' : 'Astirbot',
+  meta: [
+    {
+      name: 'description',
+      content: '',
+    },
+    {
+      name: 'keywords',
+      content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
+    },
+  ],
+})
+useSchemaOrg([
+  {
+    '@type': 'DefinedTerm',
+    name: 'Nuxt Schema.org',
+    description: 'Nuxt Schema.org is a Nuxt module for adding Schema.org to your Nuxt app.',
+    inDefinedTermSet: {
+      '@type': 'DefinedTermSet',
+      name: 'Nuxt Modules',
+    },
+  },
+])
 const newsList = [
   {
     title: t('news.items.news1.title'),

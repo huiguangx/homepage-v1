@@ -6,15 +6,23 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
   css: [],
-  modules: ['@nuxtjs/i18n', '@nuxt/image', 'nuxt-gtag', '@nuxtjs/tailwindcss'],
+  modules: [
+    '@nuxtjs/i18n',
+    '@nuxt/image',
+    'nuxt-gtag',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/seo',
+    '@nuxt/fonts',
+  ],
+
   gtag: {
     id: import.meta.env.VITE_GTAG_ID,
     enabled: true,
   },
-  devServer: {
-    host: '0.0.0.0',
-    port: 3000,
-  },
+  // devServer: {
+  //   host: '0.0.0.0',
+  //   port: 3000,
+  // },
 
   i18n: {
     locales: currentLocales,
@@ -88,34 +96,10 @@ export default defineNuxtConfig({
           content:
             'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0',
         },
+        { name: 'keywords', content: '' },
+        { name: 'description', content: '' },
       ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        // {
-        //   rel: 'preload',
-        //   href: '/font/HARMONYOS_SANS_SC_REGULAR/font.css',
-        //   as: 'font',
-        //   crossorigin: 'anonymous',
-        // },
-        // {
-        //   rel: 'preload',
-        //   href: '/font/HARMONYOS_SANS_SC_MEDIUM/font.css',
-        //   as: 'font',
-        //   crossorigin: 'anonymous',
-        // },
-        // {
-        //   rel: 'preload',
-        //   href: '/font/HARMONYOS_SANS_SC_BOLD/font.css',
-        //   as: 'font',
-        //   crossorigin: 'anonymous',
-        // },
-        // {
-        //   rel: 'preload',
-        //   href: '/font/HARMONYOS_SANS_SC_LIGHT/font.css',
-        //   as: 'font',
-        //   crossorigin: 'anonymous',
-        // },
-      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       style: [],
       script: [],
       noscript: [],
