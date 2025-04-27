@@ -86,6 +86,9 @@ export default defineNuxtConfig({
   // nitro: {
   //   compressPublicAssets: true, // 启动压缩
   // },
+  build: {
+    analyze: true,
+  },
   app: {
     baseURL: process.env.BASE_URL || '/',
     head: {

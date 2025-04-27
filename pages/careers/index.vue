@@ -225,6 +225,7 @@
             </div>
           </div>
         </div>
+        <div v-else></div>
 
         <!-- 移动端内容区域 -->
         <div
