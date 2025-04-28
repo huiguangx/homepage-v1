@@ -18,12 +18,16 @@ html {
 @import '../font/HARMONYOS_SANS_SC_MEDIUM/font.css';
 @import '../font/HARMONYOS_SANS_SC_BOLD/font.css';
 @import '../font/HARMONYOS_SANS_SC_LIGHT/font.css';
-
-/* 中文字体 */
-:lang(zh) body {
-  font-family: 'HARMONYOS_SANS_SC_REGULAR', sans-serif;
-}
-/* 英文字体 */
+/* 英文环境下的字体 */
 :lang(en) body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans', 'HARMONYOS_SANS_SC', sans-serif;
 }
+
+/* 默认字体（中文环境） */
+body {
+  font-family: 'HARMONYOS_SANS_SC', sans-serif;
+}
+// /* 中文字体 */
+// :lang(zh) body {
+//   font-family: 'HARMONYOS_SANS_SC', sans-serif;
+// }
