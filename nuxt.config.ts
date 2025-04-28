@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     plugins: {
       'postcss-px-to-viewport-8-plugin': {
         // 配置参数使用与 postcss-px-to-viewport 一致
-        viewportWidth: 750, // 设计稿宽度（通常为 750px 或 375px）
+        viewportWidth: 375, // 设计稿宽度（通常为 750px 或 375px）
         unitPrecision: 5, // 转换后的精度（小数点位数）
         viewportUnit: 'vw', // 转换的目标单位
         selectorBlackList: [], // 不需要转换的选择器
@@ -83,9 +83,10 @@ export default defineNuxtConfig({
     },
   },
   // 开启gzip压缩
-  // nitro: {
-  //   compressPublicAssets: true, // 启动压缩
-  // },
+  nitro: {
+    compressPublicAssets: true, // 启动压缩
+    static: true,
+  },
   app: {
     baseURL: process.env.BASE_URL || '/',
     head: {
