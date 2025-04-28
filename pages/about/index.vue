@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="bg-black">
     <!--1 hero section-->
     <section>
       <div class="relative w-full pw-pt-[44px] md:pt-0 md:h-screen">

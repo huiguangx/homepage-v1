@@ -69,7 +69,6 @@
         </div>
 
         <!-- 右侧社交媒体图标 -->
-        <!-- 右侧社交媒体图标 -->
         <div class="flex md:space-x-4 justify-between pw-mt-[24px] md:mt-0">
           <!-- 微信（带二维码悬浮提示） -->
           <div class="relative group">
@@ -81,7 +80,7 @@
               />
             </a>
             <div
-              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 w-32 bg-white rounded-md p-2 shadow-lg"
+              class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 w-32 bg-white rounded-md p-2 shadow-lg"
             >
               <img
                 src="~/assets/images/footer/index-s1-qr.png"
@@ -105,7 +104,7 @@
               />
             </a>
             <div
-              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+              class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
             >
               哔哩哔哩频道
               <div
@@ -127,7 +126,7 @@
               />
             </a>
             <div
-              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+              class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
             >
               抖音
               <div
@@ -150,7 +149,7 @@
               />
             </a>
             <div
-              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+              class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
             >
               YouTube频道
               <div
@@ -169,7 +168,7 @@
               />
             </a>
             <div
-              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+              class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
             >
               X (Twitter)
               <div
@@ -192,7 +191,7 @@
               />
             </a>
             <div
-              class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+              class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
             >
               TikTok
               <div
@@ -220,7 +219,7 @@
               <div class="flex items-center cursor-pointer">
                 <span>
                   <a
-                    class="hover:text-gray-300"
+                    class="md:hover:text-gray-300"
                     rel="noreferrer"
                     target="_blank"
                     href="http://beian.miit.gov.cn/"
@@ -237,7 +236,7 @@
                 />
                 <span>
                   <a
-                    class="hover:text-gray-300"
+                    class="md:hover:text-gray-300"
                     rel="noreferrer"
                     target="_blank"
                     href="https://beian.mps.gov.cn/#/query/webSearch?code=44030002006488"
@@ -251,7 +250,7 @@
             <!-- 语言切换（仅PC端显示在右侧） -->
             <div
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-              class="hover:text-gray-300 transition-colors cursor-pointer hidden md:block"
+              class="md:hover:text-gray-300 transition-colors cursor-pointer hidden md:block"
             >
               {{ locale === 'zh' ? 'English' : '中文' }}
             </div>
