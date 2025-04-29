@@ -14,7 +14,12 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     '@nuxt/fonts',
   ],
-
+  fonts: {
+    families: [
+      { name: 'HarmonyOS Sans', provider: 'local' }, // 本地鸿蒙字体文件
+      { name: 'Noto Sans', provider: 'google' }, // 从 Google Fonts 加载
+    ],
+  },
   gtag: {
     id: import.meta.env.VITE_GTAG_ID,
     enabled: true,
