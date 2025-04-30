@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 // tailwind.config.js
 import pxToViewport from 'tailwindcss-px-to-viewport'
 
@@ -10,8 +11,6 @@ module.exports = {
     './plugins/**/*.{js,ts}', // 扫描插件文件
     './nuxt.config.{js,ts}', // 扫描 Nuxt 配置文件（如果使用了 Tailwind 类）
     './app.vue', // 扫描根组件文件（如果有）
-    './mobile/**/*.vue',
-    './PC/**/*.vue',
   ],
   theme: {
     // screens: {

@@ -57,12 +57,10 @@
                     {{ $t('home.hero.subtitle') }}
                   </h2>
 
-                  <!-- 标语部分 -->
-                  <p class="pw-text-[16hpx] md:text-3xl font-medium text-[#D2D0FB] mx-auto md:mx-0">
+                  <p class="pw-text-[16px] md:text-3xl font-medium text-[#D2D0FB] mx-auto md:mx-0">
                     {{ $t('home.hero.slogan') }}
                   </p>
 
-                  <!-- 按钮链接 -->
                   <NuxtLinkLocale
                     to="/about"
                     class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg px-6 py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0 no-border-on-pc"
@@ -75,43 +73,108 @@
           </swiper-slide>
           <swiper-slide>
             <div class="relative h-full w-full">
-              <img
-                src="~/assets/images/index/index-s1-bg.jpg"
-                class="absolute inset-0 w-full h-full object-cover hidden md:block"
-              />
-              <img
-                src="~/assets/images/index/index-s1-bg-h5.jpg"
-                class="absolute inset-0 w-full h-full object-cover md:hidden"
-              />
+              <picture class="absolute inset-0 block">
+                <source
+                  media="(max-width: 767px)"
+                  srcset="~/assets/images/index/index-s1-bg-h5.webp"
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="~/assets/images/index/index-s1-bg-h5.jpg"
+                  type="image/jpeg"
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="~/assets/images/index/index-s1-bg.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="~/assets/images/index/index-s1-bg.jpg"
+                  class="w-full h-full object-cover"
+                  alt="Recruitment Background"
+                />
+              </picture>
+
+              <div class="md:hidden absolute inset-0 bg-black/40"></div>
               <div class="w-[90%] mx-auto h-full flex flex-col justify-center">
                 <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
-                  <h1 class="pw-text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
-                    {{ $t('home.hero.title') }}
-                  </h1>
-                  <h2
+                  <h1
                     class="pw-text-[22px] md:text-5xl font-bold md:font-medium text-white mx-auto md:mx-0"
                   >
-                    {{ $t('home.hero.subtitle') }}
+                    {{ $t('home.preorder.title') }}
+                  </h1>
+                  <h2 class="pw-text-[16px] md:text-3xl font-medium text-white mx-auto md:mx-0">
+                    {{ $t('home.preorder.description') }}
                   </h2>
-
-                  <!-- 标语部分 -->
-                  <p class="pw-text-[16hpx] md:text-3xl font-medium text-[#D2D0FB] mx-auto md:mx-0">
-                    {{ $t('home.hero.slogan') }}
+                  <p
+                    class="pw-text-[24px] md:text-4xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] bg-[length:100%_auto] inline-block mx-auto md:mx-0"
+                  >
+                    {{ $t('home.preorder.status') }}
                   </p>
 
-                  <!-- 按钮链接 -->
-                  <NuxtLinkLocale
-                    to="/contact"
-                    class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg px-6 py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0 no-border-on-pc"
+                  <div class="flex flex-col items-center md:items-start">
+                    <img
+                      src="~/assets/images/index/index-s1-qr-en.png"
+                      alt="QR Code"
+                      class="pw-w-[80px] md:w-24 h-auto"
+                    />
+                    <div class="pw-pt-[8px] md:pt-4 text-center md:text-left">
+                      <p class="pw-text-[12px] md:text-base text-white">先到先得</p>
+                      <p class="pw-text-[12px] md:text-base text-white">扫码咨询</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="relative h-full w-full overflow-hidden">
+              <picture class="absolute inset-0 block">
+                <source
+                  media="(max-width: 767px)"
+                  srcset="~/assets/images/index/index-s1-o3-bg-h5.webp"
+                  type="image/webp"
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="~/assets/images/index/index-s1-o3-bg-h5.jpg"
+                  type="image/jpeg"
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="~/assets/images/index/index-s1-o3-bg.webp"
+                  type="image/webp"
+                />
+                <img
+                  src="~/assets/images/index/index-s1-o3-bg.jpg"
+                  class="w-full h-full object-cover"
+                  alt="Recruitment Background"
+                />
+              </picture>
+
+              <div class="relative z-10 w-[90%] mx-auto h-full flex flex-col justify-center">
+                <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
+                  <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
+                    {{ $t('home.recruitment.title') }}
+                  </h1>
+                  <h2
+                    class="text-[22px] md:text-5xl font-bold md:font-medium text-white mx-auto md:mx-0"
                   >
-                    {{ $t('home.hero.cta') }}
+                    {{ $t('home.recruitment.description') }}
+                  </h2>
+                  <NuxtLinkLocale
+                    :to="{ path: '/careers', hash: '#joinus' }"
+                    class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg px-6 py-3 text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
+                  >
+                    {{ $t('home.careers.title') }}
                   </NuxtLinkLocale>
                 </div>
               </div>
             </div>
           </swiper-slide>
         </swiper>
-        <!-- 导航按钮 - 完全使用Tailwind自定义 -->
+
         <div class="swiper-button-prev w-14 h-14 rounded-full"></div>
         <div class="swiper-button-next w-14 h-14 rounded-full"></div>
       </div>
@@ -132,7 +195,11 @@
         <div
           class="w-full lg:w-5/6 xl:w-3/4 2xl:w-2/3 aspect-video rounded-2xl bg-gray-100 overflow-hidden"
         >
-          <video class="w-full h-full object-cover" poster="" controls>
+          <video
+            class="w-full h-full object-cover"
+            poster="~/assets/images/index/index-s2-test.webp"
+            controls
+          >
             <source src="~/assets/media/test.mp4" type="video/mp4" />
             您的浏览器不支持视频播放
           </video>
@@ -142,7 +209,6 @@
 
     <!--3 About Section -->
     <section class="bg-[#F9FAFB] py-8 md:py-32">
-      <!-- 使用Tailwind标准单位 py-20=80px -->
       <div
         class="mx-auto w-[90%] flex flex-col items-center gap-0 md:gap-8 md:flex-row md:items-center md:justify-center"
       >
@@ -151,12 +217,11 @@
         >
           {{ $t('home.about.title') }}
         </h1>
-        <!-- 图片部分 - 支持WebP -->
+
         <div class="w-full overflow-hidden rounded-2xl bg-gray-200 md:w-1/2">
           <picture>
-            <!-- 优先加载WebP格式 -->
             <source srcset="~/assets/images/index/index-s5-img.webp" type="image/webp" />
-            <!-- 兼容旧浏览器的JPEG/PNG回退 -->
+
             <img
               src="~/assets/images/index/index-s5-img.jpg"
               alt="{{ $t('home.about.title') }}"
@@ -251,7 +316,7 @@
       <div class="mx-auto w-[90%] flex justify-center gap-[8px] md:gap-20 px-0">
         <div class="rounded-2xl bg-white pw-p-[24px] md:p-10 text-center">
           <NuxtLinkLocale
-            :to="{ path: '/careers', hash: '#join-us' }"
+            :to="{ path: '/careers', hash: '#joinus' }"
             class="flex flex-col items-center"
           >
             <h1 class="pw-text-[18px] md:text-2xl font-medium text-[#23233D]">
@@ -302,11 +367,7 @@ import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
 import 'swiper/css/navigation' // 必须引入的样式
 import 'swiper/css/pagination'
 import type { Swiper as SwiperClass, SwiperOptions } from 'swiper/types'
-// import Autoplay from 'swiper'
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-const { t, locale } = useI18n()
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import img1 from '~/assets/images/news/news-s2-img1.jpg'
 import img2 from '~/assets/images/news/news-s2-img2.jpg'
@@ -314,7 +375,7 @@ import img3 from '~/assets/images/news/news-s2-img3.jpg'
 import img4 from '~/assets/images/news/news-s2-img4.jpg'
 // import img5 from '~/assets/images/news/news-s2-img5.jpg'
 // import img6 from '~/assets/images/news/news-s2-img6.jpg'
-
+const { t, locale } = useI18n()
 useHead({
   title: locale.value === 'zh' ? '星尘智能' : 'Astirbot',
   meta: [

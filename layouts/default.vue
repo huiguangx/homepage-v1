@@ -4,7 +4,7 @@ import Footer from './Footer/Footer.vue'
 </script>
 
 <template>
-  <div>
+  <div class="max-w-[2560px] mx-auto">
     <slot name="header">
       <Header></Header>
     </slot>

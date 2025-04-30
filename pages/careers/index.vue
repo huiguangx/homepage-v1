@@ -2,13 +2,11 @@
   <div class="bg-white">
     <!-- Banner Section -->
     <section class="relative w-full h-[70vh] md:h-screen overflow-hidden">
-      <!-- 背景图 -->
       <img
         src="~/assets/images/career/hire-s1-bg.jpg"
         class="w-full h-full object-cover absolute inset-0 z-10"
       />
 
-      <!-- 文字容器 -->
       <div class="relative z-20 h-full flex items-center justify-center">
         <div class="w-full max-w-[90%] text-left">
           <h1 class="pw-text-[18px] md:text-4xl text-white font-medium pw-pb-[8px] md:pb-6">
@@ -64,13 +62,13 @@
             <img class="rounded-lg" :src="image.src" alt="" />
           </swiper-slide>
         </swiper>
-        <!-- 自定义分页器 -->
+        <!-- Custom Paginator & navigation-->
         <div
           class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
         >
-          <!-- 自定义分页器 -->
+          <!-- Custom Paginator -->
           <div class="custom-pagination"></div>
-          <!-- 自定义导航按钮 -->
+          <!-- Customize navigation buttons -->
           <div class="hidden md:flex gap-4 text-[#71798A]">
             <button class="custom-prev w-9 h-9 bg-[#f9fafbee] rounded-lg">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -88,7 +86,7 @@
     </section>
 
     <!-- Open Positions -->
-    <section class="py-12 md:py-16 bg-[#F9FAFB]" id="join-us">
+    <section class="py-12 md:py-16 bg-[#F9FAFB]" id="joinus">
       <div class="w-[90%] mx-auto">
         <!-- 标题区域 -->
         <div class="text-center">
@@ -100,7 +98,7 @@
           </p>
         </div>
 
-        <!-- 移动端标签页 -->
+        <!-- Mobile tabs -->
         <div class="md:hidden mt-[32px] pw-pb-[24px] relative overflow-x-auto">
           <div
             ref="tabHeader"
@@ -124,7 +122,7 @@
           </div>
         </div>
 
-        <!-- 桌面端三列布局 -->
+        <!-- Three-column layout for desktop -->
         <div v-if="locale === 'zh'" class="hidden md:grid md:grid-cols-3 md:gap-8 mt-10">
           <!-- 社会招聘 -->
           <div>
@@ -225,9 +223,8 @@
             </div>
           </div>
         </div>
-        <div v-else></div>
 
-        <!-- 移动端内容区域 -->
+        <!-- Mobile content area -->
         <div
           ref="tabContent"
           class="md:hidden relative overflow-hidden"
@@ -361,9 +358,24 @@ useHead({
     },
     {
       name: 'keywords',
-      content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
+      content: '',
     },
   ],
+})
+
+// 锚点跳转
+const goAnchor = (selector: string) => {
+  setTimeout(() => {
+    const anchor = document.querySelector(selector)
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, 500)
+}
+onMounted(() => {
+  if (window.location.hash) {
+    goAnchor(window.location.hash)
+  }
 })
 
 const workImages = [
@@ -396,12 +408,12 @@ const contentPosition = computed(() => {
     : -index * 100 // 服务端回退
 })
 
-const startSwipe = (e) => {
+const startSwipe = (e: TouchEvent) => {
   isSwiping.value = true
   startX.value = e.touches[0].clientX
 }
 
-const swiping = (e) => {
+const swiping = (e: TouchEvent) => {
   if (!isSwiping.value) return
   e.preventDefault()
   const x = e.touches[0].clientX
@@ -430,7 +442,7 @@ const endSwipe = () => {
   currentX.value = 0 // 复位
 }
 
-const switchTab = (tabId) => {
+const switchTab = (tabId: string) => {
   activeTab.value = tabId
   currentX.value = 0
 }
@@ -466,30 +478,17 @@ useHead({
 </script>
 
 <style scoped lang="scss">
-/* 原有样式保持不变... */
-
 /* 新增滑动样式 */
 .flex {
   transition: transform 0.3s ease;
   will-change: transform;
 }
-wiper .swiper-slide {
-  // width: 50% !important; /* 中间幻灯片占50% */
-  transition: transform 0.3s;
-}
+
 :deep(.custom-pagination) {
   display: flex;
   height: 5px; /* px-to-viewport-ignore */
   gap: 8px; /* px-to-viewport-ignore */
-  // background-color: transparent; /* 确保背景透明 */
 }
-// 纯样式覆盖
-// .swiper-pagination-fraction,
-// .swiper-pagination-custom,
-// .swiper-horizontal > .swiper-pagination-bullets,
-// .swiper-pagination-bullets.swiper-pagination-horizontal {
-//   width: auto !important; /* 移除宽度设置 */
-// }
 
 .custom-prev,
 .custom-next {
@@ -497,10 +496,6 @@ wiper .swiper-slide {
   transition: all 0.3s;
 }
 
-.custom-prev:hover,
-.custom-next:hover {
-  // background: red;
-}
 :deep(.custom-bullet) {
   width: 5px; /* px-to-viewport-ignore */
   height: 5px; /* px-to-viewport-ignore */

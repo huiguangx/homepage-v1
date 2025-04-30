@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black">
+  <div class="">
     <!--1 hero section-->
     <section>
       <div class="relative w-full pw-pt-[44px] md:pt-0 md:h-screen">
@@ -32,7 +32,11 @@
         <div
           class="poster absolute top-1/2 left-[10%] -translate-y-1/2 text-white space-y-2 md:space-y-6 animate-fade-in-up"
         >
-          <h1 class="pw-text-[18px] md:text-4xl font-medium">创未来科技，传经典文化</h1>
+          <h1
+            class="pw-text-[18px] md:text-4xl font-medium bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] text-transparent bg-clip-text"
+          >
+            创未来科技，传经典文化
+          </h1>
           <p class="pw-text-[14px] md:text-2xl text-[#D2D0FB]">High Tech, High Life</p>
         </div>
       </div>
@@ -40,7 +44,7 @@
 
     <!--2 culture section（修改后的完整代码） -->
     <section
-      class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-auto md:h-[80vh] relative bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat"
+      class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-full md:h-screen relative bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat"
       style="background-size: 100% 100%"
     >
       <!-- 动画容器 -->
@@ -169,7 +173,7 @@
 const { locale } = useI18n()
 
 useHead({
-  title: locale.value === 'zh' ? '关于我们' : 'About Us',
+  title: locale.value === 'zh' ? '关于星辰' : 'About Us',
   meta: [
     {
       name: 'description',

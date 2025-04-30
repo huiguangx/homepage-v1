@@ -3,22 +3,24 @@
     <!--1 Hero Video Section -->
     <section class="w-full h-[70vh] md:h-screen bg-black overflow-hidden">
       <div class="relative h-full w-full">
-        <div class="w-full">
+        <div class="w-full h-full">
           <video
-            class="fixed inset-0 w-full object-cover object-bottom md:hidden"
+            class="fixed inset-0 w-full h-[70vh] md:h-full object-cover object-bottom md:hidden"
             muted
             autoplay
             loop
             playsinline
+            poster="~/assets/images/product/describe-s1-poster-h5.webp"
           >
             <source src="~/assets/media/describe-h5.mp4" type="video/mp4" />
           </video>
           <video
-            class="fixed inset-0 w-full object-cover object-bottom hidden md:block"
+            class="fixed inset-0 w-full h-[70vh] md:h-full object-cover object-bottom hidden md:block"
             muted
             autoplay
             loop
             playsinline
+            poster="~/assets/images/product/describe-s1-poster.webp"
           >
             <source src="~/assets/media/describe.mp4" type="video/mp4" />
           </video>
@@ -578,7 +580,7 @@ useHead({
     },
     {
       name: 'keywords',
-      content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
+      content: '',
     },
   ],
 })
@@ -657,16 +659,7 @@ const specItems = [
     humanDesc: t('product.specs.comparison.unit.2'),
   },
 ]
-// const baseVideos = [
-//   { src: danceVideo, title: '舞蹈表演' },
-//   { src: catVideo, title: '逗猫扫地' },
-//   { src: yangqinVideo, title: '扬琴演奏' },
-//   { src: waffleVideo, title: '华夫饼制作' },
-//   { src: teaVideo, title: '茶艺展示' },
-//   { src: sortingVideo, title: '智能分拣' },
-//   { src: foldingVideo, title: '衣物整理' },
-//   { src: cupVideo, title: '竞技叠杯' },
-// ]
+
 // 基础视频信息
 const baseVideos = [
   { src: danceVideo, title: '舞蹈表演', enSrc: danceVideoEn },
@@ -698,7 +691,7 @@ const vrVideos = [
 const activeIndex = ref(0)
 
 const isActive = (index: number) => {
-  const total = videos.length
+  const total = videos.value.length
   return (
     index === activeIndex.value % total ||
     (activeIndex.value >= total && index === activeIndex.value - total)
@@ -726,7 +719,7 @@ const handleProductSlideChange = async (swiper: SwiperClass) => {
       currentVideo.muted = true // 确保静音以符合自动播放策略
       await currentVideo.play()
     } catch (err) {
-      console.log('视频自动播放被阻止，需要用户交互')
+      // console.log('视频自动播放被阻止，需要用户交互')
       // 这里可以添加点击播放按钮的逻辑
     }
   }
@@ -777,11 +770,7 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
     width: 100% !important; /* 屏幕小于 768px 时宽度变为 100% */
   }
 }
-// .vr-swiper .swiper-slide {
-//   position: relative;
-//   width: 50% !important; /* 中间幻灯片占50% */
-//   transition: transform 0.3s;
-// }
+
 @media (max-width: 768px) {
   .vr-swiper .swiper-slide {
     width: 100%; /* 屏幕小于 768px 时宽度变为 100% */

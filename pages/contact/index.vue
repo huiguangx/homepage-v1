@@ -5,9 +5,8 @@
     >
       <div class="w-[80%] mx-auto pw-py-[32px] md:py-14">
         <div class="flex flex-col items-center md:flex-row md:justify-around">
-          <!-- 左侧标题区域 -->
+          <!-- Left title area -->
           <div class="md:w-1/3 flex justify-center items-center text-center">
-            <!-- 添加 items-center -->
             <div class="text-center">
               <h1 class="pw-pb-[8px] md:pb-4 pw-text-[22px] md:text-4xl font-medium text-[#23233D]">
                 {{ $t('contact.cooperation.title') }}
@@ -16,12 +15,11 @@
             </div>
           </div>
 
-          <!-- 右侧表单区域 -->
+          <!-- Right form area -->
           <div class="w-full md:w-2/5 pw-pt-[24px] md:pt-0">
             <div>
               <form @submit.prevent="submitForm">
                 <div class="grid grid-cols-2 pw-gap-[8px] md:gap-6">
-                  <!-- 姓名 -->
                   <div>
                     <input
                       id="name"
@@ -32,7 +30,6 @@
                     />
                   </div>
 
-                  <!-- 公司名称 -->
                   <div>
                     <input
                       id="company"
@@ -43,7 +40,6 @@
                     />
                   </div>
 
-                  <!-- 邮箱地址 -->
                   <div>
                     <input
                       id="email"
@@ -55,7 +51,6 @@
                     />
                   </div>
 
-                  <!-- 联系电话 -->
                   <div>
                     <input
                       id="phone"
@@ -67,7 +62,6 @@
                   </div>
                 </div>
 
-                <!-- 合作需求 -->
                 <div class="pw-mt-[16px] md:mt-4">
                   <textarea
                     id="message"
@@ -78,7 +72,6 @@
                   ></textarea>
                 </div>
 
-                <!-- 验证码和提交按钮 -->
                 <div
                   class="flex flex-col items-center justify-between mt-6 space-y-4 md:flex-row md:space-y-0"
                 >
@@ -97,16 +90,16 @@
     </section>
     <section class="pw-pt-[32px] md:pt-16 bg-white">
       <div class="w-[90%] mx-auto">
-        <!-- 标题 -->
+        <!-- title -->
         <h2 class="pw-text-[22px] md:text-3xl font-medium text-center pw-mb-[24px] md:mb-12">
           {{ $t('contact.connect.title') }}
         </h2>
 
-        <!-- 联系信息网格 -->
+        <!-- Contact Information-->
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:[grid-template-columns:repeat(3,1fr)_0.5fr] pw-gap-[24px] md:gap-8 text-left"
         >
-          <!-- 社交媒体 -->
+          <!-- Social Media -->
           <div
             class="rounded-lg bg-[#F9FAFB] md:bg-transparent text-center md:text-left pw-py-[24px] pw-px-[8px] md:p-0"
           >
@@ -170,7 +163,7 @@
               </a>
             </div>
           </div>
-          <!-- 邮箱联系 -->
+
           <div
             class="rounded-lg bg-[#F9FAFB] md:bg-transparent text-center md:text-left pw-py-[24px] pw-px-[16px] md:p-0"
           >
@@ -184,7 +177,7 @@
                 </p>
                 <a
                   href="mailto:business@astribot.com"
-                  class="pw-text-[14px] md:text-sm text-gray-700 hover:text-blue-600"
+                  class="pw-text-[14px] md:text-sm text-gray-700 md:hover:text-blue-600"
                 >
                   business@astribot.com
                 </a>
@@ -195,7 +188,7 @@
                 </p>
                 <a
                   href="mailto:join@astribot.com"
-                  class="pw-text-[14px] md:text-sm text-gray-700 hover:text-blue-600"
+                  class="pw-text-[14px] md:text-sm text-gray-700 md:hover:text-blue-600"
                 >
                   join@astribot.com
                 </a>
@@ -206,7 +199,7 @@
                 </p>
                 <a
                   href="mailto:contact@astribot.com"
-                  class="pw-text-[14px] md:text-sm text-gray-700 hover:text-blue-600"
+                  class="pw-text-[14px] md:text-sm text-gray-700 md:hover:text-blue-600"
                 >
                   contact@astribot.com
                 </a>
@@ -235,7 +228,7 @@
             </h3>
             <a
               href="tel:0755-86701637"
-              class="pw-text-[16px] md:text-sm text-gray-700 hover:text-blue-600"
+              class="pw-text-[16px] md:text-sm text-gray-700 md:hover:text-blue-600"
             >
               0755-86701637
             </a>
@@ -243,7 +236,6 @@
         </div>
       </div>
 
-      <!-- 分隔线 -->
       <div class="container mx-auto px-4 mt-12">
         <div class="border-t border-gray-200"></div>
       </div>
@@ -262,7 +254,7 @@ useHead({
     },
     {
       name: 'keywords',
-      content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
+      content: '',
     },
   ],
 })

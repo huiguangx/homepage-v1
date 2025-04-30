@@ -2,6 +2,9 @@
   "name": "astribot-website",
   "private": true,
   "type": "module",
+  "imports": {
+    "#internal/*": "./.nuxt/*"
+  },
   "scripts": {
     "build": "nuxt build --dotenv .env.production",
     "build:dev": "nuxt build --dotenv .env.test",
@@ -10,7 +13,8 @@
     "start": "nuxt start",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "font-slice": "node font-slice.js"
+    "font-slice": "node font-slice.js",
+    "release": "release-it"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.11.2",
@@ -27,12 +31,14 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.13.2",
+    "@release-it/conventional-changelog": "^10.0.1",
     "@types/node": "^22.13.10",
     "font-slice": "^1.0.2",
     "install": "^0.13.0",
     "nuxt-windicss": "^3.0.1",
     "postcss-px-to-viewport-8-plugin": "^1.2.5",
     "prettier": "^3.5.3",
+    "release-it": "^19.0.1",
     "sass-embedded": "^1.82.0",
     "tailwindcss-px-to-viewport": "^0.1.3"
   },
@@ -40,5 +46,6 @@
     "pnpm": ">=7.0.0"
   },
   "engine-strict": true,
-  "packageManager": "pnpm@10.6.4+sha512.da3d715bfd22a9a105e6e8088cfc7826699332ded60c423b14ec613a185f1602206702ff0fe4c438cb15c979081ce4cb02568e364b15174503a63c7a8e2a5f6c"
+  "packageManager": "pnpm@10.6.4+sha512.da3d715bfd22a9a105e6e8088cfc7826699332ded60c423b14ec613a185f1602206702ff0fe4c438cb15c979081ce4cb02568e364b15174503a63c7a8e2a5f6c",
+  "version": "0.0.1"
 }

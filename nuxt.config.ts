@@ -24,10 +24,6 @@ export default defineNuxtConfig({
     id: import.meta.env.VITE_GTAG_ID,
     enabled: true,
   },
-  // devServer: {
-  //   host: '0.0.0.0',
-  //   port: 3000,
-  // },
 
   i18n: {
     locales: currentLocales,
@@ -44,9 +40,6 @@ export default defineNuxtConfig({
       // (建议用于改进SEO) -仅检测站点根路径(/)上的浏览器区域设置。只有当使用策略而不是"no_prefix"时才有效。
       redirectOn: 'root',
     },
-    bundle: {
-      optimizeTranslationDirective: false, // Recommended to disable
-    },
     baseUrl: 'http://baidu1.com',
   },
   postcss: {
@@ -61,20 +54,6 @@ export default defineNuxtConfig({
         mediaQuery: false, // 是否转换媒体查询中的 px
         exclude: /^(?:(?!pages|layouts).)*$/,
       },
-      // 'postcss-pxtorem': {
-      //   rootValue({ file = '' }) {
-      //     return file.indexOf('vant') !== -1 ? 37.5 : 75
-      //   },
-      //   propList: ['*'],
-      //   mediaQuery: false,
-      //   exclude: (file = '') => {
-      //     // 只对 移动端的 /mobile/、vantUi 文件夹中的文件进行 px 转 rem，其他文件不转换
-      //     const needRemArr = ['/mobile/', 'vant']
-      //     const bl = needRemArr.find((item) => file?.includes(item))
-      //     if (bl) return false
-      //     return true
-      //   },
-      // },
     },
   },
   vite: {
@@ -90,12 +69,16 @@ export default defineNuxtConfig({
       },
     },
   },
-  // 开启gzip压缩
-
-  nitro: {
-    compressPublicAssets: true, // 启动压缩
-    static: true,
-  },
+  // 开启gzip压缩、vercel(SSG、SPA)
+  // nitro: {
+  //   compressPublicAssets: true, // 启动压缩
+  //   static: true, // ssg
+  // },
+  // 配置开发服务器：允许局域网访问并指定端口 3000
+  // devServer: {
+  //   host: '0.0.0.0',
+  //   port: 3000,
+  // },
   app: {
     baseURL: process.env.BASE_URL || '/',
     head: {
@@ -109,7 +92,7 @@ export default defineNuxtConfig({
         { name: 'keywords', content: '' },
         { name: 'description', content: '' },
       ],
-      // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       style: [],
       script: [],
       noscript: [],

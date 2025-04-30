@@ -24,7 +24,7 @@
     "heroTitle": "Join Astribot",
     "heroSubtitle": "「Searching for the shining you and defining the future together」",
     "workEnvironment": "Work Environment",
-    "workEnvironmentDesc": "Seaview, robots, cats, and constantly evolving us",
+    "workEnvironmentDesc": "With sea views, robots, cats, and our continuously evolving selves.",
     "workEnv1Alt": "Astribot office environment",
     "workEnv2Alt": "Astribot team working together",
     "workEnv3Alt": "Astribot office facilities",
@@ -134,7 +134,7 @@
     "home": "Home",
     "products": "Products",
     "careers": "Careers",
-    "news": "news",
+    "news": "News",
     "about": "About"
   },
 
@@ -150,6 +150,10 @@
       "description": "Your AI Robotic Partner, Together Forward",
       "status": "Pre-order Now!",
       "hint": "Contact us"
+    },
+    "recruitment": {
+      "title": "Join us 2025",
+      "description": "Shining Together, Creating  Wonders"
     },
     "product": {
       "title": "Astribot S1",

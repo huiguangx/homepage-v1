@@ -4,11 +4,10 @@
     <section class="w-full h-auto">
       <div class="relative">
         <picture>
-          <!-- 移动端图片 -->
           <source media="(max-width: 767px)" srcset="~/assets/images/news/news-s1-poster-h5.jpg" />
-          <!-- PC端图片 -->
+
           <source media="(min-width: 768px)" srcset="~/assets/images/news/news-s1-poster.jpg" />
-          <!-- 默认回退 -->
+
           <img
             src="~/assets/images/news/news-s1-poster.jpg"
             alt="News Banner"
@@ -41,10 +40,7 @@
               <!-- 图片容器 -->
               <div class="w-full rounded-t-2xl overflow-hidden bg-gray-200">
                 <picture>
-                  <!-- <source
-                  media="(min-width: 768px)"
-                  srcset="~/assets/images/news/news-s1-poster.jpg"
-                /> -->
+                  <source :srcset="news.imageWp" type="image/webp" />
                   <img :src="news.image" alt="News Banner" class="w-full object-cover" />
                 </picture>
               </div>
@@ -91,6 +87,12 @@ import img3 from '~/assets/images/news/news-s2-img3.jpg'
 import img4 from '~/assets/images/news/news-s2-img4.jpg'
 import img5 from '~/assets/images/news/news-s2-img5.jpg'
 import img6 from '~/assets/images/news/news-s2-img6.jpg'
+import img1w from '~/assets/images/news/news-s2-img1.webp'
+import img2w from '~/assets/images/news/news-s2-img2.webp'
+import img3w from '~/assets/images/news/news-s2-img3.webp'
+import img4w from '~/assets/images/news/news-s2-img4.webp'
+import img5w from '~/assets/images/news/news-s2-img5.webp'
+import img6w from '~/assets/images/news/news-s2-img6.webp'
 
 const { t, locale } = useI18n()
 
@@ -113,6 +115,7 @@ const newsList = [
     description: t('news.items.news1.description'),
     date: t('news.items.news1.date'),
     image: img1,
+    imageWp: img1w,
     href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
   },
   {
@@ -120,6 +123,7 @@ const newsList = [
     description: t('news.items.news2.description'),
     date: t('news.items.news2.date'),
     image: img2,
+    imageWp: img2w,
     href: 'https://mp.weixin.qq.com/s/iLqSChrf7JbVPW_N6G2BTA',
   },
   {
@@ -127,6 +131,7 @@ const newsList = [
     description: t('news.items.news3.description'),
     date: t('news.items.news3.date'),
     image: img3,
+    imageWp: img3w,
     href: 'https://mp.weixin.qq.com/s/fLL1ZBXU9_dXACOcfhpAJA',
   },
   {
@@ -134,6 +139,7 @@ const newsList = [
     description: t('news.items.news4.description'),
     date: t('news.items.news4.date'),
     image: img4,
+    imageWp: img4w,
     href: 'https://mp.weixin.qq.com/s/I-J3udvsligc9OSoGgxMsA',
   },
   {
@@ -141,6 +147,7 @@ const newsList = [
     description: t('news.items.news5.description'),
     date: t('news.items.news5.date'),
     image: img5,
+    imageWp: img5w,
     href: 'https://twitter.com/Astribot_Inc/status/1825341062514438179?s=19',
   },
   {
@@ -148,6 +155,7 @@ const newsList = [
     description: t('news.items.news6.description'),
     date: t('news.items.news6.date'),
     image: img6,
+    imageWp: img6w,
     href: 'https://twitter.com/Astribot_Inc/status/1783716048673640641?s=19',
   },
 ]
