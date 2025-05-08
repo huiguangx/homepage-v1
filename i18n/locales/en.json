@@ -159,7 +159,10 @@
       "title": "Astribot S1",
       "tagline": "Naturally Yours"
     },
-
+    "news": {
+      "title": "News",
+      "btn": "查看更多历史动态"
+    },
     "newsList": {
       "news1": {
         "title": "Celebrate the First Intangible Cultural Heritage Spring Festival with Astribot S1",
@@ -195,6 +198,7 @@
     },
     "contact": {
       "title": "Contact Us",
+      "subtitle": "Contact Us",
       "description": "If you want to become an industry partner, please fill in the information first.",
       "cta": "Apply Now!"
     }
@@ -209,14 +213,14 @@
     },
     "performance": {
       "title": "Our new AI humanoid robot brings more service possibilities",
-      "description": "Our company has pioneered a software - hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilitities' with 'optimal operation'. This innovation enables S1 to learn, think, and work more like humans."
+      "description": "Our company has pioneered a software - hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal operation'. This innovation enables S1 to learn, think, and work more like humans."
     },
     "specs": {
       "title": "Human-like abilities, Greater creativity",
       "description": "Astribot S1 mirrors an adult male's operational parameters, delivering exceptional performance, stability, and safety - empowering researchers and explorers to bring imagination to life.",
       "modelName": "Astribot S1",
       "comparisonTarget": "Normal Adult Male",
-      "note": "Note: S1 is designed for researchers, developers and specific scenario users, with potential for higher performance indicators.",
+      "note": "Note: This version is designed for scientific research, with select parameters unlockable for enhanced performance.",
       "comparison": {
         "items": [
           "Single arm DoF",
@@ -231,7 +235,7 @@
         ],
         "unit": [
           "Swing arm",
-          "mm Training up to ±0.5",
+          "Training up to ±0.5 mm",
           "of human resting metabolism",
           "hours",
           "Supports plug-in"
@@ -271,6 +275,7 @@
     },
     "teleoperation": {
       "title": "VR Teleoperation: Let Astribot Become Your AI Training Partner",
+      "btn": "View Details",
       "video_detail": [
         {
           "desc": "Ultra-Efficient Data Collection, 5x Faster Trainingn"
@@ -300,6 +305,7 @@
     },
     "cases": {
       "title": "Join Hands to Co-create, Evolve Infinitely",
+      "btn": "View Details",
       "partners": [
         {
           "name": "Physical Intelligence",
@@ -316,8 +322,8 @@
       ]
     },
     "ecosystem": {
-      "title": "We Sincerely Invite Partners from All Industries",
-      "vision": "Embodied intelligent robots present a world-class challenge and a once-in-a-century opportunity.",
+      "title": "Join us and together Drive the Global Transformation towards Embodied Intelligence",
+      "vision": "Embodied intelligent robots present a world-class challenge and a once-in-a-centry opportunity. Together with our industry partners, we will move forward to continuously evolve.",
       "sections": [
         {
           "title": "Science Breakthroughs",
@@ -325,7 +331,7 @@
         },
         {
           "title": "Industry Intelligent Transformation",
-          "desc": "We collaborate with industry partners to explore practical pathways for embodied AI adoption from foundational breakthroughs to real-world applications 我们与行业合作伙伴合作，探索从基础突破到实际应用的嵌入式 AI 采用的实用途径"
+          "desc": "We collaborate with industry partners to explore practical pathways for embodied AI adoption from foundational breakthroughs to real-world applications."
         },
         {
           "title": "End-User Application Exploration",
@@ -342,32 +348,32 @@
       "news1": {
         "title": "Celebrate the First Intangible Cultural Heritage Spring Festival with Astribot S1",
         "description": "Celebrate the inaugural 'Intangible Cultural Heritage Chinese New Year' with Astribot S1, and immerse yourself in the world's cultural treasures.",
-        "date": "January 27, 2025 10:00"
+        "date": "January 27, 2025"
       },
       "news2": {
         "title": "In-Depth｜Astribot secures $400M from Top Investors, teams up with PI: The robot's Jarvis is Here!",
         "description": "Recently, Physical Intelligence and Astribot have announced a partnership to collaborate at the data and model levels, promoting the entry of general artificial intelligence into the physical world and jointly building world models.",
-        "date": "November 21, 2024 18:02"
+        "date": "November 21, 2024"
       },
       "news3": {
         "title": "Astribot 2025 Campus Recruitment Officially Opened",
         "description": "We envision a future where billions of people will own Al robotic partner. To achieve this, we have gathered a group of extreme technology enthusiasts. Now, join us! Let's head towards the starry sea of the AI robot era together!",
-        "date": "September 18, 2024 10:03"
+        "date": "September 18, 2024"
       },
       "news4": {
         "title": "Astribot is pleased to officially release its Al robotic partner Astribot S1",
         "description": "At the World Robot Conference being held in Beijing, the display of humanoid robots became the absolute focus of the event. At the booth of Astribot, due to Al robotic partner S1 performs yangqin (Chinese dulcimer) in an exhibition area.",
-        "date": "August 22, 2024 17:50"
+        "date": "August 22, 2024"
       },
       "news5": {
         "title": "At the World Robot Conference, this domestically produced robot carrying the hope of future elderly care was surrounded",
         "description": "At the World Robot Conference being held in Beijing, the display of humanoid robots became the absolute focus of the event. At the booth of Astribot, due to Al robotic partner S1 performs yangqin (Chinese dulcimer) in an exhibition area.We have carefully polished the technology and product details behind S1, hoping that it is born for you and naturally intelligent for you...",
-        "date": "August 20th, 2024 00:01"
+        "date": "August 20th, 2024"
       },
       "news6": {
         "title": "Astribot is pleased to introduce you to the new generation of AI robot Astribot S1",
         "description": "Setting a new benchmark for AI robotics, S1 delivers better operational performance in its class. It learns, thinks, and performs tasks like a human, truly embodying Naturally Yours.",
-        "date": "April 26, 2024 09:21"
+        "date": "April 26, 2024"
       }
     }
   },

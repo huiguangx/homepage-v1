@@ -1,11 +1,18 @@
 <template>
   <div class="bg-white">
     <!-- Banner Section -->
-    <section class="relative w-full h-[70vh] md:h-screen overflow-hidden">
-      <img
-        src="~/assets/images/career/hire-s1-bg.jpg"
-        class="w-full h-full object-cover absolute inset-0 z-10"
-      />
+    <section class="relative w-full pw-h-[252px] md:h-screen overflow-hidden">
+      <picture>
+        <!-- 移动端资源 -->
+        <source media="(max-width: 767px)" srcset="~/assets/images/career/hire-s1-bg-mobile.jpg" />
+        <!-- PC端资源 -->
+        <source media="(min-width: 768px)" srcset="~/assets/images/career/hire-s1-bg.jpg" />
+        <!-- 统一控制的<img>标签 -->
+        <img
+          src="~/assets/images/career/hire-s1-bg.jpg"
+          class="w-full h-full object-cover absolute inset-0 z-10"
+        />
+      </picture>
 
       <div class="relative z-20 h-full flex items-center justify-center">
         <div class="w-full max-w-[90%] text-left">
@@ -22,7 +29,7 @@
     </section>
     <!-- Work Environment -->
     <section class="pw-py-[32px] md:py-20 bg-white">
-      <div class="mx-auto w-[90%]">
+      <div class="mx-auto w-[90%] md:w-[100%]">
         <div class="text-center pw-pb-[14px] md:pb-6">
           <h2 class="pw-text-[22px] md:text-4xl font-medium pw-pb-[8px] md:pb-4">
             {{ $t('careers.workEnvironment') }}
@@ -87,13 +94,13 @@
 
     <!-- Open Positions -->
     <section class="py-12 md:py-16 bg-[#F9FAFB]" id="joinus">
-      <div class="w-[90%] mx-auto">
+      <div class="w-[90%] md:max-w-[1280px] mx-auto">
         <!-- 标题区域 -->
         <div class="text-center">
           <h2 class="pw-text-[22px] md:text-4xl font-medium pw-mb-[8px] md:mb-4">
             {{ $t('careers.openPositions') }}
           </h2>
-          <p class="pw-text-[14px] md:text-lg text-gray-600">
+          <p class="pw-text-[14px] md:text-lg text-[#71798A]">
             {{ $t('careers.openPositionsDesc') }}
           </p>
         </div>
@@ -150,7 +157,7 @@
               <a
                 href="https://dwz.cn/1Vq7rTKn"
                 target="_blank"
-                class="inline-block text-[#5A46FF] md:hover:text-[#796af8] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
+                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
               >
                 查看更多社招岗位
               </a>
@@ -183,7 +190,7 @@
               <a
                 href="https://dwz.cn/ZPkmdxje"
                 target="_blank"
-                class="inline-block text-[#5A46FF] md:hover:text-[#796af8] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
+                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
               >
                 查看更多校园岗位
               </a>
@@ -216,7 +223,7 @@
               <a
                 href="https://s.xinrenxinshi.com/recruitGate#/ey=0ebdb005864a706d8f15cdadc338584487c666"
                 target="_blank"
-                class="inline-block text-[#5A46FF] md:hover:text-[#796af8] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
+                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
               >
                 查看更多实习岗位
               </a>

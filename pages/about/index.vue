@@ -48,7 +48,7 @@
       style="background-size: 100% 100%"
     >
       <!-- 动画容器 -->
-      <div class="m-auto w-[90%] relative animate-fade-in-up">
+      <div class="m-auto w-[90%] md:max-w-[1280px] relative animate-fade-in-up">
         <h2 class="pw-text-[22px] md:text-3xl font-normal text-center pw-pb-[24px] md:pb-20">
           {{ $t('about.culture') }}
         </h2>
@@ -147,7 +147,9 @@
         </div>
 
         <div class="absolute inset-0 bg-gradient-to-t from-transparent to-white">
-          <div class="max-w-[90%] mx-auto z-10 flex flex-col md:flex-row md:justify-between h-full">
+          <div
+            class="w-[90%] md:max-w-[1280px] mx-auto z-10 flex flex-col md:flex-row md:justify-between h-full"
+          >
             <div class="">
               <h2 class="pw-text-[22px] md:text-4xl font-medium text-left pw-pb-[16pxh] md:pb-0">
                 关于星尘

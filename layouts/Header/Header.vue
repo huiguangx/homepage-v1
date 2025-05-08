@@ -3,29 +3,29 @@
     <header
       :class="[
         'fixed top-0 left-0 w-full z-50 transition-all duration-300  ',
-        isScrolled || !isTransparentRoute
-          ? 'bg-white shadow-sm text-gray-800 border-gray-200'
+        isScrolled || !isTransparentRoute || (isMenuOpen && isMobile)
+          ? 'bg-white shadow-sm text-[#39414B] border-gray-200'
           : 'bg-transparent text-white',
       ]"
     >
-      <div class="mx-auto w-[90%]">
+      <div class="mx-auto w-[90%] md:max-w-[1280px]">
         <div class="flex items-center justify-between pw-h-[44px] md:h-16">
           <!-- Logo -->
           <div class="flex-shrink-0">
             <NuxtLinkLocale to="/" class="flex items-center">
               <img
-                v-if="isScrolled || !isTransparentRoute"
-                src="~/assets/images/header/logo.svg"
+                v-if="isScrolled || !isTransparentRoute || isMenuOpen"
+                src="~/assets/images/header/logo-header.png"
                 alt="Logo"
-                class="pw-w-[27px] md:w-8 h-auto"
+                class="pw-w-[112px] md:w-[127px] h-auto"
               />
               <img
-                v-if="!isScrolled && isTransparentRoute"
-                src="~/assets/images/header/logo-white.svg"
+                v-if="!isScrolled && isTransparentRoute && !isMenuOpen"
+                src="~/assets/images/header/logo-header-white.png"
                 alt="Logo"
-                class="pw-w-[27px] md:w-8 h-auto"
+                class="pw-w-[112px] md:w-[127px] h-auto"
               />
-              <p
+              <!-- <p
                 class="ml-1 pw-text-[20px] md:text-xl font-medium"
                 :class="{
                   'text-white': !isScrolled && isTransparentRoute,
@@ -33,7 +33,7 @@
                 }"
               >
                 星尘智能
-              </p>
+              </p> -->
             </NuxtLinkLocale>
           </div>
 
@@ -45,12 +45,18 @@
                   :to="item.path"
                   class="group px-6 relative h-full flex justify-center items-center text-4 transition-colors duration-300"
                   :class="{
-                    'text-white hover:text-gray-200': !isScrolled && isTransparentRoute,
-                    'text-black': isScrolled || !isTransparentRoute, // 这里确保非透明路由永远是黑色
+                    'text-white hover:text-gray-200 font-normal':
+                      !isScrolled && isTransparentRoute && getBasePath($route.path) !== item.path,
+                    'text-white hover:text-gray-200 font-medium':
+                      !isScrolled && isTransparentRoute && getBasePath($route.path) === item.path,
+                    'text-[#39414B] hover:text-[#23233D] font-normal':
+                      (isScrolled || !isTransparentRoute) && getBasePath($route.path) !== item.path,
+                    'text-[#39414B] hover:text-[#23233D] font-medium':
+                      (isScrolled || !isTransparentRoute) && getBasePath($route.path) === item.path,
                   }"
                 >
                   {{ item.name }}
-                  <div class="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
+                  <!-- <div class="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
                     <span
                       class="absolute bottom-0 left-1/2 h-full w-0 transform -translate-x-1/2 transition-all duration-300 ease-in-out"
                       :class="{
@@ -71,7 +77,7 @@
                       }"
                       style="transform-origin: center"
                     ></span>
-                  </div>
+                  </div> -->
                 </NuxtLinkLocale>
               </li>
             </ul>
@@ -86,22 +92,30 @@
               </div>
               <NuxtLinkLocale
                 to="/contact"
-                class="px-4 py-2 text-white rounded font-thin bg-[#5A46FF] text-3.5 md:hover:bg-[#7463FF] transition-all duration-300 ease-out whitespace-nowrap"
+                class="px-4 py-2 text-white rounded font-normal bg-[#5A46FF] text-sm md:hover:bg-[#7463FF] transition-all duration-300 ease-out whitespace-nowrap"
               >
                 {{ $t('home.contact.title') }}
               </NuxtLinkLocale>
             </div>
           </div>
           <!-- Mobile menu button (hidden for now) -->
-          <div class="md:hidden">
-            <div @click="isMenuOpen = true">
+          <div class="md:hidden relative z-50">
+            <div>
               <img
+                v-if="!isMenuOpen"
                 class="block pw-w-[24px]"
                 src="~/assets/images/header/menu.svg"
                 alt="Menu"
+                @click="isMenuOpen = true"
                 :class="{
                   'invert brightness-100': !isScrolled && isTransparentRoute,
                 }"
+              />
+              <img
+                v-else
+                @click="isMenuOpen = false"
+                src="~/assets/images/header/close.svg"
+                alt="Close"
               />
             </div>
           </div>
@@ -109,25 +123,25 @@
       </div>
       <!-- sidebar -->
       <div
-        class="block md:hidden fixed top-0 right-0 w-full h-auto bg-white z-50 transform transition-transform duration-300 ease-in-out overflow-hidden pw-pb-[12px] pw-px-[16px] rounded-bl-2xl rounded-br-2xl"
-        :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
+        class="block md:hidden fixed top-[44px] inset-x-0 bg-white transform-gpu transition-all duration-300 ease-in-out overflow-hidden rounded-bl-2xl rounded-br-2xl"
+        :class="isMenuOpen ? 'translate-y-0' : 'translate-y-[calc(-100%-44px)]'"
       >
-        <div class="flex flex-col w-full h-full">
-          <div class="flex items-center justify-between pw-h-[44px]">
+        <div class="flex flex-col w-full h-full bg-white pw-pb-[12px] pw-px-[16px]">
+          <!-- <div class="flex items-center justify-between pw-h-[44px]">
             <div class="flex items-center">
               <img src="~/assets/images/header/logo.svg" alt="Logo" class="pw-w-[27px] h-auto" />
-              <span class="ml-2 text-black pw-text-[20px] font-medium">星尘智能</span>
+              <span class="ml-2 text-[#23233D] pw-text-[20px] font-medium">星尘智能</span>
             </div>
             <button
               @click="isMenuOpen = false"
-              class="p-2 text-gray-500 focus:outline-none"
+              class="py-2 text-gray-500 focus:outline-none"
               aria-label="关闭菜单"
             >
               <img src="~/assets/images/header/close.svg" alt="Close" />
             </button>
-          </div>
+          </div> -->
 
-          <div class="flex-1 overflow-y-auto">
+          <div class="flex-1 overflow-y-auto pw-pt-[12px]">
             <nav>
               <ul>
                 <li v-for="(item, index) in navItems" :key="index">
@@ -136,14 +150,14 @@
                     class="flex items-center justify-between pw-py-[12px]"
                     @click="isMenuOpen = false"
                   >
-                    <span class="pw-text-[16px] text-black">{{ item.name }}</span>
+                    <span class="pw-text-[16px] text-[#23233D] font-medium">{{ item.name }}</span>
                     <img src="~/assets/images/header/goto-arrow.svg" alt="Arrow" />
                   </NuxtLinkLocale>
                 </li>
               </ul>
             </nav>
           </div>
-          <div class="pw-pt-[12px] border-t border-gray-200">
+          <div class="pw-pt-[12px] border-t border-[#47546733]">
             <button
               @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
               class="pw-text-[14px] text-[#475467]"
@@ -172,6 +186,7 @@ const toggleMobileMenu = () => {
 const route = useRoute()
 const isScrolled = ref(false)
 const scrollThreshold = 150 // 滚动阈值，超过此值背景变为白色
+const isMobile = ref(false)
 
 // 导航项目
 const { t } = useI18n()
@@ -201,6 +216,12 @@ const handleScroll = () => {
 // 需要透明背景的路由路径列表（支持中英文）
 const transparentRoutes = new Set(['/', '/home', '/zh', '/zh/home', '/en', '/en/home'])
 
+const checkScreenSize = () => {
+  isMobile.value = window.innerWidth < 768 // 匹配Tailwind的md断点
+  if (!isMobile.value) {
+    isMenuOpen.value = false // 切换到PC时自动关闭菜单
+  }
+}
 // 判断当前路由是否需要透明背景
 const isTransparentRoute = computed(() => {
   return transparentRoutes.has(route.path)
@@ -208,11 +229,15 @@ const isTransparentRoute = computed(() => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+  checkScreenSize()
+  window.addEventListener('resize', checkScreenSize)
   // 初始检查滚动位置
   handleScroll()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', checkScreenSize)
 })
 </script>
+<style scoped lang="scss"></style>

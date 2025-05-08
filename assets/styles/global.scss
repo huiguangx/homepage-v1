@@ -1,6 +1,6 @@
 /* 基准：1440px 时 16px，按视口宽度比例缩放（最小 12px，最大 20px） */
 html {
-  font-size: clamp(14px, calc(16px + (100vw - 1440px) * 0.01), 20px);
+  // font-size: clamp(14px, calc(16px + (100vw - 1440px) * 0.01), 20px);
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -18,10 +18,25 @@ html {
 @import '../font/HARMONYOS_SANS_SC_MEDIUM/font.css';
 @import '../font/HARMONYOS_SANS_SC_BOLD/font.css';
 @import '../font/HARMONYOS_SANS_SC_LIGHT/font.css';
+// @font-face {
+//   font-family: HarmonyOS_Sans_SC_Medium;
+//   font-style: normal;
+//   font-display: swap;
+//   src:
+//     url('https://cdn.jsdelivr.net/gh/irozhi/HarmonyOS-Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Medium.woff2')
+//       format('woff2'),
+//     url('https://cdn.jsdelivr.net/gh/irozhi/HarmonyOS-Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Medium.woff')
+//       format('woff');
+// }
+// * {
+//   font-family: HarmonyOS_Sans_SC_Medium;
+// }
 
 /* 中文字体 */
 :lang(zh) body {
-  font-family: 'HARMONYOS_SANS_SC_REGULAR', sans-serif;
+  font-family:
+    HarmonyOS_Sans_SC_Medium, HarmonyOS_Sans_SC_BOLD, HarmonyOS_Sans_SC_REGULAR,
+    HarmonyOS_Sans_SC_LIGHT, sans-serif;
 }
 /* 英文字体 */
 :lang(en) body {

@@ -29,7 +29,7 @@
 
     <!--2 News Section -->
     <section class="w-full bg-white pw-py-[32px] md:py-14">
-      <div class="mx-auto w-[90%]">
+      <div class="mx-auto w-[90%] md:max-w-[1280px]">
         <div class="grid w-full pw-gap-[8px] md:gap-6 grid-cols-2 md:grid-cols-4">
           <div
             v-for="(news, index) in newsList"
@@ -41,7 +41,11 @@
               <div class="w-full rounded-t-2xl overflow-hidden bg-gray-200">
                 <picture>
                   <source :srcset="news.imageWp" type="image/webp" />
-                  <img :src="news.image" alt="News Banner" class="w-full object-cover" />
+                  <img
+                    :src="news.image"
+                    alt="News Banner"
+                    class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-110"
+                  />
                 </picture>
               </div>
 
@@ -65,11 +69,23 @@
                   <span class="group-hover:scale-105 transition-transform duration-300 ease-out">
                     {{ news.date }}
                   </span>
-                  <img
-                    src="~/assets/images/index/news-arrow.svg"
-                    alt=""
-                    class="transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:translate-x-0.5"
-                  />
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="transition-all duration-300 group-hover:scale-110 group-hover:translate-x-0.5"
+                  >
+                    <path
+                      d="M1 9L9 1M9 1H3.66667M9 1V6.33333"
+                      stroke="currentColor"
+                      stroke-width="1.33333"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-[#71798A] group-hover:text-[#5A46FF]"
+                    />
+                  </svg>
                 </div>
               </div>
             </a>

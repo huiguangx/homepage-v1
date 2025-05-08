@@ -1,11 +1,15 @@
 <template>
   <footer class="relative bg-black text-white pw-pt-[32px] pw-pb-[14px] md:py-14">
-    <div class="mx-auto w-[90%]">
+    <div class="mx-auto w-[90%] md:max-w-[1280px]">
       <!-- logo 和 星尘智能 -->
       <div class="flex items-center justify-between pw-pb-[20px] md:pb-10">
         <div class="flex items-center">
-          <img class="pw-w-[30px] md:w-9" src="~/assets/images/header/logo.svg" alt="" />
-          <span class="pw-text-[20px] md:text-2xl pw-ml-[4px] md:ml-2 font-medium">星尘智能</span>
+          <img
+            class="pw-w-[126px] md:w-[150px]"
+            src="~/assets/images/footer/logo-footer.png"
+            alt=""
+          />
+          <!-- <span class="pw-text-[20px] md:text-2xl pw-ml-[4px] md:ml-2 font-medium">星尘智能</span> -->
         </div>
         <div
           @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
@@ -28,48 +32,48 @@
                 >
                   {{ $t('menu.home') }}
                 </NuxtLinkLocale>
-                <span
+                <!-- <span
                   class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
-                ></span>
+                ></span> -->
               </li>
               <li class="relative group">
                 <NuxtLinkLocale to="/product" class="md:hover:text-white transition-colors">
                   {{ $t('menu.products') }}
                 </NuxtLinkLocale>
-                <span
+                <!-- <span
                   class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
-                ></span>
+                ></span> -->
               </li>
               <li class="relative group">
                 <NuxtLinkLocale to="/careers" class="md:hover:text-white transition-colors">
                   {{ $t('menu.careers') }}
                 </NuxtLinkLocale>
-                <span
+                <!-- <span
                   class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
-                ></span>
+                ></span> -->
               </li>
               <li class="relative group">
                 <NuxtLinkLocale to="/news" class="hmd:over:text-white transition-colors">
                   {{ $t('menu.news') }}
                 </NuxtLinkLocale>
-                <span
+                <!-- <span
                   class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
-                ></span>
+                ></span> -->
               </li>
               <li class="relative group">
                 <NuxtLinkLocale to="/about" class="hmd:over:text-white transition-colors">
                   {{ $t('menu.about') }}
                 </NuxtLinkLocale>
-                <span
+                <!-- <span
                   class="absolute left-0 -bottom-1 h-0.5 bg-white w-0 group-hover:w-full transition-all duration-300"
-                ></span>
+                ></span> -->
               </li>
             </ul>
           </nav>
         </div>
 
         <!-- 右侧社交媒体图标 -->
-        <div class="flex md:space-x-4 justify-between pw-mt-[24px] md:mt-0">
+        <div class="flex md:space-x-8 justify-between pw-mt-[24px] md:mt-0">
           <!-- 微信（带二维码悬浮提示） -->
           <div class="relative group">
             <a href="" class="block">
@@ -203,18 +207,17 @@
       </div>
 
       <!-- 分隔线 -->
-      <div class="border-t border-gray-800 mb-6"></div>
+      <div class="border-t border-[#FFFFFF33] mb-6"></div>
 
       <!-- 版权信息 -->
       <div>
-        <div class="text-gray-500 pw-text-[12px] md:text-xs">
-          <p class="mb-2 text-center md:text-left">Copyright © Astribot. All Rights Reserved.</p>
+        <div class="text-[#FFFFFF66] pw-text-[12px] md:text-xs">
           <div
             class="flex flex-col items-center md:flex-row md:justify-between space-y-2 md:space-y-0"
           >
             <!-- 备案信息（移动端居中，PC端左对齐） -->
             <div
-              class="flex flex-col items-center md:items-start md:flex-row md:space-x-4 text-center md:text-left"
+              class="flex flex-col items-center md:items-start md:flex-row gap-[8px] md:space-x-4 text-center md:text-left"
             >
               <div class="flex items-center cursor-pointer">
                 <span>
@@ -245,6 +248,7 @@
                   </a>
                 </span>
               </div>
+              <p class="text-center md:text-left">Copyright © Astribot. All Rights Reserved.</p>
             </div>
 
             <!-- 语言切换（仅PC端显示在右侧） -->

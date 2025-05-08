@@ -3,7 +3,7 @@
     <section
       class="pw-pt-[44px] md:pt-16 bg-[url('/assets/images/contact/contact-s1-img1.jpg')] bg-cover bg-center"
     >
-      <div class="w-[80%] mx-auto pw-py-[32px] md:py-14">
+      <div class="w-[90%] md:max-w-[1280px] mx-auto pw-py-[32px] md:py-14">
         <div class="flex flex-col items-center md:flex-row md:justify-around">
           <!-- Left title area -->
           <div class="md:w-1/3 flex justify-center items-center text-center">
@@ -89,7 +89,7 @@
       </div>
     </section>
     <section class="pw-pt-[32px] md:pt-16 bg-white">
-      <div class="w-[90%] mx-auto">
+      <div class="w-[90%] md:max-w-[1280px] mx-auto">
         <!-- title -->
         <h2 class="pw-text-[22px] md:text-3xl font-medium text-center pw-mb-[24px] md:mb-12">
           {{ $t('contact.connect.title') }}
