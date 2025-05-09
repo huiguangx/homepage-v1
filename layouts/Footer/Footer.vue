@@ -28,7 +28,7 @@
               <li class="relative group">
                 <NuxtLinkLocale
                   to="/"
-                  class="md:hover:text-white pw-text-[14px] md:text-sm transition-colors"
+                  class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
                 >
                   {{ $t('menu.home') }}
                 </NuxtLinkLocale>
@@ -37,7 +37,10 @@
                 ></span> -->
               </li>
               <li class="relative group">
-                <NuxtLinkLocale to="/product" class="md:hover:text-white transition-colors">
+                <NuxtLinkLocale
+                  to="/product"
+                  class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                >
                   {{ $t('menu.products') }}
                 </NuxtLinkLocale>
                 <!-- <span
@@ -45,7 +48,10 @@
                 ></span> -->
               </li>
               <li class="relative group">
-                <NuxtLinkLocale to="/careers" class="md:hover:text-white transition-colors">
+                <NuxtLinkLocale
+                  to="/careers"
+                  class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                >
                   {{ $t('menu.careers') }}
                 </NuxtLinkLocale>
                 <!-- <span
@@ -53,7 +59,10 @@
                 ></span> -->
               </li>
               <li class="relative group">
-                <NuxtLinkLocale to="/news" class="hmd:over:text-white transition-colors">
+                <NuxtLinkLocale
+                  to="/news"
+                  class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                >
                   {{ $t('menu.news') }}
                 </NuxtLinkLocale>
                 <!-- <span
@@ -61,7 +70,10 @@
                 ></span> -->
               </li>
               <li class="relative group">
-                <NuxtLinkLocale to="/about" class="hmd:over:text-white transition-colors">
+                <NuxtLinkLocale
+                  to="/about"
+                  class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                >
                   {{ $t('menu.about') }}
                 </NuxtLinkLocale>
                 <!-- <span
@@ -267,7 +279,9 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-
+// const openInNewTab = () => {
+//   window.open('/product') // 这里的 `/` 是你要跳转的路径
+// }
 const { locale, setLocale } = useI18n()
 const changeLanguage = (locale) => {
   setLocale(locale)

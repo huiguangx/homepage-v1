@@ -1,29 +1,31 @@
 <template>
   <div class="bg-white">
     <!-- Banner Section -->
-    <section class="relative w-full pw-h-[252px] md:h-screen overflow-hidden">
-      <picture>
-        <!-- 移动端资源 -->
-        <source media="(max-width: 767px)" srcset="~/assets/images/career/hire-s1-bg-mobile.jpg" />
-        <!-- PC端资源 -->
-        <source media="(min-width: 768px)" srcset="~/assets/images/career/hire-s1-bg.jpg" />
-        <!-- 统一控制的<img>标签 -->
-        <img
-          src="~/assets/images/career/hire-s1-bg.jpg"
-          class="w-full h-full object-cover absolute inset-0 z-10"
-        />
-      </picture>
+    <section class="relative w-full pw-h-[252px] md:h-auto overflow-hidden pw-pt-[44px] md:pt-16">
+      <!-- 使用 Grid 布局替代绝对定位 -->
+      <div class="grid grid-cols-1 h-full">
+        <!-- 图片层 -->
+        <picture class="row-start-1 col-start-1">
+          <source
+            media="(max-width: 767px)"
+            srcset="~/assets/images/career/hire-s1-bg-mobile.jpg"
+          />
+          <source media="(min-width: 768px)" srcset="~/assets/images/career/hire-s1-bg.jpg" />
+          <img src="~/assets/images/career/hire-s1-bg.jpg" class="w-full h-full object-cover" />
+        </picture>
 
-      <div class="relative z-20 h-full flex items-center justify-center">
-        <div class="w-full max-w-[90%] text-left">
-          <h1 class="pw-text-[18px] md:text-4xl text-white font-medium pw-pb-[8px] md:pb-6">
-            {{ $t('careers.heroTitle') }}
-          </h1>
-          <p
-            class="pw-text-[14px] md:text-2xl bg-gradient-to-r from-purple-300 via-blue-300 to-white bg-clip-text text-transparent"
-          >
-            {{ $t('careers.heroSubtitle') }}
-          </p>
+        <!-- 文案层（居中靠左） -->
+        <div class="row-start-1 col-start-1 z-20 flex items-center justify-center">
+          <div class="w-full max-w-[90%] text-left mx-auto">
+            <h1 class="pw-text-[18px] md:text-4xl text-white font-medium pw-pb-[8px] md:pb-6">
+              {{ $t('careers.heroTitle') }}
+            </h1>
+            <p
+              class="pw-text-[14px] md:text-2xl bg-gradient-to-r from-purple-300 via-blue-300 to-white bg-clip-text text-transparent"
+            >
+              {{ $t('careers.heroSubtitle') }}
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -34,7 +36,7 @@
           <h2 class="pw-text-[22px] md:text-4xl font-medium pw-pb-[8px] md:pb-4">
             {{ $t('careers.workEnvironment') }}
           </h2>
-          <p class="pw-text-[14px] md:text-xl text-[#71798A]">
+          <p class="pw-text-[14px] md:text-xl font-normal text-[#71798A]">
             {{ $t('careers.workEnvironmentDesc') }}
           </p>
         </div>
@@ -100,7 +102,7 @@
           <h2 class="pw-text-[22px] md:text-4xl font-medium pw-mb-[8px] md:mb-4">
             {{ $t('careers.openPositions') }}
           </h2>
-          <p class="pw-text-[14px] md:text-lg text-[#71798A]">
+          <p class="pw-text-[14px] md:text-lg text-[#71798A] font-normal">
             {{ $t('careers.openPositionsDesc') }}
           </p>
         </div>
@@ -118,13 +120,17 @@
               v-for="tab in tabs"
               :key="tab.id"
               @click="switchTab(tab.id)"
-              class="flex-shrink-0 px-4 py-2 text-center px-text-[16px] font-medium"
-              :class="{
-                'text-[#5A46FF]  border-b-2 border-[#5A46FF]': activeTab === tab.id,
-                'text-gray-500': activeTab !== tab.id,
-              }"
+              class="flex-shrink-0 px-4 py-2 text-center px-text-[16px] font-normal"
             >
-              {{ tab.name }}
+              <span
+                :class="{
+                  'inline-block border-b border-[#5A46FF] font-medium text-[#000000]':
+                    activeTab === tab.id,
+                  'text-gray-500': activeTab !== tab.id,
+                }"
+              >
+                {{ tab.name }}
+              </span>
             </button>
           </div>
         </div>
@@ -138,7 +144,7 @@
             >
               社会招聘
             </h3>
-            <div class="space-y-4">
+            <div class="space-y-1">
               <div v-for="(job, index) in socialJobs" :key="index" class="relative group">
                 <div
                   class="flex justify-between items-start rounded-lg px-5 py-4 hover:bg-[#F3F3F3]"
@@ -148,7 +154,7 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     查看岗位
                   </button>
@@ -171,7 +177,7 @@
             >
               校园招聘
             </h3>
-            <div class="space-y-4">
+            <div class="space-y-1">
               <div v-for="(job, index) in campusJobs" :key="index" class="relative group">
                 <div
                   class="flex justify-between items-start rounded-lg px-5 py-4 hover:bg-[#F3F3F3]"
@@ -181,7 +187,7 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     查看岗位
                   </button>
@@ -204,7 +210,7 @@
             >
               实习岗
             </h3>
-            <div class="space-y-4">
+            <div class="space-y-1">
               <div v-for="(job, index) in internJobs" :key="index" class="relative group">
                 <div
                   class="flex justify-between items-start rounded-lg px-5 py-4 hover:bg-[#F3F3F3]"
@@ -214,7 +220,7 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                   >
                     查看岗位
                   </button>
@@ -265,7 +271,7 @@
                   <a
                     href="https://dwz.cn/1Vq7rTKn"
                     target="_blank"
-                    class="text-[#5A46FF] pw-text-[12px] font-normal"
+                    class="text-[#5A46FF] pw-text-[14px] font-medium"
                   >
                     查看更多社招岗位
                   </a>
@@ -295,7 +301,7 @@
                   <a
                     href="https://dwz.cn/ZPkmdxje"
                     target="_blank"
-                    class="text-[#5A46FF] pw-text-[12px] font-normal"
+                    class="text-[#5A46FF] pw-text-[14px] font-medium"
                   >
                     查看更多校园岗位
                   </a>
@@ -325,7 +331,7 @@
                   <a
                     href="https://s.xinrenxinshi.com/recruitGate#/ey=0ebdb005864a706d8f15cdadc338584487c666"
                     target="_blank"
-                    class="text-[#5A46FF] pw-text-[12px] font-normal"
+                    class="text-[#5A46FF] pw-text-[14px] font-medium"
                   >
                     查看更多实习岗位
                   </a>

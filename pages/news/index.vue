@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <!--1 Banner Section -->
-    <section class="w-full h-auto">
+    <section class="w-full h-auto pw-pt-[44px] md:pt-16">
       <div class="relative">
         <picture>
           <source media="(max-width: 767px)" srcset="~/assets/images/news/news-s1-poster-h5.jpg" />
@@ -34,7 +34,7 @@
           <div
             v-for="(news, index) in newsList"
             :key="index"
-            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
+            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] md:hover:bg-white transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
           >
             <a :href="news.href" target="_blank" class="md:cursor-pointer">
               <!-- 图片容器 -->
@@ -44,7 +44,7 @@
                   <img
                     :src="news.image"
                     alt="News Banner"
-                    class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-110"
+                    class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110"
                   />
                 </picture>
               </div>

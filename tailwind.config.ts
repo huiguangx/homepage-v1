@@ -16,6 +16,21 @@ module.exports = {
     // screens: {
     //   '2k': '2560px',
     // },
+    // fontFamily: {
+    //   sans: [
+    //     'HarmonyOS_Sans_SC_Medium',
+    //     'HarmonyOS_Sans_SC_Regular',
+    //     'HarmonyOS_Sans_SC_Light',
+    //     'HarmonyOS_Sans_SC_Bold',
+    //     'sans-serif',
+    //   ],
+    // },
+    // fontWeight: {
+    //   light: 300,
+    //   normal: 400,
+    //   medium: 500,
+    //   bold: 700,
+    // },
     extend: {
       pxToViewPort: {
         // 基准视口配置

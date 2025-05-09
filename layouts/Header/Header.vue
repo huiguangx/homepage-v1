@@ -43,17 +43,22 @@
               <li v-for="item in navItems" :key="item.path" class="h-full">
                 <NuxtLinkLocale
                   :to="item.path"
-                  class="group px-6 relative h-full flex justify-center items-center text-4 transition-colors duration-300"
-                  :class="{
-                    'text-white hover:text-gray-200 font-normal':
-                      !isScrolled && isTransparentRoute && getBasePath($route.path) !== item.path,
-                    'text-white hover:text-gray-200 font-medium':
-                      !isScrolled && isTransparentRoute && getBasePath($route.path) === item.path,
-                    'text-[#39414B] hover:text-[#23233D] font-normal':
-                      (isScrolled || !isTransparentRoute) && getBasePath($route.path) !== item.path,
-                    'text-[#39414B] hover:text-[#23233D] font-medium':
-                      (isScrolled || !isTransparentRoute) && getBasePath($route.path) === item.path,
-                  }"
+                  class="group px-6 relative nav_product h-full flex justify-center items-center text-4 transition-colors duration-300"
+                  :class="[
+                    {
+                      'text-white hover:text-gray-200 font-normal':
+                        !isScrolled && isTransparentRoute && getBasePath($route.path) !== item.path,
+                      'text-white hover:text-gray-200 font-medium':
+                        !isScrolled && isTransparentRoute && getBasePath($route.path) === item.path,
+                      'text-[#39414B] hover:text-[#23233D] font-normal':
+                        (isScrolled || !isTransparentRoute) &&
+                        getBasePath($route.path) !== item.path,
+                      'text-[#39414B] hover:text-[#23233D] font-medium':
+                        (isScrolled || !isTransparentRoute) &&
+                        getBasePath($route.path) === item.path,
+                    },
+                    `nav_${getBasePath(item.path)}`, // 👈 动态类名加在数组尾部
+                  ]"
                 >
                   {{ item.name }}
                   <!-- <div class="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden">
@@ -229,8 +234,8 @@ const isTransparentRoute = computed(() => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  checkScreenSize()
-  window.addEventListener('resize', checkScreenSize)
+  // checkScreenSize()
+  // window.addEventListener('resize', checkScreenSize)
   // 初始检查滚动位置
   handleScroll()
 })

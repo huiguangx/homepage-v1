@@ -18,25 +18,22 @@ html {
 @import '../font/HARMONYOS_SANS_SC_MEDIUM/font.css';
 @import '../font/HARMONYOS_SANS_SC_BOLD/font.css';
 @import '../font/HARMONYOS_SANS_SC_LIGHT/font.css';
-// @font-face {
-//   font-family: HarmonyOS_Sans_SC_Medium;
-//   font-style: normal;
-//   font-display: swap;
-//   src:
-//     url('https://cdn.jsdelivr.net/gh/irozhi/HarmonyOS-Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Medium.woff2')
-//       format('woff2'),
-//     url('https://cdn.jsdelivr.net/gh/irozhi/HarmonyOS-Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Medium.woff')
-//       format('woff');
-// }
-// * {
-//   font-family: HarmonyOS_Sans_SC_Medium;
-// }
 
-/* 中文字体 */
-:lang(zh) body {
-  font-family:
-    HarmonyOS_Sans_SC_Medium, HarmonyOS_Sans_SC_BOLD, HarmonyOS_Sans_SC_REGULAR,
-    HarmonyOS_Sans_SC_LIGHT, sans-serif;
+:lang(zh) .font-light {
+  font-family: 'HarmonyOS_Sans_SC_LIGHT', sans-serif;
+  font-weight: 300;
+}
+:lang(zh) .font-normal {
+  font-family: 'HarmonyOS_Sans_SC_REGULAR', sans-serif;
+  font-weight: 400;
+}
+:lang(zh) .font-medium {
+  font-family: 'HarmonyOS_Sans_SC_MEDIUM', sans-serif;
+  font-weight: 500;
+}
+:lang(zh) .font-bold {
+  font-family: 'HarmonyOS_Sans_SC_BOLD', sans-serif;
+  font-weight: 700;
 }
 /* 英文字体 */
 :lang(en) body {

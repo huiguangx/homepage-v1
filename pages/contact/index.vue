@@ -25,7 +25,7 @@
                       id="name"
                       v-model="formData.name"
                       type="text"
-                      class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:[#5A46FF]"
+                      class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
                       :placeholder="$t('contact.cooperation.form.name')"
                     />
                   </div>
@@ -35,7 +35,7 @@
                       id="company"
                       v-model="formData.company"
                       type="text"
-                      class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:[#5A46FF]"
+                      class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
                       :placeholder="$t('contact.cooperation.form.company')"
                     />
                   </div>
@@ -45,7 +45,7 @@
                       id="email"
                       v-model="formData.email"
                       type="email"
-                      class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:[#5A46FF]"
+                      class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
                       :placeholder="$t('contact.cooperation.form.email')"
                       h
                     />
@@ -56,7 +56,7 @@
                       id="phone"
                       v-model="formData.phone"
                       type="tel"
-                      class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:[#5A46FF]"
+                      class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
                       :placeholder="$t('contact.cooperation.form.phone')"
                     />
                   </div>
@@ -67,7 +67,7 @@
                     id="message"
                     v-model="formData.message"
                     rows="4"
-                    class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:[#5A46FF]"
+                    class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
                     :placeholder="$t('contact.cooperation.form.description')"
                   ></textarea>
                 </div>
@@ -77,7 +77,7 @@
                 >
                   <NuxtLinkLocale
                     type="submit"
-                    class="px-8 py-3 font-medium w-full text-white text-center transition-colors bg-[#5A46FF] rounded md:hover:bg-[#7463FF] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
+                    class="px-8 py-3 font-medium w-full text-white text-center transition-colors bg-[#5A46FF] rounded md:hover:bg-[#7463FF] focus:outline-none cursor-pointer"
                   >
                     {{ $t('contact.cooperation.form.submit') }}
                   </NuxtLinkLocale>
@@ -97,7 +97,7 @@
 
         <!-- Contact Information-->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:[grid-template-columns:repeat(3,1fr)_0.5fr] pw-gap-[24px] md:gap-8 text-left"
+          class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_0.8fr] pw-gap-[24px] md:gap-8 text-left"
         >
           <!-- Social Media -->
           <div
@@ -106,59 +106,95 @@
             <h3 class="pw-text-[16px] md:text-base font-medium text-[#23233D] pw-pb-[16px] md:pb-4">
               {{ $t('contact.connect.social.title') }}
             </h3>
-            <div class="grid grid-cols-3 pw-gap-[8px] md:gap-4">
+            <div class="grid grid-cols-3 gap-x-[16px] gap-y-[32px] md:gap-y-9 md:gap-x-8">
               <a
                 href="https://space.bilibili.com/1077677154"
-                class="flex items-center text-gray-600 md:hover:text-gray-900"
+                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
               >
-                <img src="~/assets/images/contact/bilibili.svg" alt="" />
-                <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
+                <img
+                  src="~/assets/images/contact/bilibili.svg"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  alt=""
+                />
+                <span
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                >
                   {{ $t('contact.connect.social.bilibili') }}
                 </span>
               </a>
-              <a href="" class="flex items-center text-gray-600 md:hover:text-gray-900">
-                <img src="~/assets/images/contact/wechat.svg" alt="" />
-                <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
+              <a href="" class="flex items-center text-gray-600 md:hover:text-gray-900 group">
+                <img
+                  src="~/assets/images/contact/wechat.svg"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  alt=""
+                />
+                <span
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                >
                   {{ $t('contact.connect.social.wechat') }}
                 </span>
               </a>
               <a
                 href="https://www.youtube.com/channel/UCDjnC6m9_xW-PDeDCjv-jng"
-                class="flex items-center text-gray-600 md:hover:text-gray-900"
+                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
               >
-                <img src="~/assets/images/contact/youtube.svg" alt="" />
+                <img
+                  src="~/assets/images/contact/youtube.svg"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  alt=""
+                />
 
-                <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
+                <span
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                >
                   {{ $t('contact.connect.social.youtube') }}
                 </span>
               </a>
               <a
                 href="https://www.douyin.com/user/MS4wLjABAAAAAcfipSlaUYyM673pSK5eGTC9j2S1P5yzqlrVSaGLjN4coXjFqV8inh4i4HVDsoqK"
-                class="flex items-center text-gray-600 md:hover:text-gray-900"
+                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
               >
-                <img src="~/assets/images/contact/douyin.svg" alt="" />
+                <img
+                  src="~/assets/images/contact/douyin.svg"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  alt=""
+                />
 
-                <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
+                <span
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                >
                   {{ $t('contact.connect.social.douyin') }}
                 </span>
               </a>
               <a
-                href="https://www.tiktok.com/@astribot_inc?is_from_webapp=1&sender_device=pc"
-                class="flex items-center text-gray-600 md:hover:text-gray-900"
+                href="https://x.com/Astribot_Inc?mx=2"
+                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
               >
-                <img src="~/assets/images/contact/x.svg" alt="" />
-                <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
-                  {{ $t('contact.connect.social.x') }}
+                <img
+                  src="~/assets/images/contact/tiktok.svg"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  alt=""
+                />
+
+                <span
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                >
+                  {{ $t('contact.connect.social.tiktok') }}
                 </span>
               </a>
               <a
-                href="https://x.com/Astribot_Inc?mx=2"
-                class="flex items-center text-gray-600 md:hover:text-gray-900"
+                href="https://www.tiktok.com/@astribot_inc?is_from_webapp=1&sender_device=pc"
+                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
               >
-                <img src="~/assets/images/contact/tiktok.svg" alt="" />
-
-                <span class="pw-pl-[8px] md:pl-2 pw-text-[14px] md:text-sm">
-                  {{ $t('contact.connect.social.tiktok') }}
+                <img
+                  src="~/assets/images/contact/x.svg"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  alt=""
+                />
+                <span
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                >
+                  {{ $t('contact.connect.social.x') }}
                 </span>
               </a>
             </div>
@@ -170,36 +206,36 @@
             <h3 class="pw-text-[16px] md:text-base font-medium text-[#23233D] pw-pb-[16px] md:pb-4">
               {{ $t('contact.connect.email.title') }}
             </h3>
-            <div class="">
+            <div class="md:space-y-6">
               <div class="flex items-center justify-center md:justify-start">
-                <p class="pw-text-[14px] md:text-sm text-gray-500 mb-1">
+                <p class="pw-text-[14px] md:text-sm text-[#71798A] pw-mb-[16px] md:mb-0">
                   {{ $t('contact.connect.email.business') }}：
                 </p>
                 <a
                   href="mailto:business@astribot.com"
-                  class="pw-text-[14px] md:text-sm text-gray-700 md:hover:text-blue-600"
+                  class="pw-text-[14px] md:text-sm text-[#71798A] md:hover:text-[#23233D] pw-mb-[16px] md:mb-0"
                 >
                   business@astribot.com
                 </a>
               </div>
               <div class="flex items-center justify-center md:justify-start">
-                <p class="pw-text-[14px] md:text-sm text-gray-500 mb-1">
+                <p class="pw-text-[14px] md:text-sm text-[#71798A] pw-mb-[16px] md:mb-0">
                   {{ $t('contact.connect.email.recruitment') }}：
                 </p>
                 <a
                   href="mailto:join@astribot.com"
-                  class="pw-text-[14px] md:text-sm text-gray-700 md:hover:text-blue-600"
+                  class="pw-text-[14px] md:text-sm text-[#71798A] md:hover:text-[#23233D] pw-mb-[16px] md:mb-0"
                 >
                   join@astribot.com
                 </a>
               </div>
               <div class="flex items-center justify-center md:justify-start">
-                <p class="pw-text-[14px] md:text-sm text-gray-500 mb-1">
+                <p class="pw-text-[14px] md:text-sm text-[#71798A] pw-mb-[16px] md:mb-0">
                   {{ $t('contact.connect.email.other') }}：
                 </p>
                 <a
                   href="mailto:contact@astribot.com"
-                  class="pw-text-[14px] md:text-sm text-gray-700 md:hover:text-blue-600"
+                  class="pw-text-[14px] md:text-sm text-[#71798A] md:hover:text-[#23233D] pw-mb-[16px] md:mb-0"
                 >
                   contact@astribot.com
                 </a>
@@ -214,9 +250,14 @@
             <h3 class="pw-text-[16px] md:text-base font-medium text-[#23233D] pw-pb-[16px] md:pb-4">
               {{ $t('contact.connect.address.title') }}
             </h3>
-            <p class="pw-text-[14px] md:text-sm text-gray-700">
-              {{ $t('contact.connect.address.detail') }}
-            </p>
+            <div class="flex justify-center md:justify-start">
+              <p class="pw-text-[14px] md:text-sm text-[#71798A]">
+                {{ locale === 'zh' ? '' : '@' }}
+              </p>
+              <p class="pw-text-[14px] md:text-sm text-[#71798A]">
+                {{ $t('contact.connect.address.detail') }}
+              </p>
+            </div>
           </div>
 
           <!-- 联系电话 -->
@@ -228,7 +269,7 @@
             </h3>
             <a
               href="tel:0755-86701637"
-              class="pw-text-[16px] md:text-sm text-gray-700 md:hover:text-blue-600"
+              class="pw-text-[16px] md:text-sm text-[#71798A] md:hover:text-[#23233D]"
             >
               0755-86701637
             </a>

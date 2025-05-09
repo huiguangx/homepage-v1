@@ -1,12 +1,12 @@
 <template>
-  <div class="w-full max-w-[2560px] mx-auto">
+  <div class="w-full mx-auto">
     <!--1 Hero Banner -->
-    <section class="relative h-screen w-full">
+    <section class="relative w-full h-[100dvh]">
       <div class="h-full w-full">
         <swiper
           class="h-full swiper-container"
           :modules="swiperModules"
-          :autoplay="{ delay: 300000, disableOnInteraction: false }"
+          :autoplay="{ delay: 3000, disableOnInteraction: false }"
           :pagination="{
             // el: '.swiper-pagination',
             type: 'bullets',
@@ -47,7 +47,7 @@
                 <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
               </video>
               <div
-                class="w-[90%] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
+                class="w-[85%] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
               >
                 <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
                   <h1 class="pw-text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
@@ -284,7 +284,7 @@
           <div
             v-for="(news, index) in newsList"
             :key="index"
-            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
+            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] md:hover:bg-white transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
             :class="{ 'hidden md:block': index >= 2 }"
           >
             <a target="_blank" :href="news.href">
@@ -295,7 +295,11 @@
                   media="(min-width: 768px)"
                   srcset="~/assets/images/news/news-s1-poster.jpg"
                 /> -->
-                  <img :src="news.image" alt="News Banner" class="w-full object-cover" />
+                  <img
+                    :src="news.image"
+                    alt="News Banner"
+                    class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110"
+                  />
                 </picture>
               </div>
 

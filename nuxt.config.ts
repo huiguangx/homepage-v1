@@ -5,6 +5,7 @@ import { currentLocales } from './config/i18n'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
+  ssr: process.env.NODE_ENV !== 'development',
   css: [],
   modules: [
     '@nuxtjs/i18n',
@@ -40,7 +41,7 @@ export default defineNuxtConfig({
       // (建议用于改进SEO) -仅检测站点根路径(/)上的浏览器区域设置。只有当使用策略而不是"no_prefix"时才有效。
       redirectOn: 'root',
     },
-    baseUrl: 'http://baidu1.com',
+    baseUrl: 'https://www.astribot.com',
   },
   postcss: {
     plugins: {
@@ -94,7 +95,21 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       style: [],
-      script: [],
+      script: [
+        // <!-- Google Tag Manager -->
+        process.env.ENABLE_GTM === 'true'
+          ? {
+              hid: 'gtm',
+              children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${process.env.VITE_GTM_ID}');`,
+              type: 'text/javascript',
+            }
+          : undefined,
+        // <!-- End Google Tag Manager -->
+      ].filter(Boolean),
       noscript: [],
     },
   },

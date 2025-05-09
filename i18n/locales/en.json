@@ -21,7 +21,7 @@
   "careers": {
     "title": "Careers",
     "content": "Let's venture into the stars and the sea together.",
-    "heroTitle": "Join Astribot",
+    "heroTitle": "Let's venture into the stars and the sea together.",
     "heroSubtitle": "「Searching for the shining you and defining the future together」",
     "workEnvironment": "Work Environment",
     "workEnvironmentDesc": "With sea views, robots, cats, and our continuously evolving selves.",
@@ -200,7 +200,7 @@
       "title": "Contact Us",
       "subtitle": "Contact Us",
       "description": "If you want to become an industry partner, please fill in the information first.",
-      "cta": "Apply Now!"
+      "cta": "Apply Now"
     }
   },
   "product": {
@@ -361,12 +361,12 @@
         "date": "September 18, 2024"
       },
       "news4": {
-        "title": "Astribot is pleased to officially release its Al robotic partner Astribot S1",
+        "title": "At the World Robot Conference, this domestically produced robot carrying the hope of future elderly care was surrounded",
         "description": "At the World Robot Conference being held in Beijing, the display of humanoid robots became the absolute focus of the event. At the booth of Astribot, due to Al robotic partner S1 performs yangqin (Chinese dulcimer) in an exhibition area.",
         "date": "August 22, 2024"
       },
       "news5": {
-        "title": "At the World Robot Conference, this domestically produced robot carrying the hope of future elderly care was surrounded",
+        "title": "Astribot is pleased to officially release its Al robotic partner Astribot S1",
         "description": "At the World Robot Conference being held in Beijing, the display of humanoid robots became the absolute focus of the event. At the booth of Astribot, due to Al robotic partner S1 performs yangqin (Chinese dulcimer) in an exhibition area.We have carefully polished the technology and product details behind S1, hoping that it is born for you and naturally intelligent for you...",
         "date": "August 20th, 2024"
       },
