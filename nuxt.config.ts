@@ -5,7 +5,7 @@ import { currentLocales } from './config/i18n'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
-  ssr: process.env.NODE_ENV !== 'development',
+  // ssr: process.env.NODE_ENV !== 'development',
   css: [],
   modules: [
     '@nuxtjs/i18n',
@@ -13,14 +13,51 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/seo',
-    '@nuxt/fonts',
-  ],
-  fonts: {
-    families: [
-      { name: 'HarmonyOS Sans', provider: 'local' }, // 本地鸿蒙字体文件
-      { name: 'Noto Sans', provider: 'google' }, // 从 Google Fonts 加载
+    // '@nuxt/fonts',
+    [
+      '@nuxtjs/google-fonts',
+      {
+        families: {
+          'Noto Sans': [300, 400, 500, 700],
+        },
+      },
     ],
+    '@zadigetvoltaire/nuxt-gtm',
+  ],
+  runtimeConfig: {
+    public: {
+      gtm: {
+        id: process.env.VITE_GTM_ID || '',
+        queryParams: {
+          gtm_auth: 'AB7cDEf3GHIjkl-MnOP8qr',
+          gtm_preview: 'env-4',
+          gtm_cookies_win: 'x',
+        },
+        defer: false,
+        compatibility: false,
+        nonce: '2726c7f26c',
+        enabled: true,
+        debug: true,
+        loadScript: true,
+        enableRouterSync: true,
+        ignoredViews: ['homepage'],
+        trackOnNextTick: false,
+        devtools: true,
+      },
+    },
   },
+
+  // fonts: {
+  //   families: [
+  //     { name: 'HarmonyOS Sans', provider: 'local' }, // 本地鸿蒙字体文件
+  //     { name: 'Noto Sans', provider: 'google' }, // 从 Google Fonts 加载
+  //   ],
+  // },
+  // googleFonts: {
+  //   families: {
+  //     'Noto Sans SC': [300, 400, 500, 700], // 只加载 Noto Sans
+  //   },
+  // },
   gtag: {
     id: import.meta.env.VITE_GTAG_ID,
     enabled: true,
@@ -42,6 +79,9 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
     baseUrl: 'https://www.astribot.com',
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
   },
   postcss: {
     plugins: {

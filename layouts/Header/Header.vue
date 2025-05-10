@@ -234,8 +234,8 @@ const isTransparentRoute = computed(() => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
-  // checkScreenSize()
-  // window.addEventListener('resize', checkScreenSize)
+  checkScreenSize()
+  window.addEventListener('resize', checkScreenSize)
   // 初始检查滚动位置
   handleScroll()
 })

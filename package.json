@@ -19,6 +19,7 @@
   "dependencies": {
     "@nuxt/fonts": "^0.11.2",
     "@nuxt/image": "^1.10.0",
+    "@nuxtjs/google-fonts": "3.2.0",
     "@nuxtjs/i18n": "^9.3.1",
     "@nuxtjs/seo": "3.0.3",
     "@vueuse/core": "^13.1.0",
@@ -33,6 +34,7 @@
     "@nuxtjs/tailwindcss": "^6.13.2",
     "@release-it/conventional-changelog": "^10.0.1",
     "@types/node": "^22.13.10",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "font-slice": "^1.0.2",
     "install": "^0.13.0",
     "nuxt-windicss": "^3.0.1",
