@@ -24,28 +24,32 @@ export default defineNuxtConfig({
     ],
     '@zadigetvoltaire/nuxt-gtm',
   ],
-  runtimeConfig: {
-    public: {
-      gtm: {
-        id: 'GTM-52BQM7PX',
-        // queryParams: {
-        //   gtm_auth: 'AB7cDEf3GHIjkl-MnOP8qr',
-        //   gtm_preview: 'env-4',
-        //   gtm_cookies_win: 'x',
-        // },
-        // defer: false,
-        // compatibility: false,
-        // nonce: '2726c7f26c',
-        // enabled: true,
-        // debug: true,
-        // loadScript: true,
-        // enableRouterSync: true,
-        // ignoredViews: ['homepage'],
-        // trackOnNextTick: false,
-        // devtools: true,
-      },
-    },
+  gtm: {
+    id: process.env.VITE_GTM_ID || 'GTM-52BQM7PX',
+    enabled: true,
   },
+  // runtimeConfig: {
+  //   public: {
+  //     gtm: {
+  //       id: 'GTM-52BQM7PX',
+  //       // queryParams: {
+  //       //   gtm_auth: 'AB7cDEf3GHIjkl-MnOP8qr',
+  //       //   gtm_preview: 'env-4',
+  //       //   gtm_cookies_win: 'x',
+  //       // },
+  //       // defer: false,
+  //       // compatibility: false,
+  //       // nonce: '2726c7f26c',
+  //       // enabled: true,
+  //       // debug: true,
+  //       // loadScript: true,
+  //       // enableRouterSync: true,
+  //       // ignoredViews: ['homepage'],
+  //       // trackOnNextTick: false,
+  //       // devtools: true,
+  //     },
+  //   },
+  // },
 
   // fonts: {
   //   families: [
