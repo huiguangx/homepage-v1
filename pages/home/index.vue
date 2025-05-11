@@ -23,9 +23,6 @@
           :resistance-ratio="0"
           :loop="true"
           @slideChange="onSlideChange"
-          @autoplayStart="startProgress"
-          @autoplayStop="stopProgress"
-          @init="onSwiperInit"
         >
           <swiper-slide>
             <div class="relative h-full w-full">
@@ -506,48 +503,13 @@ const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
 const activePageIndex = ref(0)
 
 const onSlideChange = (swiper: SwiperClass) => {
-  activePageIndex.value = swiper.activeIndex
-  startProgress() // 重启计时器
+  activePageIndex.value = swiper.realIndex
+  // startProgress() // 重启计时器
 }
 
 const progress = ref(0) // 进度（0 到 100）
 let progressInterval: number | null = null // 计时器 ID
 const autoplayDelay = 4000 // 轮播时间 30 秒
-// 开始进度计时
-const startProgress = () => {
-  stopProgress() // 清除现有计时器
-  progress.value = 0
-  const startTime = Date.now()
-  progressInterval = setInterval(() => {
-    const elapsed = Date.now() - startTime
-    progress.value = Math.min((elapsed / autoplayDelay) * 100, 100) // 0% 到 100%
-    console.log('Progress:', progress.value) // 调试用
-    updateBulletProgress()
-  }, 50) // 每 50ms 更新
-}
-
-// 停止进度计时
-const stopProgress = () => {
-  if (progressInterval !== null) {
-    clearInterval(progressInterval)
-    progressInterval = null
-  }
-}
-
-const updateBulletProgress = () => {
-  const bullets = document.querySelectorAll<HTMLElement>('.swiper-pagination-bullet')
-  const realIndex = activePageIndex.value % bullets.length
-
-  // 先更新响应式变量，再操作DOM
-  progress.value = 100 // 确保其他依赖progress的地方能收到更新
-
-  nextTick(() => {
-    // 确保DOM更新后执行
-    bullets.forEach((bullet, index) => {
-      bullet.style.setProperty('--progress', index === realIndex ? '100%' : '0%')
-    })
-  })
-}
 </script>
 
 <style scoped lang="scss">
@@ -619,32 +581,20 @@ const updateBulletProgress = () => {
   /* display: none; */
   bottom: 50px; /* px-to-viewport-ignore */
 }
-// :deep(.swiper-pagination-bullet) {
-//   display: inline-block;
-//   width: 5px; /* px-to-viewport-ignore */
-//   height: 5px; /* px-to-viewport-ignore */
-//   background: rgba(255, 255, 255, 0.6);
-//   border-radius: 50%;
-//   transition: all 0.5s ease;
-//   opacity: 0.9;
-// }
 
-// :deep(.swiper-pagination-bullet-active) {
-//   width: 30px; /* px-to-viewport-ignore */
-//   height: 5px; /* px-to-viewport-ignore */
-//   background: white;
-//   border-radius: 2px; /* px-to-viewport-ignore */
-//   opacity: 1;
-// }
 :deep(.swiper-pagination-bullet) {
   display: inline-block;
   width: 5px; /* px-to-viewport-ignore */
   height: 5px; /* px-to-viewport-ignore */
   background: rgba(255, 255, 255, 0.6);
   border-radius: 50%;
-  transition: all 0.5s ease;
   opacity: 0.9;
-  position: relative;
+  transition: all 0.3s ease;
+
+  // 非激活状态样式
+  // &:not(.swiper-pagination-bullet-active) {
+  //   transform: scale(1);
+  // }
 }
 
 :deep(.swiper-pagination-bullet-active) {
@@ -652,19 +602,27 @@ const updateBulletProgress = () => {
   height: 5px; /* px-to-viewport-ignore */
   background: rgba(255, 255, 255, 0.6);
   border-radius: 2px; /* px-to-viewport-ignore */
-  opacity: 1;
   position: relative;
+  overflow: hidden;
 
-  &::before {
+  &::after {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
-    width: var(--progress, 0%);
+    width: 0;
     height: 100%;
     background: white;
     border-radius: 2px; /* px-to-viewport-ignore */
-    transition: width 3s linear; /* 匹配 3 秒轮播时间 */
+    animation: progressBar var(--swiper-autoplay-duration, 4s) linear forwards;
+  }
+}
+@keyframes progressBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
 @media (max-width: 767px) {

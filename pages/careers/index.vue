@@ -72,11 +72,12 @@
           </swiper-slide>
         </swiper>
         <!-- Custom Paginator & navigation-->
+
         <div
           class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
         >
           <!-- Custom Paginator -->
-          <div class="custom-pagination"></div>
+          <div class="custom-pagination flex justify-center md:justify-start"></div>
           <!-- Customize navigation buttons -->
           <div class="hidden md:flex gap-4 text-[#71798A]">
             <button class="custom-prev w-9 h-9 bg-[#f9fafbee] rounded-lg">
@@ -515,16 +516,36 @@ useHead({
   background: #dcdcdc;
   border-radius: 50%;
   cursor: pointer;
-  transition:
-    width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-    /* 使用弹性曲线 */ background 0.3s ease;
-  transform: translateZ(0); /* 开启GPU加速 */
-  backface-visibility: hidden; /* 隐藏背面 */
+  transition: all 0.3s ease;
 }
 
 :deep(.custom-bullet-active) {
   width: 30px; /* px-to-viewport-ignore */
-  background: #5a46ff;
+  height: 5px; /* px-to-viewport-ignore */
+  background: #dcdcdc;
   border-radius: 2px; /* px-to-viewport-ignore */
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #5a46ff;
+    border-radius: 2px; /* px-to-viewport-ignore */
+    animation: vrProgressBar var(--swiper-autoplay-duration, 5s) linear forwards;
+  }
+}
+
+@keyframes vrProgressBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 </style>

@@ -162,7 +162,7 @@
                 <template v-for="(item, index) in specItems" :key="index">
                   <!-- 第一列-->
                   <div
-                    class="col-span-1 text-right pw-pr-[10px] md:px-15 text-[#AAAAAA] py-3 flex items-center justify-end"
+                    class="col-span-1 text-right pw-pr-[10px] md:px-15 text-[#AAAAAA] pw-py-[12px] md:py-3 flex items-center justify-end"
                   >
                     <span class="whitespace-normal pw-text-[11px] md:text-sm text-right">
                       {{ item.name }}
@@ -206,7 +206,10 @@
                       </div>
                     </div>
                   </div> -->
-                  <div class="md:hidden col-span-1 flex items-center py-3 pw-pl-[12px] md:pl-15">
+                  <!-- 移动端第二列 -->
+                  <div
+                    class="md:hidden col-span-1 flex items-center pw-py-[12px] pw-pl-[12px] md:pl-15"
+                  >
                     <div
                       class="flex flex-row text-left flex-wrap w-full align-baseline"
                       :class="item.s1UnitDesc ? '' : 'items-baseline'"
@@ -254,7 +257,9 @@
                     </div>
                   </div>
                   <!-- 移动端第三列 -->
-                  <div class="md:hidden col-span-1 flex items-center py-3 pw-pl-[12px] md:pl-15">
+                  <div
+                    class="md:hidden col-span-1 flex items-center pw-py-[12px] pw-pl-[12px] md:pl-15"
+                  >
                     <div
                       class="flex flex-row text-left flex-wrap w-full align-baseline"
                       :class="item.humanDesc ? '' : 'items-baseline'"
@@ -927,19 +932,38 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   cursor: pointer;
-  transition:
-    width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-    /* 使用弹性曲线 */ background 0.3s ease;
-  transform: translateZ(0); /* 开启GPU加速 */
-  backface-visibility: hidden; /* 隐藏背面 */
+  transition: all 0.3s ease;
 }
 
 :deep(.custom-bullet-active) {
   width: 30px; /* px-to-viewport-ignore */
-  background: white;
+  height: 5px; /* px-to-viewport-ignore */
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 2px; /* px-to-viewport-ignore */
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    border-radius: 2px; /* px-to-viewport-ignore */
+    animation: progressBar var(--swiper-autoplay-duration, 5s) linear forwards;
+  }
 }
 
+@keyframes progressBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 // vr swiper样式
 :deep(.vr-pagination) {
   display: flex;
@@ -959,16 +983,36 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   cursor: pointer;
-  transition:
-    width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-    /* 使用弹性曲线 */ background 0.3s ease;
-  transform: translateZ(0); /* 开启GPU加速 */
-  backface-visibility: hidden; /* 隐藏背面 */
+  transition: all 0.3s ease;
 }
 
 :deep(.vr-custom-bullet-active) {
   width: 30px; /* px-to-viewport-ignore */
-  background: white;
+  height: 5px; /* px-to-viewport-ignore */
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 2px; /* px-to-viewport-ignore */
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: white;
+    border-radius: 2px; /* px-to-viewport-ignore */
+    animation: vrProgressBar var(--swiper-autoplay-duration, 5s) linear forwards;
+  }
+}
+
+@keyframes vrProgressBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 </style>
