@@ -1,7 +1,8 @@
 <template>
+  <div class="block md:h-16 h-[44px] w-full"></div>
   <div class="bg-white">
     <!-- Banner Section -->
-    <section class="relative w-full pw-h-[252px] md:h-auto overflow-hidden pw-pt-[44px] md:pt-16">
+    <section class="relative w-full pw-h-[252px] md:h-auto overflow-hidden">
       <!-- 使用 Grid 布局替代绝对定位 -->
       <div class="grid grid-cols-1 h-full">
         <!-- 图片层 -->
@@ -72,7 +73,6 @@
           </swiper-slide>
         </swiper>
         <!-- Custom Paginator & navigation-->
-
         <div
           class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
         >
@@ -80,15 +80,15 @@
           <div class="custom-pagination flex justify-center md:justify-start"></div>
           <!-- Customize navigation buttons -->
           <div class="hidden md:flex gap-4 text-[#71798A]">
-            <button class="custom-prev w-9 h-9 bg-[#f9fafbee] rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
-              </svg>
+            <button
+              class="custom-prev w-9 h-9 bg-[#f9fafbee] rounded-lg flex items-center justify-center"
+            >
+              <img src="~/assets/images/career/arrow-left.svg" alt="" class="block mx-auto" />
             </button>
-            <button class="custom-next w-9 h-9 bg-[#f9fafbee] rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-              </svg>
+            <button
+              class="custom-next w-9 h-9 bg-[#f9fafbee] rounded-lg flex items-center justify-center"
+            >
+              <img src="~/assets/images/career/arrow-right.svg" alt="" class="block mx-auto" />
             </button>
           </div>
         </div>
@@ -106,34 +106,6 @@
           <p class="pw-text-[14px] md:text-lg text-[#71798A] font-normal">
             {{ $t('careers.openPositionsDesc') }}
           </p>
-        </div>
-
-        <!-- Mobile tabs -->
-        <div class="md:hidden mt-[32px] pw-pb-[24px] relative overflow-x-auto">
-          <div
-            ref="tabHeader"
-            class="grid grid-cols-3"
-            @touchstart="startSwipe"
-            @touchmove="swiping"
-            @touchend="endSwipe"
-          >
-            <button
-              v-for="tab in tabs"
-              :key="tab.id"
-              @click="switchTab(tab.id)"
-              class="flex-shrink-0 px-4 py-2 text-center px-text-[16px] font-normal"
-            >
-              <span
-                :class="{
-                  'inline-block border-b border-[#5A46FF] font-medium text-[#000000]':
-                    activeTab === tab.id,
-                  'text-gray-500': activeTab !== tab.id,
-                }"
-              >
-                {{ tab.name }}
-              </span>
-            </button>
-          </div>
         </div>
 
         <!-- Three-column layout for desktop -->
@@ -237,7 +209,33 @@
             </div>
           </div>
         </div>
-
+        <!-- Mobile tabs -->
+        <div class="md:hidden mt-[32px] pw-pb-[16px] relative overflow-x-auto">
+          <div
+            ref="tabHeader"
+            class="grid grid-cols-3"
+            @touchstart="startSwipe"
+            @touchmove="swiping"
+            @touchend="endSwipe"
+          >
+            <button
+              v-for="tab in tabs"
+              :key="tab.id"
+              @click="switchTab(tab.id)"
+              class="flex-shrink-0 px-4 pt-2 text-center px-text-[16px] font-normal"
+            >
+              <span
+                :class="{
+                  'inline-block border-b border-[#5A46FF] font-medium text-[#000000]':
+                    activeTab === tab.id,
+                  'text-gray-500': activeTab !== tab.id,
+                }"
+              >
+                {{ tab.name }}
+              </span>
+            </button>
+          </div>
+        </div>
         <!-- Mobile content area -->
         <div
           ref="tabContent"

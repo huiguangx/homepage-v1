@@ -1,8 +1,8 @@
 <template>
-  <div class="">
+  <div>
     <!--1 Banner Section -->
-    <section class="w-full h-auto pw-pt-[44px] md:pt-16">
-      <div class="relative">
+    <section class="w-full h-auto pw-pt-[44px] md:pt-16 relative">
+      <div>
         <picture>
           <source media="(max-width: 767px)" srcset="~/assets/images/news/news-s1-poster-h5.jpg" />
 
@@ -50,7 +50,7 @@
               </div>
 
               <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
-              <div class="flex flex-1 flex-col p-4 transition-colors duration-300">
+              <div class="flex flex-1 flex-col pw-p-[8px] md:p-4 transition-colors duration-300">
                 <div class="flex-1 overflow-hidden">
                   <h1
                     class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis min-h-[2.8em] leading-snug"
@@ -58,15 +58,15 @@
                     {{ news.title }}
                   </h1>
                   <p
-                    class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-3 overflow-hidden text-ellipsis"
+                    class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-2 overflow-hidden text-ellipsis"
                   >
                     {{ news.description }}
                   </p>
                 </div>
                 <div
-                  class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300 group-hover:-translate-y-0.5"
+                  class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300"
                 >
-                  <span class="group-hover:scale-105 transition-transform duration-300 ease-out">
+                  <span class="transition-transform duration-300 ease-out">
                     {{ news.date }}
                   </span>
                   <svg
@@ -75,7 +75,7 @@
                     viewBox="0 0 10 10"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="transition-all duration-300 group-hover:scale-110 group-hover:translate-x-0.5"
+                    class="transition-all duration-300"
                   >
                     <path
                       d="M1 9L9 1M9 1H3.66667M9 1V6.33333"
@@ -178,5 +178,11 @@ const newsList = [
 
 useHead({
   title: t('menu.news'),
+})
+definePageMeta({
+  // 禁用页面过渡效果
+  pageTransition: false,
+  // 自定义滚动行为
+  scrollToTop: true,
 })
 </script>

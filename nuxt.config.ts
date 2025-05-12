@@ -18,8 +18,19 @@ export default defineNuxtConfig({
       '@nuxtjs/google-fonts',
       {
         families: {
-          'Noto Sans': [300, 400, 500, 700],
+          'Noto Sans': {
+            wght: [300, 400, 500, 700],
+          },
         },
+        display: 'swap',
+        subsets: ['latin'],
+        preload: true,
+        preconnect: true,
+        prefetch: true,
+        useStylesheet: true,
+        download: true,
+        base64: false,
+        overwriting: false,
       },
     ],
     '@zadigetvoltaire/nuxt-gtm',

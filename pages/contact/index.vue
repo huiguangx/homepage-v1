@@ -267,12 +267,14 @@
             <h3 class="pw-text-[16px] md:text-base font-medium text-[#23233D] pw-pb-[16px] md:pb-4">
               {{ $t('contact.connect.address.phone') }}
             </h3>
-            <a
-              href="tel:0755-86701637"
-              class="pw-text-[16px] md:text-sm text-[#71798A] md:hover:text-[#23233D]"
-            >
-              0755-86701637
-            </a>
+            <div class="flex justify-center md:justify-start">
+              <a
+                href="tel:0755-86701637"
+                class="inline-block pw-text-[14px] md:text-sm text-[#71798A] md:hover:text-[#23233D]"
+              >
+                0755-86701637
+              </a>
+            </div>
           </div>
         </div>
       </div>

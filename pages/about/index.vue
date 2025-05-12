@@ -44,7 +44,7 @@
 
     <!--2 culture section（修改后的完整代码） -->
     <section
-      class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-full md:h-[66vh] relative bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat [background-size:120%_110%] md:[background-size:100%_100%]"
+      class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-full md:h-[66vh] relative bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat [background-size:100%_100%]"
     >
       <!-- 动画容器 -->
       <div class="m-auto w-[90%] md:max-w-[1280px] relative animate-fade-in-up">
@@ -189,7 +189,7 @@
 const { locale } = useI18n()
 
 useHead({
-  title: locale.value === 'zh' ? '关于星尘' : 'About Us',
+  title: locale.value === 'zh' ? '关于我们' : 'About Us',
   meta: [
     {
       name: 'description',

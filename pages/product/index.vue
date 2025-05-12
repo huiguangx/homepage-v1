@@ -107,15 +107,15 @@
           <div class="custom-pagination"></div>
           <!-- 自定义导航按钮 -->
           <div class="hidden md:flex gap-4 text-white">
-            <button class="custom-prev w-9 h-9 bg-[#2A2A2A] rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
-              </svg>
+            <button
+              class="custom-prev w-9 h-9 bg-[#2A2A2A] text-center rounded-lg flex items-center justify-center"
+            >
+              <img src="~/assets/images/index/prev-arrow.svg" alt="" class="block mx-auto" />
             </button>
-            <button class="custom-next w-9 h-9 bg-[#2A2A2A] rounded-lg">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-              </svg>
+            <button
+              class="custom-next w-9 h-9 bg-[#2A2A2A] text-center rounded-lg flex items-center justify-center"
+            >
+              <img src="~/assets/images/index/next-arrow.svg" alt="" class="block mx-auto" />
             </button>
           </div>
         </div>
@@ -148,28 +148,28 @@
                 <!-- 表头 -->
                 <div class="col-span-1 text-right pw-px-[10px] md:px-15 text-gray-400"></div>
                 <div class="col-span-1 text-left pw-pl-[12px] md:px-10">
-                  <h3 class="pw-text-[16px] md:text-xl font-medium mb-2 text-white my-text-class">
+                  <h3 class="pw-text-[16px] md:text-xl font-medium text-white my-text-class">
                     {{ $t('product.specs.modelName') }}
                   </h3>
                 </div>
-                <div class="col-span-1 text-left pw-pl-[12px] md:px-15">
-                  <h3 class="pw-text-[14px] md:text-xl font-medium mb-2 text-gray-300">
+                <div class="col-span-1 text-left flex items-end pw-pl-[12px] md:px-15">
+                  <h3 class="pw-text-[14px] md:text-xl font-medium text-[#AAAAAA]">
                     {{ $t('product.specs.comparisonTarget') }}
                   </h3>
                 </div>
 
                 <!-- 数据行 -->
-                <template v-for="(item, index) in specItems" :key="index">
+                <template v-for="(item, index) in specItems" :key="index" class="mb-2">
                   <!-- 第一列-->
                   <div
-                    class="col-span-1 text-right pw-pr-[10px] md:px-15 text-[#AAAAAA] pw-py-[12px] md:py-3 flex items-center justify-end"
+                    class="col-span-1 text-right pw-pr-[10px] md:px-15 text-[#AAAAAA] md:py-3 flex items-center justify-end"
                   >
                     <span class="whitespace-normal pw-text-[11px] md:text-sm text-right">
                       {{ item.name }}
                     </span>
                   </div>
                   <!-- 第二列-->
-                  <div class="hidden col-span-1 md:flex items-center py-3 pw-px-[12px] md:px-10">
+                  <div class="hidden col-span-1 md:flex items-center py-3 pw-px-[10px] md:px-10">
                     <div class="flex flex-row items-baseline flex-wrap text-left w-full">
                       <span class="pw-text-[20px] md:text-3xl font-medium text-white">
                         {{ item.s1Value }}
@@ -207,9 +207,7 @@
                     </div>
                   </div> -->
                   <!-- 移动端第二列 -->
-                  <div
-                    class="md:hidden col-span-1 flex items-center pw-py-[12px] pw-pl-[12px] md:pl-15"
-                  >
+                  <div class="md:hidden col-span-1 flex items-center pw-pl-[10px] md:pl-15">
                     <div
                       class="flex flex-row text-left flex-wrap w-full align-baseline"
                       :class="item.s1UnitDesc ? '' : 'items-baseline'"
@@ -236,7 +234,7 @@
                   </div>
                   <!-- 第三列-->
                   <div
-                    class="hidden col-span-1 md:flex items-center justify-center py-3 pw-pl-[12px] md:pl-15 ]"
+                    class="hidden col-span-1 md:flex items-center justify-center py-3 pw-pl-[12px] md:pl-15"
                   >
                     <div class="flex flex-row items-baseline text-left flex-wrap w-full">
                       <div>
@@ -258,7 +256,7 @@
                   </div>
                   <!-- 移动端第三列 -->
                   <div
-                    class="md:hidden col-span-1 flex items-center pw-py-[12px] pw-pl-[12px] md:pl-15"
+                    class="md:hidden col-span-1 flex items-center pw-py-[10px] pw-pl-[12px] md:pl-15"
                   >
                     <div
                       class="flex flex-row text-left flex-wrap w-full align-baseline"
@@ -477,15 +475,15 @@
             <div class="vr-pagination"></div>
             <!-- 自定义导航按钮 -->
             <div class="hidden md:flex gap-4 text-white">
-              <button class="vr-custom-prev w-9 h-9 bg-[#2A2A2A] rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
-                </svg>
+              <button
+                class="vr-custom-prev w-9 h-9 bg-[#2A2A2A] rounded-lg flex items-center justify-center"
+              >
+                <img src="~/assets/images/index/prev-arrow.svg" alt="" class="block mx-auto" />
               </button>
-              <button class="vr-custom-next w-9 h-9 bg-[#2A2A2A] rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                </svg>
+              <button
+                class="vr-custom-next w-9 h-9 bg-[#2A2A2A] rounded-lg flex items-center justify-center"
+              >
+                <img src="~/assets/images/index/next-arrow.svg" alt="" class="block mx-auto" />
               </button>
             </div>
           </div>
@@ -714,13 +712,13 @@ const specItems = [
     s1Value: '≥10',
     s1Unit: 'm/s',
     humanValue: '5~10',
-    humanUnit: 'm/s²',
+    humanUnit: 'm/s',
     humanDesc: t('product.specs.comparison.unit.0'),
   },
   {
     name: t('product.specs.comparison.items.3'),
     s1Value: '≈100',
-    s1Unit: 'm/s',
+    s1Unit: 'm/s²',
     humanValue: '50~100',
     humanUnit: 'm/s²',
     humanDesc: t('product.specs.comparison.unit.0'),
@@ -933,6 +931,7 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
+  opacity: 0.9;
 }
 
 :deep(.custom-bullet-active) {
@@ -942,6 +941,7 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
   border-radius: 2px; /* px-to-viewport-ignore */
   position: relative;
   overflow: hidden;
+  opacity: 1;
 
   &::after {
     content: '';
@@ -984,6 +984,7 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
+  opacity: 0.9;
 }
 
 :deep(.vr-custom-bullet-active) {
@@ -993,6 +994,7 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
   border-radius: 2px; /* px-to-viewport-ignore */
   position: relative;
   overflow: hidden;
+  opacity: 1;
 
   &::after {
     content: '';

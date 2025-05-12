@@ -47,7 +47,7 @@
                 <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
               </video>
               <div
-                class="w-[85%] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
+                class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
               >
                 <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
                   <h1 class="pw-text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
@@ -65,7 +65,7 @@
 
                   <NuxtLinkLocale
                     to="/about"
-                    class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+                    class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
                   >
                     {{ $t('home.hero.cta') }}
                   </NuxtLinkLocale>
@@ -100,7 +100,7 @@
 
               <div class="md:hidden absolute inset-0 bg-black/40"></div>
               <div
-                class="w-[90%] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
+                class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
               >
                 <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
                   <h1
@@ -134,7 +134,7 @@
                   <div>
                     <NuxtLinkLocale
                       to="/contact"
-                      class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-6 md:py-3 text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+                      class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
                     >
                       {{ $t('home.contact.title') }}
                     </NuxtLinkLocale>
@@ -169,7 +169,7 @@
               </picture>
 
               <div
-                class="relative z-10 w-[90%] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
+                class="relative z-10 w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
               >
                 <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
                   <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
@@ -182,7 +182,7 @@
                   </h2>
                   <NuxtLinkLocale
                     :to="{ path: '/careers', hash: '#joinus' }"
-                    class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-6 md:py-3 text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
+                    class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
                   >
                     {{ $t('home.careers.title') }}
                   </NuxtLinkLocale>
@@ -192,8 +192,16 @@
           </swiper-slide>
         </swiper>
 
-        <div class="swiper-button-prev w-14 h-14 rounded-full"></div>
-        <div class="swiper-button-next w-14 h-14 rounded-full"></div>
+        <div class="swiper-button-prev">
+          <button class="rounded-lg">
+            <img src="~/assets/images/index/prev-arrow.svg" alt="" />
+          </button>
+        </div>
+        <div class="swiper-button-next">
+          <button class="rounded-lg">
+            <img src="~/assets/images/index/next-arrow.svg" alt="" />
+          </button>
+        </div>
       </div>
     </section>
 
@@ -264,11 +272,26 @@
           </p>
           <NuxtLinkLocale
             to="/about"
-            class="flex gap-1.5 justify-end md:justify-start pw-text-[12px] md:text-base font-medium text-[#475467] md:hover:text-[#5A46FF]"
+            class="flex items-center gap-1.5 justify-end md:justify-start group pw-text-[12px] md:text-base font-medium text-[#475467] md:hover:text-[#5A46FF]"
           >
             {{ $t('home.about.cta') }}
             <!-- 可添加箭头图标（示例使用Heroicons） -->
-            <img src="~/assets/images/index/learnmore-arrow.svg" alt="" />
+            <!-- <img class="md:hidden" src="~/assets/images/index/learnmore-arrow.svg" alt="" /> -->
+            <svg
+              width="18"
+              height="19"
+              viewBox="0 0 18 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="transition-all duration-300"
+            >
+              <path
+                d="M13.5 4.25C13.9142 4.25 14.25 4.58579 14.25 5V11C14.25 11.4142 13.9142 11.75 13.5 11.75C13.0858 11.75 12.75 11.4142 12.75 11V6.81055L5.03028 14.5303C4.73738 14.8232 4.26262 14.8232 3.96973 14.5303C3.67684 14.2374 3.67684 13.7626 3.96973 13.4697L11.6895 5.75H7.5C7.08579 5.75 6.75 5.41421 6.75 5C6.75 4.58579 7.08579 4.25 7.5 4.25H13.5Z"
+                stroke-width="0.75"
+                fill="#475467"
+                class="transition-colors duration-300 group-hover:stroke-[#5A46FF] group-hover:fill-[#5A46FF]"
+              />
+            </svg>
           </NuxtLinkLocale>
         </div>
       </div>
@@ -304,7 +327,9 @@
               </div>
 
               <!-- 文字内容区域（使用 flex-grow 撑满剩余空间） -->
-              <div class="flex flex-1 flex-col p-4 transition-colors duration-300 cursor-pointer">
+              <div
+                class="flex flex-1 flex-col pw-p-[8px] md:p-4 transition-colors duration-300 cursor-pointer"
+              >
                 <div class="flex-1 overflow-hidden">
                   <h1
                     class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis min-h-[2.8em] leading-snug"
@@ -312,24 +337,25 @@
                     {{ news.title }}
                   </h1>
                   <p
-                    class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-3 overflow-hidden text-ellipsis"
+                    class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-2 overflow-hidden text-ellipsis"
                   >
                     {{ news.description }}
                   </p>
                 </div>
                 <div
-                  class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300 group-hover:-translate-y-0.5"
+                  class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300"
                 >
                   <span>
                     {{ news.date }}
                   </span>
+
                   <svg
                     width="10"
                     height="10"
                     viewBox="0 0 10 10"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="transition-all duration-300 group-hover:scale-110 group-hover:translate-x-0.5"
+                    class="transition-all duration-300"
                   >
                     <path
                       d="M1 9L9 1M9 1H3.66667M9 1V6.33333"
@@ -348,7 +374,7 @@
         <div class="flex justify-center pw-mt-[16px] md:mt-8">
           <NuxtLinkLocale
             :to="{ path: '/news' }"
-            class="inline-block pw-text-[12px] md:text-base bg-transparent text-[#475467] border border-[#E4E4E4] pw-px-[16px] pw-py-[8px] md:px-5 md:py-3 rounded md:rounded-md transition-colors md:cursor-pointer"
+            class="inline-block pw-text-[12px] md:text-base bg-transparent text-[#475467] border border-[#E4E4E4] md:hover:bg-[#F9FAFB] pw-px-[16px] pw-py-[8px] md:px-5 md:py-3 rounded md:rounded-md transition-colors md:cursor-pointer"
           >
             {{ $t('home.news.btn') }}
           </NuxtLinkLocale>
@@ -377,14 +403,22 @@
                 {{ $t('home.careers.description') }}
               </p>
               <div
-                class="mt-auto flex items-center pw-text-[12px] md:text-base md:cursor-pointer rounded text-[#5A46FF] font-medium"
+                class="mt-auto flex items-center text-base pw-text-[14px] md:text-base md:cursor-pointer text-[#5A46FF] font-medium md:border-b md:hover:border-b md:border-transparent md:hover:border-[#5A46FF]"
               >
                 {{ $t('home.careers.cta') }}
-                <img
-                  class="pw-ml-[4px] md:ml-1 md:mt-1"
-                  src="~/assets/images/index/go-arrow.svg"
-                  alt=""
-                />
+                <picture>
+                  <!-- 小于768px（移动端）时使用 go-arrow-mobile.svg -->
+                  <source
+                    srcset="~/assets/images/index/go-arrow-h5.svg"
+                    media="(max-width: 767px)"
+                  />
+                  <!-- 默认（大于等于768px）使用 go-arrow.svg -->
+                  <img
+                    class="pw-ml-[4px] md:ml-1 md:mt-1"
+                    src="~/assets/images/index/go-arrow.svg"
+                    alt="Arrow"
+                  />
+                </picture>
               </div>
             </NuxtLinkLocale>
           </div>
@@ -401,14 +435,22 @@
                 {{ $t('home.contact.description') }}
               </p>
               <div
-                class="mt-auto flex items-center pw-text-[12px] md:text-base md:cursor-pointer rounded text-[#5A46FF] font-medium"
+                class="mt-auto flex items-center pw-text-[14px] md:text-base md:cursor-pointer text-[#5A46FF] font-medium md:border-b md:hover:border-b md:border-transparent md:hover:border-[#5A46FF]"
               >
                 {{ $t('home.contact.cta') }}
-                <img
-                  class="pw-ml-[4px] md:ml-1 md:mt-1"
-                  src="~/assets/images/index/go-arrow.svg"
-                  alt=""
-                />
+                <picture>
+                  <!-- 小于768px（移动端）时使用 go-arrow-mobile.svg -->
+                  <source
+                    srcset="~/assets/images/index/go-arrow-h5.svg"
+                    media="(max-width: 767px)"
+                  />
+                  <!-- 默认（大于等于768px）使用 go-arrow.svg -->
+                  <img
+                    class="pw-ml-[4px] md:ml-1 md:mt-1"
+                    src="~/assets/images/index/go-arrow.svg"
+                    alt="Arrow"
+                  />
+                </picture>
               </div>
             </NuxtLinkLocale>
           </div>
@@ -520,8 +562,8 @@ const autoplayDelay = 4000 // 轮播时间 30 秒
 }
 .swiper-button-prev,
 .swiper-button-next {
-  width: 56px; /* px-to-viewport-ignore */
-  height: 56px; /* px-to-viewport-ignore */
+  width: 36px; /* px-to-viewport-ignore */
+  height: 36px; /* px-to-viewport-ignore */
   border-radius: 50%;
   background: rgba(0, 0, 0, 0); /* 初始背景透明 */
   transition: background 0.3s ease; /* 使用 background 属性过渡 */
@@ -536,20 +578,20 @@ const autoplayDelay = 4000 // 轮播时间 30 秒
 .swiper-button-next::after {
   content: '';
   opacity: 1; /* 箭头图标始终不透明 */
-  width: 12px; /* px-to-viewport-ignore */
-  height: 24px; /* px-to-viewport-ignore */
+  // width: 12px; /* px-to-viewport-ignore */
+  // height: 24px; /* px-to-viewport-ignore */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.swiper-button-prev::after {
-  background-image: url('~/assets/images/index/prev-arrow.svg');
-}
+// .swiper-button-prev::after {
+//   background-image: url('~/assets/images/index/prev-arrow.svg');
+// }
 
-.swiper-button-next::after {
-  background-image: url('~/assets/images/index/next-arrow.svg');
-}
+// .swiper-button-next::after {
+//   background-image: url('~/assets/images/index/next-arrow.svg');
+// }
 /* 内容容器动画 */
 .slide-content {
   transform: translateY(100px); /* px-to-viewport-ignore */
@@ -604,6 +646,7 @@ const autoplayDelay = 4000 // 轮播时间 30 秒
   border-radius: 2px; /* px-to-viewport-ignore */
   position: relative;
   overflow: hidden;
+  opacity: 1;
 
   &::after {
     content: '';

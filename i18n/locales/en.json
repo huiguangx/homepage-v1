@@ -135,7 +135,8 @@
     "products": "Products",
     "careers": "Careers",
     "news": "News",
-    "about": "About"
+    "about": "About",
+    "contact": "Contact Us"
   },
 
   "home": {
@@ -192,7 +193,7 @@
     },
     "about": {
       "title": "About Us",
-      "content": "Astribot was founded in Shenzhen in December 2022. As a leading AI robotics company, our vision is to empower billions of people with Al robotic partners, and our mission is to promote co-existence, co-creation and co-prosperity between humans and robots.",
+      "content": "Astribot was founded in Shenzhen in December 2022. As a leading AI robotics company, our vision is to empower billions of people with AI robotic partners, and our mission is to promote co-existence, co-creation and co-prosperity between humans and robots.",
       "nextcontent": "The company has pioneered a software-hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal manipulation'. This innovation has led to key breakthroughs in embodied intelligence and data acquisition, enabling robots to learn, think, and work like humans while fostering smooth and intelligent interactions with people.",
       "cta": "Learn more"
     },

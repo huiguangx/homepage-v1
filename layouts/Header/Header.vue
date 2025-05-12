@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden">
+  <div class="relative">
     <header
       :class="[
         'fixed top-0 left-0 w-full z-50 transition-all duration-300  ',
@@ -46,14 +46,14 @@
                   class="group px-6 relative nav_product h-full flex justify-center items-center text-4 transition-colors duration-300"
                   :class="[
                     {
-                      'text-white hover:text-gray-200 font-normal':
+                      'text-[#FFFFFFCC] hover:text-[white] font-normal':
                         !isScrolled && isTransparentRoute && getBasePath($route.path) !== item.path,
-                      'text-white hover:text-gray-200 font-medium':
+                      'text-[white]  hover:text-[white] font-medium':
                         !isScrolled && isTransparentRoute && getBasePath($route.path) === item.path,
                       'text-[#39414B] hover:text-[#23233D] font-normal':
                         (isScrolled || !isTransparentRoute) &&
                         getBasePath($route.path) !== item.path,
-                      'text-[#39414B] hover:text-[#23233D] font-medium':
+                      'text-[#23233D] hover:text-[#23233D] font-medium':
                         (isScrolled || !isTransparentRoute) &&
                         getBasePath($route.path) === item.path,
                     },
@@ -108,7 +108,7 @@
             <div>
               <img
                 v-if="!isMenuOpen"
-                class="block pw-w-[24px]"
+                class="block pw-w-[24px] transition-all duration-300 ease-in-out"
                 src="~/assets/images/header/menu.svg"
                 alt="Menu"
                 @click="isMenuOpen = true"
@@ -118,6 +118,7 @@
               />
               <img
                 v-else
+                class="transition-all duration-300 ease-in-out"
                 @click="isMenuOpen = false"
                 src="~/assets/images/header/close.svg"
                 alt="Close"
@@ -128,10 +129,12 @@
       </div>
       <!-- sidebar -->
       <div
-        class="block md:hidden fixed top-[44px] inset-x-0 bg-white transform-gpu transition-all duration-300 ease-in-out overflow-hidden rounded-bl-2xl rounded-br-2xl"
-        :class="isMenuOpen ? 'translate-y-0' : 'translate-y-[calc(-100%-44px)]'"
+        class="block md:hidden fixed top-[44px] left-0 right-0 h-full transform-gpu transition-all duration-300 ease-in-out overflow-hidden rounded-bl-2xl rounded-br-2xl"
+        :class="isMenuOpen ? 'max-h-screen' : 'max-h-0'"
       >
-        <div class="flex flex-col w-full h-full bg-white pw-pb-[12px] pw-px-[16px]">
+        <div
+          class="flex flex-col w-full h-auto bg-white pw-pb-[12px] pw-px-[16px] rounded-bl-2xl rounded-br-2xl"
+        >
           <!-- <div class="flex items-center justify-between pw-h-[44px]">
             <div class="flex items-center">
               <img src="~/assets/images/header/logo.svg" alt="Logo" class="pw-w-[27px] h-auto" />
@@ -149,7 +152,7 @@
           <div class="flex-1 overflow-y-auto pw-pt-[12px]">
             <nav>
               <ul>
-                <li v-for="(item, index) in navItems" :key="index">
+                <li v-for="(item, index) in mobileNavItems" :key="index">
                   <NuxtLinkLocale
                     :to="item.path"
                     class="flex items-center justify-between pw-py-[12px]"
@@ -171,8 +174,10 @@
             </button>
           </div>
         </div>
+        <div class="bg-transparent w-full h-full" @click="isMenuOpen = false"></div>
       </div>
     </header>
+    <!-- <div v-if="!isTransparentRoute" class="block md:h-16 h-[44px] w-full"></div> -->
   </div>
 </template>
 
@@ -201,6 +206,14 @@ const navItems = computed(() => [
   { name: t('menu.careers'), path: '/careers' },
   { name: t('menu.news'), path: '/news' },
   { name: t('menu.about'), path: '/about' },
+])
+const mobileNavItems = computed(() => [
+  { name: t('menu.home'), path: '/' },
+  { name: t('menu.products'), path: '/product' },
+  { name: t('menu.careers'), path: '/careers' },
+  { name: t('menu.news'), path: '/news' },
+  { name: t('menu.about'), path: '/about' },
+  { name: t('menu.contact'), path: '/contact' },
 ])
 
 const getBasePath = (path) => {

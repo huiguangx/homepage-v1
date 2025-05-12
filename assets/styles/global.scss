@@ -36,8 +36,22 @@ html {
   font-weight: 700;
 }
 /* 英文字体 */
-:lang(en) body {
+
+:lang(en) body .font-light {
   font-family: 'Noto Sans', sans-serif;
+  font-weight: 300;
+}
+:lang(en) body .font-normal {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+}
+:lang(en) .font-medium {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 500;
+}
+:lang(en) .font-bold {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700;
 }
 // :root {
 //   --max-content-width: min(2560px, 100vw);
