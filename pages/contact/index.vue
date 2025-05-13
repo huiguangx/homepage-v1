@@ -108,8 +108,9 @@
             </h3>
             <div class="grid grid-cols-3 gap-x-[16px] gap-y-[32px] md:gap-y-9 md:gap-x-8">
               <a
+                target="_blank"
                 href="https://space.bilibili.com/1077677154"
-                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
+                class="flex items-center relative md:hover:text-gray-900 group"
               >
                 <img
                   src="~/assets/images/contact/bilibili.svg"
@@ -121,8 +122,20 @@
                 >
                   {{ $t('contact.connect.social.bilibili') }}
                 </span>
+                <div
+                  class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+                >
+                  哔哩哔哩频道
+                  <div
+                    class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+                  ></div>
+                </div>
               </a>
-              <a href="" class="flex items-center text-gray-600 md:hover:text-gray-900 group">
+              <a
+                target="_blank"
+                href=""
+                class="flex items-center relative md:hover:text-gray-900 group"
+              >
                 <img
                   src="~/assets/images/contact/wechat.svg"
                   class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
@@ -133,10 +146,24 @@
                 >
                   {{ $t('contact.connect.social.wechat') }}
                 </span>
+                <div
+                  class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 w-32 bg-white rounded-md p-2 shadow-lg"
+                >
+                  <img
+                    src="~/assets/images/footer/index-s1-qr.png"
+                    alt="微信二维码"
+                    class="w-full h-auto"
+                  />
+                  <p class="text-center text-xs text-black mt-1">扫码关注公众号</p>
+                  <div
+                    class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+                  ></div>
+                </div>
               </a>
               <a
+                target="_blank"
                 href="https://www.youtube.com/channel/UCDjnC6m9_xW-PDeDCjv-jng"
-                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
+                class="flex items-center relative md:hover:text-gray-900 group"
               >
                 <img
                   src="~/assets/images/contact/youtube.svg"
@@ -149,10 +176,19 @@
                 >
                   {{ $t('contact.connect.social.youtube') }}
                 </span>
+                <div
+                  class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+                >
+                  YouTube频道
+                  <div
+                    class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+                  ></div>
+                </div>
               </a>
               <a
+                target="_blank"
                 href="https://www.douyin.com/user/MS4wLjABAAAAAcfipSlaUYyM673pSK5eGTC9j2S1P5yzqlrVSaGLjN4coXjFqV8inh4i4HVDsoqK"
-                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
+                class="flex items-center relative md:hover:text-gray-900 group"
               >
                 <img
                   src="~/assets/images/contact/douyin.svg"
@@ -165,10 +201,19 @@
                 >
                   {{ $t('contact.connect.social.douyin') }}
                 </span>
+                <div
+                  class="absolute hidden md:group-hover:block bottom-full left-1/3 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+                >
+                  抖音
+                  <div
+                    class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+                  ></div>
+                </div>
               </a>
               <a
-                href="https://x.com/Astribot_Inc?mx=2"
-                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
+                target="_blank"
+                href="https://www.tiktok.com/@astribot_inc?is_from_webapp=1&sender_device=pc"
+                class="flex items-center relative md:hover:text-gray-900 group"
               >
                 <img
                   src="~/assets/images/contact/tiktok.svg"
@@ -181,16 +226,33 @@
                 >
                   {{ $t('contact.connect.social.tiktok') }}
                 </span>
+                <div
+                  class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+                >
+                  TikTok
+                  <div
+                    class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+                  ></div>
+                </div>
               </a>
               <a
-                href="https://www.tiktok.com/@astribot_inc?is_from_webapp=1&sender_device=pc"
-                class="flex items-center text-gray-600 md:hover:text-gray-900 group"
+                target="_blank"
+                href="https://x.com/Astribot_Inc?mx=2"
+                class="flex items-center relative md:hover:text-gray-900 group"
               >
                 <img
                   src="~/assets/images/contact/x.svg"
                   class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
                   alt=""
                 />
+                <div
+                  class="absolute hidden md:group-hover:block bottom-full left-1/4 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
+                >
+                  X (Twitter)
+                  <div
+                    class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+                  ></div>
+                </div>
                 <span
                   class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
                 >

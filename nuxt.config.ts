@@ -38,6 +38,9 @@ export default defineNuxtConfig({
   gtm: {
     id: process.env.VITE_GTM_ID || 'GTM-52BQM7PX',
     enabled: true,
+    defer: true,
+    enableRouterSync: true,
+    compatibility: true,
   },
   // runtimeConfig: {
   //   public: {

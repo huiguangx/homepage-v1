@@ -1,5 +1,6 @@
 <template>
-  <div class="relative">
+  <div>
+    <!-- <div v-if="!isTransparentRoute" class="block md:h-16 h-[44px] w-full"></div> -->
     <header
       :class="[
         'fixed top-0 left-0 w-full z-50 transition-all duration-300  ',
@@ -129,7 +130,7 @@
       </div>
       <!-- sidebar -->
       <div
-        class="block md:hidden fixed top-[44px] left-0 right-0 h-full transform-gpu transition-all duration-300 ease-in-out overflow-hidden rounded-bl-2xl rounded-br-2xl"
+        class="block md:hidden fixed pw-top-[44px] left-0 right-0 h-full bg-[#0000004D] transform-gpu transition-all duration-300 ease-in-out overflow-hidden"
         :class="isMenuOpen ? 'max-h-screen' : 'max-h-0'"
       >
         <div
@@ -174,10 +175,9 @@
             </button>
           </div>
         </div>
-        <div class="bg-transparent w-full h-full" @click="isMenuOpen = false"></div>
+        <div class="w-full h-full" @click.stop="isMenuOpen = false"></div>
       </div>
     </header>
-    <!-- <div v-if="!isTransparentRoute" class="block md:h-16 h-[44px] w-full"></div> -->
   </div>
 </template>
 
@@ -228,7 +228,11 @@ const changeLanguage = (locale) => {
 
 // 监听滚动事件
 const handleScroll = () => {
-  isScrolled.value = window.scrollY > scrollThreshold
+  if (isTransparentRoute.value) {
+    isScrolled.value = window.scrollY > scrollThreshold
+  } else {
+    isScrolled.value = true // 非透明路由强制显示背景
+  }
 }
 
 // 需要透明背景的路由路径列表（支持中英文）

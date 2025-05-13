@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <!--1 Banner Section -->
     <section class="w-full h-auto pw-pt-[44px] md:pt-16 relative">
       <div>

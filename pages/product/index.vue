@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <!--1 Hero Video Section -->
     <section class="w-full h-[80vh] md:h-screen bg-black overflow-hidden">
       <div class="relative h-full w-full">
@@ -57,7 +57,10 @@
               {{ $t('product.performance.title') }}
             </h1>
             <p class="pw-text-[14px] md:text-lg font-normal text-[#C9C9C9]">
-              {{ $t('product.performance.description') }}
+              {{ $t('product.performance.description1') }}
+            </p>
+            <p class="pw-text-[14px] md:text-lg font-normal text-[#C9C9C9]">
+              {{ $t('product.performance.description2') }}
             </p>
           </div>
         </div>
@@ -132,7 +135,10 @@
             {{ $t('product.specs.title') }}
           </h2>
           <p class="pw-text-[14] md:text-xl font-normal text-[#C9C9C9]">
-            {{ $t('product.specs.description') }}
+            {{ $t('product.specs.description1') }}
+          </p>
+          <p class="pw-text-[14] md:text-xl font-normal text-[#C9C9C9]">
+            {{ $t('product.specs.description2') }}
           </p>
         </div>
 
@@ -287,7 +293,7 @@
           </div>
         </div>
 
-        <p class="pw-text-[10px] md:text-xs text-[#656565] text-center mt-12">
+        <p class="pw-text-[10px] md:text-xs text-[#656565] text-center mt-6">
           {{ $t('product.specs.note') }}
         </p>
       </div>
@@ -301,7 +307,10 @@
             {{ $t('product.toolchain.title') }}
           </h2>
           <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
-            {{ $t('product.toolchain.description') }}
+            {{ $t('product.toolchain.description1') }}
+          </p>
+          <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
+            {{ $t('product.toolchain.description2') }}
           </p>
         </div>
 
@@ -376,14 +385,21 @@
                 {{ $t('product.toolchain.features.4.title') }}
               </h3>
             </div>
-            <div class="rounded-xl md:rounded-2xl overflow-hidden">
+            <div class="relative rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img5.jpg"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover rounded-b-xl md:rounded-b-2xl"
               />
+              <div
+                class="absolute inset-x-0 bottom-0 rounded-b-xl md:rounded-b-2xl bg-black/50 backdrop-blur-[4px]"
+              >
+                <div
+                  class="pw-px-[6px] md:px-15 pw-py-[6px] md:py-4 pw-text-[12px] md:text-base text-center text-white font-normal"
+                >
+                  {{ $t('product.toolchain.features.4.other') }}
+                </div>
+              </div>
             </div>
-
-            <!-- <p class="text-[#AAAAAA]">{{ $t('product.toolchain.features.4.description') }}</p> -->
           </div>
 
           <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">

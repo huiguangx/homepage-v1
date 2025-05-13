@@ -1,8 +1,8 @@
 <template>
-  <div class="">
+  <div class="relative">
     <!--1 hero section-->
     <section>
-      <div class="relative w-full pw-pt-[44px] md:pt-16 md:h-auto">
+      <div class="relative w-full h-[528px] pw-pt-[44px] md:pt-16 md:h-auto">
         <picture>
           <source
             media="(max-width: 767px)"

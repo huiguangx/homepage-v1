@@ -162,7 +162,7 @@
     },
     "news": {
       "title": "News",
-      "btn": "查看更多历史动态"
+      "btn": "View More News"
     },
     "newsList": {
       "news1": {
@@ -214,14 +214,16 @@
     },
     "performance": {
       "title": "Our new AI humanoid robot brings more service possibilities",
-      "description": "Our company has pioneered a software - hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal operation'. This innovation enables S1 to learn, think, and work more like humans."
+      "description1": "Our company has pioneered a software - hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal operation'",
+      "description2": "This innovation enables S1 to learn, think, and work more like humans"
     },
     "specs": {
       "title": "Human-like abilities, Greater creativity",
-      "description": "Astribot S1 mirrors an adult male's operational parameters, delivering exceptional performance, stability, and safety - empowering researchers and explorers to bring imagination to life.",
+      "description1": "Astribot S1 mirrors an adult male's operational parameters, delivering exceptional performance, stability",
+      "description2": " and safety - empowering researchers and explorers to bring imagination to life",
       "modelName": "Astribot S1",
       "comparisonTarget": "Normal Adult Male",
-      "note": "Note: This version is designed for scientific research, with select parameters unlockable for enhanced performance.",
+      "note": "Note: This version is designed for scientific research, with select parameters unlockable for enhanced performance",
       "comparison": {
         "items": [
           "Single arm DoF",
@@ -241,12 +243,13 @@
           "hours",
           "Supports plug-in"
         ],
-        "note": "*This version is designed for scientific research, with select parameters unlockable for enhanced performance."
+        "note": "*This version is designed for scientific research, with select parameters unlockable for enhanced performance"
       }
     },
     "toolchain": {
       "title": "Powerful Toolchain for Breakthrough Research",
-      "description": "Optimize onboard toolchains to create an open, efficient ecosystem - accelerating the development and validation of cutting-edge algorithms and models.",
+      "description1": "Optimize onboard toolchains to create an open",
+      "description2": "efficient ecosystem - accelerating the development and validation of cutting-edge algorithms and models",
       "features": [
         {
           "title": "Comprehensive API",
@@ -266,7 +269,8 @@
         },
         {
           "title": "Complete AI Deployment Guidance",
-          "description": "End-to-end technical support and guidance from data collection to model training and deployment testing"
+          "description": "End-to-end technical support and guidance from data collection to model training and deployment testing",
+          "other": "from Data Collection to Model Deployment"
         },
         {
           "title": "Fast and Reliable Technical Support",

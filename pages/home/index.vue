@@ -50,16 +50,14 @@
                 class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
               >
                 <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
-                  <h1 class="pw-text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
+                  <h1 class="pw-text-[20px] md:text-4xl font-medium text-white mx-auto md:mx-0">
                     {{ $t('home.hero.title') }}
                   </h1>
-                  <h2
-                    class="pw-text-[22px] md:text-5xl font-bold md:font-medium text-white mx-auto md:mx-0"
-                  >
+                  <h2 class="pw-text-[20px] md:text-4xl font-medium text-white mx-auto md:mx-0">
                     {{ $t('home.hero.subtitle') }}
                   </h2>
 
-                  <p class="pw-text-[16px] md:text-3xl font-medium text-[#D2D0FB] mx-auto md:mx-0">
+                  <p class="pw-text-[16px] md:text-3xl font-normal text-[#D2D0FB] mx-auto md:mx-0">
                     {{ $t('home.hero.slogan') }}
                   </p>
 
@@ -103,16 +101,16 @@
                 class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
               >
                 <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
-                  <h1
-                    class="pw-text-[22px] md:text-5xl font-bold md:font-medium text-white mx-auto md:mx-0"
-                  >
+                  <h1 class="pw-text-[22px] md:text-4xl font-medium text-white mx-auto md:mx-0">
                     {{ $t('home.preorder.title') }}
                   </h1>
-                  <h2 class="pw-text-[16px] md:text-3xl font-medium text-white mx-auto md:mx-0">
+                  <h2
+                    class="pw-text-[16px] md:text-xl font-medium tracking-wider text-white mx-auto md:mx-0"
+                  >
                     {{ $t('home.preorder.description') }}
                   </h2>
                   <p
-                    class="pw-text-[24px] md:text-4xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] bg-[length:100%_auto] inline-block mx-auto md:mx-0"
+                    class="pw-text-[24px] md:text-3xl font-medium tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] bg-[length:100%_auto] inline-block mx-auto md:mx-0"
                   >
                     {{ $t('home.preorder.status') }}
                   </p>
@@ -121,19 +119,22 @@
                     class="flex flex-col items-center md:items-start"
                     :class="{ hidden: locale === 'en' }"
                   >
-                    <img
-                      src="~/assets/images/index/index-s1-qr-en.png"
-                      alt="QR Code"
-                      class="pw-w-[80px] md:w-24 h-auto"
-                    />
-                    <div class="pw-pt-[8px] md:pt-4 text-center md:text-left">
-                      <p class="pw-text-[12px] md:text-base text-white">先到先得</p>
-                      <p class="pw-text-[12px] md:text-base text-white">扫码咨询</p>
+                    <div class="flex flex-col item-center">
+                      <img
+                        src="~/assets/images/index/index-s1-qr-en.png"
+                        alt="QR Code"
+                        class="pw-w-[80px] md:w-24 h-auto"
+                      />
+                      <div class="pw-pt-[8px] md:pt-4 text-center">
+                        <p class="pw-text-[12px] md:text-base text-white">先到先得</p>
+                        <p class="pw-text-[12px] md:text-base text-white">扫码咨询</p>
+                      </div>
                     </div>
                   </div>
                   <div>
                     <NuxtLinkLocale
                       to="/contact"
+                      v-if="locale === 'en'"
                       class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
                     >
                       {{ $t('home.contact.title') }}
@@ -414,7 +415,7 @@
                   />
                   <!-- 默认（大于等于768px）使用 go-arrow.svg -->
                   <img
-                    class="pw-ml-[4px] md:ml-1 md:mt-1"
+                    class="pw-ml-[4px] md:ml-1"
                     src="~/assets/images/index/go-arrow.svg"
                     alt="Arrow"
                   />
@@ -446,7 +447,7 @@
                   />
                   <!-- 默认（大于等于768px）使用 go-arrow.svg -->
                   <img
-                    class="pw-ml-[4px] md:ml-1 md:mt-1"
+                    class="pw-ml-[4px] md:ml-1"
                     src="~/assets/images/index/go-arrow.svg"
                     alt="Arrow"
                   />
@@ -546,11 +547,8 @@ const activePageIndex = ref(0)
 
 const onSlideChange = (swiper: SwiperClass) => {
   activePageIndex.value = swiper.realIndex
-  // startProgress() // 重启计时器
 }
 
-const progress = ref(0) // 进度（0 到 100）
-let progressInterval: number | null = null // 计时器 ID
 const autoplayDelay = 4000 // 轮播时间 30 秒
 </script>
 
@@ -562,6 +560,7 @@ const autoplayDelay = 4000 // 轮播时间 30 秒
 }
 .swiper-button-prev,
 .swiper-button-next {
+  margin: 25px; /* px-to-viewport-ignore */
   width: 36px; /* px-to-viewport-ignore */
   height: 36px; /* px-to-viewport-ignore */
   border-radius: 50%;
