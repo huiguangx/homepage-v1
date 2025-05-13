@@ -388,7 +388,7 @@
             <div class="relative rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img5.jpg"
-                class="w-full h-full object-cover rounded-b-xl md:rounded-b-2xl"
+                class="w-full h-full object-cover rounded-b-2xl md:rounded-b-3xl"
               />
               <div
                 class="absolute inset-x-0 bottom-0 rounded-b-xl md:rounded-b-2xl bg-black/50 backdrop-blur-[4px]"
