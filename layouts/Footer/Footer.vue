@@ -1,6 +1,6 @@
 <template>
-  <footer class="relative bg-black text-white">
-    <div class="mx-auto w-[90%] md:max-w-[1280px] relative">
+  <footer class="relative overflow-hidden bg-black w-full h-full">
+    <div class="mx-auto w-[90%] md:max-w-[1280px]">
       <div class="absolute left-[45%] top-0">
         <img src="~/assets/images/footer/footer-bg-1.png" alt="" />
       </div>

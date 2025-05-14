@@ -151,7 +151,7 @@ export default defineNuxtConfig({
         { name: 'keywords', content: '' },
         { name: 'description', content: '' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       style: [],
       script: [
         // <!-- Google Tag Manager -->
