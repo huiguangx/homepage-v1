@@ -132,7 +132,7 @@
 
   "menu": {
     "home": "Home",
-    "products": "Products",
+    "products": "Astribot S1",
     "careers": "Careers",
     "news": "News",
     "about": "About",
@@ -214,8 +214,8 @@
     },
     "performance": {
       "title": "Our new AI humanoid robot brings more service possibilities",
-      "description1": "Our company has pioneered a software - hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal operation'",
-      "description2": "This innovation enables S1 to learn, think, and work more like humans"
+      "description1": "Our company has pioneered a software - hardware integrated system architecture for AI (Design for AI, DFAI) ",
+      "description2": "deeply coupling 'AI capabilities' with 'optimal operation', This innovation enables S1 to learn, think, and work more like humans"
     },
     "specs": {
       "title": "Human-like abilities, Greater creativity",

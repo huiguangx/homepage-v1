@@ -4,9 +4,14 @@
     <header
       :class="[
         'fixed top-0 left-0 w-full z-50 transition-all duration-300  ',
-        isScrolled || !isTransparentRoute || (isMenuOpen && isMobile)
-          ? 'bg-white shadow-sm text-[#39414B] border-gray-200'
-          : 'bg-transparent text-white',
+        {
+          // Product页面滚动后样式（黑底白字）
+          'bg-black border-t-2 border-[#161616] text-white': isProductScrolled,
+          // 其他情况
+          'bg-white shadow-sm text-[#39414B] border-gray-200':
+            (isScrolled || !isTransparentRoute || isMenuOpen) && !isProductScrolled,
+          'bg-transparent text-white': !isScrolled && isTransparentRoute && !isMenuOpen,
+        },
       ]"
     >
       <div class="mx-auto w-[90%] md:max-w-[1280px]">
@@ -14,27 +19,39 @@
           <!-- Logo -->
           <div class="flex-shrink-0">
             <NuxtLinkLocale to="/" class="flex items-center">
+              <div>
+                <div v-if="!isProductScrolled">
+                  <img
+                    v-if="(isScrolled || !isTransparentRoute || isMenuOpen) && locale === 'zh'"
+                    src="~/assets/images/header/logo-header.png"
+                    alt="Logo"
+                    class="pw-w-[112px] md:w-[127px] h-auto"
+                  />
+                </div>
+                <img
+                  v-else
+                  src="~/assets/images/header/logo-move.png"
+                  alt="Logo"
+                  class="pw-w-[112px] md:w-[127px] h-auto"
+                />
+              </div>
               <img
-                v-if="isScrolled || !isTransparentRoute || isMenuOpen"
-                src="~/assets/images/header/logo-header.png"
+                v-if="(!isScrolled && isTransparentRoute && !isMenuOpen) || locale === 'en'"
+                src="~/assets/images/header/logo.png"
                 alt="Logo"
-                class="pw-w-[112px] md:w-[127px] h-auto"
+                class="pw-w-[27px] md:w-[31px] h-auto"
               />
-              <img
-                v-if="!isScrolled && isTransparentRoute && !isMenuOpen"
-                src="~/assets/images/header/logo-header-white.png"
-                alt="Logo"
-                class="pw-w-[112px] md:w-[127px] h-auto"
-              />
-              <!-- <p
-                class="ml-1 pw-text-[20px] md:text-xl font-medium"
+              <p
+                v-if="!isScrolled && isTransparentRoute && !isMenuOpen && locale !== 'en'"
+                class="ml-1 pw-text-[20px] md:text-2xl font-normal"
                 :class="{
-                  'text-white': !isScrolled && isTransparentRoute,
+                  'text-white':
+                    (!isScrolled && isTransparentRoute) || (isProductRoute && isScrolled),
                   'text-black': isScrolled || !isTransparentRoute,
                 }"
               >
                 星尘智能
-              </p> -->
+              </p>
             </NuxtLinkLocale>
           </div>
 
@@ -47,18 +64,41 @@
                   class="group px-6 relative nav_product h-full flex justify-center items-center text-4 transition-colors duration-300"
                   :class="[
                     {
+                      // 非 product 页面透明背景 + 未滚动：普通项
                       'text-[#FFFFFFCC] hover:text-[white] font-normal':
-                        !isScrolled && isTransparentRoute && getBasePath($route.path) !== item.path,
-                      'text-[white]  hover:text-[white] font-medium':
-                        !isScrolled && isTransparentRoute && getBasePath($route.path) === item.path,
+                        !isScrolled &&
+                        isTransparentRoute &&
+                        getBasePath($route.path) !== item.path &&
+                        !isProductRoute,
+
+                      // 非 product 页面透明背景 + 未滚动：当前项
+                      'text-[white] hover:text-[white] font-medium':
+                        !isScrolled &&
+                        isTransparentRoute &&
+                        getBasePath($route.path) === item.path &&
+                        !isProductRoute,
+
+                      // product 页面滚动后：当前项
+                      'text-white font-medium':
+                        isProductRoute && isScrolled && getBasePath($route.path) === item.path,
+
+                      // product 页面滚动后：非当前项
+                      'text-[#FFFFFFCC] font-normal':
+                        isProductRoute && isScrolled && getBasePath($route.path) !== item.path,
+
+                      // 其他情况：普通项
                       'text-[#39414B] hover:text-[#23233D] font-normal':
                         (isScrolled || !isTransparentRoute) &&
-                        getBasePath($route.path) !== item.path,
+                        getBasePath($route.path) !== item.path &&
+                        !(isProductRoute && isScrolled),
+
+                      // 其他情况：当前项
                       'text-[#23233D] hover:text-[#23233D] font-medium':
                         (isScrolled || !isTransparentRoute) &&
-                        getBasePath($route.path) === item.path,
+                        getBasePath($route.path) === item.path &&
+                        !(isProductRoute && isScrolled),
                     },
-                    `nav_${getBasePath(item.path)}`, // 👈 动态类名加在数组尾部
+                    `nav_${getBasePath(item.path)}`,
                   ]"
                 >
                   {{ item.name }}
@@ -197,6 +237,7 @@ const route = useRoute()
 const isScrolled = ref(false)
 const scrollThreshold = 150 // 滚动阈值，超过此值背景变为白色
 const isMobile = ref(false)
+const isProductScrolled = ref(false)
 
 // 导航项目
 const { t } = useI18n()
@@ -215,7 +256,9 @@ const mobileNavItems = computed(() => [
   { name: t('menu.about'), path: '/about' },
   { name: t('menu.contact'), path: '/contact' },
 ])
-
+const isProductRoute = computed(() => {
+  return route.path.includes('/product')
+})
 const getBasePath = (path) => {
   // 匹配以 /zh 或 /en 开头的路径，并去掉语言前缀
   return path.replace(/^\/(zh|en)/, '') || '/'
@@ -228,10 +271,19 @@ const changeLanguage = (locale) => {
 
 // 监听滚动事件
 const handleScroll = () => {
+  console.log('6666')
   if (isTransparentRoute.value) {
+    // 首页/透明路由的原有逻辑
     isScrolled.value = window.scrollY > scrollThreshold
+  } else if (isProductRoute.value) {
+    // Product页面特殊逻辑：滚动一屏高度（window.innerHeight）后变黑
+    isProductScrolled.value = window.scrollY > window.innerHeight
+
+    isScrolled.value = window.scrollY > window.innerHeight
+    console.log('11111', isScrolled.value, isProductRoute.value, isProductScrolled.value)
   } else {
-    isScrolled.value = true // 非透明路由强制显示背景
+    // 其他页面默认逻辑
+    isScrolled.value = true
   }
 }
 
@@ -261,5 +313,16 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   window.removeEventListener('resize', checkScreenSize)
 })
+watch(
+  () => route.path,
+  () => {
+    if (!isProductRoute.value) {
+      isProductScrolled.value = false
+    }
+
+    // 重新计算滚动状态
+    handleScroll()
+  },
+)
 </script>
 <style scoped lang="scss"></style>

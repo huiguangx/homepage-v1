@@ -50,8 +50,8 @@
 
     <!--2 all-powerful robot-->
     <section class="w-full relative bg-[#161616] pw-py-[32px] md:py-20">
-      <div class="h-auto w-[90%] md:w-[100%] mx-auto">
-        <div class="container mx-auto text-center pw-pb-[14px] md:py-10">
+      <div class="h-auto w-[90%] md:w-full mx-auto">
+        <div class="container mx-auto text-center pw-pb-[14px] md:py-10 md:max-w-[1280px]">
           <div>
             <h1 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-4">
               {{ $t('product.performance.title') }}
@@ -64,45 +64,50 @@
             </p>
           </div>
         </div>
-        <swiper
-          class="product-swiper text-white"
-          :modules="swiperModules"
-          :autoplay="{ delay: 5000, disableOnInteraction: false }"
-          :pagination="{
-            el: '.custom-pagination',
-            clickable: true,
-            bulletClass: 'custom-bullet',
-            bulletActiveClass: 'custom-bullet-active',
-          }"
-          :navigation="{
-            nextEl: '.custom-next',
-            prevEl: '.custom-prev',
-          }"
-          :loop="true"
-          :centeredSlides="true"
-          :spaceBetween="20"
-          :slidesPerView="'auto'"
-          @activeIndexChange="handleProductSlideChange"
-        >
-          <swiper-slide
-            v-for="(video, index) in videos"
-            :key="index"
-            :class="{ 'active-slide': isActive(index) }"
+        <ClientOnly>
+          <swiper
+            class="product-swiper text-white"
+            :modules="swiperModules"
+            :autoplay="{ delay: 5000, disableOnInteraction: false }"
+            :pagination="{
+              el: '.custom-pagination',
+              clickable: true,
+              bulletClass: 'custom-bullet',
+              bulletActiveClass: 'custom-bullet-active',
+            }"
+            :navigation="{
+              nextEl: '.custom-next',
+              prevEl: '.custom-prev',
+            }"
+            :loop="true"
+            :centeredSlides="true"
+            :slidesPerView="'auto'"
+            :spaceBetween="20"
+            @slideChange="handleProductSlideChange"
           >
-            <video
-              :ref="'videoPlayer' + index"
-              class="h-full w-full object-cover rounded-2xl"
-              muted
-              loop
-              playsinline
-              :autoplay="isActive(index)"
+            <swiper-slide
+              v-for="(video, index) in videos"
+              :key="index"
+              :class="{ 'active-slide': isActive(index) }"
             >
-              <source :src="video.src" type="video/mp4" />
-              <!-- 兼容性提示 -->
-              <p class="absolute bottom-0 text-white p-2 bg-black/50">您的浏览器不支持HTML5视频</p>
-            </video>
-          </swiper-slide>
-        </swiper>
+              <div class="slide-content">
+                <video
+                  :ref="'videoPlayer' + index"
+                  class="h-full w-full object-cover rounded-2xl"
+                  muted
+                  loop
+                  playsinline
+                  :autoplay="isActive(index)"
+                >
+                  <source :src="video.src" type="video/mp4" />
+                  <p class="absolute bottom-0 text-white p-2 bg-black/50">
+                    您的浏览器不支持HTML5视频
+                  </p>
+                </video>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </ClientOnly>
         <div
           class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
         >
@@ -126,10 +131,11 @@
     </section>
 
     <!--3 Performance Section -->
-    <section
-      class="pw-py-[32px] relative md:py-20 bg-[#010101] md:bg-[url('~/assets/images/product/describe-s2-bg.jpg')] bg-fill md:bg-cover bg-no-repeat"
-    >
-      <div class="w-[90%] md:max-w-[1280px] mx-auto">
+    <section class="relative bg-[#010101]">
+      <div class="hidden md:block absolute left-0 top-0 h-full">
+        <img src="~/assets/images/product/describe-s2-bg.png" class="h-full" alt="" />
+      </div>
+      <div class="w-[90%] pw-py-[32px] md:py-20 md:max-w-[1280px] mx-auto">
         <div class="mx-auto text-center pw-pb-[14px] md:pb-12">
           <h2 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-6">
             {{ $t('product.specs.title') }}
@@ -148,7 +154,7 @@
               <div class="grid grid-cols-[80px_0.9fr_1.1fr] md:grid-cols-3 relative py-6">
                 <!-- 背景装饰条 -->
                 <div
-                  class="absolute inset-y-0 left-[80px] md:left-1/3 right-[calc(42%)] md:right-1/3 bg-[#AAAAAA] bg-opacity-30 z-0 rounded-2xl pointer-events-none"
+                  class="absolute inset-y-0 left-[80px] md:left-1/3 right-[calc(42%)] md:right-1/3 bg-[#FFFFFF26] bg-opacity-30 z-0 rounded-2xl pointer-events-none"
                 ></div>
 
                 <!-- 表头 -->
@@ -274,13 +280,13 @@
 
                       <div class="inline-block align-baseline pw-pl-[4px]">
                         <span
-                          class="pw-text-[8px] md:text-xs font-normal text-[#AAAAAA] whitespace-normal"
+                          class="pw-text-[8px] md:text-xs font-normal text-red-400 whitespace-normal"
                           :class="item.humanDesc ? 'block' : 'inline-block'"
                         >
                           {{ item.humanUnit }}
                         </span>
                         <span
-                          class="pw-text-[8px] md:text-xs font-normal text-[#AAAAAA] whitespace-normal block"
+                          class="pw-text-[8px] md:text-xs font-normal text-[#939393] whitespace-normal block"
                         >
                           {{ item.humanDesc }}
                         </span>
@@ -422,70 +428,71 @@
           <h2 class="pw-text-[14px] md:text-2xl font-medium text-white pw-pb-[8px] md:pb-8">
             {{ $t('product.teleoperation.title') }}
           </h2>
-          <swiper
-            class="vr-swiper"
-            :modules="swiperModules"
-            :autoplay="{ delay: 5000, disableOnInteraction: false }"
-            :pagination="{
-              el: '.vr-pagination',
-              clickable: true,
-              bulletClass: 'vr-custom-bullet',
-              bulletActiveClass: 'vr-custom-bullet-active',
-            }"
-            :navigation="{
-              nextEl: '.vr-custom-next',
-              prevEl: '.vr-custom-prev',
-            }"
-            :loop="true"
-            :spaceBetween="20"
-            :slidesPerView="1"
-            :breakpoints="{
-              768: {
-                slidesPerView: 2.5,
-                // centeredSlides: true,
-                initialSlide: 1,
-              },
-            }"
-            @activeIndexChange="handleVrSlideChange"
-          >
-            <swiper-slide
-              v-for="(video, index) in vrVideos"
-              :key="index"
-              :class="{ 'active-slide': isActive(index) }"
-              class="!overflow-hidden"
+          <ClientOnly>
+            <swiper
+              class="vr-swiper"
+              :modules="swiperModules"
+              :autoplay="{ delay: 5000, disableOnInteraction: false }"
+              :pagination="{
+                el: '.vr-pagination',
+                clickable: true,
+                bulletClass: 'vr-custom-bullet',
+                bulletActiveClass: 'vr-custom-bullet-active',
+              }"
+              :navigation="{
+                nextEl: '.vr-custom-next',
+                prevEl: '.vr-custom-prev',
+              }"
+              :loop="true"
+              :spaceBetween="20"
+              :slidesPerView="1"
+              :breakpoints="{
+                768: {
+                  slidesPerView: 2.5,
+                  // centeredSlides: true,
+                  initialSlide: 1,
+                },
+              }"
+              @activeIndexChange="handleVrSlideChange"
             >
-              <div class="vr-video h-full w-full rounded-2xl overflow-hidden">
-                <video
-                  class="w-full h-full object-cover"
-                  :ref="'videoPlayer' + index"
-                  muted
-                  loop
-                  playsinline
-                  :autoplay="isActive(index)"
-                >
-                  <source :src="video.src" type="video/mp4" />
-                  <!-- 兼容性提示 -->
-                  <p class="absolute bottom-0 text-white p-2 bg-black/50">
-                    您的浏览器不支持HTML5视频
-                  </p>
-                </video>
-              </div>
-              <div class="flex justify-between pw-pt-[8px] md:pt-4">
-                <p class="text-white text-left flex-1 pr-4">
-                  <!-- 添加 flex-1 和 pr-4 控制间距 -->
-                  {{ video.desc }}
-                </p>
-                <div
-                  v-if="video.url"
-                  class="text-[#6A97FF] pw-text-[14px] md:text-sm md:pt-[4px] font-light whitespace-nowrap flex-shrink-0 cursor-pointer"
-                  @click="openVideo(video.url)"
-                >
-                  {{ $t('product.teleoperation.btn') }}
+              <swiper-slide
+                v-for="(video, index) in vrVideos"
+                :key="index"
+                :class="{ 'active-slide': isActive(index) }"
+                class="!overflow-hidden"
+              >
+                <div class="vr-video h-full w-full rounded-2xl overflow-hidden">
+                  <video
+                    class="w-full h-full object-cover"
+                    :ref="'videoPlayer' + index"
+                    muted
+                    loop
+                    playsinline
+                    :autoplay="isActive(index)"
+                  >
+                    <source :src="video.src" type="video/mp4" />
+                    <!-- 兼容性提示 -->
+                    <p class="absolute bottom-0 text-white p-2 bg-black/50">
+                      您的浏览器不支持HTML5视频
+                    </p>
+                  </video>
                 </div>
-                <VideoModal v-model:show="showVideoModal" :video-url="currentVideoUrl" />
-              </div>
-            </swiper-slide>
-          </swiper>
+                <div class="flex justify-between pw-pt-[8px] md:pt-4">
+                  <p class="text-white text-left flex-1 pr-4">
+                    <!-- 添加 flex-1 和 pr-4 控制间距 -->
+                    {{ video.desc }}
+                  </p>
+                  <div
+                    v-if="video.url"
+                    class="text-[#6A97FF] pw-text-[14px] md:text-sm md:pt-[4px] font-light whitespace-nowrap flex-shrink-0 cursor-pointer"
+                    @click="openVideo(video.url)"
+                  >
+                    {{ $t('product.teleoperation.btn') }}
+                  </div>
+                </div>
+              </swiper-slide>
+            </swiper>
+          </ClientOnly>
           <div class="flex justify-center md:justify-between items-center pw-pt-[24px] md:pt-8">
             <!-- 自定义分页器 -->
             <div class="vr-pagination"></div>
@@ -648,6 +655,7 @@
           {{ $t('product.ecosystem.cta') }}
         </NuxtLinkLocale>
       </div>
+      <VideoModal v-model:show="showVideoModal" :video-url="currentVideoUrl" />
     </section>
   </div>
 </template>
@@ -901,10 +909,13 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
 }
 
 .product-swiper .swiper-slide {
-  position: relative;
-  width: 50% !important; /* 中间幻灯片占50% */
-  transition: transform 0.3s;
+  width: 50%; /* 默认每个幻灯片占25% */
 }
+
+// .product-swiper .swiper-slide.active-slide {
+//   width: 50% !important; /* 中间幻灯片占50% */
+// }
+
 @media (max-width: 768px) {
   .product-swiper .swiper-slide {
     width: 100% !important; /* 屏幕小于 768px 时宽度变为 100% */

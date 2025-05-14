@@ -288,9 +288,8 @@
             >
               <path
                 d="M13.5 4.25C13.9142 4.25 14.25 4.58579 14.25 5V11C14.25 11.4142 13.9142 11.75 13.5 11.75C13.0858 11.75 12.75 11.4142 12.75 11V6.81055L5.03028 14.5303C4.73738 14.8232 4.26262 14.8232 3.96973 14.5303C3.67684 14.2374 3.67684 13.7626 3.96973 13.4697L11.6895 5.75H7.5C7.08579 5.75 6.75 5.41421 6.75 5C6.75 4.58579 7.08579 4.25 7.5 4.25H13.5Z"
-                stroke-width="0.75"
                 fill="#475467"
-                class="transition-colors duration-300 group-hover:stroke-[#5A46FF] group-hover:fill-[#5A46FF]"
+                class="transition-colors duration-300 group-hover:fill-[#5A46FF]"
               />
             </svg>
           </NuxtLinkLocale>
