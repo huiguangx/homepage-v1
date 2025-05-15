@@ -1,6 +1,5 @@
 <template>
   <div class="relative pw-mt-[44px] md:mt-16">
-    <!--1 hero section-->
     <section>
       <div class="relative w-full h-auto">
         <picture>
@@ -42,20 +41,17 @@
       </div>
     </section>
 
-    <!--2 culture section（修改后的完整代码） -->
     <section
-      class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-full md:h-[66vh] relative bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat [background-size:100%_100%]"
+      class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-full md:h-[66vh] relative bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat [background-size:100%_100%] animate-fade-in-up"
     >
-      <!-- 动画容器 -->
-      <div class="m-auto w-[90%] md:max-w-[1280px] relative animate-fade-in-up">
+      <div class="m-auto w-[90%] md:max-w-[1280px] relative culture-container">
         <h2 class="pw-text-[22px] md:text-4xl font-medium text-center pw-pb-[24px] md:pb-20">
           {{ $t('about.culture') }}
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 pw-gap-[24px] md:gap-16">
-          <!-- Mission Column -->
           <div
-            class="border-b md:border-b-0 pw-pb-[24px] md:pr-16 md:border-r border-[#FFFFFF33] border-opacity-20"
+            class="culture-item border-b md:border-b-0 pw-pb-[24px] md:pr-16 md:border-r border-[#FFFFFF33] border-opacity-20"
           >
             <div class="flex items-baseline mb-4">
               <span class="pw-text-[18px] md:text-2xl font-medium">使命</span>
@@ -68,9 +64,8 @@
             </p>
           </div>
 
-          <!-- Vision Column -->
           <div
-            class="border-b md:border-b-0 pw-pb-[24px] md:border-r border-[#FFFFFF33] border-opacity-20"
+            class="culture-item border-b md:border-b-0 pw-pb-[24px] md:border-r border-[#FFFFFF33] border-opacity-20"
           >
             <div class="flex items-baseline mb-4">
               <span class="pw-text-[18px] md:text-2xl font-medium">愿景</span>
@@ -83,8 +78,7 @@
             </p>
           </div>
 
-          <!-- Values Column -->
-          <div class="">
+          <div class="culture-item">
             <div class="flex items-baseline mb-4">
               <span class="pw-text-[18px] md:text-2xl font-medium">价值观</span>
               <span class="text-white ml-2 pw-text-[16px] md:text-xl font-light">Values</span>
@@ -119,11 +113,8 @@
       </div>
     </section>
 
-    <!--3 about astirbot section-->
     <section class="">
-      <!-- 外层容器：相对定位（用于文字定位） -->
       <div class="relative">
-        <!-- 图片部分（直接显示，不用绝对定位） -->
         <picture>
           <source
             media="(max-width: 767px)"
@@ -159,8 +150,7 @@
           />
         </picture>
 
-        <!-- 文字部分（保持绝对定位覆盖在图片上） -->
-        <div class="absolute inset-0 pw-top-[32px] md:top-16">
+        <div class="absolute inset-0 pw-top-[32px] md:top-16 animate-fade-in-up about-container">
           <div
             class="w-[90%] md:max-w-[1280px] mx-auto h-full flex flex-col md:flex-row md:justify-between"
           >
@@ -201,6 +191,7 @@ useHead({
     },
   ],
 })
+
 // 滚动动画逻辑
 const handleScrollAnimation = () => {
   const observer = new IntersectionObserver(
@@ -208,7 +199,11 @@ const handleScrollAnimation = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view')
-          observer.unobserve(entry.target)
+          // 可以选择在这里停止观察，如果只需要动画执行一次
+          // observer.unobserve(entry.target)
+        } else {
+          // 如果需要元素滚动出视口时重置动画，可以移除in-view类
+          // entry.target.classList.remove('in-view');
         }
       })
     },
@@ -218,11 +213,14 @@ const handleScrollAnimation = () => {
     },
   )
 
+  // 找到所有需要动画的容器元素
   const animateElements = document.querySelectorAll('.animate-fade-in-up')
   animateElements.forEach((el) => observer.observe(el))
 
   onBeforeUnmount(() => {
+    // 在组件卸载前停止观察
     animateElements.forEach((el) => observer.unobserve(el))
+    observer.disconnect() // Disconnect observer on unmount
   })
 }
 
@@ -247,29 +245,104 @@ img {
   }
 }
 
-/* 动画关键帧 */
-@keyframes fadeInUp {
-  from {
+/* ------------------- 动画优化 ------------------- */
+
+/* 定义核心的文字进入动画 keyframes */
+@keyframes fadeInUpSmooth {
+  0% {
     opacity: 0;
-    transform: translateY(20px) translateZ(0);
+    transform: translateY(20px); /* 调整起始位置，可以根据需要修改 */
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translateY(0) translateZ(0);
+    transform: translateY(0);
   }
 }
 
-/* 动画控制类 */
-.animate-fade-in-up {
+/* 设置需要动画的文本元素的初始状态（在容器不在视口时）*/
+/* Hero Section */
+.poster h1,
+.poster p {
+  opacity: 0;
+  transform: translateY(20px); /* 保持与 keyframes 起始位置一致 */
+  will-change: opacity, transform; /* 性能优化 */
+}
+
+/* Culture Section */
+/* 直接选择 culture-item 类下的子元素，或者更精确地选择 h2, div.flex, div.w-8, h4, p 等 */
+/* 为了简化，我们让整个 culture-item 块一起淡入，延迟应用于 culture-item 块本身 */
+.culture-container h2,
+.culture-item {
   opacity: 0;
   transform: translateY(20px);
+  will-change: opacity, transform;
+}
+/* Culture section内部的h4和p也可以单独延迟，如果需要更精细控制，但会增加复杂度 */
+
+/* About Section */
+.about-container h2,
+.about-container p {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
 }
 
+/* 当父容器进入视口时，触发子元素的动画 */
+/* 移除父容器自身的动画效果（如果 animate-fade-in-up 本身有动画的话） */
 .animate-fade-in-up.in-view {
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: 0.2s;
+  /* 这里确保容器本身是可见的，并移除其可能自带的transform */
+  opacity: 1; /* 确保容器不透明 */
+  transform: none; /* 移除容器自身的位移/缩放 */
+  animation: none !important; /* 移除容器自身的动画 */
 }
 
-/* 原有样式保持不变 */
-/* ...（省略其他原有样式保持不变）... */
+/* Hero Section - 子元素动画和延迟 */
+.poster.in-view h1 {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.3s; /* 第一个元素延迟 */
+}
+
+.poster.in-view p {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.6s; /* 第二个元素延迟 */
+}
+
+/* Culture Section - 子元素动画和延迟 */
+/* 让标题先出现 */
+.animate-fade-in-up.in-view .culture-container h2 {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.3s;
+}
+
+/* 然后是三个文化块依次出现 */
+.animate-fade-in-up.in-view .culture-item:nth-child(1) {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.6s; /* 标题后延迟 */
+}
+.animate-fade-in-up.in-view .culture-item:nth-child(2) {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.9s; /* 第一个文化块后延迟 */
+}
+.animate-fade-in-up.in-view .culture-item:nth-child(3) {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 1.2s; /* 第二个文化块后延迟 */
+}
+/* 如果需要文化块内部的元素也延迟，则需要更复杂的选择器和延迟设置 */
+
+/* About Section - 子元素动画和延迟 */
+.about-container.in-view h2 {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.3s;
+}
+
+/* 使用 nth-of-type 来选择不同的 <p> 元素 */
+.about-container.in-view p:nth-of-type(1) {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.6s;
+}
+
+.about-container.in-view p:nth-of-type(2) {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.9s;
+}
 </style>
