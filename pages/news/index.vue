@@ -1,17 +1,26 @@
 <template>
   <div class="relative">
     <!--1 Banner Section -->
-    <section class="w-full h-auto pw-pt-[44px] md:pt-16 relative">
+    <section class="w-full h-auto pw-mt-[44px] md:mt-16 relative">
       <div>
         <picture>
+          <source
+            media="(max-width: 767px)"
+            srcset="~/assets/images/news/news-s1-poster-h5.webp"
+            type="image/webp"
+          />
           <source media="(max-width: 767px)" srcset="~/assets/images/news/news-s1-poster-h5.jpg" />
-
+          <source
+            media="(min-width: 768px)"
+            srcset="~/assets/images/news/news-s1-poster.webp"
+            type="image/webp"
+          />
           <source media="(min-width: 768px)" srcset="~/assets/images/news/news-s1-poster.jpg" />
-
           <img
             src="~/assets/images/news/news-s1-poster.jpg"
             alt="News Banner"
-            class="w-full h-auto object-cover"
+            class="w-full h-auto object-cover aspect-[750/416] md:aspect-[2880/588]"
+            loading="lazy"
           />
         </picture>
         <div>
@@ -44,7 +53,7 @@
                   <img
                     :src="news.image"
                     alt="News Banner"
-                    class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110"
+                    class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110 aspect-[847/492]"
                   />
                 </picture>
               </div>

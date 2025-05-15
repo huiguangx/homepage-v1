@@ -2,17 +2,30 @@
   <div class="block md:h-16 h-[44px] w-full"></div>
   <div class="bg-white">
     <!-- Banner Section -->
-    <section class="relative w-full pw-h-[252px] md:h-auto overflow-hidden">
+    <section class="relative w-full overflow-hidden">
       <!-- 使用 Grid 布局替代绝对定位 -->
-      <div class="grid grid-cols-1 h-full">
+      <div class="grid grid-cols-1 pw-h-[208px] md:h-auto">
         <!-- 图片层 -->
         <picture class="row-start-1 col-start-1">
           <source
             media="(max-width: 767px)"
-            srcset="~/assets/images/career/hire-s1-bg-mobile.jpg"
+            srcset="~/assets/images/career/hire-s1-bg-h5.webp"
+            type="image/webp"
           />
+          <source
+            media="(min-width: 768px)"
+            srcset="~/assets/images/career/hire-s1-bg.webp"
+            type="image/webp"
+          />
+          <!-- Fallback to the original JPG sources -->
+          <source media="(max-width: 767px)" srcset="~/assets/images/career/hire-s1-bg-h5.jpg" />
           <source media="(min-width: 768px)" srcset="~/assets/images/career/hire-s1-bg.jpg" />
-          <img src="~/assets/images/career/hire-s1-bg.jpg" class="w-full h-full object-cover" />
+          <!-- Fallback image in case if browser does not support picture element or WebP -->
+          <img
+            src="~/assets/images/career/hire-s1-bg.jpg"
+            class="w-full h-full object-cover zoom-in-out aspect-[750/416] md:aspect-[2880/1056]"
+            alt="Description of the image"
+          />
         </picture>
 
         <!-- 文案层（居中靠左） -->
@@ -41,37 +54,38 @@
             {{ $t('careers.workEnvironmentDesc') }}
           </p>
         </div>
-
-        <swiper
-          class="news-swiper text-white"
-          :modules="swiperModules"
-          :autoplay="{ delay: 5000, disableOnInteraction: false }"
-          :pagination="{
-            el: '.custom-pagination',
-            clickable: true,
-            bulletClass: 'custom-bullet',
-            bulletActiveClass: 'custom-bullet-active',
-          }"
-          :navigation="{
-            nextEl: '.custom-next',
-            prevEl: '.custom-prev',
-          }"
-          :loop="true"
-          :centeredSlides="true"
-          :spaceBetween="20"
-          :slidesPerView="1"
-          :breakpoints="{
-            768: {
-              slidesPerView: 2.5,
-              // centeredSlides: true,
-              initialSlide: 1,
-            },
-          }"
-        >
-          <swiper-slide v-for="(image, index) in workImages" :key="index">
-            <img class="rounded-lg" :src="image.src" alt="" />
-          </swiper-slide>
-        </swiper>
+        <ClientOnly>
+          <swiper
+            class="news-swiper text-white"
+            :modules="swiperModules"
+            :autoplay="{ delay: 5000, disableOnInteraction: false }"
+            :pagination="{
+              el: '.custom-pagination',
+              clickable: true,
+              bulletClass: 'custom-bullet',
+              bulletActiveClass: 'custom-bullet-active',
+            }"
+            :navigation="{
+              nextEl: '.custom-next',
+              prevEl: '.custom-prev',
+            }"
+            :loop="true"
+            :centeredSlides="true"
+            :spaceBetween="20"
+            :slidesPerView="1"
+            :breakpoints="{
+              768: {
+                slidesPerView: 2.5,
+                // centeredSlides: true,
+                initialSlide: 1,
+              },
+            }"
+          >
+            <swiper-slide v-for="(image, index) in workImages" :key="index">
+              <img class="rounded-lg" :src="image.src" alt="" />
+            </swiper-slide>
+          </swiper>
+        </ClientOnly>
         <!-- Custom Paginator & navigation-->
         <div
           class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
@@ -544,6 +558,24 @@ useHead({
   }
   100% {
     width: 100%;
+  }
+}
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1); /* 初始状态 */
+  }
+  50% {
+    transform: scale(1.03); /* 中间状态，稍微放大一点 */
+  }
+  100% {
+    transform: scale(1); /* 结束状态，回到原始大小 */
+  }
+}
+
+/* 当屏幕宽度大于等于768px时应用动画 */
+@media (min-width: 768px) {
+  .zoom-in-out {
+    animation: zoomInOut 5s ease-in-out infinite;
   }
 }
 </style>

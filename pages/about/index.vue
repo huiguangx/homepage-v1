@@ -25,7 +25,7 @@
           <img
             src="/assets/images/about/about-s1-bg.jpg"
             alt="响应式图片"
-            class="w-full h-auto md:object-cover object-contain"
+            class="w-full h-auto md:object-cover object-contain aspect-[750/416] md:aspect-[1440/528]"
             loading="lazy"
           />
         </picture>

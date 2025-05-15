@@ -23,6 +23,7 @@
           :resistance-ratio="0"
           :loop="true"
           @slideChange="onSlideChange"
+          @swiper="onSwiper"
         >
           <swiper-slide>
             <div class="relative h-full w-full">
@@ -49,15 +50,19 @@
               <div
                 class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
               >
-                <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
-                  <h1 class="pw-text-[20px] md:text-4xl font-medium text-white mx-auto md:mx-0">
+                <div class="slide-content text-center md:text-left">
+                  <h1
+                    class="pw-text-[20px] md:text-4xl pw-pb-[8px] md:pb-4 font-medium text-white mx-auto md:mx-0"
+                  >
                     {{ $t('home.hero.title') }}
                   </h1>
                   <h2 class="pw-text-[20px] md:text-4xl font-medium text-white mx-auto md:mx-0">
                     {{ $t('home.hero.subtitle') }}
                   </h2>
 
-                  <p class="pw-text-[16px] md:text-3xl font-normal text-[#D2D0FB] mx-auto md:mx-0">
+                  <p
+                    class="pw-text-[16px] pw-py-[12px] md:py-8 md:text-3xl font-normal text-[#D2D0FB] mx-auto md:mx-0"
+                  >
                     {{ $t('home.hero.slogan') }}
                   </p>
 
@@ -100,7 +105,7 @@
               <div
                 class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
               >
-                <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
+                <div class="slide-content space-y-2 md:space-y-4 text-center md:text-left">
                   <h1 class="pw-text-[22px] md:text-4xl font-medium text-white mx-auto md:mx-0">
                     {{ $t('home.preorder.title') }}
                   </h1>
@@ -110,24 +115,33 @@
                     {{ $t('home.preorder.description') }}
                   </h2>
                   <p
-                    class="pw-text-[24px] md:text-3xl font-medium tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] bg-[length:100%_auto] inline-block mx-auto md:mx-0"
+                    class="pw-text-[24px] md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] bg-[length:100%_auto] inline-block mx-auto md:mx-0"
+                    :class="locale !== 'en' ? 'tracking-[12px]' : ''"
                   >
                     {{ $t('home.preorder.status') }}
                   </p>
 
                   <div
-                    class="flex flex-col items-center md:items-start"
-                    :class="{ hidden: locale === 'en' }"
+                    class="flex flex-col items-center md:items-start md:pt-5"
+                    v-if="locale === 'zh'"
                   >
                     <div class="flex flex-col item-center">
                       <img
                         src="~/assets/images/index/index-s1-qr-en.png"
                         alt="QR Code"
-                        class="pw-w-[80px] md:w-24 h-auto"
+                        class="pw-w-[60px] md:w-20 h-auto"
                       />
                       <div class="pw-pt-[8px] md:pt-4 text-center">
-                        <p class="pw-text-[12px] md:text-base text-white">先到先得</p>
-                        <p class="pw-text-[12px] md:text-base text-white">扫码咨询</p>
+                        <p
+                          class="pw-text-[12px] md:text-base font-light tracking-widest text-white"
+                        >
+                          先到先得
+                        </p>
+                        <p
+                          class="pw-text-[12px] md:text-base font-light tracking-widest text-white"
+                        >
+                          扫码咨询
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -135,7 +149,7 @@
                     <NuxtLinkLocale
                       to="/contact"
                       v-if="locale === 'en'"
-                      class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+                      class="inline-block rounded border mt-4 border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
                     >
                       {{ $t('home.contact.title') }}
                     </NuxtLinkLocale>
@@ -244,7 +258,7 @@
           {{ $t('home.about.title') }}
         </h1>
 
-        <div class="w-full overflow-hidden rounded-2xl bg-gray-200 md:w-1/2">
+        <div class="w-full overflow-hidden rounded-2xl md:w-[720px]">
           <picture>
             <source srcset="~/assets/images/index/index-s5-img.webp" type="image/webp" />
 
@@ -259,7 +273,7 @@
         </div>
 
         <!-- 文字部分 -->
-        <div class="w-full md:w-1/2">
+        <div class="flex-1">
           <h1
             class="hidden md:block text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#23233D]"
           >
@@ -284,7 +298,7 @@
               viewBox="0 0 18 19"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              class="transition-all duration-300"
+              class="transition-all duration-300 hidden md:inline-block"
             >
               <path
                 d="M13.5 4.25C13.9142 4.25 14.25 4.58579 14.25 5V11C14.25 11.4142 13.9142 11.75 13.5 11.75C13.0858 11.75 12.75 11.4142 12.75 11V6.81055L5.03028 14.5303C4.73738 14.8232 4.26262 14.8232 3.96973 14.5303C3.67684 14.2374 3.67684 13.7626 3.96973 13.4697L11.6895 5.75H7.5C7.08579 5.75 6.75 5.41421 6.75 5C6.75 4.58579 7.08579 4.25 7.5 4.25H13.5Z"
@@ -292,6 +306,7 @@
                 class="transition-colors duration-300 group-hover:fill-[#5A46FF]"
               />
             </svg>
+            <img class="block md:hidden" src="~/assets/images/index/learnmore-h5.svg" alt="" />
           </NuxtLinkLocale>
         </div>
       </div>
@@ -321,7 +336,7 @@
                   <img
                     :src="news.image"
                     alt="News Banner"
-                    class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110"
+                    class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110 aspect-[847/492]"
                   />
                 </picture>
               </div>
@@ -474,6 +489,7 @@ import img4 from '~/assets/images/news/news-s2-img4.jpg'
 // import img5 from '~/assets/images/news/news-s2-img5.jpg'
 // import img6 from '~/assets/images/news/news-s2-img6.jpg'
 const { t, locale } = useI18n()
+const autoplayDelay = 4000 // 轮播时间 30 秒
 useHead({
   title: locale.value === 'zh' ? '星尘智能' : 'Astirbot',
   meta: [
@@ -547,8 +563,26 @@ const activePageIndex = ref(0)
 const onSlideChange = (swiper: SwiperClass) => {
   activePageIndex.value = swiper.realIndex
 }
+const swiperInstance = ref<SwiperClass | null>(null)
 
-const autoplayDelay = 4000 // 轮播时间 30 秒
+const onSwiper = (swiper: SwiperClass) => {
+  console.log('6666')
+  swiperInstance.value = swiper
+}
+const route = useRoute()
+
+onBeforeUnmount(() => {
+  if (swiperInstance.value) {
+    swiperInstance.value.destroy(true, true)
+    swiperInstance.value = null
+  }
+
+  document.querySelectorAll('video').forEach((video) => {
+    video.pause()
+    video.removeAttribute('src') // 清除视频源
+    video.load() // 触发卸载
+  })
+})
 </script>
 
 <style scoped lang="scss">
@@ -560,8 +594,8 @@ const autoplayDelay = 4000 // 轮播时间 30 秒
 .swiper-button-prev,
 .swiper-button-next {
   margin: 25px; /* px-to-viewport-ignore */
-  width: 36px; /* px-to-viewport-ignore */
-  height: 36px; /* px-to-viewport-ignore */
+  width: 46px; /* px-to-viewport-ignore */
+  height: 46px; /* px-to-viewport-ignore */
   border-radius: 50%;
   background: rgba(0, 0, 0, 0); /* 初始背景透明 */
   transition: background 0.3s ease; /* 使用 background 属性过渡 */

@@ -90,13 +90,14 @@
               :key="index"
               :class="{ 'active-slide': isActive(index) }"
             >
-              <div class="slide-content">
+              <div class="slide-content w-full aspect-[16/9]">
                 <video
                   :ref="'videoPlayer' + index"
                   class="h-full w-full object-cover rounded-2xl"
                   muted
                   loop
                   playsinline
+                  :poster="video.posterSrc"
                   :autoplay="isActive(index)"
                 >
                   <source :src="video.src" type="video/mp4" />
@@ -280,7 +281,7 @@
 
                       <div class="inline-block align-baseline pw-pl-[4px]">
                         <span
-                          class="pw-text-[8px] md:text-xs font-normal text-red-400 whitespace-normal"
+                          class="pw-text-[8px] md:text-xs font-normal text-[#939393] whitespace-normal"
                           :class="item.humanDesc ? 'block' : 'inline-block'"
                         >
                           {{ item.humanUnit }}
@@ -471,7 +472,7 @@
                     :autoplay="isActive(index)"
                   >
                     <source :src="video.src" type="video/mp4" />
-                    <!-- 兼容性提示 -->
+
                     <p class="absolute bottom-0 text-white p-2 bg-black/50">
                       您的浏览器不支持HTML5视频
                     </p>
@@ -479,7 +480,6 @@
                 </div>
                 <div class="flex justify-between pw-pt-[8px] md:pt-4">
                   <p class="text-white text-left flex-1 pr-4">
-                    <!-- 添加 flex-1 和 pr-4 控制间距 -->
                     {{ video.desc }}
                   </p>
                   <div
@@ -673,6 +673,7 @@ import video3 from '~/assets/media/遥操3.mp4'
 import video4 from '~/assets/media/遥操4.mp4'
 import video5 from '~/assets/media/遥操5.mp4'
 import video6 from '~/assets/media/遥操6.mp4'
+
 import danceVideo from '~/assets/media/01跳舞.mp4'
 import catVideo from '~/assets/media/02逗猫＋扫地.mp4'
 import yangqinVideo from '~/assets/media/03扬琴.mp4'
@@ -681,6 +682,7 @@ import teaVideo from '~/assets/media/05倒茶叶.mp4'
 import sortingVideo from '~/assets/media/06智能分拣.mp4'
 import foldingVideo from '~/assets/media/07叠衣服.mp4'
 import cupVideo from '~/assets/media/08竞技叠杯.mp4'
+import writeVideo from '~/assets/media/09写字.mp4'
 
 // 英文版本视频
 import danceVideoEn from '~/assets/media/01跳舞-en.mp4'
@@ -691,6 +693,27 @@ import teaVideoEn from '~/assets/media/05倒茶叶-en.mp4'
 import sortingVideoEn from '~/assets/media/06智能分拣-en.mp4'
 import foldingVideoEn from '~/assets/media/07叠衣服-en.mp4'
 import cupVideoEn from '~/assets/media/08竞技叠杯-en.mp4'
+import writeVideoEn from '~/assets/media/09写字-en.mp4'
+
+import danceVideoPoster from '~/assets/images/product/01跳舞.jpg'
+import danceVideoPosterEn from '~/assets/images/product/01跳舞-en.jpg'
+import catVideoPoster from '~/assets/images/product/02逗猫扫地.jpg'
+import catVideoPosterEn from '~/assets/images/product/02逗猫扫地-en.jpg'
+import yangqinVideoPoster from '~/assets/images/product/03扬琴.jpg'
+import yangqinVideoPosterEn from '~/assets/images/product/03扬琴-en.jpg'
+import waffleVideoPoster from '~/assets/images/product/04华夫饼倒酱.jpg'
+import waffleVideoPosterEn from '~/assets/images/product/04华夫饼倒酱-en.jpg'
+import teaVideoPoster from '~/assets/images/product/05倒茶叶.jpg'
+import teaVideoPosterEn from '~/assets/images/product/05倒茶叶-en.jpg'
+import sortingVideoPoster from '~/assets/images/product/06智能分拣.jpg'
+import sortingVideoPosterEn from '~/assets/images/product/06智能分拣-en.jpg'
+import foldingVideoPoster from '~/assets/images/product/07叠衣服.jpg'
+import foldingVideoPosterEn from '~/assets/images/product/07叠衣服-en.jpg'
+import cupVideoPoster from '~/assets/images/product/08竞技叠杯.jpg'
+import cupVideoPosterEn from '~/assets/images/product/08竞技叠杯-en.jpg'
+import writeVideoPoster from '~/assets/images/product/09写字.jpg'
+import writeVideoPosterEn from '~/assets/images/product/09写字-en.jpg'
+
 import type { Swiper as SwiperClass } from 'swiper'
 
 // 查看案例的视频
@@ -791,15 +814,71 @@ const specItems = [
 ]
 
 // 基础视频信息
+// 基础视频信息
 const baseVideos = [
-  { src: danceVideo, title: '舞蹈表演', enSrc: danceVideoEn },
-  { src: catVideo, title: '逗猫扫地', enSrc: catVideoEn },
-  { src: yangqinVideo, title: '扬琴演奏', enSrc: yangqinVideoEn },
-  { src: waffleVideo, title: '华夫饼制作', enSrc: waffleVideoEn },
-  { src: teaVideo, title: '茶艺展示', enSrc: teaVideoEn },
-  { src: sortingVideo, title: '智能分拣', enSrc: sortingVideoEn },
-  { src: foldingVideo, title: '衣物整理', enSrc: foldingVideoEn },
-  { src: cupVideo, title: '竞技叠杯', enSrc: cupVideoEn },
+  {
+    src: danceVideo,
+    title: '舞蹈表演',
+    enSrc: danceVideoEn,
+    posterSrc: danceVideoPoster,
+    enPosterSrc: danceVideoPosterEn,
+  },
+  {
+    src: catVideo,
+    title: '逗猫扫地',
+    enSrc: catVideoEn,
+    posterSrc: catVideoPoster,
+    enPosterSrc: catVideoPosterEn,
+  },
+  {
+    src: yangqinVideo,
+    title: '扬琴演奏',
+    enSrc: yangqinVideoEn,
+    posterSrc: yangqinVideoPoster,
+    enPosterSrc: yangqinVideoPosterEn,
+  },
+  {
+    src: waffleVideo,
+    title: '华夫饼制作',
+    enSrc: waffleVideoEn,
+    posterSrc: waffleVideoPoster,
+    enPosterSrc: waffleVideoPosterEn,
+  },
+  {
+    src: teaVideo,
+    title: '茶艺展示',
+    enSrc: teaVideoEn,
+    posterSrc: teaVideoPoster,
+    enPosterSrc: teaVideoPosterEn,
+  },
+  {
+    src: sortingVideo,
+    title: '智能分拣',
+    enSrc: sortingVideoEn,
+    posterSrc: sortingVideoPoster,
+    enPosterSrc: sortingVideoPosterEn,
+  },
+  {
+    src: foldingVideo,
+    title: '衣物整理',
+    enSrc: foldingVideoEn,
+    posterSrc: foldingVideoPoster,
+    enPosterSrc: foldingVideoPosterEn,
+  },
+  {
+    src: cupVideo,
+    title: '竞技叠杯',
+    enSrc: cupVideoEn,
+    posterSrc: cupVideoPoster,
+    enPosterSrc: cupVideoPosterEn,
+  },
+  {
+    src: writeVideo,
+    title: '写字',
+    enSrc: writeVideoEn,
+    posterSrc: writeVideoPoster,
+    enPosterSrc: writeVideoPosterEn,
+  },
 ]
 
 const showVideoModal = ref(false)
@@ -814,6 +893,7 @@ const openVideo = (url: string) => {
 const videos = computed(() => {
   return baseVideos.map((video) => ({
     ...video,
+    posterSrc: locale.value === 'zh' ? video.posterSrc : video.enPosterSrc,
     src: locale.value === 'zh' ? video.src : video.enSrc,
   }))
 })
@@ -896,6 +976,14 @@ const handleVrSlideChange = async (swiper: SwiperClass) => {
     }
   }
 }
+
+onBeforeUnmount(() => {
+  document.querySelectorAll('video').forEach((video) => {
+    video.pause()
+    video.removeAttribute('src') // 清除视频源
+    video.load() // 触发卸载
+  })
+})
 </script>
 
 <style scoped lang="scss">
