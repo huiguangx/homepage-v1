@@ -187,20 +187,18 @@
                 <div
                   class="relative z-10 w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
                 >
-                  <div class="slide-content">
-                    <div
-                      class="space-y-3 md:space-y-4 text-center md:text-left pw-mb-[4px] md:mb-3"
+                  <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
+                    <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
+                      {{ $t('home.recruitment.title') }}
+                    </h1>
+                    <h2
+                      class="text-[22px] md:text-5xl font-bold md:font-medium text-white mx-auto md:mx-0"
                     >
-                      <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
-                        {{ $t('home.recruitment.title') }}
-                      </h1>
-                      <h2 class="text-[22px] md:text-4xl font-medium text-white mx-auto md:mx-0">
-                        {{ $t('home.recruitment.description') }}
-                      </h2>
-                    </div>
+                      {{ $t('home.recruitment.description') }}
+                    </h2>
                     <NuxtLinkLocale
                       :to="{ path: '/careers', hash: '#joinus' }"
-                      class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0 mt-4 md:mt-6"
+                      class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
                     >
                       {{ $t('home.careers.title') }}
                     </NuxtLinkLocale>

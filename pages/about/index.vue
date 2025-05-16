@@ -141,12 +141,8 @@
             loading="lazy"
           />
         </picture>
-        <div
-          class="absolute inset-0 w-full md:hidden"
-          style="background: linear-gradient(180deg, #fff 0%, #fff 100%)"
-        ></div>
         <picture class="absolute inset-0 w-full">
-          <!-- <source media="(max-width: 767px)" srcset="~/assets/images/about/about-s3-mask-h5.png" /> -->
+          <source media="(max-width: 767px)" srcset="~/assets/images/about/about-s3-mask-h5.png" />
 
           <source media="(min-width: 768px)" srcset="~/assets/images/about/about-s3-mask.png" />
           <img
