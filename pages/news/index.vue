@@ -18,7 +18,7 @@
           <source media="(min-width: 768px)" srcset="~/assets/images/news/news-s1-poster.jpg" />
           <img
             src="~/assets/images/news/news-s1-poster.jpg"
-            alt="News Banner"
+            alt=""
             class="w-full h-auto object-cover aspect-[750/416] md:aspect-[2880/588]"
             loading="lazy"
           />
@@ -43,16 +43,16 @@
           <div
             v-for="(news, index) in newsList"
             :key="index"
-            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] md:hover:bg-white transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
+            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] md:hover:bg-white transition-all duration-300 md:hover:shadow-xl transform-gpu"
           >
-            <a :href="news.href" target="_blank" class="md:cursor-pointer">
+            <a :href="news.href" target="_blank" class="md:cursor-pointer md:pb-2">
               <!-- 图片容器 -->
               <div class="w-full rounded-t-2xl overflow-hidden bg-gray-200">
                 <picture>
                   <source :srcset="news.imageWp" type="image/webp" />
                   <img
                     :src="news.image"
-                    alt="News Banner"
+                    alt=""
                     class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110 aspect-[847/492]"
                   />
                 </picture>

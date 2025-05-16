@@ -3,7 +3,7 @@
     <header :class="headerComputedClasses">
       <div class="mx-auto w-[90%] md:max-w-[1280px]">
         <div class="flex items-center justify-between pw-h-[44px] md:h-16">
-          <div class="flex-shrink-0">
+          <div class="flex-shrink-0 pw-w-[120px] md:w-36">
             <NuxtLinkLocale to="/" class="flex items-center">
               <div v-if="showLargeLogoOuterDiv">
                 <img
@@ -164,7 +164,7 @@ const headerComputedClasses = computed(() => {
 
   // 仅在PC端且产品页滚动后应用黑色背景
   if (!isMobile.value && isProductScrolled.value) {
-    return `${baseClasses} bg-black  text-white`
+    return `${baseClasses} bg-black/80 backdrop-blur-sm  text-white`
   }
 
   if (isScrolled.value || !isTransparentRoute.value || isMenuOpen.value) {

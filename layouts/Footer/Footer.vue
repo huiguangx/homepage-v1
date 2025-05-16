@@ -1,14 +1,16 @@
 <template>
-  <footer class="relative overflow-hidden bg-black w-full h-full">
+  <footer class="relative overflow-hidden bg-[#0C0C0C] w-full h-full">
     <div class="mx-auto w-[90%] md:max-w-[1280px]">
-      <div class="absolute left-[45%] top-0">
-        <img src="~/assets/images/footer/footer-bg-1.png" alt="" />
-      </div>
-      <div class="absolute right-[-2%] top-0">
-        <img src="~/assets/images/footer/footer-bg-2.png" alt="" />
-      </div>
-      <div class="absolute left-[-5%] top-0">
-        <img src="~/assets/images/footer/footer-bg-3.png" alt="" />
+      <div class="hidden md:block relative">
+        <div class="absolute left-[45%] top-0">
+          <img src="~/assets/images/footer/footer-bg-1.png" alt="" />
+        </div>
+        <div class="absolute right-0 top-0">
+          <img src="~/assets/images/footer/footer-bg-2.png" alt="" />
+        </div>
+        <!-- <div class="absolute left-0 top-0">
+          <img src="~/assets/images/footer/footer-bg-3.png" alt="" />
+        </div> -->
       </div>
 
       <div class="pw-pt-[32px] pw-pb-[14px] md:py-14">
@@ -231,7 +233,8 @@
         </div>
 
         <!-- 分隔线 -->
-        <div class="border-t border-[#FFFFFF33] mb-6"></div>
+        <div class="w-full h-[0.5px] bg-[#2a2a2a]"></div>
+        <div class="mb-6"></div>
 
         <!-- 版权信息 -->
         <div>

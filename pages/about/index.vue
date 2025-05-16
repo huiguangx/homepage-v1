@@ -1,5 +1,6 @@
 <template>
   <div class="relative pw-mt-[44px] md:mt-16">
+    <!--1 hero section-->
     <section>
       <div class="relative w-full h-auto">
         <picture>
@@ -23,7 +24,7 @@
 
           <img
             src="/assets/images/about/about-s1-bg.jpg"
-            alt="响应式图片"
+            alt=""
             class="w-full h-auto md:object-cover object-contain aspect-[750/416] md:aspect-[1440/528]"
             loading="lazy"
           />
@@ -41,6 +42,7 @@
       </div>
     </section>
 
+    <!--2 culture section（修改后的完整代码） -->
     <section
       class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-full md:h-[66vh] relative bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat [background-size:100%_100%] animate-fade-in-up"
     >
@@ -51,7 +53,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 pw-gap-[24px] md:gap-16">
           <div
-            class="culture-item border-b md:border-b-0 pw-pb-[24px] md:pr-16 md:border-r border-[#FFFFFF33] border-opacity-20"
+            class="culture-item border-b md:border-b-0 pw-pb-[24px] md:pr-16 md:pl-20 md:border-r border-[#FFFFFF33] border-opacity-20"
           >
             <div class="flex items-baseline mb-4">
               <span class="pw-text-[18px] md:text-2xl font-medium">使命</span>
@@ -113,6 +115,7 @@
       </div>
     </section>
 
+    <!--3 about astirbot section-->
     <section class="">
       <div class="relative">
         <picture>
@@ -133,18 +136,22 @@
           />
           <img
             src="~/assets/images/about/about-s3-bg.jpg"
-            alt="响应式图片"
+            alt=""
             class="w-full h-auto md:h-[60vh] md:object-cover"
             loading="lazy"
           />
         </picture>
+        <div
+          class="absolute inset-0 w-full md:hidden"
+          style="background: linear-gradient(180deg, #fff 0%, #fff 100%)"
+        ></div>
         <picture class="absolute inset-0 w-full">
-          <source media="(max-width: 767px)" srcset="~/assets/images/about/about-s3-mask-h5.png" />
+          <!-- <source media="(max-width: 767px)" srcset="~/assets/images/about/about-s3-mask-h5.png" /> -->
 
           <source media="(min-width: 768px)" srcset="~/assets/images/about/about-s3-mask.png" />
           <img
             src="~/assets/images/about/about-s3-mask.png"
-            alt="遮罩图"
+            alt=""
             class="w-full h-auto"
             loading="lazy"
           />
@@ -200,7 +207,7 @@ const handleScrollAnimation = () => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view')
           // 可以选择在这里停止观察，如果只需要动画执行一次
-          // observer.unobserve(entry.target)
+          observer.unobserve(entry.target)
         } else {
           // 如果需要元素滚动出视口时重置动画，可以移除in-view类
           // entry.target.classList.remove('in-view');
@@ -299,50 +306,50 @@ img {
 /* Hero Section - 子元素动画和延迟 */
 .poster.in-view h1 {
   animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 0.3s; /* 第一个元素延迟 */
+  animation-delay: 0.2s; /* 第一个元素延迟 */
 }
 
 .poster.in-view p {
   animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 0.6s; /* 第二个元素延迟 */
+  animation-delay: 0.4s; /* 第二个元素延迟 */
 }
 
 /* Culture Section - 子元素动画和延迟 */
 /* 让标题先出现 */
 .animate-fade-in-up.in-view .culture-container h2 {
-  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   animation-delay: 0.3s;
 }
 
 /* 然后是三个文化块依次出现 */
-.animate-fade-in-up.in-view .culture-item:nth-child(1) {
-  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 0.6s; /* 标题后延迟 */
+.animate-fade-in-up.in-view .culture-item {
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.3s;
 }
-.animate-fade-in-up.in-view .culture-item:nth-child(2) {
-  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 0.9s; /* 第一个文化块后延迟 */
+/* .animate-fade-in-up.in-view .culture-item:nth-child(2) {
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.7s; 
 }
 .animate-fade-in-up.in-view .culture-item:nth-child(3) {
-  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 1.2s; /* 第二个文化块后延迟 */
-}
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.9s; 
+} */
 /* 如果需要文化块内部的元素也延迟，则需要更复杂的选择器和延迟设置 */
 
 /* About Section - 子元素动画和延迟 */
 .about-container.in-view h2 {
-  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   animation-delay: 0.3s;
 }
 
 /* 使用 nth-of-type 来选择不同的 <p> 元素 */
 .about-container.in-view p:nth-of-type(1) {
-  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 0.6s;
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.5s;
 }
 
 .about-container.in-view p:nth-of-type(2) {
-  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  animation-delay: 0.9s;
+  animation: fadeInUpSmooth 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.7s;
 }
 </style>

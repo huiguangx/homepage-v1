@@ -24,7 +24,7 @@
           <img
             src="~/assets/images/career/hire-s1-bg.jpg"
             class="w-full h-full object-cover zoom-in-out aspect-[750/416] md:aspect-[2880/1056]"
-            alt="Description of the image"
+            alt=""
           />
         </picture>
 
@@ -45,7 +45,7 @@
     </section>
     <!-- Work Environment -->
     <section class="pw-py-[32px] md:py-20 bg-white">
-      <div class="mx-auto w-[90%] md:w-[100%]">
+      <div class="mx-auto w-[90%] md:max-w-[1280px]">
         <div class="text-center pw-pb-[14px] md:pb-6">
           <h2 class="pw-text-[22px] md:text-4xl font-medium pw-pb-[8px] md:pb-4">
             {{ $t('careers.workEnvironment') }}
@@ -75,7 +75,7 @@
             :slidesPerView="1"
             :breakpoints="{
               768: {
-                slidesPerView: 2.5,
+                slidesPerView: 2,
                 // centeredSlides: true,
                 initialSlide: 1,
               },
@@ -123,7 +123,7 @@
         </div>
 
         <!-- Three-column layout for desktop -->
-        <div v-if="locale === 'zh'" class="hidden md:grid md:grid-cols-3 md:gap-8 mt-10">
+        <div v-if="locale === 'zh'" class="hidden md:grid md:grid-cols-3 md:gap-8 mt-10 md:px-8">
           <!-- 社会招聘 -->
           <div>
             <h3
@@ -224,7 +224,10 @@
           </div>
         </div>
         <!-- Mobile tabs -->
-        <div class="md:hidden mt-[32px] pw-pb-[16px] relative overflow-x-auto">
+        <div
+          v-if="locale === 'zh'"
+          class="md:hidden mt-[32px] pw-pb-[16px] relative overflow-x-auto"
+        >
           <div
             ref="tabHeader"
             class="grid grid-cols-3"
@@ -252,6 +255,7 @@
         </div>
         <!-- Mobile content area -->
         <div
+          v-if="locale === 'zh'"
           ref="tabContent"
           class="md:hidden relative overflow-hidden"
           @touchstart.passive="startSwipe"

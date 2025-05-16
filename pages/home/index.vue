@@ -3,209 +3,213 @@
     <!--1 Hero Banner -->
     <section class="relative w-full h-[100dvh]">
       <div class="h-full w-full">
-        <swiper
-          class="h-full swiper-container"
-          :modules="swiperModules"
-          :autoplay="{ delay: autoplayDelay, disableOnInteraction: false }"
-          :pagination="{
-            // el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true,
-            // bulletClass: 'my-bullet',
-            // bulletActiveClass: 'my-bullet-active',
-          }"
-          :navigation="{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }"
-          direction="horizontal"
-          :slides-offset-after="200"
-          :resistance-ratio="0"
-          :loop="true"
-          @slideChange="onSlideChange"
-          @swiper="onSwiper"
-        >
-          <swiper-slide>
-            <div class="relative h-full w-full">
-              <video
-                class="absolute inset-0 w-full h-full object-cover md:hidden"
-                poster="~/assets/images/index/banner-poster.jpg"
-                muted
-                autoplay
-                loop
-                playsinline
-              >
-                <source src="~/assets/media/video/banner-h5.mp4" type="video/mp4" />
-              </video>
-              <video
-                class="absolute inset-0 w-full h-full object-cover hidden md:block"
-                poster="~/assets/images/index/banner.jpg"
-                muted
-                autoplay
-                loop
-                playsinline
-              >
-                <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
-              </video>
-              <div
-                class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
-              >
-                <div class="slide-content text-center md:text-left">
-                  <h1
-                    class="pw-text-[20px] md:text-4xl pw-pb-[8px] md:pb-4 font-medium text-white mx-auto md:mx-0"
-                  >
-                    {{ $t('home.hero.title') }}
-                  </h1>
-                  <h2 class="pw-text-[20px] md:text-4xl font-medium text-white mx-auto md:mx-0">
-                    {{ $t('home.hero.subtitle') }}
-                  </h2>
-
-                  <p
-                    class="pw-text-[16px] pw-py-[12px] md:py-8 md:text-3xl font-normal text-[#D2D0FB] mx-auto md:mx-0"
-                  >
-                    {{ $t('home.hero.slogan') }}
-                  </p>
-
-                  <NuxtLinkLocale
-                    to="/about"
-                    class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
-                  >
-                    {{ $t('home.hero.cta') }}
-                  </NuxtLinkLocale>
-                </div>
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="relative h-full w-full">
-              <picture class="absolute inset-0 block">
-                <source
-                  media="(max-width: 767px)"
-                  srcset="~/assets/images/index/index-s1-bg-h5.webp"
-                  type="image/webp"
-                />
-                <source
-                  media="(max-width: 767px)"
-                  srcset="~/assets/images/index/index-s1-bg-h5.jpg"
-                  type="image/jpeg"
-                />
-                <source
-                  media="(min-width: 768px)"
-                  srcset="~/assets/images/index/index-s1-bg.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="~/assets/images/index/index-s1-bg.jpg"
-                  class="w-full h-full object-cover"
-                  alt="Recruitment Background"
-                />
-              </picture>
-
-              <div class="md:hidden absolute inset-0 bg-black/40"></div>
-              <div
-                class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
-              >
-                <div class="slide-content space-y-2 md:space-y-4 text-center md:text-left">
-                  <h1 class="pw-text-[22px] md:text-4xl font-medium text-white mx-auto md:mx-0">
-                    {{ $t('home.preorder.title') }}
-                  </h1>
-                  <h2
-                    class="pw-text-[16px] md:text-xl font-medium tracking-wider text-white mx-auto md:mx-0"
-                  >
-                    {{ $t('home.preorder.description') }}
-                  </h2>
-                  <p
-                    class="pw-text-[24px] md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] bg-[length:100%_auto] inline-block mx-auto md:mx-0"
-                    :class="locale !== 'en' ? 'tracking-[12px]' : ''"
-                  >
-                    {{ $t('home.preorder.status') }}
-                  </p>
-
-                  <div
-                    class="flex flex-col items-center md:items-start md:pt-5"
-                    v-if="locale === 'zh'"
-                  >
-                    <div class="flex flex-col item-center">
-                      <img
-                        src="~/assets/images/index/index-s1-qr-en.png"
-                        alt="QR Code"
-                        class="pw-w-[60px] md:w-20 h-auto"
-                      />
-                      <div class="pw-pt-[8px] md:pt-4 text-center">
-                        <p
-                          class="pw-text-[12px] md:text-base font-light tracking-widest text-white"
-                        >
-                          先到先得
-                        </p>
-                        <p
-                          class="pw-text-[12px] md:text-base font-light tracking-widest text-white"
-                        >
-                          扫码咨询
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <NuxtLinkLocale
-                      to="/contact"
-                      v-if="locale === 'en'"
-                      class="inline-block rounded border mt-4 border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+        <ClientOnly>
+          <swiper
+            class="h-full swiper-container"
+            :modules="swiperModules"
+            :autoplay="{ delay: autoplayDelay, disableOnInteraction: false }"
+            :pagination="{
+              // el: '.swiper-pagination',
+              type: 'bullets',
+              clickable: true,
+              // bulletClass: 'my-bullet',
+              // bulletActiveClass: 'my-bullet-active',
+            }"
+            :navigation="{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }"
+            direction="horizontal"
+            :slides-offset-after="200"
+            :resistance-ratio="0"
+            :loop="true"
+            @slideChange="onSlideChange"
+            @swiper="onSwiper"
+          >
+            <swiper-slide>
+              <div class="relative h-full w-full">
+                <video
+                  class="absolute inset-0 w-full h-full object-cover md:hidden"
+                  poster="~/assets/images/index/banner-poster.jpg"
+                  muted
+                  autoplay
+                  loop
+                  playsinline
+                >
+                  <source src="~/assets/media/video/banner-h5.mp4" type="video/mp4" />
+                </video>
+                <video
+                  class="absolute inset-0 w-full h-full object-cover hidden md:block"
+                  poster="~/assets/images/index/banner.jpg"
+                  muted
+                  autoplay
+                  loop
+                  playsinline
+                >
+                  <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
+                </video>
+                <div
+                  class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
+                >
+                  <div class="slide-content text-center md:text-left">
+                    <h1
+                      class="pw-text-[20px] md:text-4xl pw-pb-[8px] md:pb-4 font-medium text-white mx-auto md:mx-0"
                     >
-                      {{ $t('home.contact.title') }}
+                      {{ $t('home.hero.title') }}
+                    </h1>
+                    <h2 class="pw-text-[20px] md:text-4xl font-medium text-white mx-auto md:mx-0">
+                      {{ $t('home.hero.subtitle') }}
+                    </h2>
+
+                    <p
+                      class="pw-text-[16px] pw-py-[12px] md:py-8 md:text-3xl font-normal text-[#D2D0FB] mx-auto md:mx-0"
+                    >
+                      {{ $t('home.hero.slogan') }}
+                    </p>
+
+                    <NuxtLinkLocale
+                      to="/about"
+                      class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+                    >
+                      {{ $t('home.hero.cta') }}
                     </NuxtLinkLocale>
                   </div>
                 </div>
               </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="relative h-full w-full overflow-hidden">
-              <picture class="absolute inset-0 block">
-                <source
-                  media="(max-width: 767px)"
-                  srcset="~/assets/images/index/index-s1-o3-bg-h5.webp"
-                  type="image/webp"
-                />
-                <source
-                  media="(max-width: 767px)"
-                  srcset="~/assets/images/index/index-s1-o3-bg-h5.jpg"
-                  type="image/jpeg"
-                />
-                <source
-                  media="(min-width: 768px)"
-                  srcset="~/assets/images/index/index-s1-o3-bg.webp"
-                  type="image/webp"
-                />
-                <img
-                  src="~/assets/images/index/index-s1-o3-bg.jpg"
-                  class="w-full h-full object-cover"
-                  alt="Recruitment Background"
-                />
-              </picture>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="relative h-full w-full">
+                <picture class="absolute inset-0 block">
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="~/assets/images/index/index-s1-bg-h5.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="~/assets/images/index/index-s1-bg-h5.jpg"
+                    type="image/jpeg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="~/assets/images/index/index-s1-bg.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="~/assets/images/index/index-s1-bg.jpg"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </picture>
 
-              <div
-                class="relative z-10 w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
-              >
-                <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
-                  <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
-                    {{ $t('home.recruitment.title') }}
-                  </h1>
-                  <h2
-                    class="text-[22px] md:text-5xl font-bold md:font-medium text-white mx-auto md:mx-0"
-                  >
-                    {{ $t('home.recruitment.description') }}
-                  </h2>
-                  <NuxtLinkLocale
-                    :to="{ path: '/careers', hash: '#joinus' }"
-                    class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
-                  >
-                    {{ $t('home.careers.title') }}
-                  </NuxtLinkLocale>
+                <div class="md:hidden absolute inset-0 bg-black/40"></div>
+                <div
+                  class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
+                >
+                  <div class="slide-content space-y-2 md:space-y-4 text-center md:text-left">
+                    <h1 class="pw-text-[22px] md:text-4xl font-medium text-white mx-auto md:mx-0">
+                      {{ $t('home.preorder.title') }}
+                    </h1>
+                    <h2
+                      class="pw-text-[16px] md:text-xl font-medium tracking-wider text-white mx-auto md:mx-0"
+                    >
+                      {{ $t('home.preorder.description') }}
+                    </h2>
+                    <p
+                      class="pw-text-[24px] md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] bg-[length:100%_auto] inline-block mx-auto md:mx-0"
+                      :class="locale !== 'en' ? 'tracking-[12px]' : ''"
+                    >
+                      {{ $t('home.preorder.status') }}
+                    </p>
+
+                    <div
+                      class="flex flex-col items-center md:items-start md:pt-2"
+                      v-if="locale === 'zh'"
+                    >
+                      <div class="flex flex-col item-center">
+                        <img
+                          src="~/assets/images/index/index-s1-qr-en.png"
+                          alt="QR Code"
+                          class="pw-w-[60px] md:w-20 h-auto"
+                        />
+                        <div class="pw-pt-[8px] md:pt-4 text-center">
+                          <p
+                            class="pw-text-[12px] md:text-base font-light tracking-widest text-white"
+                          >
+                            先到先得
+                          </p>
+                          <p
+                            class="pw-text-[12px] md:text-base font-light tracking-widest text-white"
+                          >
+                            扫码咨询
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <NuxtLinkLocale
+                        to="/contact"
+                        v-if="locale === 'en'"
+                        class="inline-block rounded border mt-4 border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+                      >
+                        {{ $t('home.contact.title') }}
+                      </NuxtLinkLocale>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </swiper-slide>
-        </swiper>
+            </swiper-slide>
+            <swiper-slide>
+              <div class="relative h-full w-full overflow-hidden">
+                <picture class="absolute inset-0 block">
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="~/assets/images/index/index-s1-o3-bg-h5.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="~/assets/images/index/index-s1-o3-bg-h5.jpg"
+                    type="image/jpeg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="~/assets/images/index/index-s1-o3-bg.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="~/assets/images/index/index-s1-o3-bg.jpg"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </picture>
+
+                <div
+                  class="relative z-10 w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
+                >
+                  <div class="slide-content">
+                    <div
+                      class="space-y-3 md:space-y-4 text-center md:text-left pw-mb-[4px] md:mb-3"
+                    >
+                      <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
+                        {{ $t('home.recruitment.title') }}
+                      </h1>
+                      <h2 class="text-[22px] md:text-4xl font-medium text-white mx-auto md:mx-0">
+                        {{ $t('home.recruitment.description') }}
+                      </h2>
+                    </div>
+                    <NuxtLinkLocale
+                      :to="{ path: '/careers', hash: '#joinus' }"
+                      class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0 mt-4 md:mt-6"
+                    >
+                      {{ $t('home.careers.title') }}
+                    </NuxtLinkLocale>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </ClientOnly>
 
         <div class="swiper-button-prev">
           <button class="rounded-lg">
@@ -322,10 +326,10 @@
           <div
             v-for="(news, index) in newsList"
             :key="index"
-            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] md:hover:bg-white transition-all duration-300 md:hover:shadow-lg md:hover:-translate-y-1 transform-gpu"
+            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] md:hover:bg-white transition-all duration-300 md:hover:shadow-xl transform-gpu"
             :class="{ 'hidden md:block': index >= 2 }"
           >
-            <a target="_blank" :href="news.href">
+            <a target="_blank" :href="news.href" class="md:pb-2">
               <!-- 图片容器 -->
               <div class="w-full rounded-t-[8px] md:rounded-t-2xl overflow-hidden bg-gray-200">
                 <picture>
@@ -583,6 +587,41 @@ onBeforeUnmount(() => {
     video.load() // 触发卸载
   })
 })
+// 滚动动画逻辑
+const handleScrollAnimation = () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view')
+          // 可以选择在这里停止观察，如果只需要动画执行一次
+          observer.unobserve(entry.target)
+        } else {
+          // 如果需要元素滚动出视口时重置动画，可以移除in-view类
+          // entry.target.classList.remove('in-view');
+        }
+      })
+    },
+    {
+      threshold: 0.1, // 元素10%进入视口时触发
+      rootMargin: '-100px 0px', // 提前100px触发
+    },
+  )
+
+  // 找到所有需要动画的容器元素
+  const animateElements = document.querySelectorAll('.animate-fade-in-up')
+  animateElements.forEach((el) => observer.observe(el))
+
+  onBeforeUnmount(() => {
+    // 在组件卸载前停止观察
+    animateElements.forEach((el) => observer.unobserve(el))
+    observer.disconnect() // Disconnect observer on unmount
+  })
+}
+
+onMounted(() => {
+  handleScrollAnimation()
+})
 </script>
 
 <style scoped lang="scss">
@@ -594,8 +633,8 @@ onBeforeUnmount(() => {
 .swiper-button-prev,
 .swiper-button-next {
   margin: 25px; /* px-to-viewport-ignore */
-  width: 46px; /* px-to-viewport-ignore */
-  height: 46px; /* px-to-viewport-ignore */
+  width: 56px; /* px-to-viewport-ignore */
+  height: 56px; /* px-to-viewport-ignore */
   border-radius: 50%;
   background: rgba(0, 0, 0, 0); /* 初始背景透明 */
   transition: background 0.3s ease; /* 使用 background 属性过渡 */

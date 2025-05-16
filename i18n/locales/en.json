@@ -194,7 +194,7 @@
     "about": {
       "title": "About Us",
       "content": "Astribot was founded in Shenzhen in December 2022. As a leading AI robotics company, our vision is to empower billions of people with AI robotic partners, and our mission is to promote co-existence, co-creation and co-prosperity between humans and robots.",
-      "nextcontent": "The company has pioneered a software-hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal manipulation'. This innovation has led to key breakthroughs in embodied intelligence and data acquisition, enabling robots to learn, think, and work like humans while fostering smooth and intelligent interactions with people.",
+      "nextcontent": "The company has pioneered a software-hardware integrated system architecture for AI (Design for AI, DFAI), deeply coupling 'AI capabilities' with 'optimal manipulation'. This innovation has led to key breakthroughs in embodied intelligence and data acquisition, allowing robots to learn, think, and work like humans, enabling smooth and intelligent interactions with people.",
       "cta": "Learn more"
     },
     "contact": {
@@ -283,7 +283,7 @@
       "btn": "View Details",
       "video_detail": [
         {
-          "desc": "Ultra-Efficient Data Collection, 5x Faster Trainingn"
+          "desc": "Ultra-Efficient Data Collection, 5x Faster Training"
         },
         {
           "desc": "Zero-code Astribot UI, Master in Minutes"
@@ -327,8 +327,10 @@
       ]
     },
     "ecosystem": {
-      "title": "Join us and together Drive the Global Transformation towards Embodied Intelligence",
-      "vision": "Embodied intelligent robots present a world-class challenge and a once-in-a-centry opportunity. Together with our industry partners, we will move forward to continuously evolve.",
+      "title": "Join us and together Drive the Global ",
+      "quote": "",
+      "subTitle": "Transformation towards Embodied Intelligence",
+      "vision": "Embodied intelligent robots present a world-class challenge and a once-in-a-centry opportunity. Together with our industry partners, we will move forward to continuously evolve",
       "sections": [
         {
           "title": "Science Breakthroughs",
@@ -336,7 +338,7 @@
         },
         {
           "title": "Industry Intelligent Transformation",
-          "desc": "We collaborate with industry partners to explore practical pathways for embodied AI adoption from foundational breakthroughs to real-world applications."
+          "desc": "We collaborate with industry partners to explore practical pathways for embodied AI adoption from foundational breakthroughs to real-world applications"
         },
         {
           "title": "End-User Application Exploration",

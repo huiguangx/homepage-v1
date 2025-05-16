@@ -595,9 +595,23 @@
     <section class="relative pw-pt-[32px] pw-pb-[40px] md:pt-24 md:pb-20 bg-[#1F1F1F]">
       <div class="w-[90%] md:max-w-[1280px] mx-auto">
         <div class="text-center">
-          <h1 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-4">
-            {{ $t('product.ecosystem.title') }}
-          </h1>
+          <div class="pw-pb-[8px] md:pb-4">
+            <h1
+              class="pw-text-[22px] md:text-4xl font-medium text-white md:inline-block"
+              :class="{ 'inline ': locale === 'en' }"
+            >
+              {{ $t('product.ecosystem.title') }}
+            </h1>
+            <h1 class="pw-text-[22px] md:text-4xl font-medium text-white hidden md:inline-block">
+              {{ $t('product.ecosystem.quote') }}
+            </h1>
+            <h1
+              class="pw-text-[22px] md:text-4xl font-medium text-white md:inline-block"
+              :class="{ 'inline ': locale === 'en' }"
+            >
+              {{ $t('product.ecosystem.subTitle') }}
+            </h1>
+          </div>
           <p class="pw-text-[14px] md:text-xl text-[#C9C9C9]">
             {{ $t('product.ecosystem.vision') }}
           </p>
