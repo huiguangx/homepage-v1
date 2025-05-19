@@ -1,7 +1,7 @@
 <template>
-  <footer class="relative overflow-hidden bg-[#0C0C0C] w-full h-full">
+  <footer class="relative bg-[#0C0C0C] w-full h-full">
     <div class="mx-auto w-[90%] md:max-w-[1280px]">
-      <div class="hidden md:block relative">
+      <div class="hidden md:block overflow-hidden relative">
         <div class="absolute left-[45%] top-0">
           <img src="~/assets/images/footer/footer-bg-1.png" alt="" />
         </div>

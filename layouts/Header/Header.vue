@@ -160,11 +160,11 @@ const isTransparentRoute = computed(() => transparentRoutes.has(getBasePath(rout
 
 // 头部 <header> 的动态 class
 const headerComputedClasses = computed(() => {
-  const baseClasses = 'fixed top-0 left-0 w-full z-50 transition-all duration-300'
+  const baseClasses = 'fixed top-0 left-0 w-full z-50 transition-colors duration-500 ease-in-out'
 
   // 仅在PC端且产品页滚动后应用黑色背景
   if (!isMobile.value && isProductScrolled.value) {
-    return `${baseClasses} bg-black/80 backdrop-blur-sm  text-white`
+    return `${baseClasses} bg-black/80 backdrop-blur-sm text-white`
   }
 
   if (isScrolled.value || !isTransparentRoute.value || isMenuOpen.value) {

@@ -223,13 +223,13 @@
     </section>
 
     <!--2 Product Showcase -->
-    <section class="w-full bg-white py-8 md:pt-16 pb-20">
+    <section class="w-full bg-white py-8 md:pt-16 pb-20 animate-fade-in-up">
       <div class="w-[90%] md:max-w-[1280px] m-auto flex flex-col items-center">
         <div class="flex flex-col items-center py-4 md:py-6 gap-2 md:gap-4">
-          <h1 class="pw-text-[22px] md:text-4xl font-medium text-[#23233D]">
+          <h1 class="pw-text-[22px] md:text-4xl font-medium text-[#23233D] animate-h1">
             {{ $t('home.product.title') }}
           </h1>
-          <p class="pw-text-[14px] md:text-lg font-normal text-[#71798A]">
+          <p class="pw-text-[14px] md:text-lg font-normal text-[#71798A] animate-p">
             {{ $t('home.product.tagline') }}
           </p>
         </div>
@@ -250,12 +250,12 @@
     </section>
 
     <!--3 About Section -->
-    <section class="bg-[#F9FAFB] py-8 md:py-32">
+    <section class="bg-[#F9FAFB] py-8 md:py-32 animate-fade-in-up">
       <div
         class="mx-auto w-[90%] md:max-w-[1280px] flex flex-col items-center gap-0 md:gap-8 md:flex-row md:items-center md:justify-center"
       >
         <h1
-          class="mb-4 pw-text-[22px] font-medium leading-snug tracking-tight text-[#23233D] md:hidden"
+          class="mb-4 pw-text-[22px] font-medium leading-snug tracking-tight text-[#23233D] md:hidden animate-h1"
         >
           {{ $t('home.about.title') }}
         </h1>
@@ -275,7 +275,7 @@
         </div>
 
         <!-- 文字部分 -->
-        <div class="flex-1">
+        <div class="flex-1 animate-h1">
           <h1
             class="hidden md:block text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#23233D]"
           >
@@ -742,5 +742,33 @@ onMounted(() => {
   .swiper-button-next {
     display: none;
   }
+}
+
+// section2
+@keyframes fadeInUpSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-h1,
+.animate-p {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform; /* 性能优化 */
+}
+/* 动画触发 */
+.animate-fade-in-up.in-view .animate-h1 {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.2s;
+}
+
+.animate-fade-in-up.in-view .animate-p {
+  animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.4s;
 }
 </style>
