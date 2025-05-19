@@ -112,16 +112,18 @@
                 href="https://space.bilibili.com/1077677154"
                 class="flex items-center relative md:hover:text-gray-900 group"
               >
-                <img
-                  src="~/assets/images/contact/bilibili.svg"
-                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
-                  alt=""
-                />
-                <span
-                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
-                >
-                  {{ $t('contact.connect.social.bilibili') }}
-                </span>
+                <div class="">
+                  <img
+                    src="~/assets/images/contact/bilibili.svg"
+                    class="brightness-100 transition-all duration-300 md:group-hover:brightness-50 about us_bilibili"
+                    alt=""
+                  />
+                  <span
+                    class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D] about us_bilibili"
+                  >
+                    {{ $t('contact.connect.social.bilibili') }}
+                  </span>
+                </div>
                 <div
                   class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap bg-white text-black text-xs px-2 py-1 rounded-md shadow-lg"
                 >
@@ -167,12 +169,12 @@
               >
                 <img
                   src="~/assets/images/contact/youtube.svg"
-                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50 about us_youtube"
                   alt=""
                 />
 
                 <span
-                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D] about us_youtube"
                 >
                   {{ $t('contact.connect.social.youtube') }}
                 </span>
@@ -192,12 +194,12 @@
               >
                 <img
                   src="~/assets/images/contact/douyin.svg"
-                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50 about us_douyin"
                   alt=""
                 />
 
                 <span
-                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D] about us_douyin"
                 >
                   {{ $t('contact.connect.social.douyin') }}
                 </span>
@@ -217,12 +219,12 @@
               >
                 <img
                   src="~/assets/images/contact/tiktok.svg"
-                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50 about us_tiktok"
                   alt=""
                 />
 
                 <span
-                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D] about us_tiktok"
                 >
                   {{ $t('contact.connect.social.tiktok') }}
                 </span>
@@ -242,7 +244,7 @@
               >
                 <img
                   src="~/assets/images/contact/x.svg"
-                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50"
+                  class="brightness-100 transition-all duration-300 md:group-hover:brightness-50 about us_X"
                   alt=""
                 />
                 <div
@@ -254,7 +256,7 @@
                   ></div>
                 </div>
                 <span
-                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D]"
+                  class="pw-pl-[4px] md:pl-2 pw-text-[14px] md:text-sm text-[#71798A] group-hover:text-[#23233D] about us_X"
                 >
                   {{ $t('contact.connect.social.x') }}
                 </span>
@@ -323,16 +325,19 @@
           </div>
 
           <!-- 联系电话 -->
+
           <div
             class="rounded-lg bg-[#F9FAFB] md:bg-transparent text-center md:text-left pw-py-[24px] pw-px-[16px] md:p-0"
           >
             <h3 class="pw-text-[16px] md:text-base font-medium text-[#23233D] pw-pb-[16px] md:pb-4">
               {{ $t('contact.connect.address.phone') }}
             </h3>
-            <div class="flex justify-center md:justify-start">
+            <div class="flex justify-between items-center w-full">
+              <!-- 修改这里 -->
+              <span class="pw-text-[14px] md:text-sm text-[#71798A]">联系电话：</span>
               <a
                 href="tel:0755-86701637"
-                class="inline-block pw-text-[14px] md:text-sm text-[#71798A] md:hover:text-[#23233D]"
+                class="pw-text-[14px] md:text-sm text-[#71798A] md:hover:text-[#23233D] whitespace-nowrap"
               >
                 0755-86701637
               </a>

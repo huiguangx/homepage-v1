@@ -39,7 +39,7 @@
             </p>
             <NuxtLinkLocale
               to="/contact"
-              class="inline-block pw-text-[14px] md:text-base bg-transparent text-white border border-white pw-px-[20px] pw-py-[12px] md:px-5 md:py-3 rounded-md hover:bg-white md:hover:text-black transition-colors cursor-pointer"
+              class="product_contact us inline-block pw-text-[14px] md:text-base bg-transparent text-white border border-white pw-px-[20px] pw-py-[12px] md:px-5 md:py-3 rounded-md hover:bg-white md:hover:text-black transition-colors cursor-pointer"
             >
               {{ $t('product.video.cta') }}
             </NuxtLinkLocale>
@@ -64,68 +64,70 @@
             </p>
           </div>
         </div>
-        <ClientOnly>
-          <swiper
-            class="product-swiper text-white"
-            :modules="swiperModules"
-            :autoplay="{ delay: 5000, disableOnInteraction: false }"
-            :pagination="{
-              el: '.custom-pagination',
-              clickable: true,
-              bulletClass: 'custom-bullet',
-              bulletActiveClass: 'custom-bullet-active',
-            }"
-            :navigation="{
-              nextEl: '.custom-next',
-              prevEl: '.custom-prev',
-            }"
-            :loop="true"
-            :centeredSlides="true"
-            :slidesPerView="'auto'"
-            :spaceBetween="20"
-            @slideChange="handleProductSlideChange"
+        <div class="md:max-w-[1920px] mx-auto">
+          <ClientOnly>
+            <swiper
+              class="product-swiper text-white"
+              :modules="swiperModules"
+              :autoplay="{ delay: 5000, disableOnInteraction: false }"
+              :pagination="{
+                el: '.custom-pagination',
+                clickable: true,
+                bulletClass: 'custom-bullet',
+                bulletActiveClass: 'custom-bullet-active',
+              }"
+              :navigation="{
+                nextEl: '.custom-next',
+                prevEl: '.custom-prev',
+              }"
+              :loop="true"
+              :centeredSlides="true"
+              :slidesPerView="'auto'"
+              :spaceBetween="20"
+              @slideChange="handleProductSlideChange"
+            >
+              <swiper-slide
+                v-for="(video, index) in videos"
+                :key="index"
+                :class="{ 'active-slide': isActive(index) }"
+              >
+                <div class="slide-content w-full aspect-[16/9]">
+                  <video
+                    :ref="'videoPlayer' + index"
+                    class="h-full w-full object-cover rounded-2xl"
+                    muted
+                    loop
+                    playsinline
+                    :poster="video.posterSrc"
+                    :autoplay="isActive(index)"
+                  >
+                    <source :src="video.src" type="video/mp4" />
+                    <p class="absolute bottom-0 text-white p-2 bg-black/50">
+                      您的浏览器不支持HTML5视频
+                    </p>
+                  </video>
+                </div>
+              </swiper-slide>
+            </swiper>
+          </ClientOnly>
+          <div
+            class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
           >
-            <swiper-slide
-              v-for="(video, index) in videos"
-              :key="index"
-              :class="{ 'active-slide': isActive(index) }"
-            >
-              <div class="slide-content w-full aspect-[16/9]">
-                <video
-                  :ref="'videoPlayer' + index"
-                  class="h-full w-full object-cover rounded-2xl"
-                  muted
-                  loop
-                  playsinline
-                  :poster="video.posterSrc"
-                  :autoplay="isActive(index)"
-                >
-                  <source :src="video.src" type="video/mp4" />
-                  <p class="absolute bottom-0 text-white p-2 bg-black/50">
-                    您的浏览器不支持HTML5视频
-                  </p>
-                </video>
-              </div>
-            </swiper-slide>
-          </swiper>
-        </ClientOnly>
-        <div
-          class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
-        >
-          <!-- 自定义分页器 -->
-          <div class="custom-pagination"></div>
-          <!-- 自定义导航按钮 -->
-          <div class="hidden md:flex gap-4 text-white">
-            <button
-              class="custom-prev w-9 h-9 bg-[#2A2A2A] text-center rounded-lg flex items-center justify-center"
-            >
-              <img src="~/assets/images/index/prev-arrow.svg" alt="" class="block mx-auto" />
-            </button>
-            <button
-              class="custom-next w-9 h-9 bg-[#2A2A2A] text-center rounded-lg flex items-center justify-center"
-            >
-              <img src="~/assets/images/index/next-arrow.svg" alt="" class="block mx-auto" />
-            </button>
+            <!-- 自定义分页器 -->
+            <div class="custom-pagination"></div>
+            <!-- 自定义导航按钮 -->
+            <div class="hidden md:flex gap-4 text-white">
+              <button
+                class="custom-prev w-9 h-9 bg-[#2A2A2A] text-center rounded-lg flex items-center justify-center"
+              >
+                <img src="~/assets/images/index/prev-arrow.svg" alt="" class="block mx-auto" />
+              </button>
+              <button
+                class="custom-next w-9 h-9 bg-[#2A2A2A] text-center rounded-lg flex items-center justify-center"
+              >
+                <img src="~/assets/images/index/next-arrow.svg" alt="" class="block mx-auto" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -486,6 +488,7 @@
                     v-if="video.url"
                     class="text-[#6A97FF] pw-text-[14px] md:text-sm md:pt-[4px] font-light whitespace-nowrap flex-shrink-0 cursor-pointer"
                     @click="openVideo(video.url)"
+                    :class="video.className"
                   >
                     {{ $t('product.teleoperation.btn') }}
                   </div>
@@ -538,7 +541,7 @@
                   class="w-2/3 object-cover"
                 />
                 <button
-                  class="text-[#6A97FF] pw-text-[14px] md:text-sm font-light"
+                  class="product_view case text-[#6A97FF] pw-text-[14px] md:text-sm font-light"
                   @click="openVideo(locale === 'zh' ? caseVideoCn : caseVideoEn)"
                 >
                   {{ $t('product.cases.btn') }}
@@ -664,7 +667,7 @@
       <div class="flex justify-center">
         <NuxtLinkLocale
           to="/contact"
-          class="pw-px-[20px] pw-py-[12px] md:px-4 md:py-2 rounded font-normal text-white bg-[#5A46FF] pw-text-[14px] md:text-sm md:hover:bg-[#7463FF] transition-all duration-300 ease-out"
+          class="product_Partner contact us pw-px-[20px] pw-py-[12px] md:px-4 md:py-2 rounded font-normal text-white bg-[#5A46FF] pw-text-[14px] md:text-sm md:hover:bg-[#7463FF] transition-all duration-300 ease-out"
         >
           {{ $t('product.ecosystem.cta') }}
         </NuxtLinkLocale>
@@ -918,6 +921,7 @@ const vrVideos = [
     title: '遥操3',
     desc: t('product.teleoperation.video_detail.2.desc'),
     url: detailVideo3,
+    className: 'product_VR View details1',
   },
   { src: video4, title: '遥操4', desc: t('product.teleoperation.video_detail.3.desc') },
   { src: video5, title: '遥操5', desc: t('product.teleoperation.video_detail.4.desc') },
@@ -927,6 +931,7 @@ const vrVideos = [
     title: '遥操1',
     desc: t('product.teleoperation.video_detail.0.desc'),
     url: detailVideo1,
+    className: 'product_VR View details2',
   },
 ]
 

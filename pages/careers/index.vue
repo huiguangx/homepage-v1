@@ -45,8 +45,8 @@
     </section>
     <!-- Work Environment -->
     <section class="pw-py-[32px] md:py-20 bg-white">
-      <div class="mx-auto w-[90%] md:max-w-[1280px]">
-        <div class="text-center pw-pb-[14px] md:pb-6">
+      <div class="mx-auto w-[90%]">
+        <div class="text-center pw-pb-[14px] md:pb-6 md:max-w-[1280px] mx-auto">
           <h2 class="pw-text-[22px] md:text-4xl font-medium pw-pb-[8px] md:pb-4">
             {{ $t('careers.workEnvironment') }}
           </h2>
@@ -54,41 +54,43 @@
             {{ $t('careers.workEnvironmentDesc') }}
           </p>
         </div>
-        <ClientOnly>
-          <swiper
-            class="news-swiper text-white"
-            :modules="swiperModules"
-            :autoplay="{ delay: 5000, disableOnInteraction: false }"
-            :pagination="{
-              el: '.custom-pagination',
-              clickable: true,
-              bulletClass: 'custom-bullet',
-              bulletActiveClass: 'custom-bullet-active',
-            }"
-            :navigation="{
-              nextEl: '.custom-next',
-              prevEl: '.custom-prev',
-            }"
-            :loop="true"
-            :centeredSlides="true"
-            :spaceBetween="20"
-            :slidesPerView="1"
-            :breakpoints="{
-              768: {
-                slidesPerView: 2,
-                // centeredSlides: true,
-                initialSlide: 1,
-              },
-            }"
-          >
-            <swiper-slide v-for="(image, index) in workImages" :key="index">
-              <img class="rounded-lg" :src="image.src" alt="" />
-            </swiper-slide>
-          </swiper>
-        </ClientOnly>
+        <div class="md:max-w-[1920px] mx-auto">
+          <ClientOnly>
+            <swiper
+              class="news-swiper text-white"
+              :modules="swiperModules"
+              :autoplay="{ delay: 5000, disableOnInteraction: false }"
+              :pagination="{
+                el: '.custom-pagination',
+                clickable: true,
+                bulletClass: 'custom-bullet',
+                bulletActiveClass: 'custom-bullet-active',
+              }"
+              :navigation="{
+                nextEl: '.custom-next',
+                prevEl: '.custom-prev',
+              }"
+              :loop="true"
+              :centeredSlides="true"
+              :spaceBetween="20"
+              :slidesPerView="1"
+              :breakpoints="{
+                768: {
+                  slidesPerView: 3,
+                  // centeredSlides: true,
+                  initialSlide: 1,
+                },
+              }"
+            >
+              <swiper-slide v-for="(image, index) in workImages" :key="index">
+                <img class="rounded-lg" :src="image.src" alt="" />
+              </swiper-slide>
+            </swiper>
+          </ClientOnly>
+        </div>
         <!-- Custom Paginator & navigation-->
         <div
-          class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
+          class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28 md:max-w-[1280px] mx-auto"
         >
           <!-- Custom Paginator -->
           <div class="custom-pagination flex justify-center md:justify-start"></div>
@@ -141,7 +143,7 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 hire_Social recruitment"
                   >
                     查看岗位
                   </button>
@@ -150,7 +152,7 @@
               <a
                 href="https://dwz.cn/1Vq7rTKn"
                 target="_blank"
-                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
+                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300 hire_Social recruitment"
               >
                 查看更多社招岗位
               </a>
@@ -174,7 +176,7 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 hire_campus recruitment"
                   >
                     查看岗位
                   </button>
@@ -183,7 +185,7 @@
               <a
                 href="https://dwz.cn/ZPkmdxje"
                 target="_blank"
-                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
+                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300 hire_campus recruitment"
               >
                 查看更多校园岗位
               </a>
@@ -207,7 +209,7 @@
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 hire_Internship"
                   >
                     查看岗位
                   </button>
@@ -216,7 +218,7 @@
               <a
                 href="https://s.xinrenxinshi.com/recruitGate#/ey=0ebdb005864a706d8f15cdadc338584487c666"
                 target="_blank"
-                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300"
+                class="inline-block text-[#5A46FF] mx-5 my-4 text-sm font-medium md:hover:border-b md:hover:border-[#5A46FF] transition-colors duration-300 hire_Internship"
               >
                 查看更多实习岗位
               </a>
@@ -279,7 +281,7 @@
                     <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal"
+                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal hire_Social recruitment"
                   >
                     查看岗位
                   </button>
@@ -288,7 +290,7 @@
                   <a
                     href="https://dwz.cn/1Vq7rTKn"
                     target="_blank"
-                    class="text-[#5A46FF] pw-text-[14px] font-medium"
+                    class="text-[#5A46FF] pw-text-[14px] font-medium hire_Social recruitment"
                   >
                     查看更多社招岗位
                   </a>
@@ -309,7 +311,7 @@
                     <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal"
+                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal hire_campus recruitment"
                   >
                     查看岗位
                   </button>
@@ -318,7 +320,7 @@
                   <a
                     href="https://dwz.cn/ZPkmdxje"
                     target="_blank"
-                    class="text-[#5A46FF] pw-text-[14px] font-medium"
+                    class="text-[#5A46FF] pw-text-[14px] font-medium hire_campus recruitment"
                   >
                     查看更多校园岗位
                   </a>
@@ -339,7 +341,7 @@
                     <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
                   <button
-                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal"
+                    class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal hire_Internship"
                   >
                     查看岗位
                   </button>
@@ -348,7 +350,7 @@
                   <a
                     href="https://s.xinrenxinshi.com/recruitGate#/ey=0ebdb005864a706d8f15cdadc338584487c666"
                     target="_blank"
-                    class="text-[#5A46FF] pw-text-[14px] font-medium"
+                    class="text-[#5A46FF] pw-text-[14px] font-medium hire_Internship"
                   >
                     查看更多实习岗位
                   </a>

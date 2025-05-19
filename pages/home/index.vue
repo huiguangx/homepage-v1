@@ -69,7 +69,7 @@
 
                     <NuxtLinkLocale
                       to="/about"
-                      class="inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+                      class="home_sky banner_button inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
                     >
                       {{ $t('home.hero.cta') }}
                     </NuxtLinkLocale>
@@ -150,7 +150,7 @@
                       <NuxtLinkLocale
                         to="/contact"
                         v-if="locale === 'en'"
-                        class="inline-block rounded border mt-4 border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+                        class="home_contact us button inline-block rounded border mt-4 border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
                       >
                         {{ $t('home.contact.title') }}
                       </NuxtLinkLocale>
@@ -187,21 +187,23 @@
                 <div
                   class="relative z-10 w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
                 >
-                  <div class="slide-content space-y-3 md:space-y-8 text-center md:text-left">
-                    <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
-                      {{ $t('home.recruitment.title') }}
-                    </h1>
-                    <h2
-                      class="text-[22px] md:text-5xl font-bold md:font-medium text-white mx-auto md:mx-0"
-                    >
-                      {{ $t('home.recruitment.description') }}
-                    </h2>
-                    <NuxtLinkLocale
-                      :to="{ path: '/careers', hash: '#joinus' }"
-                      class="inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
-                    >
-                      {{ $t('home.careers.title') }}
-                    </NuxtLinkLocale>
+                  <div class="slide-content text-center md:text-left">
+                    <div class="space-y-2 md:space-y-4">
+                      <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
+                        {{ $t('home.recruitment.title') }}
+                      </h1>
+                      <h2 class="text-[22px] md:text-5xl font-medium text-white mx-auto md:mx-0">
+                        {{ $t('home.recruitment.description') }}
+                      </h2>
+                    </div>
+                    <div class="pw-mt-[16px] md:mt-10">
+                      <NuxtLinkLocale
+                        :to="{ path: '/careers', hash: '#joinus' }"
+                        class="home_join us button inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
+                      >
+                        {{ $t('home.careers.title') }}
+                      </NuxtLinkLocale>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -211,12 +213,16 @@
 
         <div class="swiper-button-prev">
           <button class="rounded-lg">
-            <img src="~/assets/images/index/prev-arrow.svg" alt="" />
+            <img src="~/assets/images/index/prev-arrow.svg" class="home_banner_Left arrow" alt="" />
           </button>
         </div>
         <div class="swiper-button-next">
           <button class="rounded-lg">
-            <img src="~/assets/images/index/next-arrow.svg" alt="" />
+            <img
+              src="~/assets/images/index/next-arrow.svg"
+              class="home_banner_right arrow"
+              alt=""
+            />
           </button>
         </div>
       </div>
@@ -235,10 +241,10 @@
         </div>
 
         <div
-          class="w-full lg:w-5/6 xl:w-3/4 2xl:w-2/3 aspect-video rounded-2xl bg-gray-100 overflow-hidden"
+          class="w-full lg:w-5/6 xl:w-3/4 2xl:w-2/3 aspect-video rounded-2xl bg-gray-100 overflow-hidden home_S1video"
         >
           <video
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover home_S1video"
             poster="~/assets/images/index/index-s2-test.webp"
             controls
           >
@@ -339,6 +345,7 @@
                     :src="news.image"
                     alt="News Banner"
                     class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110 aspect-[847/492]"
+                    :class="`${news.className}`"
                   />
                 </picture>
               </div>
@@ -350,11 +357,13 @@
                 <div class="flex-1 overflow-hidden">
                   <h1
                     class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis min-h-[2.8em] leading-snug"
+                    :class="`${news.className}`"
                   >
                     {{ news.title }}
                   </h1>
                   <p
                     class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-2 overflow-hidden text-ellipsis"
+                    :class="`${news.className}`"
                   >
                     {{ news.description }}
                   </p>
@@ -362,7 +371,7 @@
                 <div
                   class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300"
                 >
-                  <span>
+                  <span :class="`${news.className}`">
                     {{ news.date }}
                   </span>
 
@@ -522,6 +531,7 @@ const newsList = [
     description: t('news.items.news1.description'),
     date: t('news.items.news1.date'),
     image: img1,
+    className: 'home_news_Spring Festival',
     href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
   },
   {
@@ -529,6 +539,7 @@ const newsList = [
     description: t('news.items.news2.description'),
     date: t('news.items.news2.date'),
     image: img2,
+    className: 'home_news_π',
     href: 'https://mp.weixin.qq.com/s/iLqSChrf7JbVPW_N6G2BTA',
   },
   {
@@ -536,6 +547,7 @@ const newsList = [
     description: t('news.items.news3.description'),
     date: t('news.items.news3.date'),
     image: img3,
+    className: 'home_news_Campus recruitment',
     href: 'https://mp.weixin.qq.com/s/fLL1ZBXU9_dXACOcfhpAJA',
   },
   {
@@ -543,6 +555,7 @@ const newsList = [
     description: t('news.items.news4.description'),
     date: t('news.items.news4.date'),
     image: img4,
+    className: 'home_news_WRC',
     href: 'https://mp.weixin.qq.com/s/I-J3udvsligc9OSoGgxMsA',
   },
   // {
@@ -550,12 +563,14 @@ const newsList = [
   //   description: t('news.items.news5.description'),
   //   date: t('news.items.news5.date'),
   //   image: img5,
+  //   className: 'home_news_S1'
   // },
   // {
   //   title: t('news.items.news6.title'),
   //   description: t('news.items.news6.description'),
   //   date: t('news.items.news6.date'),
   //   image: img6,
+  //   className: 'home_news_S1Parameter'
   // },
 ]
 

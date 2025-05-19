@@ -54,6 +54,7 @@
                     :src="news.image"
                     alt=""
                     class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110 aspect-[847/492]"
+                    :class="`${news.className}`"
                   />
                 </picture>
               </div>
@@ -63,11 +64,13 @@
                 <div class="flex-1 overflow-hidden">
                   <h1
                     class="pw-text-[14px] md:text-base font-medium text-[#020014] group-hover:text-[#000000] line-clamp-2 overflow-hidden text-ellipsis min-h-[2.8em] leading-snug"
+                    :class="`${news.className}`"
                   >
                     {{ news.title }}
                   </h1>
                   <p
                     class="pw-mt-[8px] pw-mb-[8px] md:mb-2 md:mt-2 pw-text-[12px] md:text-sm text-[#71798A] group-hover:text-[#5a6473] line-clamp-2 md:line-clamp-2 overflow-hidden text-ellipsis"
+                    :class="`${news.className}`"
                   >
                     {{ news.description }}
                   </p>
@@ -75,7 +78,10 @@
                 <div
                   class="mt-auto flex items-center justify-between pw-text-[11px] md:text-xs text-[#71798A] md:group-hover:text-[#5a6473] transition-all duration-300"
                 >
-                  <span class="transition-transform duration-300 ease-out">
+                  <span
+                    class="transition-transform duration-300 ease-out"
+                    :class="`${news.className}`"
+                  >
                     {{ news.date }}
                   </span>
                   <svg
@@ -141,6 +147,7 @@ const newsList = [
     date: t('news.items.news1.date'),
     image: img1,
     imageWp: img1w,
+    className: 'home_news_Spring Festival',
     href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
   },
   {
@@ -149,6 +156,7 @@ const newsList = [
     date: t('news.items.news2.date'),
     image: img2,
     imageWp: img2w,
+    className: 'home_news_π',
     href: 'https://mp.weixin.qq.com/s/iLqSChrf7JbVPW_N6G2BTA',
   },
   {
@@ -157,6 +165,7 @@ const newsList = [
     date: t('news.items.news3.date'),
     image: img3,
     imageWp: img3w,
+    className: 'home_news_Campus recruitment',
     href: 'https://mp.weixin.qq.com/s/fLL1ZBXU9_dXACOcfhpAJA',
   },
   {
@@ -165,6 +174,7 @@ const newsList = [
     date: t('news.items.news4.date'),
     image: img4,
     imageWp: img4w,
+    className: 'home_news_WRC',
     href: 'https://mp.weixin.qq.com/s/I-J3udvsligc9OSoGgxMsA',
   },
   {
@@ -173,6 +183,7 @@ const newsList = [
     date: t('news.items.news5.date'),
     image: img5,
     imageWp: img5w,
+    className: 'home_news_S1',
     href: 'https://twitter.com/Astribot_Inc/status/1825341062514438179?s=19',
   },
   {
@@ -181,6 +192,7 @@ const newsList = [
     date: t('news.items.news6.date'),
     image: img6,
     imageWp: img6w,
+    className: 'home_news_S1Parameter',
     href: 'https://twitter.com/Astribot_Inc/status/1783716048673640641?s=19',
   },
 ]

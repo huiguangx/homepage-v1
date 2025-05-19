@@ -41,7 +41,7 @@
                 <NuxtLinkLocale
                   :to="item.path"
                   class="group px-6 relative nav_product h-full flex justify-center items-center text-4 transition-colors duration-300"
-                  :class="[getNavLinkClasses(item), `nav_${getBasePath(item.path)}`]"
+                  :class="[getNavLinkClasses(item), `${item.className}`]"
                 >
                   {{ item.name }}
                 </NuxtLinkLocale>
@@ -60,7 +60,7 @@
               </div>
               <NuxtLinkLocale
                 to="/contact"
-                class="px-4 py-2 text-white rounded font-normal bg-[#5A46FF] text-sm md:hover:bg-[#7463FF] transition-all duration-300 ease-out whitespace-nowrap"
+                class="home_contact us button px-4 py-2 text-white rounded font-normal bg-[#5A46FF] text-sm md:hover:bg-[#7463FF] transition-all duration-300 ease-out whitespace-nowrap"
               >
                 {{ $t('home.contact.title') }}
               </NuxtLinkLocale>
@@ -228,11 +228,11 @@ const langSwitchComputedClasses = computed(() => {
 })
 
 const navItems = computed(() => [
-  { name: t('menu.home'), path: '/' },
-  { name: t('menu.products'), path: '/product' },
-  { name: t('menu.careers'), path: '/careers' },
-  { name: t('menu.news'), path: '/news' },
-  { name: t('menu.about'), path: '/about' },
+  { name: t('menu.home'), path: '/', className: 'nav_home' },
+  { name: t('menu.products'), path: '/product', className: 'nav_product' },
+  { name: t('menu.careers'), path: '/careers', className: 'nav_hire' },
+  { name: t('menu.news'), path: '/news', className: 'nav_news' },
+  { name: t('menu.about'), path: '/about', className: 'nav_about us' },
 ])
 const mobileNavItems = computed(() => [
   ...navItems.value,

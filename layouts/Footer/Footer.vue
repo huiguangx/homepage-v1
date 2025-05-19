@@ -41,7 +41,7 @@
                 <li class="relative group">
                   <NuxtLinkLocale
                     to="/"
-                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors footer_home"
                   >
                     {{ $t('menu.home') }}
                   </NuxtLinkLocale>
@@ -52,7 +52,7 @@
                 <li class="relative group">
                   <NuxtLinkLocale
                     to="/product"
-                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors footer_product"
                   >
                     {{ $t('menu.products') }}
                   </NuxtLinkLocale>
@@ -63,7 +63,7 @@
                 <li class="relative group">
                   <NuxtLinkLocale
                     to="/careers"
-                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors footer_hire"
                   >
                     {{ $t('menu.careers') }}
                   </NuxtLinkLocale>
@@ -74,7 +74,7 @@
                 <li class="relative group">
                   <NuxtLinkLocale
                     to="/news"
-                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors footer_news"
                   >
                     {{ $t('menu.news') }}
                   </NuxtLinkLocale>
@@ -85,7 +85,7 @@
                 <li class="relative group">
                   <NuxtLinkLocale
                     to="/about"
-                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors"
+                    class="md:hover:text-white md:hover:border-b md:hover:border-white pw-text-[14px] md:text-sm font-medium transition-colors footer_about us"
                   >
                     {{ $t('menu.about') }}
                   </NuxtLinkLocale>
@@ -129,7 +129,7 @@
                 <img
                   src="~/assets/images/footer/bilibili.svg"
                   alt="哔哩哔哩"
-                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto footer_bilibili"
                 />
               </a>
               <div
@@ -152,7 +152,7 @@
                 <img
                   src="~/assets/images/footer/douyin.svg"
                   alt="抖音"
-                  class="brightness-75 transition-all duration-300 hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+                  class="brightness-75 transition-all duration-300 hover:brightness-200 pw-w-[20px] md:w-6 h-auto footer_douyin"
                 />
               </a>
               <div
@@ -175,7 +175,7 @@
                 <img
                   src="~/assets/images/footer/youtube.svg"
                   alt="YouTube"
-                  class="brightness-75 transition-all duration-300 hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+                  class="brightness-75 transition-all duration-300 hover:brightness-200 pw-w-[20px] md:w-6 h-auto footer_youtube"
                 />
               </a>
               <div
@@ -194,7 +194,7 @@
                 <img
                   src="~/assets/images/footer/x.svg"
                   alt="X (Twitter)"
-                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto footer_X"
                 />
               </a>
               <div
@@ -217,7 +217,7 @@
                 <img
                   src="~/assets/images/footer/tiktok.svg"
                   alt="TikTok"
-                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto footer_tiktok"
                 />
               </a>
               <div
@@ -281,7 +281,7 @@
               <!-- 语言切换（仅PC端显示在右侧） -->
               <div
                 @click="changeLanguage(locale === 'zh' ? 'en' : 'zh')"
-                class="md:hover:text-gray-300 transition-colors cursor-pointer hidden md:block"
+                class="md:hover:text-gray-300 transition-colors cursor-pointer hidden md:block footer_launguage"
               >
                 {{ locale === 'zh' ? 'English' : '中文' }}
               </div>
