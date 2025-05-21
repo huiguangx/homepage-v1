@@ -12,9 +12,27 @@
                   alt="Logo"
                   class="pw-w-[112px] md:w-[127px] h-auto"
                 />
+                <img
+                  v-if="showLogoTextCondition"
+                  src="~/assets/images/header/logo-header-white.png"
+                  alt="Logo"
+                  class="pw-w-[112px] md:w-[127px] h-auto"
+                />
               </div>
               <img
-                v-if="showSmallLogoCondition"
+                v-if="
+                  showSmallLogoCondition &&
+                  isTransparentRoute &&
+                  !isScrolled &&
+                  locale === 'en' &&
+                  !isMenuOpen
+                "
+                src="~/assets/images/header/logo-white.svg"
+                alt="Logo"
+                class="pw-w-[27px] md:w-[31px] h-auto"
+              />
+              <img
+                v-else-if="showSmallLogoCondition"
                 src="~/assets/images/header/logo.png"
                 alt="Logo"
                 class="pw-w-[27px] md:w-[31px] h-auto"
@@ -25,13 +43,6 @@
                 alt="Logo"
                 class="pw-w-[112px] md:w-[127px] h-auto"
               />
-              <p
-                v-if="showLogoTextCondition"
-                class="ml-1 pw-text-[20px] md:text-2xl font-normal"
-                :class="logoTextComputedClasses"
-              >
-                星尘智能
-              </p>
             </NuxtLinkLocale>
           </div>
 
@@ -184,20 +195,31 @@ const showLargeLogoInnerCondition = computed(() => {
 })
 
 const showSmallLogoCondition = computed(() => {
-  // 移动端不受产品页滚动影响
-  if (isMobile.value) {
-    return (
-      (!isScrolled.value && isTransparentRoute.value && !isMenuOpen.value) || locale.value === 'en'
-    )
+  if (isMenuOpen.value && locale.value === 'en') return true
+  if (
+    !isProductRoute.value &&
+    !isScrolled.value &&
+    isTransparentRoute.value &&
+    !isProductScrolled.value &&
+    locale.value === 'en'
+  ) {
+    return true
   }
-
-  // PC端逻辑
-  if (isProductScrolled.value && locale.value === 'zh') {
-    return false
+  if (isScrolled.value && locale.value === 'en') {
+    return true
   }
-  return (
-    (!isScrolled.value && isTransparentRoute.value && !isMenuOpen.value) || locale.value === 'en'
-  )
+  if (isProductScrolled.value && locale.value === 'en') {
+    return true
+  }
+  if (
+    !isProductScrolled.value &&
+    !isTransparentRoute.value &&
+    !isMenuOpen.value &&
+    locale.value === 'en'
+  ) {
+    return true
+  }
+  return false
 })
 
 const showLogoProductScroll = computed(() => {
@@ -208,9 +230,9 @@ const showLogoTextCondition = computed(() => {
   return !isScrolled.value && isTransparentRoute.value && !isMenuOpen.value && locale.value !== 'en'
 })
 
-const logoTextComputedClasses = computed(() => {
-  return 'text-white'
-})
+// const logoTextComputedClasses = computed(() => {
+//   return 'text-white'
+// })
 
 // 移动端菜单打开/关闭图标的样式
 const mobileMenuIconComputedClasses = computed(() => {

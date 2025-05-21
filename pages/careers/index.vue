@@ -30,7 +30,7 @@
 
         <!-- 文案层（居中靠左） -->
         <div class="row-start-1 col-start-1 z-20 flex items-center justify-center">
-          <div class="w-full max-w-[90%] text-left mx-auto">
+          <div class="w-full max-w-[90%] md:max-w-[1280px] md:mx-auto text-left mx-auto">
             <h1 class="pw-text-[18px] md:text-4xl text-white font-medium pw-pb-[8px] md:pb-6">
               {{ $t('careers.heroTitle') }}
             </h1>
@@ -45,7 +45,7 @@
     </section>
     <!-- Work Environment -->
     <section class="pw-py-[32px] md:py-20 bg-white">
-      <div class="mx-auto w-[90%]">
+      <div class="mx-auto w-[90%] md:w-[98%]">
         <div class="text-center pw-pb-[14px] md:pb-6 md:max-w-[1280px] mx-auto">
           <h2 class="pw-text-[22px] md:text-4xl font-medium pw-pb-[8px] md:pb-4">
             {{ $t('careers.workEnvironment') }}
@@ -77,20 +77,20 @@
               :breakpoints="{
                 768: {
                   slidesPerView: 3,
-                  // centeredSlides: true,
-                  initialSlide: 1,
+                  centeredSlides: true,
+                  spaceBetween: 20,
                 },
               }"
             >
               <swiper-slide v-for="(image, index) in workImages" :key="index">
-                <img class="rounded-lg" :src="image.src" alt="" />
+                <img class="rounded-lg w-full aspect-[16/9]" :src="image.src" alt="" />
               </swiper-slide>
             </swiper>
           </ClientOnly>
         </div>
         <!-- Custom Paginator & navigation-->
         <div
-          class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28 md:max-w-[1280px] mx-auto"
+          class="flex justify-center items-center pw-pt-[30px] md:pt-14 md:px-28 md:max-w-[1280px] mx-auto"
         >
           <!-- Custom Paginator -->
           <div class="custom-pagination flex justify-center md:justify-start"></div>
@@ -124,6 +124,23 @@
           </p>
         </div>
 
+        <div
+          v-if="locale === 'en'"
+          class="pw-pt-[32px] md:pt-5 flex flex-col items-center justify-center"
+        >
+          <NuxtLinkLocale
+            to="/contact"
+            class="home_sky banner_button inline-block rounded border border-white md:border-none bg-transparent md:cursor-pointer md:bg-[#5A46FF] pw-text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 ease-out mx-auto md:mx-0"
+          >
+            {{ $t('home.contact.cta') }}
+          </NuxtLinkLocale>
+          <a
+            href="mailto:join@astribot.com"
+            class="pw-text-[14px] md:text-sm text-[#5A46FF] md:hover:text-[#7463FF] pw-m-[16px] md:m-4"
+          >
+            Email: join@astribot.com
+          </a>
+        </div>
         <!-- Three-column layout for desktop -->
         <div v-if="locale === 'zh'" class="hidden md:grid md:grid-cols-3 md:gap-8 mt-10 md:px-8">
           <!-- 社会招聘 -->
@@ -521,7 +538,11 @@ useHead({
   height: 5px; /* px-to-viewport-ignore */
   gap: 8px; /* px-to-viewport-ignore */
 }
-
+@media (min-width: 768px) {
+  .custom-pagination {
+    display: none !important;
+  }
+}
 .custom-prev,
 .custom-next {
   cursor: pointer;

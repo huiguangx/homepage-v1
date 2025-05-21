@@ -1,11 +1,11 @@
 <template>
-  <footer class="relative bg-[#0C0C0C] w-full h-full">
+  <footer class="relative bg-[#0C0C0C] w-full h-full py-[1px]">
     <div class="mx-auto w-[90%] md:max-w-[1280px]">
-      <div class="hidden md:block overflow-hidden relative">
+      <div class="hidden md:block relative">
         <div class="absolute left-[45%] top-0">
           <img src="~/assets/images/footer/footer-bg-1.png" alt="" />
         </div>
-        <div class="absolute right-0 top-0">
+        <div class="absolute right-0 top-0 bottom-0">
           <img src="~/assets/images/footer/footer-bg-2.png" alt="" />
         </div>
         <!-- <div class="absolute left-0 top-0">
@@ -217,7 +217,7 @@
                 <img
                   src="~/assets/images/footer/tiktok.svg"
                   alt="TikTok"
-                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto footer_tiktok"
+                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto footer_"
                 />
               </a>
               <div
@@ -233,7 +233,7 @@
         </div>
 
         <!-- 分隔线 -->
-        <div class="w-full h-[0.5px] bg-[#2a2a2a]"></div>
+        <div class="w-full h-[1px] bg-[#2a2a2a]"></div>
         <div class="mb-6"></div>
 
         <!-- 版权信息 -->

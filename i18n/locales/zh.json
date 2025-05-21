@@ -142,7 +142,7 @@
   "home": {
     "hero": {
       "title": "领先的AI机器人公司",
-      "subtitle": "让通用智能机器人走进千家万户",
+      "subtitle": "让智能通用机器人走进千家万户",
       "slogan": "穿越苦旅，以达星尘",
       "cta": "查看更多"
     },
@@ -383,7 +383,17 @@
         "phone": "联系电话",
         "description": "请描述您的合作意向或需求",
         "submit": "立即提交",
-        "success": "提交成功"
+        "success": "提交成功",
+        "nameRequired": "请输入姓名",
+        "companyRequired": "请输入公司名称",
+        "emailRequired": "请输入邮箱",
+        "emailInvalid": "请输入有效的邮箱地址",
+        "phoneRequired": "请输入电话号码",
+        "phoneInvalid": "请输入有效的电话号码",
+        "messageRequired": "请输入留言内容",
+        "fillRequired": "请填写所有必填项",
+        "submitSuccess": "提交成功",
+        "submitFail": "提交失败"
       }
     },
     "connect": {

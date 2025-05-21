@@ -5,7 +5,6 @@
     >
       <div class="w-[90%] md:max-w-[1280px] mx-auto pw-py-[32px] md:py-14">
         <div class="flex flex-col items-center md:flex-row md:justify-around">
-          <!-- Left title area -->
           <div class="md:w-1/3 flex justify-center items-center text-center">
             <div class="text-center">
               <h1 class="pw-pb-[8px] md:pb-4 pw-text-[22px] md:text-4xl font-medium text-[#23233D]">
@@ -15,9 +14,36 @@
             </div>
           </div>
 
-          <!-- Right form area -->
-          <div class="w-full md:w-2/5 pw-pt-[24px] md:pt-0">
+          <div class="w-full md:w-2/5 pw-pt-[24px] md:pt-0 relative">
             <div>
+              <div
+                v-if="toast.show"
+                :class="{
+                  'text-[#73D13D] md:text-[#B7EB8F]': toast.type === 'success', // 成功时的文本颜色
+                  'text-red-500': toast.type === 'error', // 失败时的文本颜色
+                }"
+                class="absolute top-1/2 md:top-3/4 left-1/2 md:left-0 -translate-x-1/2 md:-translate-x-1/2 -translate-y-1/2 py-2 px-4 rounded-md bg-[#000000CC] shadow-lg transition-opacity duration-300 z-[9999] flex items-center space-x-2"
+              >
+                <img
+                  v-if="toast.type === 'success'"
+                  src="~/assets/images/contact/success-h5.svg"
+                  alt="Success"
+                  class="md:hidden"
+                />
+                <img
+                  v-if="toast.type === 'success'"
+                  src="~/assets/images/contact/success.svg"
+                  alt="Success"
+                  class="hidden md:block"
+                />
+                <!-- <img
+                  v-if="toast.type === 'error'"
+                  src="~/assets/images/contact/error.svg"
+                  alt="Error"
+                  class="w-5 h-5"
+                /> -->
+                <span class="pw-text-[14px] md:text-sm">{{ toast.message }}</span>
+              </div>
               <form @submit.prevent="submitForm">
                 <div class="grid grid-cols-2 pw-gap-[8px] md:gap-6">
                   <div>
@@ -26,8 +52,10 @@
                       v-model="formData.name"
                       type="text"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
+                      :class="{ 'border-red-500': errors.name }"
                       :placeholder="$t('contact.cooperation.form.name')"
                     />
+                    <p v-if="errors.name" class="text-red-500 text-xs mt-1">{{ errors.name }}</p>
                   </div>
 
                   <div>
@@ -36,8 +64,12 @@
                       v-model="formData.company"
                       type="text"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
+                      :class="{ 'border-red-500': errors.company }"
                       :placeholder="$t('contact.cooperation.form.company')"
                     />
+                    <p v-if="errors.company" class="text-red-500 text-xs mt-1">
+                      {{ errors.company }}
+                    </p>
                   </div>
 
                   <div>
@@ -46,9 +78,10 @@
                       v-model="formData.email"
                       type="email"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
+                      :class="{ 'border-red-500': errors.email }"
                       :placeholder="$t('contact.cooperation.form.email')"
-                      h
                     />
+                    <p v-if="errors.email" class="text-red-500 text-xs mt-1">{{ errors.email }}</p>
                   </div>
 
                   <div>
@@ -57,8 +90,10 @@
                       v-model="formData.phone"
                       type="tel"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
+                      :class="{ 'border-red-500': errors.phone }"
                       :placeholder="$t('contact.cooperation.form.phone')"
                     />
+                    <p v-if="errors.phone" class="text-red-500 text-xs mt-1">{{ errors.phone }}</p>
                   </div>
                 </div>
 
@@ -68,19 +103,23 @@
                     v-model="formData.message"
                     rows="4"
                     class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
+                    :class="{ 'border-red-500': errors.message }"
                     :placeholder="$t('contact.cooperation.form.description')"
                   ></textarea>
+                  <p v-if="errors.message" class="text-red-500 text-xs mt-1">
+                    {{ errors.message }}
+                  </p>
                 </div>
 
                 <div
                   class="flex flex-col items-center justify-between mt-6 space-y-4 md:flex-row md:space-y-0"
                 >
-                  <NuxtLinkLocale
+                  <button
                     type="submit"
                     class="px-8 py-3 font-medium w-full text-white text-center transition-colors bg-[#5A46FF] rounded md:hover:bg-[#7463FF] focus:outline-none cursor-pointer"
                   >
                     {{ $t('contact.cooperation.form.submit') }}
-                  </NuxtLinkLocale>
+                  </button>
                 </div>
               </form>
             </div>
@@ -90,29 +129,26 @@
     </section>
     <section class="pw-pt-[32px] md:pt-16 bg-white">
       <div class="w-[90%] md:max-w-[1280px] mx-auto">
-        <!-- title -->
         <h2 class="pw-text-[22px] md:text-3xl font-medium text-center pw-mb-[24px] md:mb-12">
           {{ $t('contact.connect.title') }}
         </h2>
 
-        <!-- Contact Information-->
         <div
           class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_0.8fr] pw-gap-[24px] md:gap-8 text-left"
         >
-          <!-- Social Media -->
           <div
             class="rounded-lg bg-[#F9FAFB] md:bg-transparent text-center md:text-left pw-py-[24px] pw-px-[8px] md:p-0"
           >
             <h3 class="pw-text-[16px] md:text-base font-medium text-[#23233D] pw-pb-[16px] md:pb-4">
               {{ $t('contact.connect.social.title') }}
             </h3>
-            <div class="grid grid-cols-3 gap-x-[16px] gap-y-[32px] md:gap-y-9 md:gap-x-8">
+            <div class="grid grid-cols-3 gap-x-[8px] gap-y-[32px] md:gap-y-9 md:gap-x-8">
               <a
                 target="_blank"
                 href="https://space.bilibili.com/1077677154"
                 class="flex items-center relative md:hover:text-gray-900 group"
               >
-                <div class="">
+                <div class="flex items-center justify-center">
                   <img
                     src="~/assets/images/contact/bilibili.svg"
                     class="brightness-100 transition-all duration-300 md:group-hover:brightness-50 about us_bilibili"
@@ -307,7 +343,6 @@
             </div>
           </div>
 
-          <!-- 公司地址 -->
           <div
             class="rounded-lg bg-[#F9FAFB] md:bg-transparent text-center md:text-left pw-py-[24px] pw-px-[16px] md:p-0"
           >
@@ -324,17 +359,13 @@
             </div>
           </div>
 
-          <!-- 联系电话 -->
-
           <div
             class="rounded-lg bg-[#F9FAFB] md:bg-transparent text-center md:text-left pw-py-[24px] pw-px-[16px] md:p-0"
           >
             <h3 class="pw-text-[16px] md:text-base font-medium text-[#23233D] pw-pb-[16px] md:pb-4">
               {{ $t('contact.connect.address.phone') }}
             </h3>
-            <div class="flex justify-between items-center w-full">
-              <!-- 修改这里 -->
-              <span class="pw-text-[14px] md:text-sm text-[#71798A]">联系电话：</span>
+            <div class="flex flex-col md:flex-row justify-between items-center w-full">
               <a
                 href="tel:0755-86701637"
                 class="pw-text-[14px] md:text-sm text-[#71798A] md:hover:text-[#23233D] whitespace-nowrap"
@@ -352,9 +383,10 @@
     </section>
   </div>
 </template>
-
 <script setup lang="ts">
-const { locale } = useI18n()
+import { reactive, ref } from 'vue' // 引入 ref 用于 toast
+
+const { t, locale } = useI18n()
 useHead({
   title: locale.value === 'zh' ? '联系我们' : 'Contact Us',
   meta: [
@@ -368,19 +400,136 @@ useHead({
     },
   ],
 })
+
 const formData = reactive({
   name: '',
   company: '',
   email: '',
   phone: '',
   message: '',
-  captcha: '',
 })
 
-const submitForm = () => {
-  // 这里添加表单提交逻辑
-  console.log('表单数据:', formData)
-  // 可以添加表单验证和API提交
-  alert('表单已提交！')
+// 校验错误信息
+const errors = reactive({
+  name: '',
+  company: '',
+  email: '',
+  phone: '',
+  message: '',
+})
+
+// Toast 提示状态
+const toast = reactive({
+  show: false,
+  message: '',
+  type: 'success' as 'success' | 'error', // 明确类型
+})
+
+const showToast = (message: string, type: 'success' | 'error' = 'success') => {
+  toast.show = true
+  toast.message = message
+  toast.type = type
+  setTimeout(() => {
+    toast.show = false
+  }, 3000) // 3秒后自动隐藏
+}
+
+const loading_url = 'https://us-loading.ctmon.net'
+
+const submitForm = async () => {
+  // 重置错误信息
+  Object.keys(errors).forEach((key) => (errors[key as keyof typeof errors] = ''))
+
+  let isValid = true
+
+  // 表单校验
+  if (!formData.name) {
+    errors.name = t('contact.cooperation.form.nameRequired') || '姓名是必填项'
+    isValid = false
+  }
+  if (!formData.company) {
+    errors.company = t('contact.cooperation.form.companyRequired') || '公司是必填项'
+    isValid = false
+  }
+  if (!formData.email) {
+    errors.email = t('contact.cooperation.form.emailRequired') || '邮箱是必填项'
+    isValid = false
+  } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    errors.email = t('contact.cooperation.form.emailInvalid') || '请输入有效的邮箱地址'
+    isValid = false
+  }
+  if (!formData.phone) {
+    errors.phone = t('contact.cooperation.form.phoneRequired') || '电话是必填项'
+    isValid = false
+  } else if (!/^\+?[0-9\s-()]{7,20}$/.test(formData.phone)) {
+    // 简单的电话号码正则
+    errors.phone = t('contact.cooperation.form.phoneInvalid') || '请输入有效的电话号码'
+    isValid = false
+  }
+  if (!formData.message) {
+    errors.message = t('contact.cooperation.form.messageRequired') || '留言内容是必填项'
+    isValid = false
+  }
+
+  if (!isValid) {
+    showToast(t('contact.cooperation.form.fillRequired') || '请填写所有必填项', 'error')
+    return // 如果表单无效，则停止提交
+  }
+
+  // 格式化手机号，加上国家码
+  const phoneWithCode = formData.phone.startsWith('+') ? formData.phone : '+86' + formData.phone
+
+  // 构造要发送的数据，跟你之前jQuery的一致
+  const sendData = {
+    title: '客户留言',
+    lang: 'en', // 默认en，根据实际情况可能需要切换为 locale.value
+    company_name: formData.company,
+    username: formData.name,
+    email: formData.email,
+    mobile: phoneWithCode,
+    whatsapp: phoneWithCode,
+    message: formData.message,
+    url: typeof window !== 'undefined' ? window.location.href : '', // 兼容 SSR
+    custom_mail: 'business@astribot.com',
+    custom_company: '固特英文',
+    bc_mail_master: 'business@astribot.com',
+    bc_mail_slave: 'fengyuyuan@ctmon.cn',
+    bc_mail_three: 'graysonx@163.com',
+    bc_mail_three_name: '抄送人2',
+    bc_mail_four: 'business@astribot.com',
+    bc_mail_four_name: '客户邮箱2',
+  }
+
+  console.log(sendData)
+
+  try {
+    // 假设这里会有一个真实的 API 调用
+    // const res = await axios.post(loading_url, sendData, {
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+
+    // 模拟 API 响应
+    const res = {
+      status: 200, // 模拟成功
+      // status: 500, // 模拟失败
+    }
+
+    if (res.status === 200) {
+      showToast(t('contact.cooperation.form.submitSuccess') || '提交成功！', 'success')
+      // 提交成功清空表单
+      formData.name = ''
+      formData.company = ''
+      formData.email = ''
+      formData.phone = ''
+      formData.message = ''
+    } else {
+      showToast(t('contact.cooperation.form.submitFail') || '提交失败，请稍后再试。', 'error')
+    }
+  } catch (error) {
+    showToast(t('contact.cooperation.form.submitFail') || '提交失败，请稍后再试。', 'error')
+    console.error('表单提交错误:', error)
+  }
 }
 </script>

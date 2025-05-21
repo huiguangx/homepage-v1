@@ -395,7 +395,17 @@
         "phone": "Phone",
         "description": "Please describe your needs",
         "submit": "Submit",
-        "success": "Submit Success"
+        "success": "Submit Success",
+        "nameRequired": "Name is required",
+        "companyRequired": "Company is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "phoneRequired": "Phone number is required",
+        "phoneInvalid": "Please enter a valid phone number",
+        "messageRequired": "Message is required",
+        "fillRequired": "Please fill in all required fields",
+        "submitSuccess": "Submitted successfully!",
+        "submitFail": "Submission failed, please try again later."
       }
     },
     "connect": {

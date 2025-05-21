@@ -96,11 +96,12 @@ export default defineNuxtConfig({
       // (建议用于改进SEO) -仅检测站点根路径(/)上的浏览器区域设置。只有当使用策略而不是"no_prefix"时才有效。
       redirectOn: 'root',
     },
-    baseUrl: 'https://www.astribot.com',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     bundle: {
       optimizeTranslationDirective: false,
     },
   },
+
   postcss: {
     plugins: {
       'postcss-px-to-viewport-8-plugin': {

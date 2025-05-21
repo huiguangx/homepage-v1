@@ -30,21 +30,23 @@
           />
         </picture>
         <div
-          class="poster absolute top-1/2 left-[10%] -translate-y-1/2 text-white space-y-2 md:space-y-6 animate-fade-in-up"
+          class="poster absolute top-[40%] md:top-[45%] left-[5%] md:left-0 text-white space-y-2 md:space-y-6 animate-fade-in-up md:w-full"
         >
-          <h1
-            class="pw-text-[18px] md:text-4xl font-medium bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] text-transparent bg-clip-text"
-          >
-            创未来科技，传经典文化
-          </h1>
-          <p class="pw-text-[14px] md:text-2xl text-[#D2D0FB]">High Tech, High Life</p>
+          <div class="md:m-auto md:max-w-[1280px]">
+            <h1
+              class="text-[18px] md:text-4xl font-medium bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] text-transparent bg-clip-text"
+            >
+              创未来科技，传经典文化
+            </h1>
+            <p class="text-[14px] md:text-2xl text-[#D2D0FB]">High Tech, High Life</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!--2 culture section（修改后的完整代码） -->
     <section
-      class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-full md:h-[66vh] relative bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat [background-size:100%_100%] animate-fade-in-up"
+      class="text-white flex items-center justify-center pw-pt-[32px] pw-pb-[60px] md:py-16 h-full md:h-[66vh] relative bg-[url('~/assets/images/about/about-s2-bg-h5.jpg')] md:bg-[url('~/assets/images/about/about-s2-bg.jpg')] bg-no-repeat [background-size:100%_100%] animate-fade-in-up"
     >
       <div class="m-auto w-[90%] md:max-w-[1280px] relative culture-container">
         <h2 class="pw-text-[22px] md:text-4xl font-medium text-center pw-pb-[24px] md:pb-20">
@@ -59,7 +61,9 @@
               <span class="pw-text-[18px] md:text-2xl font-medium">使命</span>
               <span class="text-white ml-2 pw-text-[16px] md:text-xl font-light">Mission</span>
             </div>
-            <div class="w-8 h-[3px] bg-[#FFFFFF99] rounded-full mb-4"></div>
+            <div
+              class="pw-w-[32px] md:w-8 pw-h-[2px] md:h-[3px] bg-[#FFFFFF66] rounded-full mb-4"
+            ></div>
             <h4 class="pw-text-[14px] md:text-base font-normal mb-2">推动人机共存、共创、共赢</h4>
             <p class="text-[#FFFFFFCC] pw-text-[12px] md:text-xs font-light">
               Promote co-existence, co-creation, and co-prosperity between humans and robots
@@ -73,7 +77,9 @@
               <span class="pw-text-[18px] md:text-2xl font-medium">愿景</span>
               <span class="text-white ml-2 pw-text-[16px] md:text-xl font-light">Vision</span>
             </div>
-            <div class="w-8 h-[3px] bg-[#FFFFFF99] rounded-full mb-4"></div>
+            <div
+              class="pw-w-[32px] md:w-8 pw-h-[2px] md:h-[3px] bg-[#FFFFFF66] rounded-full mb-4"
+            ></div>
             <h4 class="pw-text-[14px] md:text-base font-normal mb-2">让数十亿人拥有AI机器人助理</h4>
             <p class="text-[#FFFFFFCC] pw-text-[12px] md:text-xs font-light leading-relaxed">
               Empower billions of people with AI robotic partners
@@ -85,7 +91,9 @@
               <span class="pw-text-[18px] md:text-2xl font-medium">价值观</span>
               <span class="text-white ml-2 pw-text-[16px] md:text-xl font-light">Values</span>
             </div>
-            <div class="w-8 h-[3px] bg-[#FFFFFF99] rounded-full mb-4"></div>
+            <div
+              class="pw-w-[32px] md:w-8 pw-h-[2px] md:h-[3px] bg-[#FFFFFF66] rounded-full mb-4"
+            ></div>
             <div class="grid grid-cols-2 gap-y-6">
               <div>
                 <h4 class="pw-text-[14px] md:text-base font-normal mb-1">探索本质</h4>
@@ -141,17 +149,9 @@
             loading="lazy"
           />
         </picture>
-        <picture class="absolute inset-0 w-full">
-          <source media="(max-width: 767px)" srcset="~/assets/images/about/about-s3-mask-h5.png" />
-
-          <source media="(min-width: 768px)" srcset="~/assets/images/about/about-s3-mask.png" />
-          <img
-            src="~/assets/images/about/about-s3-mask.png"
-            alt=""
-            class="w-full h-auto"
-            loading="lazy"
-          />
-        </picture>
+        <div
+          class="absolute inset-0 w-full h-full bg-gradient-to-b from-[rgba(239,244,255,0.95)] md:via-[rgba(243,247,255,0.5)] via-[rgba(243,247,255,0.8)] to-transparent"
+        ></div>
 
         <div class="absolute inset-0 pw-top-[32px] md:top-16 animate-fade-in-up about-container">
           <div

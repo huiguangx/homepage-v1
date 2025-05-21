@@ -111,19 +111,19 @@
             </swiper>
           </ClientOnly>
           <div
-            class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28"
+            class="flex justify-center md:justify-between items-center pw-pt-[30px] md:pt-14 md:px-28 max-w-[1280px] mx-auto"
           >
             <!-- 自定义分页器 -->
             <div class="custom-pagination"></div>
             <!-- 自定义导航按钮 -->
             <div class="hidden md:flex gap-4 text-white">
               <button
-                class="custom-prev w-9 h-9 bg-[#2A2A2A] text-center rounded-lg flex items-center justify-center"
+                class="custom-prev w-9 h-9 bg-[#2A2A2A] md:hover:bg-[#555555] text-center rounded-lg flex items-center justify-center"
               >
                 <img src="~/assets/images/index/prev-arrow.svg" alt="" class="block mx-auto" />
               </button>
               <button
-                class="custom-next w-9 h-9 bg-[#2A2A2A] text-center rounded-lg flex items-center justify-center"
+                class="custom-next w-9 h-9 bg-[#2A2A2A] md:hover:bg-[#555555] text-center rounded-lg flex items-center justify-center"
               >
                 <img src="~/assets/images/index/next-arrow.svg" alt="" class="block mx-auto" />
               </button>
@@ -502,12 +502,12 @@
             <!-- 自定义导航按钮 -->
             <div class="hidden md:flex gap-4 text-white">
               <button
-                class="vr-custom-prev w-9 h-9 bg-[#2A2A2A] rounded-lg flex items-center justify-center"
+                class="vr-custom-prev w-9 h-9 bg-[#2A2A2A] md:hover:bg-[#555555] rounded-lg flex items-center justify-center"
               >
                 <img src="~/assets/images/index/prev-arrow.svg" alt="" class="block mx-auto" />
               </button>
               <button
-                class="vr-custom-next w-9 h-9 bg-[#2A2A2A] rounded-lg flex items-center justify-center"
+                class="vr-custom-next w-9 h-9 bg-[#2A2A2A] md:hover:bg-[#555555] rounded-lg flex items-center justify-center"
               >
                 <img src="~/assets/images/index/next-arrow.svg" alt="" class="block mx-auto" />
               </button>

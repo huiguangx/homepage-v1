@@ -247,6 +247,7 @@
             class="w-full h-full object-cover home_S1video"
             poster="~/assets/images/index/index-s2-test.webp"
             controls
+            preload="auto"
           >
             <source src="~/assets/media/test.mp4" type="video/mp4" />
             您的浏览器不支持视频播放
