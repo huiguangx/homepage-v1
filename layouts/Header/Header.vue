@@ -9,13 +9,13 @@
                 <img
                   v-if="showLargeLogoInnerCondition"
                   src="~/assets/images/header/logo-header.png"
-                  alt="Logo"
+                  alt="星尘智能"
                   class="pw-w-[112px] md:w-[127px] h-auto"
                 />
                 <img
                   v-if="showLogoTextCondition"
                   src="~/assets/images/header/logo-header-white.png"
-                  alt="Logo"
+                  alt="星尘智能"
                   class="pw-w-[112px] md:w-[127px] h-auto"
                 />
               </div>
@@ -28,19 +28,19 @@
                   !isMenuOpen
                 "
                 src="~/assets/images/header/logo-white.svg"
-                alt="Logo"
+                alt="星尘智能"
                 class="pw-w-[27px] md:w-[31px] h-auto"
               />
               <img
                 v-else-if="showSmallLogoCondition"
                 src="~/assets/images/header/logo.png"
-                alt="Logo"
+                alt="星尘智能"
                 class="pw-w-[27px] md:w-[31px] h-auto"
               />
               <img
                 v-if="showLogoProductScroll"
                 src="~/assets/images/header/logo-move.png"
-                alt="Logo"
+                alt="星尘智能"
                 class="pw-w-[112px] md:w-[127px] h-auto"
               />
             </NuxtLinkLocale>
@@ -86,7 +86,7 @@
                   key="menu-icon"
                   class="block pw-w-[24px] h-auto transition-all duration-300 ease-in-out"
                   src="~/assets/images/header/menu.svg"
-                  alt="Menu"
+                  alt="星尘智能"
                   :class="mobileMenuIconComputedClasses"
                 />
                 <img
@@ -94,7 +94,7 @@
                   key="close-icon"
                   class="block pw-w-[24px] h-auto transition-all duration-300 ease-in-out"
                   src="~/assets/images/header/close.svg"
-                  alt="Close"
+                  alt="星尘智能"
                   :class="{ 'filter invert brightness-100': isProductScrolled && isMenuOpen }"
                 />
               </transition>
@@ -122,7 +122,7 @@
                     @click="isMenuOpen = false"
                   >
                     <span class="pw-text-[16px] text-[#23233D] font-medium">{{ item.name }}</span>
-                    <img src="~/assets/images/header/goto-arrow.svg" alt="Arrow" />
+                    <img src="~/assets/images/header/goto-arrow.svg" alt="星尘智能" />
                   </NuxtLinkLocale>
                 </li>
               </ul>

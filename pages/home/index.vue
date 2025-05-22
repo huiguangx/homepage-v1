@@ -29,21 +29,30 @@
             <swiper-slide>
               <div class="relative h-full w-full">
                 <video
-                  class="absolute inset-0 w-full h-full object-cover md:hidden"
+                  v-if="isSmallScreen"
+                  class="absolute inset-0 w-full h-full object-cover"
                   poster="~/assets/images/index/banner-poster.jpg"
                   muted
                   autoplay
                   loop
+                  x5-playsinline="true"
+                  x5-video-player-type="h5-page"
+                  webkit-playsinline="true"
                   playsinline
                 >
                   <source src="~/assets/media/video/banner-h5.mp4" type="video/mp4" />
                 </video>
+
                 <video
-                  class="absolute inset-0 w-full h-full object-cover hidden md:block"
+                  v-else
+                  class="absolute inset-0 w-full h-full object-cover"
                   poster="~/assets/images/index/banner.jpg"
                   muted
                   autoplay
                   loop
+                  x5-playsinline="true"
+                  x5-video-player-type="h5-page"
+                  webkit-playsinline="true"
                   playsinline
                 >
                   <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
@@ -243,15 +252,25 @@
         <div
           class="w-full lg:w-5/6 xl:w-3/4 2xl:w-2/3 aspect-video rounded-2xl bg-gray-100 overflow-hidden home_S1video"
         >
-          <video
+          <!-- <video
             class="w-full h-full object-cover home_S1video"
             poster="~/assets/images/index/index-s2-test.webp"
             controls
-            preload="auto"
+            x5-playsinline="true"
+            x5-video-player-type="h5-page"
+            webkit-playsinline="true"
+            playsinline
           >
             <source src="~/assets/media/test.mp4" type="video/mp4" />
             您的浏览器不支持视频播放
-          </video>
+          </video> -->
+          <VideoPlayer
+            class="w-full h-full object-cover home_S1video"
+            src="/index/master.m3u8"
+            autoplay
+            controls
+            poster="~/assets/images/index/index-s2-test.webp"
+          />
         </div>
       </div>
     </section>
@@ -500,6 +519,9 @@ import img3 from '~/assets/images/news/news-s2-img3.jpg'
 import img4 from '~/assets/images/news/news-s2-img4.jpg'
 // import img5 from '~/assets/images/news/news-s2-img5.jpg'
 // import img6 from '~/assets/images/news/news-s2-img6.jpg'
+import { useMediaQuery } from '@vueuse/core'
+
+const isSmallScreen = useMediaQuery('(max-width: 767px)')
 const { t, locale } = useI18n()
 const autoplayDelay = 4000 // 轮播时间 30 秒
 useHead({

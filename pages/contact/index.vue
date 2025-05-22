@@ -116,7 +116,8 @@
                 >
                   <button
                     type="submit"
-                    class="px-8 py-3 font-medium w-full text-white text-center transition-colors bg-[#5A46FF] rounded md:hover:bg-[#7463FF] focus:outline-none cursor-pointer"
+                    tabindex="0"
+                    class="px-8 py-3 font-medium w-full text-white text-center transition-colors bg-[#5A46FF] rounded md:hover:bg-[#7463FF] focus:outline-none cursor-pointer focus:ring-1 focus:border-[#5A46FF]"
                   >
                     {{ $t('contact.cooperation.form.submit') }}
                   </button>
@@ -134,7 +135,7 @@
         </h2>
 
         <div
-          class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_0.8fr] pw-gap-[24px] md:gap-8 text-left"
+          class="grid grid-cols-1 md:grid-cols-[1.35fr_1fr_1fr_0.4fr] pw-gap-[24px] md:gap-20 text-left"
         >
           <div
             class="rounded-lg bg-[#F9FAFB] md:bg-transparent text-center md:text-left pw-py-[24px] pw-px-[8px] md:p-0"

@@ -30,9 +30,9 @@
           />
         </picture>
         <div
-          class="poster absolute top-[40%] md:top-[45%] left-[5%] md:left-0 text-white space-y-2 md:space-y-6 animate-fade-in-up md:w-full"
+          class="poster absolute top-[40%] md:top-[45%] left-[5%] md:left-0 text-white animate-fade-in-up md:w-full"
         >
-          <div class="md:m-auto md:max-w-[1280px]">
+          <div class="md:m-auto space-y-2 md:space-y-6 md:max-w-[1280px]">
             <h1
               class="text-[18px] md:text-4xl font-medium bg-gradient-to-r from-[#caadff] via-[#98beff] to-[#ddffff] text-transparent bg-clip-text"
             >
@@ -53,9 +53,9 @@
           {{ $t('about.culture') }}
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 pw-gap-[24px] md:gap-16">
+        <div class="grid grid-cols-1 md:grid-cols-[1.2fr_1.3fr_1fr] pw-gap-[24px] md:gap-16">
           <div
-            class="culture-item border-b md:border-b-0 pw-pb-[24px] md:pr-16 md:pl-20 md:border-r border-[#FFFFFF33] border-opacity-20"
+            class="culture-item border-b md:border-b-0 pw-pb-[24px] md:pr-16 md:border-r border-[#FFFFFF33] border-opacity-20"
           >
             <div class="flex items-baseline mb-4">
               <span class="pw-text-[18px] md:text-2xl font-medium">使命</span>

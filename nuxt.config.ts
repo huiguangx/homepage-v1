@@ -96,7 +96,7 @@ export default defineNuxtConfig({
       // (建议用于改进SEO) -仅检测站点根路径(/)上的浏览器区域设置。只有当使用策略而不是"no_prefix"时才有效。
       redirectOn: 'root',
     },
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    baseUrl: process.env.SEO_URL || 'http://localhost:3000',
     bundle: {
       optimizeTranslationDirective: false,
     },
@@ -119,7 +119,7 @@ export default defineNuxtConfig({
   vite: {
     esbuild: {
       drop: ['debugger'],
-      pure: process.env.NUXT_ENV === 'production' ? ['console.log'] : [], // Use NUXT_ENV to distinct between test and production
+      pure: process.env.NUXT_ENV === 'production' ? ['console.log'] : [],
     },
     css: {
       preprocessorOptions: {
@@ -128,17 +128,98 @@ export default defineNuxtConfig({
         },
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              // Nuxt 核心相关
+              if (id.includes('nuxt') || id.includes('vue')) {
+                return 'vendor-nuxt'
+              }
+              // 国际化相关
+              if (id.includes('i18n') || id.includes('vue-i18n')) {
+                return 'vendor-i18n'
+              }
+              // 图片处理相关
+              if (id.includes('@nuxt/image')) {
+                return 'vendor-image'
+              }
+              // UI 框架相关
+              if (id.includes('tailwindcss')) {
+                return 'vendor-tailwind'
+              }
+              // 工具库相关
+              if (id.includes('@vueuse/core')) {
+                return 'vendor-vueuse'
+              }
+              // 日期处理相关
+              if (id.includes('dayjs')) {
+                return 'vendor-dayjs'
+              }
+              // 轮播相关
+              if (id.includes('swiper')) {
+                return 'vendor-swiper'
+              }
+              // 其他第三方依赖
+              return 'vendor-others'
+            }
+          },
+        },
+      },
+      // 启用压缩
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: process.env.NODE_ENV === 'production',
+          drop_debugger: true,
+        },
+      },
+    },
   },
-  // 开启gzip压缩、vercel(SSG、SPA)
+
+  build: {
+    analyze: {
+      // 是否启用分析工具，默认为 false
+      enabled: true,
+      // 分析报告的输出目录，默认为 '.nuxt/analyze'
+      reportFilename: '.nuxt/analyze/report.html',
+      // 是否在浏览器中自动打开分析报告，默认为 false
+      open: true,
+      // 分析器类型，可选值有 'webpack-bundle-analyzer' 和 'source-map-explorer'
+      analyzerMode: 'server',
+      // 分析服务器的端口号
+      port: 8888,
+      // 其他 webpack-bundle-analyzer 配置项
+      generateStatsFile: false,
+      statsFilename: '.nuxt/analyze/stats.json',
+      statsOptions: null,
+      logLevel: 'info',
+    },
+  },
+  // 开启gzip压缩
   // nitro: {
-  //   compressPublicAssets: true, // 启动压缩
-  //   static: true, // ssg
+  //   compressPublicAssets: true,
+  //   routeRules: {
+  //     '/**': {
+  //       headers: {
+  //         'Cache-Control': 'public, max-age=31536000, immutable',
+  //       },
+  //     },
+  //     '/api/**': {
+  //       headers: {
+  //         'Cache-Control': 'no-cache, no-store, must-revalidate',
+  //       },
+  //     },
+  //   },
   // },
+
   // 配置开发服务器：允许局域网访问并指定端口 3000
   // devServer: {
   //   host: '0.0.0.0',
   //   port: 3000,
   // },
+
   app: {
     baseURL: process.env.BASE_URL || '/',
     head: {

@@ -5,21 +5,32 @@
       <div class="relative h-full w-full">
         <div class="w-full h-full">
           <video
-            class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom md:hidden"
+            v-if="isSmallScreen"
+            class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
             muted
             autoplay
             loop
+            x5-playsinline="true"
+            x5-video-player-type="h5-page"
+            webkit-playsinline="true"
             playsinline
+            preload="auto"
             poster="~/assets/images/product/describe-s1-poster-h5.webp"
           >
             <source src="~/assets/media/describe-h5.mp4" type="video/mp4" />
           </video>
+
           <video
-            class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom hidden md:block"
+            v-else
+            class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
             muted
             autoplay
             loop
+            x5-playsinline="true"
+            x5-video-player-type="h5-page"
+            webkit-playsinline="true"
             playsinline
+            preload="auto"
             poster="~/assets/images/product/describe-s1-poster.webp"
           >
             <source src="~/assets/media/describe.mp4" type="video/mp4" />
@@ -97,6 +108,9 @@
                     class="h-full w-full object-cover rounded-2xl"
                     muted
                     loop
+                    x5-playsinline="true"
+                    x5-video-player-type="h5-page"
+                    webkit-playsinline="true"
                     playsinline
                     :poster="video.posterSrc"
                     :autoplay="isActive(index)"
@@ -470,6 +484,9 @@
                     :ref="'videoPlayer' + index"
                     muted
                     loop
+                    x5-playsinline="true"
+                    x5-video-player-type="h5-page"
+                    webkit-playsinline="true"
                     playsinline
                     :autoplay="isActive(index)"
                   >
@@ -738,6 +755,9 @@ import caseVideoCn from '~/assets/media/星尘中文版_x264.mp4'
 import caseVideoEn from '~/assets/media/星尘英文版_x264.mp4'
 import detailVideo3 from '~/assets/media/遥操3高清版.mp4'
 import detailVideo1 from '~/assets/media/遥操1高清版.mp4'
+import { useMediaQuery } from '@vueuse/core'
+
+const isSmallScreen = useMediaQuery('(max-width: 767px)')
 
 const { t, locale } = useI18n()
 const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
