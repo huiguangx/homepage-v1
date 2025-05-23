@@ -1,40 +1,69 @@
 <template>
   <div class="relative">
     <!--1 Hero Video Section -->
+
     <section class="w-full h-[80vh] md:h-screen bg-black overflow-hidden">
       <div class="relative h-full w-full">
         <div class="w-full h-full">
-          <video
-            v-if="isSmallScreen"
-            class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
-            muted
-            autoplay
-            loop
-            x5-playsinline="true"
-            x5-video-player-type="h5-page"
-            webkit-playsinline="true"
-            playsinline
-            preload="auto"
-            poster="~/assets/images/product/describe-s1-poster-h5.webp"
-          >
-            <source src="~/assets/media/describe-h5.mp4" type="video/mp4" />
-          </video>
+          <ClientOnly>
+            <VideoPlayer
+              v-if="isSmallScreen"
+              class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
+              src="/products/describemobile/describemobile.m3u8"
+              :preload="'auto'"
+              :controls="false"
+              :muted="true"
+              :loop="true"
+              :autoplay="true"
+              :width="'100%'"
+              :height="'100%'"
+              :poster="'/products/describemobile/describe-s1-poster-h5.webp'"
+            ></VideoPlayer>
 
-          <video
-            v-else
-            class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
-            muted
-            autoplay
-            loop
-            x5-playsinline="true"
-            x5-video-player-type="h5-page"
-            webkit-playsinline="true"
-            playsinline
-            preload="auto"
-            poster="~/assets/images/product/describe-s1-poster.webp"
-          >
-            <source src="~/assets/media/describe.mp4" type="video/mp4" />
-          </video>
+            <!-- <video
+              v-if="isSmallScreen"
+              class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
+              muted
+              autoplay
+              loop
+              x5-playsinline="true"
+              x5-video-player-type="h5-page"
+              webkit-playsinline="true"
+              playsinline
+              preload="auto"
+              poster="~/assets/images/product/describe-s1-poster-h5.webp"
+            >
+              <source src="/products/describe-h5.mp4" type="video/mp4" />
+            </video> -->
+            <VideoPlayer
+              v-else
+              class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
+              src="/products/describe/describe.m3u8"
+              :preload="'auto'"
+              :controls="false"
+              :muted="true"
+              :loop="true"
+              :autoplay="true"
+              :width="'100%'"
+              :height="'80%'"
+              :poster="'/products/describe/describe-s1-poster.webp'"
+            ></VideoPlayer>
+            <!-- <video
+              v-else
+              class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
+              muted
+              autoplay
+              loop
+              x5-playsinline="true"
+              x5-video-player-type="h5-page"
+              webkit-playsinline="true"
+              playsinline
+              preload="auto"
+              poster="~/assets/images/product/describe-s1-poster.webp"
+            >
+              <source src="/products/describe.mp4" type="video/mp4" />
+            </video> -->
+          </ClientOnly>
         </div>
         <div
           class="absolute top-0 pw-h-[242px] md:h-80 w-full"

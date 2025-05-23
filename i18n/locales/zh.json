@@ -140,6 +140,12 @@
     "contact": "联系我们"
   },
   "home": {
+    "newsBanner": {
+      "title": "当机器人学会「理性挣扎」",
+      "subtitle": "星尘智能重构人机共存的DNA",
+      "slogan": "DuoCore登场",
+      "cta": "了解更多"
+    },
     "hero": {
       "title": "领先的AI机器人公司",
       "subtitle": "让智能通用机器人走进千家万户",

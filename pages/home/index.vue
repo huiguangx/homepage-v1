@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mx-auto">
+  <div class="w-full">
     <!--1 Hero Banner -->
     <section class="relative w-full h-[100dvh]">
       <div class="h-full w-full">
@@ -26,6 +26,66 @@
             @slideChange="onSlideChange"
             @swiper="onSwiper"
           >
+            <!-- <swiper-slide>
+              <div class="relative h-full w-full overflow-hidden">
+                <picture class="absolute inset-0 block">
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="~/assets/images/index/index-s1-o4-bg-h5.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="~/assets/images/index/index-s1-o4-bg-h5.jpg"
+                    type="image/jpeg"
+                  />
+                  <source
+                    media="(min-width: 768px)"
+                    srcset="~/assets/images/index/index-s1-o4-bg.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="~/assets/images/index/index-s1-o4-bg.jpg"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </picture>
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.5)] via-[rgba(0,0,0,0.1)] to-[rgba(0,0,0,0)] h-[35%] md:h-[25%] w-full"
+                ></div>
+
+                <div
+                  class="relative z-10 w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
+                >
+                  <div class="slide-content text-center md:text-left">
+                    <div class="space-y-3 md:space-y-6">
+                      <h1
+                        class="text-[14px] md:text-[28px] font-medium text-[#23233D] mx-auto md:mx-0"
+                      >
+                        {{ $t('home.newsBanner.title') }}
+                      </h1>
+                      <h2
+                        class="text-[22px] md:text-[40px] font-medium text-[#23233D] mx-auto md:mx-0"
+                      >
+                        {{ $t('home.newsBanner.subtitle') }}
+                      </h2>
+                      <h3 class="text-[24px] md:text-5xl font-bold text-[#5A46FF] mx-auto md:mx-0">
+                        {{ $t('home.newsBanner.slogan') }}
+                      </h3>
+                    </div>
+                    <div class="pw-mt-[16px] md:mt-10">
+                      <a
+                        href="https://mp.weixin.qq.com/s/fh2JlVvN4p5EWbIcHG5YMw"
+                        target="_blank"
+                        class="home_duocore_banner_button inline-block rounded border border-[#5A46FF] md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-[#5A46FF] md:text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
+                      >
+                        {{ $t('home.newsBanner.cta') }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </swiper-slide> -->
             <swiper-slide>
               <div class="relative h-full w-full">
                 <video
@@ -208,7 +268,7 @@
                     <div class="pw-mt-[16px] md:mt-10">
                       <NuxtLinkLocale
                         :to="{ path: '/careers', hash: '#joinus' }"
-                        class="home_join us button inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
+                        class="home_hire_banner_button inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
                       >
                         {{ $t('home.careers.title') }}
                       </NuxtLinkLocale>
@@ -259,6 +319,7 @@
             x5-playsinline="true"
             x5-video-player-type="h5-page"
             webkit-playsinline="true"
+            autoplay
             playsinline
           >
             <source src="~/assets/media/test.mp4" type="video/mp4" />
@@ -266,10 +327,11 @@
           </video> -->
           <VideoPlayer
             class="w-full h-full object-cover home_S1video"
-            src="/index/master.m3u8"
-            autoplay
+            src="/index/s2test/index-s2-test.m3u8"
+            poster="/index/s2test/index-s2-test.webp"
+            :width="'100%'"
+            :height="'100%'"
             controls
-            poster="~/assets/images/index/index-s2-test.webp"
           />
         </div>
       </div>
@@ -449,7 +511,7 @@
                 {{ $t('home.careers.description') }}
               </p>
               <div
-                class="mt-auto flex items-center text-base pw-text-[14px] md:text-base md:cursor-pointer text-[#5A46FF] font-medium md:border-b md:hover:border-b md:border-transparent md:hover:border-[#5A46FF]"
+                class="home_join us button mt-auto flex items-center text-base pw-text-[14px] md:text-base md:cursor-pointer text-[#5A46FF] font-medium md:border-b md:hover:border-b md:border-transparent md:hover:border-[#5A46FF]"
               >
                 {{ $t('home.careers.cta') }}
                 <picture>
@@ -481,7 +543,7 @@
                 {{ $t('home.contact.description') }}
               </p>
               <div
-                class="mt-auto flex items-center pw-text-[14px] md:text-base md:cursor-pointer text-[#5A46FF] font-medium md:border-b md:hover:border-b md:border-transparent md:hover:border-[#5A46FF]"
+                class="home_contact us button mt-auto flex items-center pw-text-[14px] md:text-base md:cursor-pointer text-[#5A46FF] font-medium md:border-b md:hover:border-b md:border-transparent md:hover:border-[#5A46FF]"
               >
                 {{ $t('home.contact.cta') }}
                 <picture>
@@ -606,7 +668,6 @@ const onSlideChange = (swiper: SwiperClass) => {
 const swiperInstance = ref<SwiperClass | null>(null)
 
 const onSwiper = (swiper: SwiperClass) => {
-  console.log('6666')
   swiperInstance.value = swiper
 }
 const route = useRoute()

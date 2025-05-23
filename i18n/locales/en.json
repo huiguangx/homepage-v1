@@ -140,6 +140,11 @@
   },
 
   "home": {
+    "newsBanner": {
+      "title": "When Robots Learn Intuition & Reasoning",
+      "subtitle": "Unleash Astribot’s DuoCore Intelligence",
+      "cta": "Learn more"
+    },
     "hero": {
       "title": "Leading AI Robotics Company",
       "subtitle": "Make Intelligent Robot Your Companion",

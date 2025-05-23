@@ -97,14 +97,45 @@
           <!-- Customize navigation buttons -->
           <div class="hidden md:flex gap-4 text-[#71798A]">
             <button
-              class="custom-prev w-9 h-9 bg-[#f9fafbee] rounded-lg flex items-center justify-center"
+              class="group custom-prev w-9 h-9 bg-[#f9fafbee] md:hover:bg-[#5A46FF] rounded-lg flex items-center justify-center"
             >
-              <img src="~/assets/images/career/arrow-left.svg" alt="" class="block mx-auto" />
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.5 15L7.5 10L12.5 5"
+                  stroke="#71798A"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="group-hover:stroke-white"
+                />
+              </svg>
             </button>
+
             <button
-              class="custom-next w-9 h-9 bg-[#f9fafbee] rounded-lg flex items-center justify-center"
+              class="group custom-next w-9 h-9 bg-[#f9fafbee] md:hover:bg-[#5A46FF] rounded-lg flex items-center justify-center"
             >
-              <img src="~/assets/images/career/arrow-right.svg" alt="" class="block mx-auto" />
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 15L12.5 10L7.5 5"
+                  stroke="#71798A"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="group-hover:stroke-white"
+                />
+              </svg>
             </button>
           </div>
         </div>
