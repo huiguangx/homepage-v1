@@ -1,6 +1,6 @@
 <template>
   <div v-if="show" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-    <div class="relative max-w-[90%] md:max-w-[1280px] max-h-[90%]">
+    <div class="relative md:w-[85%] md:max-w-[1280px]">
       <!-- 视频区域 -->
       <video
         ref="videoPlayer"

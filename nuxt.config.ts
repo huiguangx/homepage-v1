@@ -235,10 +235,6 @@ export default defineNuxtConfig({
           src: 'https://cdn.jsdelivr.net/npm/swiper@11.1.15/swiper-bundle.min.js',
           defer: true,
         },
-        {
-          src: 'https://cdn.jsdelivr.net/npm/swiper@11.1.15/swiper-bundle.min.css',
-          rel: 'stylesheet',
-        },
         // HLS.js CDN
         {
           src: 'https://cdn.jsdelivr.net/npm/hls.js@1.6.2/dist/hls.min.js',

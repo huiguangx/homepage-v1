@@ -76,7 +76,6 @@
                     <input
                       id="email"
                       v-model="formData.email"
-                      type="email"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
                       :class="{ 'border-red-500': errors.email }"
                       :placeholder="$t('contact.cooperation.form.email')"
@@ -170,7 +169,7 @@
                   ></div>
                 </div>
               </a>
-              <a
+              <div
                 target="_blank"
                 href=""
                 class="flex items-center relative md:hover:text-gray-900 group"
@@ -198,7 +197,7 @@
                     class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
                   ></div>
                 </div>
-              </a>
+              </div>
               <a
                 target="_blank"
                 href="https://www.youtube.com/channel/UCDjnC6m9_xW-PDeDCjv-jng"
@@ -504,31 +503,37 @@ const submitForm = async () => {
   console.log(sendData)
 
   try {
-    // 假设这里会有一个真实的 API 调用
-    // const res = await axios.post(loading_url, sendData, {
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
+    // const isSubmitting = ref(true);
 
-    // 模拟 API 响应
-    const res = {
-      status: 200, // 模拟成功
-      // status: 500, // 模拟失败
-    }
+    const res = await $fetch<{ status: number }>(loading_url, {
+      // 明确指定返回类型
+      method: 'POST',
+      body: sendData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
 
+    // isSubmitting.value = false;
+
+    // Handle response
     if (res.status === 200) {
       showToast(t('contact.cooperation.form.submitSuccess') || '提交成功！', 'success')
-      // 提交成功清空表单
-      formData.name = ''
-      formData.company = ''
-      formData.email = ''
-      formData.phone = ''
-      formData.message = ''
+
+      // Reset form data
+      Object.assign(formData, {
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        message: '',
+      })
     } else {
       showToast(t('contact.cooperation.form.submitFail') || '提交失败，请稍后再试。', 'error')
     }
   } catch (error) {
+    // isSubmitting.value = false;
+
     showToast(t('contact.cooperation.form.submitFail') || '提交失败，请稍后再试。', 'error')
     console.error('表单提交错误:', error)
   }

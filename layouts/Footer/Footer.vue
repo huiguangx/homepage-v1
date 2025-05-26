@@ -101,13 +101,13 @@
           <div class="flex md:space-x-8 justify-between pw-mt-[24px] md:mt-0">
             <!-- 微信（带二维码悬浮提示） -->
             <div class="relative group">
-              <a href="" class="block">
-                <img
-                  src="~/assets/images/footer/wechat.svg"
-                  alt="微信"
-                  class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
-                />
-              </a>
+              <!-- <a href="" class="block"> -->
+              <img
+                src="~/assets/images/footer/wechat.svg"
+                alt="微信"
+                class="brightness-75 transition-all duration-300 md:hover:brightness-200 pw-w-[20px] md:w-6 h-auto"
+              />
+              <!-- </a> -->
               <div
                 class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 w-32 bg-white rounded-md p-2 shadow-lg"
               >

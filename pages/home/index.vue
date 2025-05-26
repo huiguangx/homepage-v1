@@ -26,26 +26,26 @@
             @slideChange="onSlideChange"
             @swiper="onSwiper"
           >
-            <!-- <swiper-slide>
+            <swiper-slide>
               <div class="relative h-full w-full overflow-hidden">
                 <picture class="absolute inset-0 block">
                   <source
                     media="(max-width: 767px)"
-                    srcset="~/assets/images/index/index-s1-o4-bg-h5.webp"
+                    srcset="/images/index/index-s1-o4-bg-h5.webp"
                     type="image/webp"
                   />
                   <source
                     media="(max-width: 767px)"
-                    srcset="~/assets/images/index/index-s1-o4-bg-h5.jpg"
+                    srcset="/images/index/index-s1-o4-bg-h5.jpg"
                     type="image/jpeg"
                   />
                   <source
                     media="(min-width: 768px)"
-                    srcset="~/assets/images/index/index-s1-o4-bg.webp"
+                    srcset="/images/index/index-s1-o4-bg.webp"
                     type="image/webp"
                   />
                   <img
-                    src="~/assets/images/index/index-s1-o4-bg.jpg"
+                    src="/images/index/index-s1-o4-bg.jpg"
                     class="w-full h-full object-cover"
                     alt=""
                   />
@@ -69,7 +69,10 @@
                       >
                         {{ $t('home.newsBanner.subtitle') }}
                       </h2>
-                      <h3 class="text-[24px] md:text-5xl font-bold text-[#5A46FF] mx-auto md:mx-0">
+                      <h3
+                        v-if="locale === 'zh'"
+                        class="text-[24px] md:text-5xl font-bold text-[#5A46FF] mx-auto md:mx-0"
+                      >
                         {{ $t('home.newsBanner.slogan') }}
                       </h3>
                     </div>
@@ -85,37 +88,39 @@
                   </div>
                 </div>
               </div>
-            </swiper-slide> -->
+            </swiper-slide>
             <swiper-slide>
               <div class="relative h-full w-full">
                 <video
                   v-if="isSmallScreen"
                   class="absolute inset-0 w-full h-full object-cover"
-                  poster="~/assets/images/index/banner-poster.jpg"
+                  poster="/images/index/banner-poster.jpg"
                   muted
                   autoplay
                   loop
                   x5-playsinline="true"
                   x5-video-player-type="h5-page"
                   webkit-playsinline="true"
+                  preload="auto"
                   playsinline
                 >
-                  <source src="~/assets/media/video/banner-h5.mp4" type="video/mp4" />
+                  <source src="/index/s1banner/banner-h5.mp4" type="video/mp4" />
                 </video>
 
                 <video
                   v-else
                   class="absolute inset-0 w-full h-full object-cover"
-                  poster="~/assets/images/index/banner.jpg"
+                  poster="/images/index/banner.jpg"
                   muted
                   autoplay
                   loop
                   x5-playsinline="true"
                   x5-video-player-type="h5-page"
                   webkit-playsinline="true"
+                  preload="auto"
                   playsinline
                 >
-                  <source src="~/assets/media/video/banner.mp4" type="video/mp4" />
+                  <source src="/index/s1banner/banner.mp4" type="video/mp4" />
                 </video>
                 <div
                   class="w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
@@ -584,6 +589,7 @@ import img4 from '~/assets/images/news/news-s2-img4.jpg'
 import { useMediaQuery } from '@vueuse/core'
 
 const isSmallScreen = useMediaQuery('(max-width: 767px)')
+
 const { t, locale } = useI18n()
 const autoplayDelay = 4000 // 轮播时间 30 秒
 useHead({
@@ -597,6 +603,26 @@ useHead({
       name: 'keywords',
       content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
     },
+  ],
+  link: [
+    {
+      rel: 'preload',
+      href: isSmallScreen.value ? '/images/index/banner-poster.jpg' : '/images/index/banner.jpg',
+      as: 'image',
+      type: 'image/jpeg',
+    },
+    {
+      rel: 'preload',
+      href: isSmallScreen.value ? '/images/index/banner-poster.jpg' : '/images/index/banner.jpg',
+      as: 'image',
+      type: 'image/jpeg',
+    },
+    // {
+    //   rel: 'preload',
+    //   href: isSmallScreen.value ? '/index/s1banner/banner-h5.mp4' : '/index/s1banner/banner.mp4',
+    //   as: 'fetch',
+    //   type: 'video/mp4',
+    // },
   ],
 })
 useSchemaOrg([

@@ -113,8 +113,16 @@
 
 <script setup lang="ts">
 // 动态加载jpg和webp格式的图片
-const jpgImages = import.meta.glob('~/assets/images/news/*.jpg', { as: 'url', eager: true })
-const webpImages = import.meta.glob('~/assets/images/news/*.webp', { as: 'url', eager: true })
+const jpgImages = import.meta.glob('~/assets/images/news/*.jpg', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+})
+const webpImages = import.meta.glob('~/assets/images/news/*.webp', {
+  query: '?url',
+  import: 'default',
+  eager: true,
+})
 
 // 创建一个函数来获取指定名称的图片路径
 function getImagePath(baseName: string) {

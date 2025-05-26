@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch, defineExpose, useAttrs } from 'vue'
 import Hls from 'hls.js'
 
 const props = defineProps({
@@ -39,6 +38,10 @@ const props = defineProps({
     default: 'auto',
     validator: (value) => ['auto', 'metadata', 'none'].includes(value),
   },
+  forceQuality: {
+    type: Number,
+    default: -1,
+  },
 })
 
 const videoElement = ref(null)
@@ -46,7 +49,7 @@ const error = ref(null)
 const hlsInstance = ref(null)
 
 const attrs = useAttrs()
-console.log(attrs, 66666)
+
 const videoEvents = [
   'play',
   'pause',
@@ -117,19 +120,24 @@ const initPlayer = () => {
       fragLoadingMaxRetry: 3,
       fragLoadingRetryDelay: 1000,
       fragLoadingMaxRetryTimeout: 3000,
-      startLevel: -1,
+      startLevel: props.forceQuality >= 0 ? props.forceQuality : -1, // 初始级别
     })
     hls.attachMedia(videoElement.value)
     hls.loadSource(props.src)
 
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
-      hls.startLevel = getStartLevel()
-      hls.autoLevelEnabled = true
+      if (props.forceQuality >= 0) {
+        // 强制指定码率
+        hls.startLevel = 2
+        hls.autoLevelEnabled = false // 关闭自动码率切换
+      } else {
+        // 自动码率选择
+        hls.startLevel = getStartLevel()
+        hls.autoLevelEnabled = true
+      }
 
       if (props.autoplay) {
-        videoElement.value.play().catch(() => {
-          error.value = '自动播放被阻止，请点击播放按钮'
-        })
+        videoElement.value.play().catch(/*...*/)
       }
     })
 
@@ -137,15 +145,15 @@ const initPlayer = () => {
       if (data.fatal) {
         switch (data.type) {
           case Hls.ErrorTypes.NETWORK_ERROR:
-            error.value = '网络错误，尝试恢复中...'
+            error.value = ''
             hls.startLoad()
             break
           case Hls.ErrorTypes.MEDIA_ERROR:
-            error.value = '媒体错误，尝试恢复中...'
+            error.value = ''
             hls.recoverMediaError()
             break
           default:
-            error.value = `播放失败: ${data.details}`
+            error.value = ''
             destroyPlayer()
         }
       }

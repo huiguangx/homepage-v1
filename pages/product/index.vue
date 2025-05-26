@@ -17,6 +17,7 @@
               :autoplay="true"
               :width="'100%'"
               :height="'100%'"
+              :forceQuality="2"
               :poster="'/products/describemobile/describe-s1-poster-h5.webp'"
             ></VideoPlayer>
 
@@ -31,9 +32,9 @@
               webkit-playsinline="true"
               playsinline
               preload="auto"
-              poster="~/assets/images/product/describe-s1-poster-h5.webp"
+              poster="/products/describemobile/describe-s1-poster-h5.webp"
             >
-              <source src="/products/describe-h5.mp4" type="video/mp4" />
+              <source src="/products/describemobile/describe-h5.mp4" type="video/mp4" />
             </video> -->
             <VideoPlayer
               v-else
@@ -46,6 +47,7 @@
               :autoplay="true"
               :width="'100%'"
               :height="'80%'"
+              :forceQuality="2"
               :poster="'/products/describe/describe-s1-poster.webp'"
             ></VideoPlayer>
             <!-- <video
@@ -59,9 +61,9 @@
               webkit-playsinline="true"
               playsinline
               preload="auto"
-              poster="~/assets/images/product/describe-s1-poster.webp"
+              poster="/products/describe/describe-s1-poster.webp"
             >
-              <source src="/products/describe.mp4" type="video/mp4" />
+              <source src="/products/describe/describe.mp4" type="video/mp4" />
             </video> -->
           </ClientOnly>
         </div>
@@ -124,6 +126,13 @@
               :centeredSlides="true"
               :slidesPerView="'auto'"
               :spaceBetween="20"
+              :breakpoints="{
+                1560: {
+                  slidesPerView: 3,
+                  centeredSlides: true,
+                  spaceBetween: 20,
+                },
+              }"
               @slideChange="handleProductSlideChange"
             >
               <swiper-slide
@@ -532,7 +541,7 @@
                   </p>
                   <div
                     v-if="video.url"
-                    class="text-[#6A97FF] pw-text-[14px] md:text-sm md:pt-[4px] font-light whitespace-nowrap flex-shrink-0 cursor-pointer"
+                    class="text-[#6A97FF] pw-text-[14px] md:text-sm md:pt-[4px] font-light whitespace-nowrap flex-shrink-0 cursor-pointer md:hover:border-b md:hover:border-[#6A97FF] self-start"
                     @click="openVideo(video.url)"
                     :class="video.className"
                   >
@@ -581,17 +590,18 @@
               />
             </div>
             <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
-              <div class="h-auto mb-2 flex justify-between">
+              <div class="h-auto mb-2 flex justify-between items-center">
                 <img
                   src="~/assets/images/product/describe-s4-tit-img1.png"
                   class="w-2/3 object-cover"
                 />
                 <button
-                  class="product_view case text-[#6A97FF] pw-text-[14px] md:text-sm font-light"
+                  class="product_view case text-[#6A97FF] pw-text-[14px] md:text-sm font-light h-5 md:hover:border-b md:hover:border-[#6A97FF]"
                   @click="openVideo(locale === 'zh' ? caseVideoCn : caseVideoEn)"
                 >
                   {{ $t('product.cases.btn') }}
                 </button>
+
                 <VideoModal v-model:show="showVideoModal" :video-url="currentVideoUrl" />
               </div>
 
@@ -801,6 +811,47 @@ useHead({
       name: 'keywords',
       content: '',
     },
+  ],
+  link: [
+    // {
+    //   rel: 'preload',
+    //   href: isSmallScreen.value
+    //     ? '/products/describemobile/describemobile.m3u8'
+    //     : '/products/describe/describe.m3u8',
+    //   as: 'fetch',
+    // },
+    // {
+    //   rel: 'preload',
+    //   href: isSmallScreen.value
+    //     ? '/products/describemobile/segment0.ts'
+    //     : '/products/describe/segment0.ts',
+    //   as: 'fetch',
+    //   crossorigin: 'anonymous',
+    // },
+    // {
+    //   rel: 'preload',
+    //   href: isSmallScreen.value
+    //     ? '/products/describemobile/segment0.ts'
+    //     : '/products/describe/segment0.ts',
+    //   as: 'fetch',
+    //   crossorigin: 'anonymous',
+    // },
+    {
+      rel: 'preload',
+      href: isSmallScreen.value
+        ? '/products/describemobile/describe-s1-poster-h5.webp'
+        : '/products/describe/describe-s1-poster.webp',
+      as: 'image',
+      type: 'image/webp',
+    },
+    // {
+    //   rel: 'preload',
+    //   href: isSmallScreen.value
+    //     ? '/products/describemobile/describe-h5.mp4'
+    //     : '/products/describe/describe.mp4',
+    //   as: 'fetch',
+    //   type: 'video/mp4',
+    // },
   ],
 })
 const specItems = [
