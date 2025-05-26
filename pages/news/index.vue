@@ -112,18 +112,25 @@
 </template>
 
 <script setup lang="ts">
-import img1 from '~/assets/images/news/news-s2-img1.jpg'
-import img2 from '~/assets/images/news/news-s2-img2.jpg'
-import img3 from '~/assets/images/news/news-s2-img3.jpg'
-import img4 from '~/assets/images/news/news-s2-img4.jpg'
-import img5 from '~/assets/images/news/news-s2-img5.jpg'
-import img6 from '~/assets/images/news/news-s2-img6.jpg'
-import img1w from '~/assets/images/news/news-s2-img1.webp'
-import img2w from '~/assets/images/news/news-s2-img2.webp'
-import img3w from '~/assets/images/news/news-s2-img3.webp'
-import img4w from '~/assets/images/news/news-s2-img4.webp'
-import img5w from '~/assets/images/news/news-s2-img5.webp'
-import img6w from '~/assets/images/news/news-s2-img6.webp'
+// 动态加载jpg和webp格式的图片
+const jpgImages = import.meta.glob('~/assets/images/news/*.jpg', { as: 'url', eager: true })
+const webpImages = import.meta.glob('~/assets/images/news/*.webp', { as: 'url', eager: true })
+
+// 创建一个函数来获取指定名称的图片路径
+function getImagePath(baseName: string) {
+  return {
+    jpg: jpgImages[`/assets/images/news/${baseName}.jpg`],
+    webp: webpImages[`/assets/images/news/${baseName}.webp`],
+  }
+}
+
+// 使用示例
+const img1Paths = getImagePath('news-s2-img1')
+const img2Paths = getImagePath('news-s2-img2')
+const img3Paths = getImagePath('news-s2-img3')
+const img4Paths = getImagePath('news-s2-img4')
+const img5Paths = getImagePath('news-s2-img5')
+const img6Paths = getImagePath('news-s2-img6')
 
 const { t, locale } = useI18n()
 
@@ -140,13 +147,14 @@ useHead({
     },
   ],
 })
+
 const newsList = [
   {
     title: t('news.items.news1.title'),
     description: t('news.items.news1.description'),
     date: t('news.items.news1.date'),
-    image: img1,
-    imageWp: img1w,
+    image: img1Paths.jpg,
+    imageWp: img1Paths.webp,
     className: 'home_news_Spring Festival',
     href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
   },
@@ -154,8 +162,8 @@ const newsList = [
     title: t('news.items.news2.title'),
     description: t('news.items.news2.description'),
     date: t('news.items.news2.date'),
-    image: img2,
-    imageWp: img2w,
+    image: img2Paths.jpg,
+    imageWp: img2Paths.webp,
     className: 'home_news_π',
     href: 'https://mp.weixin.qq.com/s/iLqSChrf7JbVPW_N6G2BTA',
   },
@@ -163,8 +171,8 @@ const newsList = [
     title: t('news.items.news3.title'),
     description: t('news.items.news3.description'),
     date: t('news.items.news3.date'),
-    image: img3,
-    imageWp: img3w,
+    image: img3Paths.jpg,
+    imageWp: img3Paths.webp,
     className: 'home_news_Campus recruitment',
     href: 'https://mp.weixin.qq.com/s/fLL1ZBXU9_dXACOcfhpAJA',
   },
@@ -172,8 +180,8 @@ const newsList = [
     title: t('news.items.news4.title'),
     description: t('news.items.news4.description'),
     date: t('news.items.news4.date'),
-    image: img4,
-    imageWp: img4w,
+    image: img4Paths.jpg,
+    imageWp: img4Paths.webp,
     className: 'home_news_WRC',
     href: 'https://mp.weixin.qq.com/s/I-J3udvsligc9OSoGgxMsA',
   },
@@ -181,8 +189,8 @@ const newsList = [
     title: t('news.items.news5.title'),
     description: t('news.items.news5.description'),
     date: t('news.items.news5.date'),
-    image: img5,
-    imageWp: img5w,
+    image: img5Paths.jpg,
+    imageWp: img5Paths.webp,
     className: 'home_news_S1',
     href: 'https://twitter.com/Astribot_Inc/status/1825341062514438179?s=19',
   },
@@ -190,8 +198,8 @@ const newsList = [
     title: t('news.items.news6.title'),
     description: t('news.items.news6.description'),
     date: t('news.items.news6.date'),
-    image: img6,
-    imageWp: img6w,
+    image: img6Paths.jpg,
+    imageWp: img6Paths.webp,
     className: 'home_news_S1Parameter',
     href: 'https://twitter.com/Astribot_Inc/status/1783716048673640641?s=19',
   },
@@ -200,6 +208,7 @@ const newsList = [
 useHead({
   title: t('menu.news'),
 })
+
 definePageMeta({
   // 禁用页面过渡效果
   pageTransition: false,

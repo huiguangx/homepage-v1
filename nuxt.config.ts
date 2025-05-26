@@ -133,8 +133,13 @@ export default defineNuxtConfig({
         output: {
           manualChunks: (id) => {
             if (id.includes('node_modules')) {
+              // 排除已经通过 CDN 引入的库
+              if (id.includes('vue') || id.includes('swiper') || id.includes('hls.js')) {
+                return null
+              }
+
               // Nuxt 核心相关
-              if (id.includes('nuxt') || id.includes('vue')) {
+              if (id.includes('nuxt')) {
                 return 'vendor-nuxt'
               }
               // 国际化相关
@@ -153,26 +158,10 @@ export default defineNuxtConfig({
               if (id.includes('@vueuse/core')) {
                 return 'vendor-vueuse'
               }
-              // 日期处理相关
-              if (id.includes('dayjs')) {
-                return 'vendor-dayjs'
-              }
-              // 轮播相关
-              if (id.includes('swiper')) {
-                return 'vendor-swiper'
-              }
               // 其他第三方依赖
               return 'vendor-others'
             }
           },
-        },
-      },
-      // 启用压缩
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          drop_console: process.env.NODE_ENV === 'production',
-          drop_debugger: true,
         },
       },
     },
@@ -236,7 +225,26 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       style: [],
       script: [
-        // <!-- Google Tag Manager -->
+        // Vue CDN
+        {
+          src: 'https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.js',
+          defer: true,
+        },
+        // Swiper CDN
+        {
+          src: 'https://cdn.jsdelivr.net/npm/swiper@11.1.15/swiper-bundle.min.js',
+          defer: true,
+        },
+        {
+          src: 'https://cdn.jsdelivr.net/npm/swiper@11.1.15/swiper-bundle.min.css',
+          rel: 'stylesheet',
+        },
+        // HLS.js CDN
+        {
+          src: 'https://cdn.jsdelivr.net/npm/hls.js@1.6.2/dist/hls.min.js',
+          defer: true,
+        },
+        // Google Tag Manager
         process.env.ENABLE_GTM === 'true'
           ? {
               hid: 'gtm',
@@ -248,7 +256,6 @@ export default defineNuxtConfig({
               type: 'text/javascript',
             }
           : undefined,
-        // <!-- End Google Tag Manager -->
       ].filter(Boolean),
       noscript: [],
     },
