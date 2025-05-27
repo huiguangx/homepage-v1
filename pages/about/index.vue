@@ -164,7 +164,7 @@
             </div>
             <div class="md:w-3/4">
               <p class="pw-text-[13px] text-[#71798A] md:text-lg font-normal leading-relaxed">
-                星尘智能（Atribot）于2022年底在深圳成立，首创面向AI（Design for
+                星尘智能（Astribot）于2022年底在深圳成立，首创面向AI（Design for
                 AI，DFAI）的软硬件一体化系统架构，将「AI智能」与「最强操作」深度耦合，在获取具身数据上取得关键性突破。
               </p>
               <p class="pw-text-[13px] text-[#71798A] md:text-lg leading-relaxed mt-4">

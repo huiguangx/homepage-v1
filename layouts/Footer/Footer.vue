@@ -109,16 +109,18 @@
               />
               <!-- </a> -->
               <div
-                class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 w-32 bg-white rounded-md p-2 shadow-lg"
+                class="absolute hidden group-hover:block top-6 left-4 md:bottom-full md:left-1/2 md:-translate-x-1/2 mb-3 w-28 md:w-32 bg-white rounded-md p-2 shadow-lg"
               >
                 <img
                   src="~/assets/images/footer/index-s1-qr.png"
                   alt="微信二维码"
                   class="w-full h-auto"
                 />
-                <p class="text-center text-xs text-black mt-1">扫码关注公众号</p>
+                <p class="hidden md:block text-center text-xs text-black mt-1">扫码关注公众号</p>
+                <!-- <p class="hidden md:block text-center text-xs text-black mt-1">微信公众号</p> -->
+                <!-- PC端箭头（移动端隐藏） -->
                 <div
-                  class="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
+                  class="hidden md:block absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 bg-white"
                 ></div>
               </div>
             </div>

@@ -190,11 +190,13 @@
                     <h4 class="text-base font-medium">{{ job.title }}</h4>
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
-                  <button
+                  <a
+                    :href="job.url"
+                    target="_blank"
                     class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 hire_Social recruitment"
                   >
                     查看岗位
-                  </button>
+                  </a>
                 </div>
               </div>
               <a
@@ -223,11 +225,13 @@
                     <h4 class="text-base font-medium">{{ job.title }}</h4>
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
-                  <button
+                  <a
+                    :href="job.url"
+                    target="_blank"
                     class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 hire_campus recruitment"
                   >
                     查看岗位
-                  </button>
+                  </a>
                 </div>
               </div>
               <a
@@ -256,11 +260,13 @@
                     <h4 class="text-base font-medium">{{ job.title }}</h4>
                     <p class="text-xs text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
-                  <button
+                  <a
+                    :href="job.url"
+                    target="_blank"
                     class="absolute right-4 top-1/2 -translate-y-1/2 font-normal bg-[#5A46FF] text-white px-5 py-3 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 hire_Internship"
                   >
                     查看岗位
-                  </button>
+                  </a>
                 </div>
               </div>
               <a
@@ -328,11 +334,13 @@
                     <h4 class="pw-text-[14px] font-normal">{{ job.title }}</h4>
                     <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
-                  <button
+                  <a
+                    :href="job.url"
+                    target="_blank"
                     class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal hire_Social recruitment"
                   >
                     查看岗位
-                  </button>
+                  </a>
                 </div>
                 <div class="text-center mt-6">
                   <a
@@ -358,11 +366,13 @@
                     <h4 class="pw-text-[14px] font-normal">{{ job.title }}</h4>
                     <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
-                  <button
+                  <a
+                    :href="job.url"
+                    target="_blank"
                     class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal hire_campus recruitment"
                   >
                     查看岗位
-                  </button>
+                  </a>
                 </div>
                 <div class="text-center mt-6">
                   <a
@@ -388,11 +398,13 @@
                     <h4 class="pw-text-[14px] font-normal">{{ job.title }}</h4>
                     <p class="pw-text-[12px] font-normal text-gray-500 mt-1">{{ job.category }}</p>
                   </div>
-                  <button
+                  <a
+                    :href="job.url"
+                    target="_blank"
                     class="bg-[#5A46FF] text-white pw-px-[16px] pw-py-[8px] rounded pw-text-[12px] font-normal hire_Internship"
                   >
                     查看岗位
-                  </button>
+                  </a>
                 </div>
                 <div class="text-center mt-6">
                   <a
@@ -529,27 +541,63 @@ const switchTab = (tabId: string) => {
 
 // 岗位数据（保持原有不变）
 const socialJobs = [
-  { title: '硬件工程师', category: '技术类' },
-  { title: '机械工程师', category: '技术类' },
-  { title: '感知算法工程师', category: '技术类' },
-  { title: '机器人控规算法工程师', category: '技术类' },
-  { title: '产品经理', category: '产品类' },
+  {
+    title: '大模型算法研究员/工程师',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a71648f15cdaac23c5e4385c567&jobId=6b4ce7e5eaeb469785bd86a0473bc329',
+  },
+  {
+    title: '机器人交互算法研究员/工程师',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a71648f15cdaac23c5e4386c262&jobId=e5ef0d6e2550403aa57f5cf285d079af',
+  },
+  {
+    title: '机器人学习算法研究员/工程师',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a71648f15cdaac23c5e4386c262&jobId=c4daf802437c4daa8879134ca87dea66',
+  },
+
+  // {
+  //   title: '产品经理',
+  //   category: '产品类',
+  //   url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a71648f15cdaac23c5e4386c262&jobId=b6d55db9ba3e47f6afa0f1cbec105fac',
+  // },
 ]
 
 const campusJobs = [
-  { title: '硬件工程师（电源）', category: '技术类' },
-  { title: '项目经理（软机/软件）', category: '项目支持类' },
-  { title: '产品经理', category: '产品类' },
-  { title: '市场经理', category: '市场类' },
-  { title: '行政管理', category: '职能类' },
+  {
+    title: '大模型算法研究员/工程师',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a706c8f15cdaac23c5e4389c865&jobId=601797781f4b42c5a6f43774b6dfcf53',
+  },
+  {
+    title: '机器人交互算法研究员/工程师',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a706c8f15cdaac23c5e4389c865&jobId=f12a95b387a14bd08a61db84b8c47f7b',
+  },
+  {
+    title: '机器人学习算法研究员/工程师',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a706c8f15cdaac23c5e4389c865&jobId=25479f2270dc4a539afd9c8a64705c60',
+  },
 ]
 
 const internJobs = [
-  { title: '感知算法实习生', category: '技术类' },
-  { title: '具身智能算法实习生', category: '技术类' },
-  { title: '大模型算法实习生', category: '技术类' },
-  { title: '市场实习生', category: '市场类' },
-  { title: '招聘管理', category: '职能类' },
+  {
+    title: '大模型算法实习生',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a706d8f15cdaac23c5e4388c466&jobId=6ec9a92c4d834d8585f08bcee80a49da',
+  },
+  {
+    title: '机器人交互算法实习生',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a706d8f15cdaac23c5e4388c466&jobId=2e364e80878d401fbb5581d1c6f0555f',
+  },
+  {
+    title: '机器人学习算法实习生',
+    category: '技术类',
+    url: 'https://s.xinrenxinshi.com/recruitGate/detail#/ey=0ebdb005864a706d8f15cdaac23c5e4388c466&jobId=5cdcb21ffdc940fb95a8d36413ad4779',
+  },
 ]
 
 useHead({

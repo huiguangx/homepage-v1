@@ -186,6 +186,9 @@ export default defineNuxtConfig({
       logLevel: 'info',
     },
   },
+  features: {
+    inlineStyles: false,
+  },
   // 开启gzip压缩
   // nitro: {
   //   compressPublicAssets: true,
@@ -204,10 +207,10 @@ export default defineNuxtConfig({
   // },
 
   // 配置开发服务器：允许局域网访问并指定端口 3000
-  // devServer: {
-  //   host: '0.0.0.0',
-  //   port: 3000,
-  // },
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000,
+  },
 
   app: {
     baseURL: process.env.BASE_URL || '/',
@@ -222,7 +225,13 @@ export default defineNuxtConfig({
         { name: 'keywords', content: '' },
         { name: 'description', content: '' },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        {
+          rel: 'stylesheet',
+          href: '/font/font.css',
+        },
+      ],
       style: [],
       script: [
         // Vue CDN

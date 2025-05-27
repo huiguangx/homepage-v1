@@ -14,26 +14,30 @@ html {
   box-sizing: border-box;
 }
 
-@import '../font/HARMONYOS_SANS_SC_REGULAR/font.css';
-@import '../font/HARMONYOS_SANS_SC_MEDIUM/font.css';
-@import '../font/HARMONYOS_SANS_SC_BOLD/font.css';
-@import '../font/HARMONYOS_SANS_SC_LIGHT/font.css';
+// @import '../font/HARMONYOS_SANS_SC_REGULAR/font.css';
+// @import '../font/HARMONYOS_SANS_SC_MEDIUM/font.css';
+// @import '../font/HARMONYOS_SANS_SC_BOLD/font.css';
+// @import '../font/HARMONYOS_SANS_SC_LIGHT/font.css';
 
-:lang(zh) .font-light {
-  font-family: 'HarmonyOS_Sans_SC_LIGHT', sans-serif;
-  font-weight: 300;
-}
-:lang(zh) .font-normal {
-  font-family: 'HarmonyOS_Sans_SC_REGULAR', sans-serif;
-  font-weight: 400;
-}
-:lang(zh) .font-medium {
-  font-family: 'HarmonyOS_Sans_SC_MEDIUM', sans-serif;
-  font-weight: 500;
-}
-:lang(zh) .font-bold {
-  font-family: 'HarmonyOS_Sans_SC_BOLD', sans-serif;
-  font-weight: 700;
+// :lang(zh) .font-light {
+//   font-family: 'HarmonyOS_Sans_SC_LIGHT', sans-serif;
+//   font-weight: 300;
+// }
+// :lang(zh) .font-normal {
+//   font-family: 'HarmonyOS_Sans_SC_REGULAR', sans-serif;
+//   font-weight: 400;
+// }
+// :lang(zh) .font-medium {
+//   font-family: 'HarmonyOS_Sans_SC_MEDIUM', sans-serif;
+//   font-weight: 500;
+// }
+// :lang(zh) .font-bold {
+//   font-family: 'HarmonyOS_Sans_SC_BOLD', sans-serif;
+//   font-weight: 700;
+// }
+
+:lang(zh) {
+  font-family: 'HarmonyOSHans-Regular', sans-serif;
 }
 /* 英文字体 */
 

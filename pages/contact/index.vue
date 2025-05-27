@@ -51,6 +51,7 @@
                       id="name"
                       v-model="formData.name"
                       type="text"
+                      @input="errors.name = ''"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
                       :class="{ 'border-red-500': errors.name }"
                       :placeholder="$t('contact.cooperation.form.name')"
@@ -61,6 +62,7 @@
                   <div>
                     <input
                       id="company"
+                      @input="errors.company = ''"
                       v-model="formData.company"
                       type="text"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
@@ -75,6 +77,7 @@
                   <div>
                     <input
                       id="email"
+                      @input="errors.email = ''"
                       v-model="formData.email"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
                       :class="{ 'border-red-500': errors.email }"
@@ -86,6 +89,7 @@
                   <div>
                     <input
                       id="phone"
+                      @input="errors.phone = ''"
                       v-model="formData.phone"
                       type="tel"
                       class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
@@ -99,6 +103,7 @@
                 <div class="pw-mt-[16px] md:mt-4">
                   <textarea
                     id="message"
+                    @input="errors.message = ''"
                     v-model="formData.message"
                     rows="4"
                     class="w-full pw-text-[14px] md:text-sm px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[#5A46FF]"
@@ -472,7 +477,7 @@ const submitForm = async () => {
   }
 
   if (!isValid) {
-    showToast(t('contact.cooperation.form.fillRequired') || '请填写所有必填项', 'error')
+    // showToast(t('contact.cooperation.form.fillRequired') || '请填写所有必填项', 'error')
     return // 如果表单无效，则停止提交
   }
 

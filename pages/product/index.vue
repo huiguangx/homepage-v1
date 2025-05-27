@@ -6,7 +6,7 @@
       <div class="relative h-full w-full">
         <div class="w-full h-full">
           <ClientOnly>
-            <VideoPlayer
+            <!-- <VideoPlayer
               v-if="isSmallScreen"
               class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
               src="/products/describemobile/describemobile.m3u8"
@@ -19,9 +19,9 @@
               :height="'100%'"
               :forceQuality="2"
               :poster="'/products/describemobile/describe-s1-poster-h5.webp'"
-            ></VideoPlayer>
+            ></VideoPlayer> -->
 
-            <!-- <video
+            <video
               v-if="isSmallScreen"
               class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
               muted
@@ -35,8 +35,8 @@
               poster="/products/describemobile/describe-s1-poster-h5.webp"
             >
               <source src="/products/describemobile/describe-h5.mp4" type="video/mp4" />
-            </video> -->
-            <VideoPlayer
+            </video>
+            <!-- <VideoPlayer
               v-else
               class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
               src="/products/describe/describe.m3u8"
@@ -49,8 +49,8 @@
               :height="'80%'"
               :forceQuality="2"
               :poster="'/products/describe/describe-s1-poster.webp'"
-            ></VideoPlayer>
-            <!-- <video
+            ></VideoPlayer> -->
+            <video
               v-else
               class="fixed inset-0 w-full h-[80vh] md:h-full object-cover object-bottom"
               muted
@@ -64,7 +64,7 @@
               poster="/products/describe/describe-s1-poster.webp"
             >
               <source src="/products/describe/describe.mp4" type="video/mp4" />
-            </video> -->
+            </video>
           </ClientOnly>
         </div>
         <div
@@ -385,6 +385,7 @@
             <div class="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img1.jpg"
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -401,6 +402,7 @@
             <div class="rounded-xl md:rounded-2xl overflow-hidden">
               <img
                 src="~/assets/images/product/describe-s3-img2.jpg"
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -418,6 +420,7 @@
               <img
                 src="~/assets/images/product/describe-s3-img3.jpg"
                 class="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
 
@@ -434,6 +437,7 @@
               <img
                 src="~/assets/images/product/describe-s3-img4.jpg"
                 class="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
 
@@ -450,6 +454,7 @@
               <img
                 src="~/assets/images/product/describe-s3-img5.jpg"
                 class="w-full h-full object-cover rounded-b-2xl md:rounded-b-3xl"
+                loading="lazy"
               />
               <div
                 class="absolute inset-x-0 bottom-0 rounded-b-xl md:rounded-b-2xl bg-black/50 backdrop-blur-[4px]"
@@ -473,6 +478,7 @@
               <img
                 src="~/assets/images/product/describe-s3-img6.jpg"
                 class="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
 
@@ -587,6 +593,7 @@
               <img
                 src="~/assets/images/product/describe-s4-img1.jpg"
                 class="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
@@ -597,7 +604,11 @@
                 />
                 <button
                   class="product_view case text-[#6A97FF] pw-text-[14px] md:text-sm font-light h-5 md:hover:border-b md:hover:border-[#6A97FF]"
-                  @click="openVideo(locale === 'zh' ? caseVideoCn : caseVideoEn)"
+                  @click="
+                    openVideo(
+                      locale === 'zh' ? '/media/星尘中文版_x264.mp4' : '/media/星尘英文版_x264.mp4',
+                    )
+                  "
                 >
                   {{ $t('product.cases.btn') }}
                 </button>
@@ -616,12 +627,14 @@
               <img
                 src="~/assets/images/product/describe-s4-img2.jpg"
                 class="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
               <img
                 src="~/assets/images/product/describe-s4-tit-img2.png"
                 class="h-10 mb-2 object-cover"
+                loading="lazy"
               />
               <p class="pw-text-[12px] md:text-sm text-[#AAAAAA]">
                 {{ $t('product.cases.partners.1.desc') }}
@@ -634,12 +647,14 @@
               <img
                 src="~/assets/images/product/describe-s4-img3.jpg"
                 class="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
             <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
               <img
                 src="~/assets/images/product/describe-s4-tit-img3.png"
                 class="h-10 mb-2 object-cover"
+                loading="lazy"
               />
               <p class="pw-text-[12px] md:text-sm text-[#AAAAAA]">
                 {{ $t('product.cases.partners.2.desc') }}
@@ -740,60 +755,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import video1 from '~/assets/media/遥操1.mp4'
-import video2 from '~/assets/media/遥操2.mp4'
-import video3 from '~/assets/media/遥操3.mp4'
-import video4 from '~/assets/media/遥操4.mp4'
-import video5 from '~/assets/media/遥操5.mp4'
-import video6 from '~/assets/media/遥操6.mp4'
-
-import danceVideo from '~/assets/media/01跳舞.mp4'
-import catVideo from '~/assets/media/02逗猫＋扫地.mp4'
-import yangqinVideo from '~/assets/media/03扬琴.mp4'
-import waffleVideo from '~/assets/media/04华夫饼倒酱.mp4'
-import teaVideo from '~/assets/media/05倒茶叶.mp4'
-import sortingVideo from '~/assets/media/06智能分拣.mp4'
-import foldingVideo from '~/assets/media/07叠衣服.mp4'
-import cupVideo from '~/assets/media/08竞技叠杯.mp4'
-import writeVideo from '~/assets/media/09写字.mp4'
-
-// 英文版本视频
-import danceVideoEn from '~/assets/media/01跳舞-en.mp4'
-import catVideoEn from '~/assets/media/02逗猫扫地-en.mp4'
-import yangqinVideoEn from '~/assets/media/03扬琴-en.mp4'
-import waffleVideoEn from '~/assets/media/04华夫饼倒酱-en.mp4'
-import teaVideoEn from '~/assets/media/05倒茶叶-en.mp4'
-import sortingVideoEn from '~/assets/media/06智能分拣-en.mp4'
-import foldingVideoEn from '~/assets/media/07叠衣服-en.mp4'
-import cupVideoEn from '~/assets/media/08竞技叠杯-en.mp4'
-import writeVideoEn from '~/assets/media/09写字-en.mp4'
-
-import danceVideoPoster from '~/assets/images/product/01跳舞.jpg'
-import danceVideoPosterEn from '~/assets/images/product/01跳舞-en.jpg'
-import catVideoPoster from '~/assets/images/product/02逗猫扫地.jpg'
-import catVideoPosterEn from '~/assets/images/product/02逗猫扫地-en.jpg'
-import yangqinVideoPoster from '~/assets/images/product/03扬琴.jpg'
-import yangqinVideoPosterEn from '~/assets/images/product/03扬琴-en.jpg'
-import waffleVideoPoster from '~/assets/images/product/04华夫饼倒酱.jpg'
-import waffleVideoPosterEn from '~/assets/images/product/04华夫饼倒酱-en.jpg'
-import teaVideoPoster from '~/assets/images/product/05倒茶叶.jpg'
-import teaVideoPosterEn from '~/assets/images/product/05倒茶叶-en.jpg'
-import sortingVideoPoster from '~/assets/images/product/06智能分拣.jpg'
-import sortingVideoPosterEn from '~/assets/images/product/06智能分拣-en.jpg'
-import foldingVideoPoster from '~/assets/images/product/07叠衣服.jpg'
-import foldingVideoPosterEn from '~/assets/images/product/07叠衣服-en.jpg'
-import cupVideoPoster from '~/assets/images/product/08竞技叠杯.jpg'
-import cupVideoPosterEn from '~/assets/images/product/08竞技叠杯-en.jpg'
-import writeVideoPoster from '~/assets/images/product/09写字.jpg'
-import writeVideoPosterEn from '~/assets/images/product/09写字-en.jpg'
-
 import type { Swiper as SwiperClass } from 'swiper'
-
-// 查看案例的视频
-import caseVideoCn from '~/assets/media/星尘中文版_x264.mp4'
-import caseVideoEn from '~/assets/media/星尘英文版_x264.mp4'
-import detailVideo3 from '~/assets/media/遥操3高清版.mp4'
-import detailVideo1 from '~/assets/media/遥操1高清版.mp4'
 import { useMediaQuery } from '@vueuse/core'
 
 const isSmallScreen = useMediaQuery('(max-width: 767px)')
@@ -811,47 +773,6 @@ useHead({
       name: 'keywords',
       content: '',
     },
-  ],
-  link: [
-    // {
-    //   rel: 'preload',
-    //   href: isSmallScreen.value
-    //     ? '/products/describemobile/describemobile.m3u8'
-    //     : '/products/describe/describe.m3u8',
-    //   as: 'fetch',
-    // },
-    // {
-    //   rel: 'preload',
-    //   href: isSmallScreen.value
-    //     ? '/products/describemobile/segment0.ts'
-    //     : '/products/describe/segment0.ts',
-    //   as: 'fetch',
-    //   crossorigin: 'anonymous',
-    // },
-    // {
-    //   rel: 'preload',
-    //   href: isSmallScreen.value
-    //     ? '/products/describemobile/segment0.ts'
-    //     : '/products/describe/segment0.ts',
-    //   as: 'fetch',
-    //   crossorigin: 'anonymous',
-    // },
-    {
-      rel: 'preload',
-      href: isSmallScreen.value
-        ? '/products/describemobile/describe-s1-poster-h5.webp'
-        : '/products/describe/describe-s1-poster.webp',
-      as: 'image',
-      type: 'image/webp',
-    },
-    // {
-    //   rel: 'preload',
-    //   href: isSmallScreen.value
-    //     ? '/products/describemobile/describe-h5.mp4'
-    //     : '/products/describe/describe.mp4',
-    //   as: 'fetch',
-    //   type: 'video/mp4',
-    // },
   ],
 })
 const specItems = [
@@ -934,67 +855,67 @@ const specItems = [
 // 基础视频信息
 const baseVideos = [
   {
-    src: danceVideo,
+    src: '/media/01跳舞.mp4',
     title: '舞蹈表演',
-    enSrc: danceVideoEn,
-    posterSrc: danceVideoPoster,
-    enPosterSrc: danceVideoPosterEn,
+    enSrc: '/media/01跳舞-en.mp4',
+    posterSrc: '/images/product/01跳舞.jpg',
+    enPosterSrc: '/images/product/01跳舞-en.jpg',
   },
   {
-    src: catVideo,
+    src: '/media/02逗猫扫地.mp4',
     title: '逗猫扫地',
-    enSrc: catVideoEn,
-    posterSrc: catVideoPoster,
-    enPosterSrc: catVideoPosterEn,
+    enSrc: '/media/02逗猫扫地-en.mp4',
+    posterSrc: '/images/product/02逗猫扫地.jpg',
+    enPosterSrc: '/images/product/02逗猫扫地-en.jpg',
   },
   {
-    src: yangqinVideo,
+    src: '/media/03扬琴.mp4',
     title: '扬琴演奏',
-    enSrc: yangqinVideoEn,
-    posterSrc: yangqinVideoPoster,
-    enPosterSrc: yangqinVideoPosterEn,
+    enSrc: '/media/03扬琴-en.mp4',
+    posterSrc: '/images/product/03扬琴.jpg',
+    enPosterSrc: '/images/product/03扬琴-en.jpg',
   },
   {
-    src: waffleVideo,
+    src: '/media/04华夫饼倒酱.mp4',
     title: '华夫饼制作',
-    enSrc: waffleVideoEn,
-    posterSrc: waffleVideoPoster,
-    enPosterSrc: waffleVideoPosterEn,
+    enSrc: '/media/04华夫饼倒酱-en.mp4',
+    posterSrc: '/images/product/04华夫饼倒酱.jpg',
+    enPosterSrc: '/images/product/04华夫饼倒酱-en.jpg',
   },
   {
-    src: teaVideo,
+    src: '/media/05倒茶叶.mp4',
     title: '茶艺展示',
-    enSrc: teaVideoEn,
-    posterSrc: teaVideoPoster,
-    enPosterSrc: teaVideoPosterEn,
+    enSrc: '/media/05倒茶叶-en.mp4',
+    posterSrc: '/images/product/05倒茶叶.jpg',
+    enPosterSrc: '/images/product/05倒茶叶-en.jpg',
   },
   {
-    src: sortingVideo,
+    src: '/media/06智能分拣.mp4',
     title: '智能分拣',
-    enSrc: sortingVideoEn,
-    posterSrc: sortingVideoPoster,
-    enPosterSrc: sortingVideoPosterEn,
+    enSrc: '/media/06智能分拣-en.mp4',
+    posterSrc: '/images/product/06智能分拣.jpg',
+    enPosterSrc: '/images/product/06智能分拣-en.jpg',
   },
   {
-    src: foldingVideo,
+    src: '/media/07叠衣服.mp4',
     title: '衣物整理',
-    enSrc: foldingVideoEn,
-    posterSrc: foldingVideoPoster,
-    enPosterSrc: foldingVideoPosterEn,
+    enSrc: '/media/07叠衣服-en.mp4',
+    posterSrc: '/images/product/07叠衣服.jpg',
+    enPosterSrc: '/images/product/07叠衣服-en.jpg',
   },
   {
-    src: cupVideo,
+    src: '/media/08竞技叠杯.mp4',
     title: '竞技叠杯',
-    enSrc: cupVideoEn,
-    posterSrc: cupVideoPoster,
-    enPosterSrc: cupVideoPosterEn,
+    enSrc: '/media/08竞技叠杯-en.mp4',
+    posterSrc: '/images/product/08竞技叠杯.jpg',
+    enPosterSrc: '/images/product/08竞技叠杯-en.jpg',
   },
   {
-    src: writeVideo,
+    src: '/media/09写字.mp4',
     title: '写字',
-    enSrc: writeVideoEn,
-    posterSrc: writeVideoPoster,
-    enPosterSrc: writeVideoPosterEn,
+    enSrc: '/media/09写字-en.mp4',
+    posterSrc: '/images/product/09写字.jpg',
+    enPosterSrc: '/images/product/09写字-en.jpg',
   },
 ]
 
@@ -1015,22 +936,22 @@ const videos = computed(() => {
   }))
 })
 const vrVideos = [
-  { src: video2, title: '遥操2', desc: t('product.teleoperation.video_detail.1.desc') },
+  { src: '/media/遥操2.mp4', title: '遥操2', desc: t('product.teleoperation.video_detail.1.desc') },
   {
-    src: video3,
+    src: '/media/遥操3.mp4',
     title: '遥操3',
     desc: t('product.teleoperation.video_detail.2.desc'),
-    url: detailVideo3,
+    url: '/media/遥操3高清版.mp4',
     className: 'product_VR View details1',
   },
-  { src: video4, title: '遥操4', desc: t('product.teleoperation.video_detail.3.desc') },
-  { src: video5, title: '遥操5', desc: t('product.teleoperation.video_detail.4.desc') },
-  { src: video6, title: '遥操6', desc: t('product.teleoperation.video_detail.5.desc') },
+  { src: '/media/遥操4.mp4', title: '遥操4', desc: t('product.teleoperation.video_detail.3.desc') },
+  { src: '/media/遥操5.mp4', title: '遥操5', desc: t('product.teleoperation.video_detail.4.desc') },
+  { src: '/media/遥操6.mp4', title: '遥操6', desc: t('product.teleoperation.video_detail.5.desc') },
   {
-    src: video1,
+    src: '/media/遥操1.mp4',
     title: '遥操1',
     desc: t('product.teleoperation.video_detail.0.desc'),
-    url: detailVideo1,
+    url: '/media/遥操1高清版.mp4',
     className: 'product_VR View details2',
   },
 ]

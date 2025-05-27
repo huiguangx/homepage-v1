@@ -430,7 +430,8 @@
                 /> -->
                   <img
                     :src="news.image"
-                    alt="News Banner"
+                    alt="星尘智能"
+                    loading="lazy"
                     class="w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.2,0,0,1)] md:group-hover:scale-110 aspect-[847/492]"
                     :class="`${news.className}`"
                   />
@@ -577,15 +578,9 @@
 import { Swiper, SwiperSlide } from '@/lib/vue-swiper'
 import 'swiper/css/navigation' // 必须引入的样式
 import 'swiper/css/pagination'
-import type { Swiper as SwiperClass, SwiperOptions } from 'swiper/types'
+import type { Swiper as SwiperClass } from 'swiper/types'
 import { useI18n } from 'vue-i18n'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
-import img1 from '~/assets/images/news/news-s2-img1.jpg'
-import img2 from '~/assets/images/news/news-s2-img2.jpg'
-import img3 from '~/assets/images/news/news-s2-img3.jpg'
-import img4 from '~/assets/images/news/news-s2-img4.jpg'
-// import img5 from '~/assets/images/news/news-s2-img5.jpg'
-// import img6 from '~/assets/images/news/news-s2-img6.jpg'
 import { useMediaQuery } from '@vueuse/core'
 
 const isSmallScreen = useMediaQuery('(max-width: 767px)')
@@ -601,15 +596,17 @@ useHead({
     },
     {
       name: 'keywords',
-      content: '', // 如果未定义，默认值为 'AI,智能助手,人工智能'
+      content: '',
     },
   ],
   link: [
     {
       rel: 'preload',
-      href: isSmallScreen.value ? '/images/index/banner-poster.jpg' : '/images/index/banner.jpg',
+      href: isSmallScreen.value
+        ? '/images/index/index-s1-o4-bg-h5.webp'
+        : '/images/index/index-s1-o4-bg.webp',
       as: 'image',
-      type: 'image/jpeg',
+      type: 'image/webp',
     },
     {
       rel: 'preload',
@@ -641,7 +638,7 @@ const newsList = [
     title: t('news.items.news1.title'),
     description: t('news.items.news1.description'),
     date: t('news.items.news1.date'),
-    image: img1,
+    image: '/images/news/news-s2-img1.jpg',
     className: 'home_news_Spring Festival',
     href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
   },
@@ -649,7 +646,7 @@ const newsList = [
     title: t('news.items.news2.title'),
     description: t('news.items.news2.description'),
     date: t('news.items.news2.date'),
-    image: img2,
+    image: '/images/news/news-s2-img2.jpg',
     className: 'home_news_π',
     href: 'https://mp.weixin.qq.com/s/iLqSChrf7JbVPW_N6G2BTA',
   },
@@ -657,7 +654,7 @@ const newsList = [
     title: t('news.items.news3.title'),
     description: t('news.items.news3.description'),
     date: t('news.items.news3.date'),
-    image: img3,
+    image: '/images/news/news-s2-img3.jpg',
     className: 'home_news_Campus recruitment',
     href: 'https://mp.weixin.qq.com/s/fLL1ZBXU9_dXACOcfhpAJA',
   },
@@ -665,24 +662,10 @@ const newsList = [
     title: t('news.items.news4.title'),
     description: t('news.items.news4.description'),
     date: t('news.items.news4.date'),
-    image: img4,
+    image: '/images/news/news-s2-img4.jpg',
     className: 'home_news_WRC',
     href: 'https://mp.weixin.qq.com/s/I-J3udvsligc9OSoGgxMsA',
   },
-  // {
-  //   title: t('news.items.news5.title'),
-  //   description: t('news.items.news5.description'),
-  //   date: t('news.items.news5.date'),
-  //   image: img5,
-  //   className: 'home_news_S1'
-  // },
-  // {
-  //   title: t('news.items.news6.title'),
-  //   description: t('news.items.news6.description'),
-  //   date: t('news.items.news6.date'),
-  //   image: img6,
-  //   className: 'home_news_S1Parameter'
-  // },
 ]
 
 const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块

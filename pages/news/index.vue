@@ -6,18 +6,18 @@
         <picture>
           <source
             media="(max-width: 767px)"
-            srcset="~/assets/images/news/news-s1-poster-h5.webp"
+            srcset="/images/news/news-s1-poster-h5.webp"
             type="image/webp"
           />
-          <source media="(max-width: 767px)" srcset="~/assets/images/news/news-s1-poster-h5.jpg" />
+          <source media="(max-width: 767px)" srcset="/images/news/news-s1-poster-h5.jpg" />
           <source
             media="(min-width: 768px)"
-            srcset="~/assets/images/news/news-s1-poster.webp"
+            srcset="/images/news/news-s1-poster.webp"
             type="image/webp"
           />
-          <source media="(min-width: 768px)" srcset="~/assets/images/news/news-s1-poster.jpg" />
+          <source media="(min-width: 768px)" srcset="/images/news/news-s1-poster.jpg" />
           <img
-            src="~/assets/images/news/news-s1-poster.jpg"
+            src="/images/news/news-s1-poster.jpg"
             alt=""
             class="w-full h-auto object-cover aspect-[750/416] md:aspect-[2880/588]"
             loading="lazy"
@@ -112,34 +112,6 @@
 </template>
 
 <script setup lang="ts">
-// 动态加载jpg和webp格式的图片
-const jpgImages = import.meta.glob('~/assets/images/news/*.jpg', {
-  query: '?url',
-  import: 'default',
-  eager: true,
-})
-const webpImages = import.meta.glob('~/assets/images/news/*.webp', {
-  query: '?url',
-  import: 'default',
-  eager: true,
-})
-
-// 创建一个函数来获取指定名称的图片路径
-function getImagePath(baseName: string) {
-  return {
-    jpg: jpgImages[`/assets/images/news/${baseName}.jpg`],
-    webp: webpImages[`/assets/images/news/${baseName}.webp`],
-  }
-}
-
-// 使用示例
-const img1Paths = getImagePath('news-s2-img1')
-const img2Paths = getImagePath('news-s2-img2')
-const img3Paths = getImagePath('news-s2-img3')
-const img4Paths = getImagePath('news-s2-img4')
-const img5Paths = getImagePath('news-s2-img5')
-const img6Paths = getImagePath('news-s2-img6')
-
 const { t, locale } = useI18n()
 
 useHead({
@@ -161,8 +133,8 @@ const newsList = [
     title: t('news.items.news1.title'),
     description: t('news.items.news1.description'),
     date: t('news.items.news1.date'),
-    image: img1Paths.jpg,
-    imageWp: img1Paths.webp,
+    image: '/images/news/news-s2-img1.jpg',
+    imageWp: '/images/news/news-s2-img1.webp',
     className: 'home_news_Spring Festival',
     href: 'https://mp.weixin.qq.com/s/bZWECwN9k7D_2Cn8K314lQ?mpshare=1&scene=1&srcid=0127j220u00QpuH07Pkz8Axa&sharer_shareinfo=95a16edcaf4201d6cf4218df9d6f71e1&sharer_shareinfo_first=95a16edcaf4201d6cf4218df9d6f71e1&from=industrynews&nwr_flag=1#wechat_redirect',
   },
@@ -170,8 +142,8 @@ const newsList = [
     title: t('news.items.news2.title'),
     description: t('news.items.news2.description'),
     date: t('news.items.news2.date'),
-    image: img2Paths.jpg,
-    imageWp: img2Paths.webp,
+    image: '/images/news/news-s2-img2.jpg',
+    imageWp: '/images/news/news-s2-img2.webp',
     className: 'home_news_π',
     href: 'https://mp.weixin.qq.com/s/iLqSChrf7JbVPW_N6G2BTA',
   },
@@ -179,8 +151,8 @@ const newsList = [
     title: t('news.items.news3.title'),
     description: t('news.items.news3.description'),
     date: t('news.items.news3.date'),
-    image: img3Paths.jpg,
-    imageWp: img3Paths.webp,
+    image: '/images/news/news-s2-img3.jpg',
+    imageWp: '/images/news/news-s2-img3.webp',
     className: 'home_news_Campus recruitment',
     href: 'https://mp.weixin.qq.com/s/fLL1ZBXU9_dXACOcfhpAJA',
   },
@@ -188,8 +160,8 @@ const newsList = [
     title: t('news.items.news4.title'),
     description: t('news.items.news4.description'),
     date: t('news.items.news4.date'),
-    image: img4Paths.jpg,
-    imageWp: img4Paths.webp,
+    image: '/images/news/news-s2-img4.jpg',
+    imageWp: '/images/news/news-s2-img4.webp',
     className: 'home_news_WRC',
     href: 'https://mp.weixin.qq.com/s/I-J3udvsligc9OSoGgxMsA',
   },
@@ -197,8 +169,8 @@ const newsList = [
     title: t('news.items.news5.title'),
     description: t('news.items.news5.description'),
     date: t('news.items.news5.date'),
-    image: img5Paths.jpg,
-    imageWp: img5Paths.webp,
+    image: '/images/news/news-s2-img5.jpg',
+    imageWp: '/images/news/news-s2-img5.webp',
     className: 'home_news_S1',
     href: 'https://twitter.com/Astribot_Inc/status/1825341062514438179?s=19',
   },
@@ -206,8 +178,8 @@ const newsList = [
     title: t('news.items.news6.title'),
     description: t('news.items.news6.description'),
     date: t('news.items.news6.date'),
-    image: img6Paths.jpg,
-    imageWp: img6Paths.webp,
+    image: '/images/news/news-s2-img6.jpg',
+    imageWp: '/images/news/news-s2-img6.webp',
     className: 'home_news_S1Parameter',
     href: 'https://twitter.com/Astribot_Inc/status/1783716048673640641?s=19',
   },
