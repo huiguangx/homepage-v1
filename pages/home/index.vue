@@ -47,7 +47,7 @@
                   <img
                     src="/images/index/index-s1-o4-bg.jpg"
                     class="w-full h-full object-cover"
-                    alt=""
+                    :alt="t('home.newsBanner.title')"
                   />
                 </picture>
                 <div
@@ -80,7 +80,7 @@
                       <a
                         href="https://mp.weixin.qq.com/s/fh2JlVvN4p5EWbIcHG5YMw"
                         target="_blank"
-                        class="home_duocore_banner_button inline-block rounded border border-[#5A46FF] md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-[#5A46FF] md:text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
+                        class="home_duocore_banner_button inline-block rounded border border-[#5A46FF] md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg font-normal pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-[#5A46FF] md:text-white md:hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
                       >
                         {{ $t('home.newsBanner.cta') }}
                       </a>
@@ -172,7 +172,7 @@
                   <img
                     src="~/assets/images/index/index-s1-bg.jpg"
                     class="w-full h-full object-cover"
-                    alt=""
+                    :alt="t('home.preorder.title')"
                   />
                 </picture>
 
@@ -203,7 +203,7 @@
                       <div class="flex flex-col item-center">
                         <img
                           src="~/assets/images/index/index-s1-qr-en.png"
-                          alt="QR Code"
+                          :alt="t('home.preorder.hint')"
                           class="pw-w-[60px] md:w-20 h-auto"
                         />
                         <div class="pw-pt-[8px] md:pt-4 text-center">
@@ -254,7 +254,7 @@
                   <img
                     src="~/assets/images/index/index-s1-o3-bg.jpg"
                     class="w-full h-full object-cover"
-                    alt=""
+                    :alt="t('home.recruitment.title')"
                   />
                 </picture>
 
@@ -273,7 +273,7 @@
                     <div class="pw-mt-[16px] md:mt-10">
                       <NuxtLinkLocale
                         :to="{ path: '/careers', hash: '#joinus' }"
-                        class="home_hire_banner_button inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
+                        class="home_hire_banner_button inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
                       >
                         {{ $t('home.careers.title') }}
                       </NuxtLinkLocale>
@@ -287,7 +287,11 @@
 
         <div class="swiper-button-prev">
           <button class="rounded-lg">
-            <img src="~/assets/images/index/prev-arrow.svg" class="home_banner_Left arrow" alt="" />
+            <img
+              src="~/assets/images/index/prev-arrow.svg"
+              class="home_banner_Left arrow"
+              :alt="t('menu.home')"
+            />
           </button>
         </div>
         <div class="swiper-button-next">
@@ -295,7 +299,7 @@
             <img
               src="~/assets/images/index/next-arrow.svg"
               class="home_banner_right arrow"
-              alt=""
+              :alt="t('menu.home')"
             />
           </button>
         </div>
@@ -331,9 +335,19 @@
             您的浏览器不支持视频播放
           </video> -->
           <VideoPlayer
+            v-if="locale === 'zh'"
             class="w-full h-full object-cover home_S1video"
             src="/index/s2test/index-s2-test.m3u8"
             poster="/index/s2test/index-s2-test.webp"
+            :width="'100%'"
+            :height="'100%'"
+            controls
+          />
+          <VideoPlayer
+            v-if="locale === 'en'"
+            class="w-full h-full object-cover home_S1video"
+            src="/index/s2testen/index-s2-test-en.m3u8"
+            poster="/index/s2testen/index-s2-test-en.webp"
             :width="'100%'"
             :height="'100%'"
             controls
@@ -587,16 +601,75 @@ const isSmallScreen = useMediaQuery('(max-width: 767px)')
 
 const { t, locale } = useI18n()
 const autoplayDelay = 4000 // 轮播时间 30 秒
-useHead({
+
+useHead(() => ({
   title: locale.value === 'zh' ? '星尘智能' : 'Astirbot',
   meta: [
     {
       name: 'description',
-      content: '',
+      content: t('home.hero.subtitle'),
     },
     {
       name: 'keywords',
-      content: '',
+      content:
+        locale.value === 'zh'
+          ? '星尘智能,AI机器人,智能机器人,人形机器人,机器人公司,人工智能,通用机器人,具身智能'
+          : 'Astribot,AI Robot,Intelligent Robot,Humanoid Robot,Robotics Company,Artificial Intelligence,General Purpose Robot,Embodied AI',
+    },
+    // Open Graph tags
+    {
+      property: 'og:title',
+      content: t('home.hero.title'),
+    },
+    {
+      property: 'og:description',
+      content: t('home.hero.subtitle'),
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:image',
+      content: '/images/index/index-s1-bg.jpg',
+    },
+    {
+      property: 'og:locale',
+      content: locale.value,
+    },
+    {
+      property: 'og:locale:alternate',
+      content: locale.value === 'zh' ? 'en' : 'zh',
+    },
+    // Twitter Card tags
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    },
+    {
+      name: 'twitter:title',
+      content: t('home.hero.title'),
+    },
+    {
+      name: 'twitter:description',
+      content: t('home.hero.subtitle'),
+    },
+    {
+      name: 'twitter:image',
+      content: '/images/index/index-s1-bg.jpg',
+    },
+    // Additional SEO tags
+    {
+      name: 'robots',
+      content: 'index, follow',
+    },
+    {
+      name: 'author',
+      content: 'Astribot',
+    },
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1',
     },
   ],
   link: [
@@ -614,22 +687,58 @@ useHead({
       as: 'image',
       type: 'image/jpeg',
     },
-    // {
-    //   rel: 'preload',
-    //   href: isSmallScreen.value ? '/index/s1banner/banner-h5.mp4' : '/index/s1banner/banner.mp4',
-    //   as: 'fetch',
-    //   type: 'video/mp4',
-    // },
   ],
-})
+}))
 useSchemaOrg([
   {
-    '@type': 'DefinedTerm',
-    name: 'Nuxt Schema.org',
-    description: 'Nuxt Schema.org is a Nuxt module for adding Schema.org to your Nuxt app.',
-    inDefinedTermSet: {
-      '@type': 'DefinedTermSet',
-      name: 'Nuxt Modules',
+    '@type': 'Organization',
+    name: 'Astribot',
+    url: 'https://astribot.com',
+    logo: 'https://astribot.com/images/logo.png',
+    sameAs: [
+      'https://www.linkedin.com/company/astribot',
+      'https://twitter.com/astribot',
+      'https://www.youtube.com/@astribot',
+    ],
+  },
+  {
+    '@type': 'WebSite',
+    name: t('home.hero.title'),
+    description: t('home.hero.subtitle'),
+    url: `https://astribot.com/${locale.value}`,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `https://astribot.com/${locale.value}/search?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  },
+  {
+    '@type': 'Product',
+    name: t('home.product.title'),
+    description: t('home.product.tagline'),
+    image: '/images/index/index-s1-bg.jpg',
+    brand: {
+      '@type': 'Brand',
+      name: 'Astribot',
+    },
+    manufacturer: {
+      '@type': 'Organization',
+      name: 'Astribot',
+    },
+  },
+  {
+    '@type': 'NewsArticle',
+    headline: t('home.newsList.news1.title'),
+    description: t('home.newsList.news1.description'),
+    datePublished: '2025-01-27',
+    image: '/images/news/news-s2-img1.jpg',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Astribot',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://astribot.com/images/logo.png',
+      },
     },
   },
 ])

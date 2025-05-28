@@ -190,7 +190,7 @@
                   {{ $t('contact.connect.social.wechat') }}
                 </span>
                 <div
-                  class="absolute hidden md:group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 w-32 bg-white rounded-md p-2 shadow-lg"
+                  class="absolute hidden group-hover:block bottom-full left-1/2 mb-3 -translate-x-1/2 w-32 bg-white rounded-md p-2 shadow-lg"
                 >
                   <img
                     src="~/assets/images/footer/index-s1-qr.png"

@@ -74,16 +74,16 @@
         <div class="absolute inset-x-0 pw-top-[74px] md:top-28 text-center z-20">
           <div>
             <h1 class="pw-text-[26px] md:text-5xl font-bold text-white pw-mb-[12px] md:mb-4">
-              {{ $t('product.video.title') }}
+              {{ t('product.video.title') }}
             </h1>
             <p class="pw-text-[16px] md:text-lg text-white font-normal pw-mb-[16px] md:mb-6">
-              {{ $t('product.video.subtitle') }}
+              {{ t('product.video.subtitle') }}
             </p>
             <NuxtLinkLocale
               to="/contact"
               class="product_contact us inline-block pw-text-[14px] md:text-base bg-transparent text-white border border-white pw-px-[20px] pw-py-[12px] md:px-5 md:py-3 rounded-md hover:bg-white md:hover:text-black transition-colors cursor-pointer"
             >
-              {{ $t('product.video.cta') }}
+              {{ t('product.video.cta') }}
             </NuxtLinkLocale>
           </div>
         </div>
@@ -96,14 +96,23 @@
         <div class="container mx-auto text-center pw-pb-[14px] md:py-10 md:max-w-[1280px]">
           <div>
             <h1 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-4">
-              {{ $t('product.performance.title') }}
+              {{ t('product.performance.title') }}
             </h1>
-            <p class="pw-text-[14px] md:text-lg font-normal text-[#C9C9C9]">
-              {{ $t('product.performance.description1') }}
+            <p
+              v-if="isSmallScreen === true"
+              class="pw-text-[14px] md:text-lg font-normal text-[#C9C9C9]"
+            >
+              {{ t('product.performance.description1') }}{{ t('product.performance.description2') }}
             </p>
-            <p class="pw-text-[14px] md:text-lg font-normal text-[#C9C9C9]">
-              {{ $t('product.performance.description2') }}
-            </p>
+
+            <template v-else>
+              <p class="pw-text-[14px] md:text-lg font-normal text-[#C9C9C9]">
+                {{ t('product.performance.description1') }}
+              </p>
+              <p class="pw-text-[14px] md:text-lg font-normal text-[#C9C9C9]">
+                {{ t('product.performance.description2') }}
+              </p>
+            </template>
           </div>
         </div>
         <div class="md:max-w-[1920px] mx-auto">
@@ -172,12 +181,20 @@
               <button
                 class="custom-prev w-9 h-9 bg-[#2A2A2A] md:hover:bg-[#555555] text-center rounded-lg flex items-center justify-center"
               >
-                <img src="~/assets/images/index/prev-arrow.svg" alt="" class="block mx-auto" />
+                <img
+                  src="~/assets/images/index/prev-arrow.svg"
+                  :alt="t('menu.products')"
+                  class="block mx-auto"
+                />
               </button>
               <button
                 class="custom-next w-9 h-9 bg-[#2A2A2A] md:hover:bg-[#555555] text-center rounded-lg flex items-center justify-center"
               >
-                <img src="~/assets/images/index/next-arrow.svg" alt="" class="block mx-auto" />
+                <img
+                  src="~/assets/images/index/next-arrow.svg"
+                  :alt="t('menu.products')"
+                  class="block mx-auto"
+                />
               </button>
             </div>
           </div>
@@ -188,19 +205,28 @@
     <!--3 Performance Section -->
     <section class="relative bg-[#010101]">
       <div class="hidden md:block absolute left-0 top-0 h-full">
-        <img src="~/assets/images/product/describe-s2-bg.png" class="h-full" alt="" />
+        <img src="~/assets/images/product/describe-s2-bg.png" class="h-full" alt="星尘智能" />
       </div>
       <div class="w-[90%] pw-py-[32px] md:py-20 md:max-w-[1280px] mx-auto">
         <div class="mx-auto text-center pw-pb-[14px] md:pb-12">
           <h2 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-6">
-            {{ $t('product.specs.title') }}
+            {{ t('product.specs.title') }}
           </h2>
-          <p class="pw-text-[14] md:text-xl font-normal text-[#C9C9C9]">
-            {{ $t('product.specs.description1') }}
+
+          <p
+            v-if="isSmallScreen === true"
+            class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]"
+          >
+            {{ t('product.specs.description1') }}{{ t('product.specs.description2') }}
           </p>
-          <p class="pw-text-[14] md:text-xl font-normal text-[#C9C9C9]">
-            {{ $t('product.specs.description2') }}
-          </p>
+          <template v-else>
+            <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
+              {{ t('product.specs.description1') }}
+            </p>
+            <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
+              {{ t('product.specs.description2') }}
+            </p>
+          </template>
         </div>
 
         <div class="flex justify-center items-center">
@@ -216,12 +242,12 @@
                 <div class="col-span-1 text-right pw-px-[10px] md:px-15 text-gray-400"></div>
                 <div class="col-span-1 text-left pw-pl-[12px] md:px-10">
                   <h3 class="pw-text-[16px] md:text-xl font-medium text-white my-text-class">
-                    {{ $t('product.specs.modelName') }}
+                    {{ t('product.specs.modelName') }}
                   </h3>
                 </div>
                 <div class="col-span-1 text-left flex items-end pw-pl-[12px] md:px-15">
                   <h3 class="pw-text-[14px] md:text-xl font-medium text-[#AAAAAA]">
-                    {{ $t('product.specs.comparisonTarget') }}
+                    {{ t('product.specs.comparisonTarget') }}
                   </h3>
                 </div>
 
@@ -355,7 +381,7 @@
         </div>
 
         <p class="pw-text-[10px] md:text-xs text-[#656565] text-center mt-6">
-          {{ $t('product.specs.note') }}
+          {{ t('product.specs.note') }}
         </p>
       </div>
     </section>
@@ -365,21 +391,29 @@
       <div class="w-[90%] md:max-w-[1280px] mx-auto">
         <div class="text-center pw-pb-[14px] md:pb-10">
           <h2 class="pw-text-[22px] md:text-4xl font-medium text-white pw-pb-[8px] md:pb-6">
-            {{ $t('product.toolchain.title') }}
+            {{ t('product.toolchain.title') }}
           </h2>
-          <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
-            {{ $t('product.toolchain.description1') }}
+          <p
+            v-if="isSmallScreen === true"
+            class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]"
+          >
+            {{ t('product.toolchain.description1') }}{{ t('product.toolchain.description2') }}
           </p>
-          <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
-            {{ $t('product.toolchain.description2') }}
-          </p>
+          <template v-else>
+            <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
+              {{ t('product.toolchain.description1') }}
+            </p>
+            <p class="pw-text-[14px] md:text-xl font-normal text-[#C9C9C9]">
+              {{ t('product.toolchain.description2') }}
+            </p>
+          </template>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 pw-gap-[8px] md:gap-6">
           <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
             <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
               <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
-                {{ $t('product.toolchain.features.0.title') }}
+                {{ t('product.toolchain.features.0.title') }}
               </h3>
             </div>
             <div class="rounded-xl md:rounded-2xl overflow-hidden">
@@ -387,6 +421,7 @@
                 src="~/assets/images/product/describe-s3-img1.jpg"
                 loading="lazy"
                 class="w-full h-full object-cover"
+                :alt="t('product.toolchain.features.0.title')"
               />
             </div>
 
@@ -396,7 +431,7 @@
           <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
             <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
               <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
-                {{ $t('product.toolchain.features.1.title') }}
+                {{ t('product.toolchain.features.1.title') }}
               </h3>
             </div>
             <div class="rounded-xl md:rounded-2xl overflow-hidden">
@@ -404,6 +439,7 @@
                 src="~/assets/images/product/describe-s3-img2.jpg"
                 loading="lazy"
                 class="w-full h-full object-cover"
+                :alt="t('product.toolchain.features.1.title')"
               />
             </div>
 
@@ -413,7 +449,7 @@
           <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
             <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
               <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
-                {{ $t('product.toolchain.features.2.title') }}
+                {{ t('product.toolchain.features.2.title') }}
               </h3>
             </div>
             <div class="rounded-xl md:rounded-2xl overflow-hidden">
@@ -421,6 +457,7 @@
                 src="~/assets/images/product/describe-s3-img3.jpg"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                :alt="t('product.toolchain.features.2.title')"
               />
             </div>
 
@@ -430,7 +467,7 @@
           <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
             <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
               <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
-                {{ $t('product.toolchain.features.3.title') }}
+                {{ t('product.toolchain.features.3.title') }}
               </h3>
             </div>
             <div class="rounded-xl md:rounded-2xl overflow-hidden">
@@ -438,6 +475,7 @@
                 src="~/assets/images/product/describe-s3-img4.jpg"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                :alt="t('product.toolchain.features.3.title')"
               />
             </div>
 
@@ -447,7 +485,7 @@
           <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
             <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
               <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
-                {{ $t('product.toolchain.features.4.title') }}
+                {{ t('product.toolchain.features.4.title') }}
               </h3>
             </div>
             <div class="relative rounded-xl md:rounded-2xl overflow-hidden">
@@ -455,6 +493,7 @@
                 src="~/assets/images/product/describe-s3-img5.jpg"
                 class="w-full h-full object-cover rounded-b-2xl md:rounded-b-3xl"
                 loading="lazy"
+                :alt="t('product.toolchain.features.4.title')"
               />
               <div
                 class="absolute inset-x-0 bottom-0 rounded-b-xl md:rounded-b-2xl bg-black/50 backdrop-blur-[4px]"
@@ -462,7 +501,7 @@
                 <div
                   class="pw-px-[6px] md:px-15 pw-py-[6px] md:py-4 pw-text-[12px] md:text-base text-center text-white font-normal"
                 >
-                  {{ $t('product.toolchain.features.4.other') }}
+                  {{ t('product.toolchain.features.4.other') }}
                 </div>
               </div>
             </div>
@@ -471,7 +510,7 @@
           <div class="bg-[#252525] rounded-2xl pw-p-[12px] md:p-6 flex flex-col h-full">
             <div class="flex-1 flex items-center pw-pb-[8px] md:pb-5">
               <h3 class="text-[14px] md:text-xl font-medium text-white w-full text-center">
-                {{ $t('product.toolchain.features.5.title') }}
+                {{ t('product.toolchain.features.5.title') }}
               </h3>
             </div>
             <div class="rounded-xl md:rounded-2xl overflow-hidden">
@@ -479,6 +518,7 @@
                 src="~/assets/images/product/describe-s3-img6.jpg"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                :alt="t('product.toolchain.features.5.title')"
               />
             </div>
 
@@ -487,7 +527,7 @@
         </div>
         <div class="bg-[#252525] rounded-2xl pw-p-[16px] md:p-10 text-center pw-mt-[24px] md:mt-6">
           <h2 class="pw-text-[14px] md:text-2xl font-medium text-white pw-pb-[8px] md:pb-8">
-            {{ $t('product.teleoperation.title') }}
+            {{ t('product.teleoperation.title') }}
           </h2>
           <ClientOnly>
             <swiper
@@ -551,7 +591,7 @@
                     @click="openVideo(video.url)"
                     :class="video.className"
                   >
-                    {{ $t('product.teleoperation.btn') }}
+                    {{ t('product.teleoperation.btn') }}
                   </div>
                 </div>
               </swiper-slide>
@@ -565,12 +605,20 @@
               <button
                 class="vr-custom-prev w-9 h-9 bg-[#2A2A2A] md:hover:bg-[#555555] rounded-lg flex items-center justify-center"
               >
-                <img src="~/assets/images/index/prev-arrow.svg" alt="" class="block mx-auto" />
+                <img
+                  src="~/assets/images/index/prev-arrow.svg"
+                  :alt="t('menu.products')"
+                  class="block mx-auto"
+                />
               </button>
               <button
                 class="vr-custom-next w-9 h-9 bg-[#2A2A2A] md:hover:bg-[#555555] rounded-lg flex items-center justify-center"
               >
-                <img src="~/assets/images/index/next-arrow.svg" alt="" class="block mx-auto" />
+                <img
+                  src="~/assets/images/index/next-arrow.svg"
+                  :alt="t('menu.products')"
+                  class="block mx-auto"
+                />
               </button>
             </div>
           </div>
@@ -583,7 +631,7 @@
       <div class="w-[90%] md:max-w-[1280px] mx-auto">
         <div class="text-center pw-pb-[16px] md:pb-15">
           <h2 class="pw-text-[22px] md:text-4xl font-medium text-white">
-            {{ $t('product.cases.title') }}
+            {{ t('product.cases.title') }}
           </h2>
         </div>
 
@@ -594,6 +642,7 @@
                 src="~/assets/images/product/describe-s4-img1.jpg"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                :alt="t('product.cases.partners.0.name')"
               />
             </div>
             <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
@@ -601,6 +650,7 @@
                 <img
                   src="~/assets/images/product/describe-s4-tit-img1.png"
                   class="w-2/3 object-cover"
+                  :alt="t('product.cases.partners.0.name')"
                 />
                 <button
                   class="product_view case text-[#6A97FF] pw-text-[14px] md:text-sm font-light h-5 md:hover:border-b md:hover:border-[#6A97FF]"
@@ -610,14 +660,12 @@
                     )
                   "
                 >
-                  {{ $t('product.cases.btn') }}
+                  {{ t('product.cases.btn') }}
                 </button>
-
-                <VideoModal v-model:show="showVideoModal" :video-url="currentVideoUrl" />
               </div>
 
               <p class="pw-text-[12px] md:text-sm text-[#AAAAAA]">
-                {{ $t('product.cases.partners.0.desc') }}
+                {{ t('product.cases.partners.0.desc') }}
               </p>
             </div>
           </div>
@@ -628,6 +676,7 @@
                 src="~/assets/images/product/describe-s4-img2.jpg"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                :alt="t('product.cases.partners.1.name')"
               />
             </div>
             <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
@@ -635,9 +684,10 @@
                 src="~/assets/images/product/describe-s4-tit-img2.png"
                 class="h-10 mb-2 object-cover"
                 loading="lazy"
+                :alt="t('product.cases.partners.1.name')"
               />
               <p class="pw-text-[12px] md:text-sm text-[#AAAAAA]">
-                {{ $t('product.cases.partners.1.desc') }}
+                {{ t('product.cases.partners.1.desc') }}
               </p>
             </div>
           </div>
@@ -648,6 +698,7 @@
                 src="~/assets/images/product/describe-s4-img3.jpg"
                 class="w-full h-full object-cover"
                 loading="lazy"
+                :alt="t('product.cases.partners.2.name')"
               />
             </div>
             <div class="pw-px-[12px] pw-py-[16px] md:px-3 md:py-5">
@@ -655,9 +706,10 @@
                 src="~/assets/images/product/describe-s4-tit-img3.png"
                 class="h-10 mb-2 object-cover"
                 loading="lazy"
+                :alt="t('product.cases.partners.2.name')"
               />
               <p class="pw-text-[12px] md:text-sm text-[#AAAAAA]">
-                {{ $t('product.cases.partners.2.desc') }}
+                {{ t('product.cases.partners.2.desc') }}
               </p>
             </div>
           </div>
@@ -674,20 +726,20 @@
               class="pw-text-[22px] md:text-4xl font-medium text-white md:inline-block"
               :class="{ 'inline ': locale === 'en' }"
             >
-              {{ $t('product.ecosystem.title') }}
+              {{ t('product.ecosystem.title') }}
             </h1>
             <h1 class="pw-text-[22px] md:text-4xl font-medium text-white hidden md:inline-block">
-              {{ $t('product.ecosystem.quote') }}
+              {{ t('product.ecosystem.quote') }}
             </h1>
             <h1
               class="pw-text-[22px] md:text-4xl font-medium text-white md:inline-block"
               :class="{ 'inline ': locale === 'en' }"
             >
-              {{ $t('product.ecosystem.subTitle') }}
+              {{ t('product.ecosystem.subTitle') }}
             </h1>
           </div>
           <p class="pw-text-[14px] md:text-xl text-[#C9C9C9]">
-            {{ $t('product.ecosystem.vision') }}
+            {{ t('product.ecosystem.vision') }}
           </p>
         </div>
 
@@ -695,42 +747,51 @@
           <div
             class="rounded-2xl flex flex-col justify-start items-center bg-[#171717] md:bg-[#1F1F1F] pw-py-[24px] pw-px-[16px] md:p-5"
           >
-            <img src="~/assets/images/product/innobot.svg" alt="" />
+            <img
+              src="~/assets/images/product/innobot.svg"
+              :alt="t('product.ecosystem.sections.0.title')"
+            />
             <h3
               class="pw-text-[18px] md:text-2xl font-medium text-white pw-pt-[12px] pw-pb-[8px] md:pt-5 md:pb-2"
             >
-              {{ $t('product.ecosystem.sections.0.title') }}
+              {{ t('product.ecosystem.sections.0.title') }}
             </h3>
             <p class="pw-text-[12px] md:text-sm font-normal text-[#AAAAAA]">
-              {{ $t('product.ecosystem.sections.0.desc') }}
+              {{ t('product.ecosystem.sections.0.desc') }}
             </p>
           </div>
 
           <div
             class="rounded-2xl p-8 flex flex-col justify-start items-center bg-[#171717] md:bg-[#1F1F1F] pw-py-[24px] pw-px-[16px] md:p-5"
           >
-            <img src="~/assets/images/product/techatom.svg" alt="" />
+            <img
+              src="~/assets/images/product/techatom.svg"
+              :alt="t('product.ecosystem.sections.1.title')"
+            />
             <h3
               class="pw-text-[18px] md:text-2xl font-medium text-white pw-pt-[12px] pw-pb-[8px] md:pt-5 md:pb-2"
             >
-              {{ $t('product.ecosystem.sections.1.title') }}
+              {{ t('product.ecosystem.sections.1.title') }}
             </h3>
             <p class="pw-text-[12px] md:text-sm font-normal text-[#AAAAAA]">
-              {{ $t('product.ecosystem.sections.1.desc') }}
+              {{ t('product.ecosystem.sections.1.desc') }}
             </p>
           </div>
 
           <div
             class="rounded-2xl p-8 flex flex-col justify-start items-center bg-[#171717] md:bg-[#1F1F1F] pw-py-[24px] pw-px-[16px] md:p-5"
           >
-            <img src="~/assets/images/product/xplorebox.svg" alt="" />
+            <img
+              src="~/assets/images/product/xplorebox.svg"
+              :alt="t('product.ecosystem.sections.2.title')"
+            />
             <h3
               class="pw-text-[18px] md:text-2xl font-medium text-white pw-pt-[12px] pw-pb-[8px] md:pt-5 md:pb-2"
             >
-              {{ $t('product.ecosystem.sections.2.title') }}
+              {{ t('product.ecosystem.sections.2.title') }}
             </h3>
             <p class="pw-text-[12px] md:text-sm font-normal text-[#AAAAAA]">
-              {{ $t('product.ecosystem.sections.2.desc') }}
+              {{ t('product.ecosystem.sections.2.desc') }}
             </p>
           </div>
         </div>
@@ -740,7 +801,7 @@
           to="/contact"
           class="product_Partner contact us pw-px-[20px] pw-py-[12px] md:px-4 md:py-2 rounded font-normal text-white bg-[#5A46FF] pw-text-[14px] md:text-sm md:hover:bg-[#7463FF] transition-all duration-300 ease-out"
         >
-          {{ $t('product.ecosystem.cta') }}
+          {{ t('product.ecosystem.cta') }}
         </NuxtLinkLocale>
       </div>
       <VideoModal v-model:show="showVideoModal" :video-url="currentVideoUrl" />
@@ -767,11 +828,63 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: '',
+      content:
+        locale.value === 'zh'
+          ? '星尘智能 S1是一款高性能人形机器人，具备精确的运动控制、智能感知和远程操作能力，适用于工业、服务等多个领域。'
+          : 'Astirbot S1 is a high-performance humanoid robot with precise motion control, intelligent perception, and remote operation capabilities, suitable for industrial and service applications.',
     },
     {
       name: 'keywords',
-      content: '',
+      content:
+        locale.value === 'zh'
+          ? '星尘智能,人形机器人,机器人技术,智能机器人,工业机器人,服务机器人,远程操作,运动控制'
+          : 'Astirbot, humanoid robot, robotics, intelligent robot, industrial robot, service robot, remote operation, motion control',
+    },
+    // Open Graph tags
+    {
+      property: 'og:title',
+      content:
+        locale.value === 'zh'
+          ? '星尘智能 S1 - 高性能人形机器人'
+          : 'Astirbot S1 - High Performance Humanoid Robot',
+    },
+    {
+      property: 'og:description',
+      content:
+        locale.value === 'zh'
+          ? '星尘智能 S1是一款高性能人形机器人，具备精确的运动控制、智能感知和远程操作能力。'
+          : 'Astirbot S1 is a high-performance humanoid robot with precise motion control and intelligent perception.',
+    },
+    {
+      property: 'og:image',
+      content: '/products/describe/describe-s1-poster.webp',
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    // Twitter Card tags
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image',
+    },
+    {
+      name: 'twitter:title',
+      content:
+        locale.value === 'zh'
+          ? '星尘智能 S1 - 高性能人形机器人'
+          : 'Astirbot S1 - High Performance Humanoid Robot',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        locale.value === 'zh'
+          ? '星尘智能 S1是一款高性能人形机器人，具备精确的运动控制、智能感知和远程操作能力。'
+          : 'Astirbot S1 is a high-performance humanoid robot with precise motion control and intelligent perception.',
+    },
+    {
+      name: 'twitter:image',
+      content: '/products/describe/describe-s1-poster.webp',
     },
   ],
 })

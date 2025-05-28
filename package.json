@@ -18,7 +18,6 @@
     "release": "release-it"
   },
   "dependencies": {
-    "@nuxt/fonts": "^0.11.2",
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/google-fonts": "3.2.0",
     "@nuxtjs/i18n": "^9.3.1",
@@ -39,7 +38,6 @@
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "font-slice": "^1.0.2",
     "install": "^0.13.0",
-    "nuxt-windicss": "^3.0.1",
     "postcss-px-to-viewport-8-plugin": "^1.2.5",
     "prettier": "^3.5.3",
     "release-it": "^19.0.1",

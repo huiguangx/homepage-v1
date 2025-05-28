@@ -18,20 +18,18 @@
       >
         <img src="~/assets/images/header/close.svg" alt="Close" class="w-5 h-5" />
       </button>
+      <button
+        @click="closeModal"
+        class="md:hidden absolute -top-8 right-2 pw-w-[24px] pw-h-[24px] md:w-10 md:h-10 flex items-center justify-center bg-[#FFFFFFCC] rounded-full transition-colors duration-200"
+      >
+        <img
+          class="transition-all duration-300 ease-in-out"
+          @click="isMenuOpen = false"
+          src="~/assets/images/header/close.svg"
+          alt="Close"
+        />
+      </button>
     </div>
-
-    <!-- 移动端关闭按钮：更靠外 -->
-    <button
-      @click="closeModal"
-      class="md:hidden absolute top-4 right-4 pw-w-[24px] pw-h-[24px] md:w-10 md:h-10 flex items-center justify-center bg-[#FFFFFFCC] rounded-full transition-colors duration-200"
-    >
-      <img
-        class="transition-all duration-300 ease-in-out"
-        @click="isMenuOpen = false"
-        src="~/assets/images/header/close.svg"
-        alt="Close"
-      />
-    </button>
   </div>
 </template>
 

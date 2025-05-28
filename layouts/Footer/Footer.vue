@@ -109,7 +109,7 @@
               />
               <!-- </a> -->
               <div
-                class="absolute hidden group-hover:block top-6 left-4 md:bottom-full md:left-1/2 md:-translate-x-1/2 mb-3 w-28 md:w-32 bg-white rounded-md p-2 shadow-lg"
+                class="absolute hidden group-hover:block md:bottom-full md:left-1/2 md:-translate-x-1/2 mb-3 w-28 md:w-32 bg-white rounded-md p-2 shadow-lg"
               >
                 <img
                   src="~/assets/images/footer/index-s1-qr.png"

@@ -17,4 +17,10 @@ import Footer from './Footer/Footer.vue'
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// main,
+// footer {
+//   max-width: 100%;
+//   overflow-x: hidden; /* 防止水平滚动 */
+// }
+</style>

@@ -38,7 +38,7 @@
             >
               创未来科技，传经典文化
             </h1>
-            <p class="text-[14px] md:text-2xl text-[#D2D0FB]">High Tech, High Life</p>
+            <p class="text-[14px] md:text-2xl text-[#D2D0FB] english-noto">High Tech, High Life</p>
           </div>
         </div>
       </div>
@@ -159,16 +159,15 @@
           >
             <div>
               <h2 class="pw-text-[22px] md:text-4xl font-medium text-left pw-pb-[16px] md:pb-0">
-                关于星尘
+                {{ $t('home.about.title') }}
               </h2>
             </div>
             <div class="md:w-3/4">
               <p class="pw-text-[13px] text-[#71798A] md:text-lg font-normal leading-relaxed">
-                星尘智能（Astribot）于2022年底在深圳成立，首创面向AI（Design for
-                AI，DFAI）的软硬件一体化系统架构，将「AI智能」与「最强操作」深度耦合，在获取具身数据上取得关键性突破。
+                {{ $t('home.about.content') }}
               </p>
               <p class="pw-text-[13px] text-[#71798A] md:text-lg leading-relaxed mt-4">
-                我们希望让机器人能像人一样学习、思考和劳动，与人流畅智能地交互，使用人的工具和设备、帮人完成枯燥、困难或危险的任务。
+                {{ $t('home.about.nextcontent') }}
               </p>
             </div>
           </div>
@@ -241,6 +240,9 @@ img {
   object-position: 70% center; /* 移动端显示更多右侧内容，但仍保留部分左侧 */
 }
 
+.english-noto {
+  font-family: 'Noto Sans', sans-serif; /* 强制英文用 Noto Sans */
+}
 /* PC端样式 */
 @media (min-width: 768px) {
   img {

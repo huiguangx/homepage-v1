@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/seo',
-    // '@nuxt/fonts',
     [
       '@nuxtjs/google-fonts',
       {
@@ -36,49 +35,16 @@ export default defineNuxtConfig({
     '@zadigetvoltaire/nuxt-gtm',
   ],
   gtm: {
-    id: process.env.VITE_GTM_ID || 'GTM-52BQM7PX',
+    id: import.meta.env.VITE_GTM_ID || 'GTM-52BQM7PX',
     enabled: true,
     defer: true,
     enableRouterSync: true,
     compatibility: true,
   },
-  // runtimeConfig: {
-  //   public: {
-  //     gtm: {
-  //       id: 'GTM-52BQM7PX',
-  //       // queryParams: {
-  //       //   gtm_auth: 'AB7cDEf3GHIjkl-MnOP8qr',
-  //       //   gtm_preview: 'env-4',
-  //       //   gtm_cookies_win: 'x',
-  //       // },
-  //       // defer: false,
-  //       // compatibility: false,
-  //       // nonce: '2726c7f26c',
-  //       // enabled: true,
-  //       // debug: true,
-  //       // loadScript: true,
-  //       // enableRouterSync: true,
-  //       // ignoredViews: ['homepage'],
-  //       // trackOnNextTick: false,
-  //       // devtools: true,
-  //     },
-  //   },
-  // },
 
-  // fonts: {
-  //   families: [
-  //     { name: 'HarmonyOS Sans', provider: 'local' }, // 本地鸿蒙字体文件
-  //     { name: 'Noto Sans', provider: 'google' }, // 从 Google Fonts 加载
-  //   ],
-  // },
-  // googleFonts: {
-  //   families: {
-  //     'Noto Sans SC': [300, 400, 500, 700], // 只加载 Noto Sans
-  //   },
-  // },
   gtag: {
     id: import.meta.env.VITE_GTAG_ID,
-    enabled: true,
+    enabled: import.meta.env.VITE_ENABLE_GTAG,
   },
 
   i18n: {
@@ -96,7 +62,7 @@ export default defineNuxtConfig({
       // (建议用于改进SEO) -仅检测站点根路径(/)上的浏览器区域设置。只有当使用策略而不是"no_prefix"时才有效。
       redirectOn: 'root',
     },
-    baseUrl: process.env.SEO_URL || 'http://localhost:3000',
+    baseUrl: import.meta.env.SEO_URL || 'http://localhost:3000',
     bundle: {
       optimizeTranslationDirective: false,
     },
@@ -119,7 +85,7 @@ export default defineNuxtConfig({
   vite: {
     esbuild: {
       drop: ['debugger'],
-      pure: process.env.NUXT_ENV === 'production' ? ['console.log'] : [],
+      pure: import.meta.env.NUXT_ENV === 'production' ? ['console.log'] : [],
     },
     css: {
       preprocessorOptions: {
@@ -186,6 +152,7 @@ export default defineNuxtConfig({
       logLevel: 'info',
     },
   },
+  // 关闭内联样式
   features: {
     inlineStyles: false,
   },
@@ -213,7 +180,7 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: process.env.BASE_URL || '/',
+    baseURL: import.meta.env.BASE_URL || '/',
     head: {
       title: '星尘智能',
       meta: [
@@ -249,18 +216,18 @@ export default defineNuxtConfig({
           src: 'https://cdn.jsdelivr.net/npm/hls.js@1.6.2/dist/hls.min.js',
           defer: true,
         },
-        // Google Tag Manager
-        process.env.ENABLE_GTM === 'true'
-          ? {
-              hid: 'gtm',
-              children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${process.env.VITE_GTM_ID}');`,
-              type: 'text/javascript',
-            }
-          : undefined,
+        // // Google Tag Manager
+        // import.meta.env.ENABLE_GTM === 'true'
+        //   ? {
+        //       hid: 'gtm',
+        //       children: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        //         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        //         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        //         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        //         })(window,document,'script','dataLayer','${import.meta.env.VITE_GTM_ID}');`,
+        //       type: 'text/javascript',
+        //     }
+        //   : undefined,
       ].filter(Boolean),
       noscript: [],
     },
