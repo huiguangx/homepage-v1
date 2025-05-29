@@ -19,6 +19,11 @@
               nextEl: '.swiper-button-next',
               prevEl: '.swiper-button-prev',
             }"
+            :effect="'fade'"
+            :fade-effect="{
+              crossFade: true,
+            }"
+            :speed="800"
             direction="horizontal"
             :slides-offset-after="200"
             :resistance-ratio="0"
@@ -233,76 +238,27 @@
                 </div>
               </div>
             </swiper-slide>
-            <swiper-slide>
-              <div class="relative h-full w-full overflow-hidden">
-                <picture class="absolute inset-0 block">
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="~/assets/images/index/index-s1-o3-bg-h5.webp"
-                    type="image/webp"
-                  />
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="~/assets/images/index/index-s1-o3-bg-h5.jpg"
-                    type="image/jpeg"
-                  />
-                  <source
-                    media="(min-width: 768px)"
-                    srcset="~/assets/images/index/index-s1-o3-bg.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="~/assets/images/index/index-s1-o3-bg.jpg"
-                    class="w-full h-full object-cover"
-                    :alt="t('home.recruitment.title')"
-                  />
-                </picture>
 
-                <div
-                  class="relative z-10 w-[90%] md:max-w-[1280px] mx-auto h-full pw-pt-[74px] md:pt-0 flex flex-col justify-start md:justify-center"
-                >
-                  <div class="slide-content text-center md:text-left">
-                    <div class="space-y-2 md:space-y-4">
-                      <h1 class="text-[14px] md:text-3xl font-medium text-white mx-auto md:mx-0">
-                        {{ $t('home.recruitment.title') }}
-                      </h1>
-                      <h2 class="text-[22px] md:text-5xl font-medium text-white mx-auto md:mx-0">
-                        {{ $t('home.recruitment.description') }}
-                      </h2>
-                    </div>
-                    <div class="pw-mt-[16px] md:mt-10">
-                      <NuxtLinkLocale
-                        :to="{ path: '/careers', hash: '#joinus' }"
-                        class="home_hire_banner_button inline-block rounded border border-white md:border-none bg-transparent md:bg-[#5A46FF] text-[14px] md:text-lg pw-px-[12px] pw-py-[8px] md:px-4 md:py-[10px] text-white md:hover:bg-[#7463FF] transition-all duration-300 mx-auto md:mx-0"
-                      >
-                        {{ $t('home.careers.title') }}
-                      </NuxtLinkLocale>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </swiper-slide>
+            <div class="swiper-button-prev">
+              <button class="rounded-lg">
+                <img
+                  src="~/assets/images/index/prev-arrow.svg"
+                  class="home_banner_Left arrow"
+                  :alt="t('menu.home')"
+                />
+              </button>
+            </div>
+            <div class="swiper-button-next">
+              <button class="rounded-lg">
+                <img
+                  src="~/assets/images/index/next-arrow.svg"
+                  class="home_banner_right arrow"
+                  :alt="t('menu.home')"
+                />
+              </button>
+            </div>
           </swiper>
         </ClientOnly>
-
-        <div class="swiper-button-prev">
-          <button class="rounded-lg">
-            <img
-              src="~/assets/images/index/prev-arrow.svg"
-              class="home_banner_Left arrow"
-              :alt="t('menu.home')"
-            />
-          </button>
-        </div>
-        <div class="swiper-button-next">
-          <button class="rounded-lg">
-            <img
-              src="~/assets/images/index/next-arrow.svg"
-              class="home_banner_right arrow"
-              :alt="t('menu.home')"
-            />
-          </button>
-        </div>
       </div>
     </section>
 
@@ -367,7 +323,7 @@
           {{ $t('home.about.title') }}
         </h1>
 
-        <div class="w-full overflow-hidden rounded-2xl md:w-[720px]">
+        <div class="w-full overflow-hidden rounded-2xl md:w-[720px] animate-img">
           <picture>
             <source srcset="~/assets/images/index/index-s5-img.webp" type="image/webp" />
 
@@ -384,19 +340,23 @@
         <!-- 文字部分 -->
         <div class="flex-1 animate-h1">
           <h1
-            class="hidden md:block text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#23233D]"
+            class="hidden md:block text-3xl md:text-4xl font-medium leading-snug tracking-tight text-[#23233D] animate-h1"
           >
             {{ $t('home.about.title') }}
           </h1>
-          <p class="mt-4 mb-5 pw-text-[12px] md:text-lg font-normal leading-relaxed text-[#71798A]">
+          <p
+            class="mt-4 mb-5 pw-text-[12px] md:text-lg font-normal leading-relaxed text-[#71798A] animate-p"
+          >
             {{ $t('home.about.content') }}
           </p>
-          <p class="mb-6 pw-text-[12px] md:text-lg font-normal leading-relaxed text-[#71798A]">
+          <p
+            class="mb-6 pw-text-[12px] md:text-lg font-normal leading-relaxed text-[#71798A] animate-p"
+          >
             {{ $t('home.about.nextcontent') }}
           </p>
           <NuxtLinkLocale
             to="/about"
-            class="flex items-center gap-1.5 justify-end md:justify-start group pw-text-[12px] md:text-base font-medium text-[#475467] md:hover:text-[#5A46FF]"
+            class="flex items-center gap-1.5 justify-end md:justify-start group pw-text-[12px] md:text-base font-medium text-[#475467] md:hover:text-[#5A46FF] animate-p"
           >
             {{ $t('home.about.cta') }}
             <!-- 可添加箭头图标（示例使用Heroicons） -->
@@ -422,26 +382,33 @@
     </section>
 
     <!--4 News Section -->
-    <section class="w-full bg-white pw-py-[32px] md:py-14">
+    <section class="w-full bg-white pw-py-[32px] md:py-14 animate-fade-in-up">
       <div class="mx-auto w-[90%] md:max-w-[1280px]">
-        <h1 class="pw-text-[22px] md:text-4xl text-center font-medium pw-pb-[14px] md:pb-6">
+        <h1
+          class="pw-text-[22px] md:text-4xl text-center font-medium pw-pb-[14px] md:pb-6 animate-h1"
+        >
           {{ $t('home.news.title') }}
         </h1>
         <div class="grid w-full pw-gap-[8px] md:gap-6 grid-cols-2 md:grid-cols-4">
           <div
             v-for="(news, index) in newsList"
             :key="index"
-            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] md:hover:bg-white transition-all duration-300 md:hover:shadow-xl transform-gpu"
-            :class="{ 'hidden md:block': index >= 2 }"
+            class="group flex flex-col rounded-lg md:rounded-2xl bg-[#F9FAFB] md:hover:bg-white transition-all duration-300 md:hover:shadow-xl transform-gpu news-card"
+            :class="{
+              'hidden md:block': index >= 2,
+              'delay-100': index === 1,
+              'delay-200': index === 2,
+              'delay-300': index === 3,
+              'delay-[400ms]': index === 4,
+              'delay-[500ms]': index === 5,
+              'delay-[600ms]': index === 6,
+              'delay-[700ms]': index === 7,
+            }"
           >
             <a target="_blank" :href="news.href" class="md:pb-2">
               <!-- 图片容器 -->
               <div class="w-full rounded-t-[8px] md:rounded-t-2xl overflow-hidden bg-gray-200">
                 <picture>
-                  <!-- <source
-                  media="(min-width: 768px)"
-                  srcset="~/assets/images/news/news-s1-poster.jpg"
-                /> -->
                   <img
                     :src="news.image"
                     alt="星尘智能"
@@ -502,14 +469,13 @@
         <div class="flex justify-center pw-mt-[16px] md:mt-8">
           <NuxtLinkLocale
             :to="{ path: '/news' }"
-            class="inline-block pw-text-[12px] md:text-base bg-transparent text-[#475467] border border-[#E4E4E4] md:hover:bg-[#F9FAFB] pw-px-[16px] pw-py-[8px] md:px-5 md:py-3 rounded md:rounded-md transition-colors md:cursor-pointer"
+            class="inline-block pw-text-[12px] md:text-base bg-transparent text-[#475467] border border-[#E4E4E7] md:hover:bg-[#F9FAFB] pw-px-[16px] pw-py-[8px] md:px-5 md:py-3 rounded md:rounded-md transition-colors md:cursor-pointer"
           >
             {{ $t('home.news.btn') }}
           </NuxtLinkLocale>
         </div>
       </div>
     </section>
-
     <!--5 Join & Business Sections -->
     <section class="w-full bg-[#F9FAFB] pw-py-[32px] md:py-16">
       <div class="mx-auto w-[90%] md:max-w-[1280px] flex justify-center">
@@ -594,8 +560,10 @@ import 'swiper/css/navigation' // 必须引入的样式
 import 'swiper/css/pagination'
 import type { Swiper as SwiperClass } from 'swiper/types'
 import { useI18n } from 'vue-i18n'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import { Autoplay, Pagination, Navigation, EffectFade, EffectCube } from 'swiper/modules'
 import { useMediaQuery } from '@vueuse/core'
+import 'swiper/css/navigation'
+import 'swiper/css/effect-fade'
 
 const isSmallScreen = useMediaQuery('(max-width: 767px)')
 
@@ -777,7 +745,7 @@ const newsList = [
   },
 ]
 
-const swiperModules = [Autoplay, Pagination, Navigation] // 引入模块
+const swiperModules = [Autoplay, Pagination, Navigation, EffectFade, EffectCube] // 引入模块
 const activePageIndex = ref(0)
 
 const onSlideChange = (swiper: SwiperClass) => {
@@ -879,11 +847,11 @@ onMounted(() => {
 //   background-image: url('~/assets/images/index/next-arrow.svg');
 // }
 /* 内容容器动画 */
-.slide-content {
-  transform: translateY(100px); /* px-to-viewport-ignore */
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
+// .slide-content {
+//   transform: translateY(100px); /* px-to-viewport-ignore */
+//   opacity: 0;
+//   transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+// }
 
 /* 激活幻灯片的动画效果 */
 .swiper-slide-active .slide-content,
@@ -892,19 +860,61 @@ onMounted(() => {
   opacity: 1;
 }
 
-/* 为不同元素添加延迟动画 */
-.slide-content h1 {
-  transition-delay: 0.1s;
-}
-.slide-content h2 {
-  transition-delay: 0.2s;
-}
+.slide-content h1,
+.slide-content h2,
+.slide-content h3,
 .slide-content p {
-  transition-delay: 0.3s;
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: transform, opacity;
 }
-.slide-content button {
-  transition-delay: 0.4s;
+
+@keyframes fadeInUpSingle {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+.swiper-slide-active .slide-content h1 {
+  animation: fadeInUpSingle 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.2s;
+}
+
+.swiper-slide-active .slide-content h2 {
+  animation: fadeInUpSingle 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.4s;
+}
+
+.swiper-slide-active .slide-content h3 {
+  animation: fadeInUpSingle 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.6s;
+}
+.swiper-slide-active .slide-content p {
+  animation: fadeInUpSingle 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.6s;
+}
+
+/* 为不同元素添加延迟动画 */
+// .slide-content h1 {
+//   transition-delay: 0.1s;
+// }
+// .slide-content h2 {
+//   transition-delay: 0.2s;
+// }
+// .slide-content p {
+//   transition-delay: 0.3s;
+// }
+// .slide-content button {
+//   transition-delay: 0.4s;
+// }
+// .slide-content a {
+//   transition-delay: 0.4s;
+// }
 :deep(.swiper-pagination) {
   /* display: none; */
   bottom: 50px; /* px-to-viewport-ignore */
@@ -972,10 +982,27 @@ onMounted(() => {
     transform: translateY(0);
   }
 }
+@keyframes fadeInUpSmoothX {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-h1,
-.animate-p {
+.animate-p,
+.animate-img {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
+  will-change: opacity, transform; /* 性能优化 */
+}
+.animate-img {
+  opacity: 0;
+  transform: translateX(-30px);
   will-change: opacity, transform; /* 性能优化 */
 }
 /* 动画触发 */
@@ -988,4 +1015,55 @@ onMounted(() => {
   animation: fadeInUpSmooth 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   animation-delay: 0.4s;
 }
+
+.animate-fade-in-up.in-view .animate-img {
+  animation: fadeInUpSmoothX 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.4s;
+}
+
+// section 4
+
+// .news-card {
+//   animation: slideUp 0.5s ease-out forwards;
+//   opacity: 0;
+// }
+
+// @keyframes slideUp {
+//   from {
+//     transform: translateY(200px);
+//     opacity: 0;
+//   }
+//   to {
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
+// }
+
+// .delay-100 {
+//   animation-delay: 0.1s;
+// }
+
+// .delay-200 {
+//   animation-delay: 0.2s;
+// }
+
+// .delay-300 {
+//   animation-delay: 0.3s;
+// }
+
+// .delay-\[400ms\] {
+//   animation-delay: 0.4s;
+// }
+
+// .delay-\[500ms\] {
+//   animation-delay: 0.5s;
+// }
+
+// .delay-\[600ms\] {
+//   animation-delay: 0.6s;
+// }
+
+// .delay-\[700ms\] {
+//   animation-delay: 0.7s;
+// }
 </style>
